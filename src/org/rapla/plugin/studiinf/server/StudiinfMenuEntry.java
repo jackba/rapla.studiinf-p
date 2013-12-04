@@ -1,21 +1,21 @@
-package org.rapla.plugin.pathfinder.server;
+package org.rapla.plugin.studiinf.server;
 
 import org.rapla.framework.RaplaContext;
 import org.rapla.servletpages.DefaultHTMLMenuEntry;
 
-public class PathfinderMenuEntry extends DefaultHTMLMenuEntry 
+public class StudiinfMenuEntry extends DefaultHTMLMenuEntry 
 {
-	public PathfinderMenuEntry(RaplaContext context) {
+	public StudiinfMenuEntry(RaplaContext context) {
 		super(context);
 	}
 		
 	@Override
 	public String getName() {
-		return "Pathfinder-Client";
+		return "Studiinf-Client";
 	}
 	@Override
 	public String getLinkName() {
-		return "pathfinder.html";
+		return "studiinf.html";
 	}
 		
 }

@@ -1,4 +1,4 @@
-package org.rapla.plugin.pathfinder.client;
+package org.rapla.plugin.studiinf.client;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +24,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class Pathfinder implements EntryPoint {
+public class Studiinf implements EntryPoint {
 
 	
 	/**

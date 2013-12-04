@@ -5,7 +5,7 @@
 -->
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.1//EN"
   "http://google-web-toolkit.googlecode.com/svn/tags/2.5.1/distro-source/core/src/gwt-module.dtd">
-<module rename-to='pathfinder'>
+<module rename-to='studiinf'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.logging.Logging'/>
   <inherits name='com.google.gwtjsonrpc.GWTJSONRPC'/>
@@ -22,7 +22,7 @@
   <!-- Other module inherits                                      -->
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='org.rapla.plugin.pathfinder.client.Pathfinder'/>
+  <entry-point class='org.rapla.plugin.studiinf.client.Studiinf'/>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>

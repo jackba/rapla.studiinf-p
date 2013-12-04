@@ -10,35 +10,30 @@
  | program with every library, which license fulfills the Open Source       |
  | Definition as published by the Open Source Initiative (OSI).             |
  *--------------------------------------------------------------------------*/
-package org.rapla.plugin.pathfinder.server;
+package org.rapla.plugin.studiinf;
+import org.rapla.client.ClientServiceContainer;
 import org.rapla.framework.Configuration;
 import org.rapla.framework.PluginDescriptor;
 import org.rapla.framework.RaplaContextException;
-import org.rapla.framework.logger.Logger;
-import org.rapla.plugin.pathfinder.PathfinderPlugin;
-import org.rapla.server.RaplaServerExtensionPoints;
-import org.rapla.server.ServerServiceContainer;
 
 /**
    This is a demonstration of a rapla-plugin. It adds a sample usecase and option
    to the rapla-system.
  */
 
-public class GWTServerPlugin implements PluginDescriptor<ServerServiceContainer>
+public class StudiinfPlugin implements PluginDescriptor<ClientServiceContainer>
 {
-    
-    public GWTServerPlugin(Logger logger) {
-    }
-   
+    public static final boolean ENABLE_BY_DEFAULT = true;
+  
     /**
      * @throws RaplaContextException 
-     * @see org.rapla.framework.PluginDescriptor
+     * @see org.rapla.framework.PluginDescriptor#provideServices(org.rapla.framework.general.Container)
      */
-    public void provideServices(ServerServiceContainer container, Configuration config) throws RaplaContextException {
-        if ( !config.getAttributeAsBoolean("enabled", PathfinderPlugin.ENABLE_BY_DEFAULT) )
+    public void provideServices(ClientServiceContainer container, Configuration config) throws RaplaContextException {
+       if ( !config.getAttributeAsBoolean("enabled", ENABLE_BY_DEFAULT) )
         	return;
-        container.addContainerProvidedComponent( RaplaServerExtensionPoints.HTML_MAIN_MENU_EXTENSION_POINT, PathfinderMenuEntry.class);
     }
+
 
 }
 
