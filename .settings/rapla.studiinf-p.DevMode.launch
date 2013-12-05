@@ -5,7 +5,7 @@
 <booleanAttribute key="com.google.gdt.eclipse.suiteWarArgumentProcessor.IS_WAR_FROM_PROJECT_PROPERTIES" value="true"/>
 <stringAttribute key="com.google.gwt.eclipse.core.URL" value="http://localhost:8051/Test_gwt.html"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/rapla.gwt-p"/>
+<listEntry value="/rapla.studiinf-p"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>

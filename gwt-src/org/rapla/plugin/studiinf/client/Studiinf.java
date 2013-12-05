@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.rapla.entities.Category;
+import org.rapla.facade.ClientFacade;
+import org.rapla.plugin.freiraum.common.CategoryDescription;
 import org.rapla.plugin.freiraum.common.RaplaJsonService;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
@@ -25,6 +28,8 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Studiinf implements EntryPoint {
+	String id;
+	CategoryDescription studiengaenge;
 
 	
 	/**
@@ -88,7 +93,7 @@ public class Studiinf implements EntryPoint {
 
 		// Create a handler for the sendButton and nameField
 		abstract class MyHandler implements ClickHandler {
-			
+		    	
 			/**
 			 * Fired when the user clicks on the sendButton.
 			 */
@@ -120,10 +125,14 @@ public class Studiinf implements EntryPoint {
 		button1.addClickHandler(new MyHandler()
 		{
 			void send() {
-					cs.getResources("room","",new AsyncCallback<List<ResourceDescriptor>>() {
+					cs.getResources("rooms",null,new AsyncCallback<List<ResourceDescriptor>>() {
 						
 						@Override
 						public void onSuccess(List<ResourceDescriptor> test) {
+							if ( test.size()>0)
+							{
+								id = test.get( 0).getId();
+							}
 							serverResponseLabel.setHTML("Success " + test);
 						}
 						
@@ -140,7 +149,12 @@ public class Studiinf implements EntryPoint {
 		button2.addClickHandler(new MyHandler()
 		{
 			void send() {
-					cs.getResource("",new AsyncCallback<ResourceDetail>() {
+					if ( id == null)
+					{
+						serverResponseLabel.setHTML("Failure need to call test 1 first to get id.");
+						return;
+					}
+					cs.getResource(id,new AsyncCallback<ResourceDetail>() {
 						@Override
 						public void onSuccess(ResourceDetail test) {
 							serverResponseLabel.setHTML("Success " + test);
@@ -153,6 +167,27 @@ public class Studiinf implements EntryPoint {
 					});
 					
 		
+			}
+			
+		}
+		);
+		
+		button3.addClickHandler(new MyHandler()
+		{
+			void send() {
+					cs.getOrganigram(null,new AsyncCallback<List<CategoryDescription>>() {
+						@Override
+						public void onSuccess(List<CategoryDescription> test) {
+							serverResponseLabel.setHTML("Success " + test);
+						}
+						
+						@Override
+						public void onFailure(Throwable exception) {
+							serverResponseLabel.setHTML("Failure");
+							logger.log(Level.SEVERE, exception.getMessage(), exception);
+						}
+					});
+			
 			}
 			
 		}
