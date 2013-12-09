@@ -10,4 +10,8 @@ public interface I18n extends Messages {
 	  String homeScreenTitle();
 	  String otherLanguage();
 	  String otherLanguageURL();
+	  String courses();
+	String rooms();
+	String people();
+	String pointsOfInterest();
 	}
