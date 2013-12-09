@@ -23,6 +23,8 @@
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='org.rapla.plugin.studiinf.client.Studiinf'/>
+  
+  <extend-property name="locale" values="de"/>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>

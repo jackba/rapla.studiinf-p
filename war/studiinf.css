@@ -1,39 +1,89 @@
 /** Add css rules here for your application. */
 
+html{
+		padding:0;
+		margin:0;
+		background-color:#d6dadc;
+		color:#e2001a;
+	}
+	body{
+		padding:0;
+		margin:0;
+		overflow:hidden;
+	}
+	*{
+		font-family: 'Open Sans', sans-serif;
+	}
 
-/** Example rules used by the template application (remove for your app) */
-h1 {
-  padding: 0;
-margin: 0;
-font-size: 5.25vh;
-line-height: 6.25vh;
-text-align: center;
-position: absolute;
-top: 0;
-left: 20vw;
-width: 60vw;
-text-shadow: 0 0 0.1vh #000000;
-}
+.header{
+		height:6.25vh;
+		width:100vw;
+		background-color:#e2001a;
+		color:#ffffff;
+		padding:0;
+		margin:0;
+		position:absolute;
+		top:0;
+		left:0;
+		border-bottom: solid 0.1vh #000000;
+		box-shadow:0 0 0.1vh #ffffff;
+	}
+	.header h1{
+		padding:0;
+		margin:0;
+		font-size:4.25vh;
+		line-height:6.25vh;
+		text-align:center;
+		position:absolute;
+		top:0;
+		left:20vw;
+		width:60vw;
+		text-shadow:0 0 0.1vh #000000;
+	}
+	.header button{
+		position:absolute;
+		font-size:5.6vh;
+		line-height:5.6vh;
+		width:5.6vh;
+		text-align:center;
+		padding:0;
+		margin:0;
+		top:0.2vh;
+		background-color:#e2001a;
+		color:#ffffff;
+		border: none;
+		text-shadow:0 0 0.1vh #000000;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.header .menu{
+		left:1.8vw;
+	}
 
-.sendButton {
-  display: block;
-  font-size: 16pt;
-}
 
-/** Most GWT widgets already have a style name defined */
-.gwt-DialogBox {
-  width: 400px;
-}
+.footer{
+		height:6vh;
+		width:100vw;
+		background-color:#000000;
+		color:#d6dadc;
+		padding:0;
+		margin:0;
+		position:absolute;
+		bottom:0;
+		left:0;
+		border-top: solid 0.1vh #000000;
+		box-shadow:0 0 0.1vh #ffffff;
+	}
 
-.dialogVPanel {
-  margin: 5px;
-}
+.footer button{
+		margin: 1vh 1vh;
+		height:4vh;
+		width: 30vw;
+		padding:0.5vh;
+		background:#000000;
+		color:#ffffff;
+		border:solid 1px #5c6971;
+		font-size:2vh;
+		text-align:left;
+		font-family: 'Open Sans', sans-serif;
+	}
 
-.serverResponseLabelError {
-  color: red;
-}
-
-/** Set ids using widget.getElement().setId("idOfElement") */
-#closeButton {
-  margin: 15px 6px 6px;
-}
