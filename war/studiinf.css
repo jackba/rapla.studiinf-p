@@ -241,3 +241,19 @@ nav{
 .results td{
 	border: solid 1px #5c6971;
 }
+
+.keyboard {
+	position:absolute !important;
+	bottom:12vh;
+	left:5vw;
+	width:80vw;
+	height:17vh;
+	background:#858f95;
+}
+
+.resultBtns {
+	position:absolute;
+	bottom:7vh;
+	left:5vw;
+	background:#858f95;
+}
