@@ -18,17 +18,18 @@ public class PageFooter extends VerticalPanel {
 	public PageFooter(AbstractPage parent) {
 		this.parent = parent;
 		
-		
-		/* DOM.setStyleAttribute(getElement(), "position", "absolute");
-		    DOM.setStyleAttribute(getElement(), "overflow", "hidden");
-		    DOM.setStyleAttribute(getElement(), "bottom", "0px");
-		    DOM.setStyleAttribute(getElement(), "left", "0px");
-		    DOM.setStyleAttribute(getElement(), "right", "0px");
-		    DOM.setStyleAttribute(getElement(), "height", "6.25vh");
-		    DOM.setStyleAttribute(getElement(), "width", "100vw");
-		    DOM.setStyleAttribute(getElement(), "background", "#5c6971");
-		    DOM.setStyleAttribute(getElement(), "color", "#ffffff");*/
 		    this.setStyleName("footer");
+		    
+		    Button homeBtn = new Button("Home");
+		    homeBtn.addClickHandler(new ClickHandler() {
+				
+				@Override
+				public void onClick(ClickEvent event) {
+					Navigation.goToPage(Navigation.homePage);
+					
+				}
+			});
+		    
 		    Button languageButton = new Button("<i class='fa fa-globe'></i> "+parent.i18n.otherLanguage());
 		    languageButton.addClickHandler(new ClickHandler() {
 				@Override
@@ -41,6 +42,7 @@ public class PageFooter extends VerticalPanel {
 				}
 			});
 		    this.add(languageButton);
+		    this.add(homeBtn);
 		    
 	}
 	

@@ -14,6 +14,12 @@ public abstract class AbstractPage extends ComplexPanel{
 	
 	protected I18n i18n = GWT.create(I18n.class);
 	
+	@Override
+	public void add(Widget child) {
+		
+		this.add(child, getElement());
+	};
+	
 
 	  public  AbstractPage() {
 	    this(DOM.createDiv());
@@ -36,8 +42,8 @@ public abstract class AbstractPage extends ComplexPanel{
 	    	footer = new PageFooter(this);
 	    }
 	    
-	    add(header,getElement());
-	    add(footer,getElement());
+	    add(header);
+	    add(footer);
 	    
 	  }
 	  

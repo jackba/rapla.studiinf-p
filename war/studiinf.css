@@ -187,4 +187,8 @@ nav{
 		text-align:left;
 		font-family: 'Open Sans', sans-serif;
 	}
+	
+.tile {
+	margin-top: 10vh;
+}
 

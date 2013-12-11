@@ -19,14 +19,9 @@ public class Studiinf implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
-	public void onModuleLoad() {
-			
+	public void onModuleLoad() {	
 		
-		
-		final AbstractPage homePage = new HomePage();
-		
-		RootPanel.get().add(homePage);
-		
+		Navigation.goToPage(Navigation.homePage);	
 	
 	}
 
