@@ -18,4 +18,7 @@ public interface I18n extends Messages {
 	String personSearchPage();
 	String poiSearchPage();
 	String roomSearchPage();
+	String resultLabel();
+	String frequentResultsLabel();
+	String organigram();
 	}

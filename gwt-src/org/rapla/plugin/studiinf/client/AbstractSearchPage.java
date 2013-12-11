@@ -7,11 +7,11 @@ public abstract class AbstractSearchPage extends AbstractPage{
 public AbstractSearchPage(){
 	super();
 	Widget searchField = new TextBox();
-	Widget resultLabel = new Label("Results");
-	Widget frequentLabel = new Label("Frequent Results");
+	Widget resultLabel = new Label(i18n.resultLabel());
+	Widget frequentLabel = new Label(i18n.frequentResultsLabel());
 	Grid results = new Grid(3, 2);
 	Grid frequent = new Grid(2, 2);
-	Widget organigramBtn = new Button("Organigram");
+	Widget organigramBtn = new Button(i18n.organigram());
 	
 	searchField.setStyleName("searchField");
 	resultLabel.setStyleName("resultLabel");
