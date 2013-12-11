@@ -56,15 +56,14 @@ public AbstractSearchPage(){
 	
 	searchField.addKeyUpHandler(new KeyUpHandler() {
 		
-	@Override
-	public void onKeyUp(KeyUpEvent event) {
-		if (searchField.getText().equals("")){
-			setSearched(false);
-		} else {
-			setSearched(true);
+		@Override
+		public void onKeyUp(KeyUpEvent event) {
+			if (searchField.getText().equals("")){
+				setSearched(false);
+			} else {
+				setSearched(true);
+			}
 		}
-		
-	}
 	});
 
 	this.add(searchField);
