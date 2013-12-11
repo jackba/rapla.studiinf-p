@@ -5,7 +5,7 @@ public class CourseSearch extends AbstractSearchPage {
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return "Course";
+		return i18n.courseSearchPage();
 	}
 
 }

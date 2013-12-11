@@ -14,4 +14,8 @@ public interface I18n extends Messages {
 	String rooms();
 	String people();
 	String pointsOfInterest();
+	String courseSearchPage();
+	String personSearchPage();
+	String poiSearchPage();
+	String roomSearchPage();
 	}

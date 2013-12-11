@@ -5,7 +5,7 @@ public class RoomSearch extends AbstractSearchPage {
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return "Room";
+		return i18n.roomSearchPage();
 	}
 
 }

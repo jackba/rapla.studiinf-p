@@ -4,7 +4,7 @@ public class PersonSearch extends AbstractSearchPage {
 
 	@Override
 	public String getTitle() {
-		return "Person";
+		return i18n.personSearchPage();
 	}
 
 }
