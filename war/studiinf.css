@@ -219,24 +219,6 @@ nav{
 	font-family: 'Open Sans', sans-serif;
 	
 }
-.frequentLabel{
-	position:absolute;
-	display:inline-block;
-	bottom:22.5vh;
-	left:5vw;
-	width:80vw;
-	height:5.25vh;
-	font-weight:bold;
-}
-.frequent{
-	position:absolute;
-	bottom:7vh;
-	left:5vw;
-	width:80vw;
-	height:18vh;
-	background:#858f95;
-	border-spacing: 0;
-}
 
 .resultLabel{
 	position:absolute;
@@ -256,6 +238,6 @@ nav{
 	background:#858f95;
 	border-spacing: 0;
 }
-.frequent td, .results td{
+.results td{
 	border: solid 1px #5c6971;
 }
