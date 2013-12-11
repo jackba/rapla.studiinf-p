@@ -12,7 +12,7 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 
-public class PageFooter extends VerticalPanel {
+public class PageFooter extends HorizontalPanel {
 	private final AbstractPage parent;
 	
 	public PageFooter(AbstractPage parent) {

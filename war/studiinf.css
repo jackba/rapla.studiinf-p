@@ -185,6 +185,7 @@ nav{
 		border:solid 1px #5c6971;
 		font-size:2vh;
 		text-align:left;
+		display:inline-block;
 		font-family: 'Open Sans', sans-serif;
 	}
 	
@@ -192,3 +193,69 @@ nav{
 	margin-top: 10vh;
 }
 
+.searchField{
+	position:absolute;
+	bottom:30vh;
+	left:5vw;
+	rigth:15vw;
+	width:80vw;
+	height:5.25vh;
+}
+.organigramBtn{
+	position:absolute;
+	bottom:38vh;
+	left:25vw;
+	rigth:25vw;
+	width:40vw;
+	height:5.25vh;
+	margin:0;
+	padding: 1vh 5vw;
+	background:#e2001a;
+	color:#ffffff;
+	border:solid 1px #5c6971;
+	font-size:2vh;
+	text-align:left;
+	display:inline-block;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+.frequentLabel{
+	position:absolute;
+	display:inline-block;
+	bottom:22.5vh;
+	left:5vw;
+	width:80vw;
+	height:5.25vh;
+	font-weight:bold;
+}
+.frequent{
+	position:absolute;
+	bottom:7vh;
+	left:5vw;
+	width:80vw;
+	height:18vh;
+	background:#858f95;
+	border-spacing: 0;
+}
+
+.resultLabel{
+	position:absolute;
+	display:inline-block;
+	top:10vh;
+	left:5vw;
+	width:80vw;
+	height:5.25vh;
+	font-weight:bold;
+}
+.results{
+	position:absolute;
+	top:15vh;
+	left:5vw;
+	width:80vw;
+	height:27vh;
+	background:#858f95;
+	border-spacing: 0;
+}
+.frequent td, .results td{
+	border: solid 1px #5c6971;
+}
