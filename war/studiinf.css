@@ -1,5 +1,12 @@
 /** Add css rules here for your application. */
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/OpenSans-Regular.ttf);
+}
+
 html{
 		padding:0;
 		margin:0;

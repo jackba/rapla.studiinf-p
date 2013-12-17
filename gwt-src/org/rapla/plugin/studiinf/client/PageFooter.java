@@ -20,7 +20,7 @@ public class PageFooter extends HorizontalPanel {
 		
 		    this.setStyleName("footer");
 		    
-		    Button homeBtn = new Button("Home");
+		    Button homeBtn = new Button("<i class='fa fa-home'></i> "+parent.i18n.homeButtonText());
 		    homeBtn.addClickHandler(new ClickHandler() {
 				
 				@Override
@@ -42,8 +42,12 @@ public class PageFooter extends HorizontalPanel {
 				}
 			});
 		    this.add(languageButton);
-		    this.add(homeBtn);
+		    if(parent != Navigation.homePage){
+		    	this.add(homeBtn);
+		    }
 		    
 	}
+	
+	
 	
 }

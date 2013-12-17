@@ -21,4 +21,5 @@ public interface I18n extends Messages {
 	String resultLabel();
 	String frequentResultsLabel();
 	String organigram();
+	String homeButtonText();
 	}
