@@ -1,4 +1,5 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.pages;
+
 
 public class CourseSearch extends AbstractSearchPage {
 

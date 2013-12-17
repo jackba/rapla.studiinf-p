@@ -1,4 +1,4 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.ui;
 
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;

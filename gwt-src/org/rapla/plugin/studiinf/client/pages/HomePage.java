@@ -1,10 +1,16 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.pages;
+
+import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.ui.Tile;
+import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 
 public class HomePage extends AbstractPage {
 	
-	public HomePage() {
-		super();
+	
+	@Override
+	public void init() {
+		super.init();
 		
 		TileContainer tileContainer = new TileContainer();
 		
@@ -19,8 +25,8 @@ public class HomePage extends AbstractPage {
 		tileContainer.add(poiBtn);
 		
 		this.add(tileContainer);
-
-	}
+		
+	};
 	
 	@Override
 	public String getTitle() {

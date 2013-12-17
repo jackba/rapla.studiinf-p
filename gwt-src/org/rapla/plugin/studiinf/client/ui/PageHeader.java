@@ -1,4 +1,6 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.ui;
+
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HTML;

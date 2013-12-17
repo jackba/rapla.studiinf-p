@@ -1,4 +1,7 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.ui;
+
+import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

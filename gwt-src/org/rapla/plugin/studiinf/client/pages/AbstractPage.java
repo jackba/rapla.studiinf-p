@@ -1,6 +1,9 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.i18n.I18n;
+import org.rapla.plugin.studiinf.client.ui.PageFooter;
+import org.rapla.plugin.studiinf.client.ui.PageHeader;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.DOM;
@@ -12,7 +15,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	private Widget header;
 	private Widget footer;
 	
-	protected I18n i18n = GWT.create(I18n.class);
+	public I18n i18n = GWT.create(I18n.class);
 	
 	@Override
 	public void add(Widget child) {
@@ -23,21 +26,15 @@ public abstract class AbstractPage extends ComplexPanel{
 
 	  public  AbstractPage() {
 	    this(DOM.createDiv());
-
+	    
+	    Navigation.add(this);
+	    
 	    this.setStyleName("page");
 	    
-	    /*Dangerous Code!!!*/
-	    if(header == null){
-	    	header = new PageHeader(this);
-	    }
-	    	
-	    /*Dangerous Code!!!*/
-	    if(footer == null){
-	    	footer = new PageFooter(this);
-	    }
+	    header = new PageHeader(this);
+	    footer = new PageFooter(this);
 	    
-	    add(header);
-	    add(footer);
+	   
 	    
 	  }
 	  
@@ -54,5 +51,10 @@ public abstract class AbstractPage extends ComplexPanel{
 	  
 	  
 	  abstract public String getTitle();
+	  
+	   public void init(){
+		    add(header);
+		    add(footer);
+	   };
 	
 }

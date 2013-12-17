@@ -1,4 +1,4 @@
-package org.rapla.plugin.studiinf.client;
+package org.rapla.plugin.studiinf.client.pages;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
@@ -37,8 +37,10 @@ public void setSearched(boolean searched) {
 }
 
 
-public AbstractSearchPage(){
-	super();
+
+@Override
+public void init() {
+	super.init();
 	
 	searchField.setStyleName("searchField");
 	resultLabel.setStyleName("resultLabel");
