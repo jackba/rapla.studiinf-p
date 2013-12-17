@@ -1,5 +1,7 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.Studiinf;
+
 
 public class PoiSearch extends AbstractSearchPage {
 	
@@ -8,7 +10,12 @@ public class PoiSearch extends AbstractSearchPage {
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return i18n.poiSearchPage();
+		return Studiinf.i18n.poiSearchPage();
+	}
+
+	@Override
+	public String getHistoryKey() {
+		return "poi";
 	}
 
 }

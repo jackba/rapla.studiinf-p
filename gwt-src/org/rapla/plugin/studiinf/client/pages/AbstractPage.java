@@ -14,9 +14,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	
 	private Widget header;
 	private Widget footer;
-	
-	public I18n i18n = GWT.create(I18n.class);
-	
+		
 	@Override
 	public void add(Widget child) {
 		
@@ -49,12 +47,15 @@ public abstract class AbstractPage extends ComplexPanel{
 	    setElement(elem);
 	  }
 	  
-	  
-	  abstract public String getTitle();
-	  
 	   public void init(){
 		    add(header);
 		    add(footer);
 	   };
 	
+	   abstract public String getHistoryKey();
+	   
+	   abstract public String getTitle();
+	   
+	   
+	   
 }

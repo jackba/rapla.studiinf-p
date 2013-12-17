@@ -1,6 +1,7 @@
 package org.rapla.plugin.studiinf.client.ui;
 
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.i18n.I18n;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
@@ -13,17 +14,15 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class PageFooter extends HorizontalPanel {
-	private final AbstractPage parent;
 	
 	public PageFooter(AbstractPage parent) {
-		this.parent = parent;
 		
 		    this.setStyleName("footer");
 		    
-		    Button homeBtn = new NavigationButton("<i class='fa fa-home'></i> "+this.parent.i18n.homeButtonText(),Navigation.homePage);
+		    Button homeBtn = new NavigationButton("<i class='fa fa-home'></i> "+Studiinf.i18n.homeButtonText(),Navigation.homePage);
 		
 		    
-		    Button languageButton = new Button("<i class='fa fa-globe'></i> "+this.parent.i18n.otherLanguage());
+		    Button languageButton = new Button("<i class='fa fa-globe'></i> "+Studiinf.i18n.otherLanguage());
 		    languageButton.addClickHandler(new ClickHandler() {
 				@Override
 				public void onClick(ClickEvent event) {
@@ -37,7 +36,7 @@ public class PageFooter extends HorizontalPanel {
 		    this.add(languageButton);
 		    
 		    //only add homeButton if current page is not the homepage // equals Strings should be improved 
-		    if(!parent.getTitle().equals(parent.i18n.homeScreenTitle()) ){
+		    if(!parent.getTitle().equals(Studiinf.i18n.homeScreenTitle()) ){
 		    	this.add(homeBtn);
 		    }
 		    
