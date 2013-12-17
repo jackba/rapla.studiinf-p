@@ -24,13 +24,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	  public  AbstractPage() {
 	    this(DOM.createDiv());
 
-	    DOM.setStyleAttribute(getElement(), "position", "absolute");
-	    DOM.setStyleAttribute(getElement(), "overflow", "hidden");
-	    DOM.setStyleAttribute(getElement(), "top", "0px");
-	    DOM.setStyleAttribute(getElement(), "left", "0px");
-	    DOM.setStyleAttribute(getElement(), "bottom", "0px");
-	    DOM.setStyleAttribute(getElement(), "right", "0px");
-	    DOM.setStyleAttribute(getElement(), "background", "#d6dadc");
+	    this.setStyleName("page");
 	    
 	    /*Dangerous Code!!!*/
 	    if(header == null){

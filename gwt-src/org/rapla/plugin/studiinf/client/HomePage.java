@@ -1,58 +1,24 @@
 package org.rapla.plugin.studiinf.client;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
 
 public class HomePage extends AbstractPage {
 	
 	public HomePage() {
 		super();
 		
-		Button courseBtn = new Tile(i18n.courses());
-		Button personBtn = new Tile(i18n.people());
-		Button roomBtn = new Tile(i18n.rooms());
-		Button poiBtn = new Tile(i18n.pointsOfInterest());
+		TileContainer tileContainer = new TileContainer();
 		
-		personBtn.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				Navigation.goToPage(Navigation.person);
-				
-			}
-		});
+		Tile courseBtn = new Tile(i18n.courses(),Navigation.course);
+		Tile personBtn = new Tile(i18n.people(),Navigation.person);
+		Tile roomBtn = new Tile(i18n.rooms(),Navigation.room);
+		Tile poiBtn = new Tile(i18n.pointsOfInterest(),Navigation.poi);
 		
-		courseBtn.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				Navigation.goToPage(Navigation.course);
-				
-			}
-		});
-		roomBtn.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				Navigation.goToPage(Navigation.room);
-				
-			}
-		});
-		poiBtn.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				Navigation.goToPage(Navigation.poi);
-				
-			}
-		});
+		tileContainer.add(courseBtn);
+		tileContainer.add(personBtn);
+		tileContainer.add(roomBtn);
+		tileContainer.add(poiBtn);
 		
-		this.add(courseBtn);
-		this.add(personBtn);
-		this.add(roomBtn);
-		this.add(poiBtn);
-		
+		this.add(tileContainer);
 
 	}
 	

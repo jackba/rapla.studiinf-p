@@ -1,11 +1,15 @@
 package org.rapla.plugin.studiinf.client;
 
-import com.google.gwt.user.client.ui.Button;
 
-public class Tile extends Button{
+public class Tile extends NavigationButton {
 
-	public Tile(String title){
-		super(title);
+	public Tile(String title, AbstractPage targetPage){
+		
+		super("<span>"+title+"</span>",targetPage);
+
 		this.setStyleName("tile");
+
+		
 	}
+
 }

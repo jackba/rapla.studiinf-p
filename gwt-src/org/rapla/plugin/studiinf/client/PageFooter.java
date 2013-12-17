@@ -6,11 +6,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.http.client.UrlBuilder;
-import com.google.gwt.i18n.server.GwtLocaleFactoryImpl;
-import com.google.gwt.i18n.shared.GwtLocale;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class PageFooter extends HorizontalPanel {
 	private final AbstractPage parent;
@@ -20,17 +18,10 @@ public class PageFooter extends HorizontalPanel {
 		
 		    this.setStyleName("footer");
 		    
-		    Button homeBtn = new Button("<i class='fa fa-home'></i> "+parent.i18n.homeButtonText());
-		    homeBtn.addClickHandler(new ClickHandler() {
-				
-				@Override
-				public void onClick(ClickEvent event) {
-					Navigation.goToPage(Navigation.homePage);
-					
-				}
-			});
+		    Button homeBtn = new NavigationButton("<i class='fa fa-home'></i> "+this.parent.i18n.homeButtonText(),Navigation.homePage);
+		
 		    
-		    Button languageButton = new Button("<i class='fa fa-globe'></i> "+parent.i18n.otherLanguage());
+		    Button languageButton = new Button("<i class='fa fa-globe'></i> "+this.parent.i18n.otherLanguage());
 		    languageButton.addClickHandler(new ClickHandler() {
 				@Override
 				public void onClick(ClickEvent event) {
@@ -42,11 +33,15 @@ public class PageFooter extends HorizontalPanel {
 				}
 			});
 		    this.add(languageButton);
-		    if(parent != Navigation.homePage){
+		    
+		    //only add homeButton if current page is not the homepage // equals Strings should be improved 
+		    if(!parent.getTitle().equals(parent.i18n.homeScreenTitle()) ){
 		    	this.add(homeBtn);
 		    }
 		    
 	}
+	
+	
 	
 	
 	
