@@ -210,9 +210,6 @@ nav{
 		font-family: 'Open Sans', sans-serif;
 	}
 	
-.tile {
-	margin-top: 10vh;
-}
 
 .searchField{
 	position:absolute;
@@ -280,15 +277,14 @@ nav{
 }
 .tileContainer{
 	position:absolute;
-	top:8vh;
+	top:60vh;
 	bottom:8vh;
 	left:5vw;
 	right:5vw;
 	width:90vw;
-	height:84vh;
+	height:32vh;
 }
 .tile{
-	
 		display: block;
 		padding: 0;
 		margin: 1%;
