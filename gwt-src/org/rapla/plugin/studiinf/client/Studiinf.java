@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client;
 
 import org.rapla.plugin.freiraum.common.CategoryDescription;
 import org.rapla.plugin.studiinf.client.i18n.I18n;
+import org.rapla.plugin.studiinf.client.ui.ModalSpinner;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -29,8 +30,7 @@ public class Studiinf implements EntryPoint {
 		
 		History.fireCurrentHistoryState();
 		
-		
-		
+		ModalSpinner.hide();
 	
 	}
 
