@@ -1,14 +1,14 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.studiinf.client.Navigation;
-import org.rapla.plugin.studiinf.client.i18n.I18n;
 import org.rapla.plugin.studiinf.client.ui.PageFooter;
 import org.rapla.plugin.studiinf.client.ui.PageHeader;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.ComplexPanel;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractPage extends ComplexPanel{
 	
