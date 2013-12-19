@@ -66,7 +66,7 @@ public class DetailPageRoom extends AbstractPage {
 
 	@Override
 	public String getTitle() {
-		return "Audimax";
+		return "D 459";
 	}
 
 }
