@@ -337,7 +337,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox, .infoQrBox{
+.qrBox, .infoQrBox, .personQrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -375,7 +375,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5vw;
@@ -475,12 +475,17 @@ nav{
 .infoPanel {
 	height:29vh;
 }
-.roomPanel {
+.roomPanel, .personBottomPanel {
 	top: auto;
 	bottom: 7vh;
 	height:5.5vh;
 }
-.infoLabel{
+.personMiddlePanel {
+	top: 56.5vh;
+	bottom: auto;
+	height:25vh;
+}
+.infoLabel, .personInfoLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;

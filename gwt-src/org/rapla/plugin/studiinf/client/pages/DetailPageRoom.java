@@ -61,7 +61,7 @@ public class DetailPageRoom extends AbstractPage {
 	
 	@Override
 	public String getHistoryKey() {
-		return "detailRoom";
+		return "roomDetail";
 	}
 
 	@Override

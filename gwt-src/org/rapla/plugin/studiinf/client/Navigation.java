@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearch;
+import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearch;
@@ -24,6 +25,7 @@ public final class Navigation {
 	public static final AbstractPage poi = new PoiSearch();
 	public static final AbstractPage room = new RoomSearch();
 	public static final AbstractPage roomDetail = new DetailPageRoom();
+	public static final AbstractPage personDetail = new DetailPagePerson();
 	
 	
 	private static List<AbstractPage> pages;
