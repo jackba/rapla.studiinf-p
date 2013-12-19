@@ -22,7 +22,7 @@ public class DetailPageRoom extends AbstractPage {
 		
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
-		infoLabel.setStyleName("infolabel");
+		infoLabel.setStyleName("infoLabel");
 		qrBox.setStyleName("infoQrBox");
 		infos.setStyleName("infos");
 		

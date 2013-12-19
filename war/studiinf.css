@@ -502,7 +502,8 @@ nav{
 }
 .roomPanel {
 	top: auto;
-	bottom: 85;
+	bottom: 7vh;
+	height:5.5vh;
 }
 .infoLabel{
 	display:block;
