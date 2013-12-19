@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearch;
+import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearch;
 import org.rapla.plugin.studiinf.client.pages.PoiSearch;
 import org.rapla.plugin.studiinf.client.pages.RoomSearch;
-
 
 import com.google.gwt.user.client.History;
 //import com.google.gwt.user.client.Window; Window.alert("text");
@@ -23,6 +23,8 @@ public final class Navigation {
 	public static final AbstractPage course = new CourseSearch();
 	public static final AbstractPage poi = new PoiSearch();
 	public static final AbstractPage room = new RoomSearch();
+	public static final AbstractPage roomDetail = new DetailPageRoom();
+	
 	
 	private static List<AbstractPage> pages;
 	
