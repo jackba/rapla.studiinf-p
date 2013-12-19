@@ -21,7 +21,8 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private Grid results = new Grid(3, 2);
-	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram());
+	private Image img = new Image("img/Kurse.svg");
+	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
 	private FlowPanel keyboard = new FlowPanel();
 	private HorizontalPanel resultBtns = new HorizontalPanel();
 	private QRBox qrBox = new QRBox();
@@ -66,7 +67,7 @@ public void init() {
 	results.setWidget(0,0, res);
 	ResultButton res2 = new ResultButton(2, "Test", new Image("img/Kurse.svg"));
 	results.setWidget(0,1, res2);
-	ResultButton res3 = new ResultButton(3, "Prof. Dr. R. Küstermann", new Image("img/Kurse.svg"));
+	ResultButton res3 = new ResultButton(3, "Prof. Dr. R. Kï¿½stermann", new Image("img/Kurse.svg"));
 	results.setWidget(1,0, res3);
 	ResultButton res4 = new ResultButton(4, "Test", new Image("img/Kurse.svg"));
 	results.setWidget(1,1, res4);

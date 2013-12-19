@@ -5,6 +5,7 @@ import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -15,6 +16,9 @@ public class DetailPageRoom extends AbstractPage {
 	private Label infoLabel = new Label("Information");
 	private QRBox qrBox = new QRBox();
 	private Grid infos = new Grid(4, 1);
+	
+	private String roomNumber = "D 459";
+	private String roomType = "Hörsaal";
 
 	@Override
 	public void init(){
@@ -26,10 +30,15 @@ public class DetailPageRoom extends AbstractPage {
 		qrBox.setStyleName("infoQrBox");
 		infos.setStyleName("infos");
 		
-		Widget nameBtn = new IconButton("D 459");
-		Widget typeBtn = new IconButton("Hörsaal");
-		Widget studyBtn = new IconButton("Wirtschaftsinformatik");
-		Widget roomBtn = new IconButton("Raumbelegung");
+		Image img1 = new Image("img/Kurse.svg");
+		Image img2 = new Image("img/Kurse.svg");
+		Image img3 = new Image("img/Kurse.svg");
+		Image img4 = new Image("img/Kurse.svg");
+		
+		Widget nameBtn = new IconButton(roomNumber, img1);
+		Widget typeBtn = new IconButton(roomType, img2);
+		Widget studyBtn = new IconButton("Wirtschaftsinformatik", img3);
+		Widget roomBtn = new IconButton("Raumbelegung", img4);
 		
 		infos.setWidget(0, 0, nameBtn);
 		infos.setWidget(1, 0, typeBtn);
@@ -39,7 +48,9 @@ public class DetailPageRoom extends AbstractPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen");
+		Image img5 = new Image("img/Kurse.svg");
+		
+		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", img5);
 		roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);

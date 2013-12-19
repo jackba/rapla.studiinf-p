@@ -6,10 +6,10 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class IconButton extends Button {
-	public IconButton(String title) {
+	public IconButton(String title, Image img) {
 		super(title);
 		
-		Image icon = new Image("img/Kurse.svg");
+		Image icon = new Image(img.getUrl());
 		
 		
 		//this.setElement(DOM.createElement("button"));
