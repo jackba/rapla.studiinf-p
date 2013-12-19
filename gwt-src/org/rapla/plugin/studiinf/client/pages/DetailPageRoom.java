@@ -42,7 +42,6 @@ public class DetailPageRoom extends AbstractPage {
 		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen");
 		roomPanel.add(bottomRoomBtn);
 		
-		
 		this.add(infoPanel);
 		this.add(roomPanel);
 		this.add(qrBox);

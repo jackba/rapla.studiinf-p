@@ -250,7 +250,7 @@ nav{
 }
 
 
-.results{
+.results, .infos{
 	position:absolute;
 	top:9vh;
 	left:1vw;
@@ -340,7 +340,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox{
+.qrBox, .infoQrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -378,7 +378,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel{
 	position: absolute;
 	top: 11vh;
 	left:5vw;
@@ -474,31 +474,9 @@ nav{
 	line-height: 3vh;
 	font-size: 1.5vh;
 }
-.infoQrBox {
-	position:absolute;
-	top: 45vh;
-	left:5vw;
-	right:5vw;
-	width:90vw;
-	height:10vh;
-	background: #ffffff;
-}
-.infoPanel, .roomPanel{
-	position: absolute;
-	top: 11vh;
-	left:5vw;
-	right:5vw;
-	width:88vw;
-	height:28vh;
-	border-left: solid 1vw #ffffff;
-	border-left-width: 1em;
-	font-size:1vw;
-	border-right: solid 1vw #ffffff;
-	border-right-width: 1em;
-	border-top: solid 1vh #ffffff;
-	border-top-width: 1.77em;
-	border-bottom: solid 1vh #ffffff;
-	border-bottom-width: 1.77em;
+
+.infoPanel {
+	height:29vh;
 }
 .roomPanel {
 	top: auto;
@@ -520,13 +498,7 @@ nav{
 	color:#ffffff;
 }
 .infos{
-	position:absolute;
-	top:9vh;
-	left:1vw;
-	width:86vw;
-	height:18vh;
-	
-	border-spacing: 0;
+	top:8.5vh;
 }
 .infos td{
 	border: solid 1px transparent;
