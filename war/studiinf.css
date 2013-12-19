@@ -474,3 +474,59 @@ nav{
 	line-height: 3vh;
 	font-size: 1.5vh;
 }
+.infoQrBox {
+	position:absolute;
+	top: 45vh;
+	left:5vw;
+	right:5vw;
+	width:90vw;
+	height:10vh;
+	background: #ffffff;
+}
+.infoPanel, .roomPanel{
+	position: absolute;
+	top: 11vh;
+	left:5vw;
+	right:5vw;
+	width:88vw;
+	height:28vh;
+	border-left: solid 1vw #ffffff;
+	border-left-width: 1em;
+	font-size:1vw;
+	border-right: solid 1vw #ffffff;
+	border-right-width: 1em;
+	border-top: solid 1vh #ffffff;
+	border-top-width: 1.77em;
+	border-bottom: solid 1vh #ffffff;
+	border-bottom-width: 1.77em;
+}
+.roomPanel {
+	top: auto;
+	bottom: 85;
+}
+.infoLabel{
+	display:block;
+	position:absolute;
+	top: 1vh;
+	height: 6vh;
+	left:1vw;
+	right:1vw;
+	width:76vw;
+	padding:0px 5vw;
+	background: #5c6971;
+	font-size:3vh;
+	line-height:6vh;
+	color:#ffffff;
+}
+.infos{
+	position:absolute;
+	top:9vh;
+	left:1vw;
+	width:86vw;
+	height:18vh;
+	
+	border-spacing: 0;
+}
+.infos td{
+	border: solid 1px transparent;
+}
