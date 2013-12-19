@@ -245,11 +245,8 @@ nav{
 	font-size:2vh;
 	text-align:left;
 	display:inline-block;
-	font-family: 'Open Sans', sans-serif;
-	
+	font-family: 'Open Sans', sans-serif;	
 }
-
-
 .results, .infos{
 	position:absolute;
 	top:9vh;
@@ -287,19 +284,19 @@ nav{
 	height:32vh;
 }
 .tile{
-		display: block;
-		padding: 0;
-		margin: 1%;
-		width: 48%;
-		height: 48%;
-		background-color:#e2001a;
-		color:#ffffff;
-		float:left;
-		position:relative;
-		overflow:hidden;
-		opacity:1.0;
-		border:solid 0.1vh #000000;
-		box-shadow: 0 0 0.1vh #ffffff;
+	display: block;
+	padding: 0;
+	margin: 1%;
+	width: 48%;
+	height: 48%;
+	background-color:#e2001a;
+	color:#ffffff;
+	float:left;
+	position:relative;
+	overflow:hidden;
+	opacity:1.0;
+	border:solid 0.1vh #000000;
+	box-shadow: 0 0 0.1vh #ffffff;
 }
 .tile:nth-of-type(3n+1){
 		color:#ffffff;
