@@ -31,7 +31,7 @@ public class DetailPageRoom extends AbstractPage {
 		infos.setStyleName("infos");
 		
 		Image img1 = new Image("img/Kurse.svg");
-		Image img2 = new Image("img/Kurse.svg");
+		Image img2 = new Image("img/Raum.svg");
 		Image img3 = new Image("img/Kurse.svg");
 		Image img4 = new Image("img/Kurse.svg");
 		

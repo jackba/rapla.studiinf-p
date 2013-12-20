@@ -500,8 +500,27 @@ nav{
 	color:#ffffff;
 }
 .infos{
-	top:8.5vh;
+	top:7vh;
 }
 .infos td{
 	border: solid 1px transparent;
+}
+
+.infos .iconButton {
+	width: 64.5vh;
+}
+.iconButton {
+	position: absolute;
+	background: #aeb4b8;
+	padding: 1vh;
+}
+.iconIconButton {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 3vh;
+	height: 3vh;
+	background: #e2001a;
+	border:none;
+	padding: 1vh;
 }
