@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos{
+.results, .infos, .personInfos{
 	position:absolute;
 	top:9vh;
 	left:1vw;
@@ -506,8 +506,16 @@ nav{
 	border: solid 1px transparent;
 }
 
+.personInfos {
+	top: 6vh;
+	left: 30vw;
+}
+
 .infos .iconButton {
 	width: 84vw;
+}
+.personInfos .iconButton {
+	width: 54vw;
 }
 .iconButton {
 	position: absolute;
@@ -523,4 +531,13 @@ nav{
 	background: #e2001a;
 	border:none;
 	padding: 1vh;
+}
+
+.personDetailPicture {
+	position:absolute !important;
+	top: 8vh;
+	left:1vw;
+	width:25vw;
+	height:19.5vh;
+	background:#858f95;
 }
