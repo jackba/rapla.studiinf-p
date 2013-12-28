@@ -18,4 +18,9 @@ public class PoiSearch extends AbstractSearchPage {
 		return "poi";
 	}
 
+	@Override
+	public boolean hasOrganigramm() {
+		return false;
+	}
+
 }

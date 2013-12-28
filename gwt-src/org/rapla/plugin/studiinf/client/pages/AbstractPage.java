@@ -4,22 +4,15 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ui.PageFooter;
 import org.rapla.plugin.studiinf.client.ui.PageHeader;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractPage extends ComplexPanel{
-	
-	private Widget header;
-	private Widget footer;
-		
-	@Override
-	public void add(Widget child) {
-		
-		this.add(child, getElement());
-	};
+	private PageHeader header;
+	private PageFooter footer;
 	
 
 	  public  AbstractPage() {
@@ -51,10 +44,20 @@ public abstract class AbstractPage extends ComplexPanel{
 		    add(header);
 		    add(footer);
 	   };
+	   
+		
+		@Override
+		public void add(Widget child) {
+			this.add(child,(com.google.gwt.dom.client.Element) this.getElement());
+		};
 	
 	   abstract public String getHistoryKey();
 	   
 	   abstract public String getTitle();
+
+	   protected void refresh(){
+		   header.refresh();
+	   }
 	   
 	   
 	   
