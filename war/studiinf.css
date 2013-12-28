@@ -485,7 +485,7 @@ nav{
 	bottom: auto;
 	height:25vh;
 }
-.infoLabel, .personInfoLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -498,6 +498,16 @@ nav{
 	font-size:3vh;
 	line-height:6vh;
 	color:#ffffff;
+}
+
+.personAppointmentLabel {
+	top: 7vh;
+	height: 5vh;
+}
+
+.personCourseLabel {
+	top: 13vh;
+	height: 5vh;
 }
 .infos{
 	top:7vh;
@@ -538,6 +548,6 @@ nav{
 	top: 8vh;
 	left:1vw;
 	width:25vw;
-	height:19.5vh;
+	height:19vh;
 	background:#858f95;
 }

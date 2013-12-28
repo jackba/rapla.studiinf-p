@@ -18,6 +18,9 @@ public class DetailPagePerson extends AbstractPage {
 	private Label personInfoLabel = new Label("Information");
 	private Grid infos = new Grid(4, 1);
 	private FlowPanel picture = new FlowPanel();
+	private Label appointmentLabel = new Label("Anstehende Termine");
+	private Label courseLabel = new Label("Kurse");
+	
 	
 	
 	@Override
@@ -31,6 +34,8 @@ public class DetailPagePerson extends AbstractPage {
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
 		picture.setStyleName("personDetailPicture");
+		appointmentLabel.setStyleName("personAppointmentLabel");
+		courseLabel.setStyleName("personCourseLabel");
 		
 		personInfoPanel.add(personInfoLabel);
 		personInfoPanel.add(picture);
@@ -50,6 +55,18 @@ public class DetailPagePerson extends AbstractPage {
 		infos.setWidget(1, 0, mailBtn);
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
+		
+		middlePanel.add(appointmentLabel);
+		middlePanel.add(courseLabel);
+		
+		Image img5 = new Image("img/Kurse.svg");
+		Image img6 = new Image("img/Raum.svg");
+		
+		Widget showRoomBtn = new IconButton("Raum anzeigen", img5);
+		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", img6);
+		
+		bottomPanel.add(showRoomBtn);
+		bottomPanel.add(showextraInfosBtn);
 		
 		this.add(qrBox);
 		this.add(personInfoPanel);
