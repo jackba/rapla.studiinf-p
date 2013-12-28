@@ -11,8 +11,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractPage extends ComplexPanel{
-	private Widget header;
-	private Widget footer;
+	private PageHeader header;
+	private PageFooter footer;
 	
 
 	  public  AbstractPage() {
@@ -54,6 +54,10 @@ public abstract class AbstractPage extends ComplexPanel{
 	   abstract public String getHistoryKey();
 	   
 	   abstract public String getTitle();
+
+	   protected void refresh(){
+		   header.refresh();
+	   }
 	   
 	   
 	   

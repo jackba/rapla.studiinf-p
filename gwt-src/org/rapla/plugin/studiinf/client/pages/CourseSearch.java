@@ -15,4 +15,9 @@ public class CourseSearch extends AbstractSearchPage {
 		return "course";
 	}
 
+	@Override
+	public boolean hasOrganigramm() {
+		return true;
+	}
+
 }

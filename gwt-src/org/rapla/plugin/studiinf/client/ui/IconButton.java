@@ -5,28 +5,18 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class IconButton extends Button {
+	
+	private Image icon;
+	
 	public IconButton(String title, Image icon) {
 		super(title);
 		
-		//Image icon = new Image(img.getUrl());
+		this.icon = icon;
 		icon.setStyleName("iconIconButton");
 		this.setStyleName("iconButton");
-		
-		/*
-		//this.setElement(DOM.createElement("button"));
-		icon.getElement().getStyle().setPosition(Position.ABSOLUTE);
-		icon.getElement().getStyle().setProperty("top", "0px");
-		icon.getElement().getStyle().setProperty("left", "0px");
-		icon.getElement().getStyle().setProperty("width", "3vh");
-		icon.getElement().getStyle().setProperty("height", "3vh");
-		icon.getElement().getStyle().setProperty("background", "#e2001a");
-		icon.getElement().getStyle().setProperty("border", "none");
-		icon.getElement().getStyle().setProperty("padding", "1vh");
-		*/
+	
 		
 		this.getElement().getStyle().setProperty("paddingLeft", "6vh");
-		//this.getElement().getStyle().setProperty("background", "#aeb4b8");
-		
 	
 		this.add(icon);
 		
@@ -36,5 +26,10 @@ public class IconButton extends Button {
 	
 	public void add(Widget w){
 		this.getElement().appendChild(w.getElement());
+	}
+	@Override 
+	public void setText(String text) {
+		super.setText(text);
+		this.add(icon);
 	}
 }

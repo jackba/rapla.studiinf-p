@@ -9,6 +9,8 @@ import com.google.gwt.user.client.ui.Button;
 
 public class NavigationButton extends Button implements ClickHandler {
 	private AbstractPage targetPage;
+	private String targetId;
+	
 	public  NavigationButton(String title,AbstractPage targetPage){
 		super(title);
 		
@@ -16,9 +18,22 @@ public class NavigationButton extends Button implements ClickHandler {
 		this.addClickHandler(this);
 		
 	}
+
+	public  NavigationButton(String title,AbstractPage targetPage,String targetId){
+		super(title);
+		
+		this.targetPage = targetPage;
+		this.targetId = targetId;
+		this.addClickHandler(this);
+		
+	}
 	@Override
 	public void onClick(ClickEvent event) {
-		Navigation.goToPage(targetPage);
+		if(targetId == null){
+			Navigation.goToPage(targetPage);
+		}else{
+			Navigation.goToPage(targetPage, targetId);
+		}
 		
 	}
 }

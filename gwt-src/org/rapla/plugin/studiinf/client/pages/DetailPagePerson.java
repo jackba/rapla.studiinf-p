@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
@@ -9,9 +10,8 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class DetailPagePerson extends AbstractPage {
+public class DetailPagePerson extends AbstractDetailPage {
 
-	private QRBox qrBox = new QRBox();
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
 	private FlowPanel middlePanel = new FlowPanel();
@@ -24,7 +24,6 @@ public class DetailPagePerson extends AbstractPage {
 	public void init(){
 		super.init();
 		
-		qrBox.setStyleName("personQrBox");
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
@@ -51,7 +50,6 @@ public class DetailPagePerson extends AbstractPage {
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
 		
-		this.add(qrBox);
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
@@ -59,14 +57,18 @@ public class DetailPagePerson extends AbstractPage {
 	
 	@Override
 	public String getHistoryKey() {
-		// TODO Auto-generated method stub
 		return "personDetail";
 	}
 
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
 		return "Name of Person";
+	}
+
+	@Override
+	public void handleId(String id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

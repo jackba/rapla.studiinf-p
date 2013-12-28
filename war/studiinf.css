@@ -337,7 +337,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox, .infoQrBox, .personQrBox{
+.qrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;

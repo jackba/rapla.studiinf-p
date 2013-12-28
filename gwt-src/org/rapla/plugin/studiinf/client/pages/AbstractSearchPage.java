@@ -23,7 +23,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private Image img = new Image("img/Kurse.svg");
 	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
 	private FlowPanel keyboard = new FlowPanel();
-	private HorizontalPanel resultBtns = new HorizontalPanel();
+	protected HorizontalPanel resultBtns = new HorizontalPanel();
 	private QRBox qrBox = new QRBox();
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
@@ -62,25 +62,7 @@ public void init() {
 	searchPanel.setStyleName("searchPanel");
 	
 
-	ResultButton res = new ResultButton(1, "Test", new Image("img/Kurse.svg"));
-	results.setWidget(0,0, res);
-	ResultButton res2 = new ResultButton(2, "Test", new Image("img/Kurse.svg"));
-	results.setWidget(0,1, res2);
-	ResultButton res3 = new ResultButton(3, "Prof. Dr. R. Küstermann", new Image("img/Kurse.svg"));
-	results.setWidget(1,0, res3);
-	ResultButton res4 = new ResultButton(4, "Test", new Image("img/Kurse.svg"));
-	results.setWidget(1,1, res4);
-	ResultButton res5 = new ResultButton(5, "Test", new Image("img/Kurse.svg"));
-	results.setWidget(2,0, res5);
-	ResultButton res6 = new ResultButton(6, "Test", new Image("img/Kurse.svg"));
-	results.setWidget(2,1, res6);
 	
-	resultBtns.add(res.getBottomPictureButton());
-	resultBtns.add(res2.getBottomPictureButton());
-	resultBtns.add(res3.getBottomPictureButton());
-	resultBtns.add(res4.getBottomPictureButton());
-	resultBtns.add(res5.getBottomPictureButton());
-	resultBtns.add(res6.getBottomPictureButton());
 	
 	searchField.addKeyUpHandler(new KeyUpHandler() {
 		
@@ -101,9 +83,26 @@ public void init() {
 	
 	this.add(searchPanel);
 	this.add(resultPanel);
-	this.add(organigramBtn);
+	if(this.hasOrganigramm()){
+		this.add(organigramBtn);
+	}
 	this.add(resultBtns);
 	this.add(qrBox);
-}
-
+	}
+	
+	public void addResult(ResultButton res){
+		for(int i= 0 ; i < results.getRowCount(); i++){
+			for(int j=0; j < results.getCellCount(i);j++){
+				if(results.getWidget(i, j) == null){
+					results.setWidget(i,j, res);
+					resultBtns.add(res.getBottomPictureButton());
+					return;
+				}
+			}
+		}
+		
+		
+	}
+	
+	abstract public boolean hasOrganigramm();
 }

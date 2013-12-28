@@ -1,24 +1,27 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.QRBox;
 
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class DetailPageRoom extends AbstractPage {
+public class DetailPageRoom extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private FlowPanel roomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
-	private QRBox qrBox = new QRBox();
+	
 	private Grid infos = new Grid(4, 1);
 	
 	private String roomNumber = "D 459";
 	private String roomType = "Hörsaal";
+	
+	private IconButton nameBtn;
 
 	@Override
 	public void init(){
@@ -27,7 +30,6 @@ public class DetailPageRoom extends AbstractPage {
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
-		qrBox.setStyleName("infoQrBox");
 		infos.setStyleName("infos");
 		
 		Image img1 = new Image("img/Kurse.svg");
@@ -35,7 +37,7 @@ public class DetailPageRoom extends AbstractPage {
 		Image img3 = new Image("img/Kurse.svg");
 		Image img4 = new Image("img/Kurse.svg");
 		
-		Widget nameBtn = new IconButton(roomNumber, img1);
+		 nameBtn = new IconButton(roomNumber, img1);
 		Widget typeBtn = new IconButton(roomType, img2);
 		Widget studyBtn = new IconButton("Wirtschaftsinformatik", img3);
 		Widget roomBtn = new IconButton("Raumbelegung", img4);
@@ -55,7 +57,6 @@ public class DetailPageRoom extends AbstractPage {
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
-		this.add(qrBox);
 	}
 	
 	
@@ -66,7 +67,24 @@ public class DetailPageRoom extends AbstractPage {
 
 	@Override
 	public String getTitle() {
-		return "D 459";
+		if(roomNumber == null){
+			roomNumber = "";
+		}
+		return roomNumber;
+	}
+
+
+	@Override
+	public void handleId(String id) {
+		roomNumber = "D "+id;
+		refresh();
+		
+	}
+	
+	@Override
+	protected void refresh() {
+		super.refresh();
+		nameBtn.setText(roomNumber);
 	}
 
 }

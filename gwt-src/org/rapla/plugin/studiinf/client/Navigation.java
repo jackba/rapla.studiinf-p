@@ -49,11 +49,34 @@ public final class Navigation {
 	
 	
 	public static void goToPage(AbstractPage page){
+		
+		goToPage(page,null);
+	}
+	public static void goToPage(AbstractPage page,String id){
 		RootPanel.get().clear();
 		RootPanel.get().add(page);
-		History.newItem(page.getHistoryKey(), false);
+		if(id != null){
+			try {
+				AbstractDetailPage detailPage = (AbstractDetailPage) page;
+				detailPage.handleId(id);
+				History.newItem(page.getHistoryKey()+"/"+id, false);
+			} catch (Throwable e) {
+				History.newItem(page.getHistoryKey(), false);
+			}
+		}else{
+			History.newItem(page.getHistoryKey(), false);
+		}
+		
+		
 	}
 	
+	public static void goToPage(String key, String id){
+		AbstractPage page = getPageByKey(key);
+		if(page != null){
+			goToPage(page, id);
+		}
+	}
+
 	public static void goToPage(String key){
 		AbstractPage page = getPageByKey(key);
 		if(page != null){

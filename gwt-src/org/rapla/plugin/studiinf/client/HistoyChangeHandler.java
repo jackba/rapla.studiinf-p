@@ -7,7 +7,15 @@ public class HistoyChangeHandler implements ValueChangeHandler<String> {
 
 	@Override
 	public void onValueChange(ValueChangeEvent<String> event) {
-			Navigation.goToPage(event.getValue());
+			String navigationUrl =event.getValue();
+
+			int sepIndex = navigationUrl.indexOf("/");
+			if(sepIndex >= 0){
+				Navigation.goToPage(navigationUrl.substring(0, sepIndex ),navigationUrl.substring( sepIndex +1));
+			}else{
+				Navigation.goToPage(navigationUrl);
+			}
+			
 	}
 
 }
