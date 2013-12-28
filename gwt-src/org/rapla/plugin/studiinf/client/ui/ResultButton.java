@@ -2,7 +2,6 @@ package org.rapla.plugin.studiinf.client.ui;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 

@@ -2,7 +2,6 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.studiinf.client.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;

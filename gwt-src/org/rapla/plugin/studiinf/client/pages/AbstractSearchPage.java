@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
+import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
@@ -22,7 +23,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private Grid results = new Grid(3, 2);
 	private Image img = new Image("img/Kurse.svg");
 	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
-	private FlowPanel keyboard = new FlowPanel();
+	private FlowPanel keyboard = new Keyboard(searchField);
 	protected HorizontalPanel resultBtns = new HorizontalPanel();
 	private QRBox qrBox = new QRBox();
 	private FlowPanel resultPanel = new FlowPanel();
@@ -68,6 +69,8 @@ public void init() {
 		
 		@Override
 		public void onKeyUp(KeyUpEvent event) {
+			searchField.setCursorPos(searchField.getText().length());
+			searchField.setFocus(true);
 			if (searchField.getText().equals("")){
 				setSearched(false);
 			} else {
