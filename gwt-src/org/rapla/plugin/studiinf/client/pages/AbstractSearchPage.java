@@ -7,7 +7,6 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -67,7 +66,7 @@ public void init() {
 	results.setWidget(0,0, res);
 	ResultButton res2 = new ResultButton(2, "Test", new Image("img/Kurse.svg"));
 	results.setWidget(0,1, res2);
-	ResultButton res3 = new ResultButton(3, "Prof. Dr. R. K�stermann", new Image("img/Kurse.svg"));
+	ResultButton res3 = new ResultButton(3, "Prof. Dr. R. Küstermann", new Image("img/Kurse.svg"));
 	results.setWidget(1,0, res3);
 	ResultButton res4 = new ResultButton(4, "Test", new Image("img/Kurse.svg"));
 	results.setWidget(1,1, res4);
