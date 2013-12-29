@@ -14,10 +14,13 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		
 		for(ResourceDescriptor resource : resources)
 		{
+			if(resource.getSearchTerms().size() > searchTerm)
+			{
 			String s = resource.getSearchTerms().get(searchTerm);
 			if(s.toLowerCase().startsWith(searchString))
 			{
 				resourceMatched.add(resource);
+			}
 			}
 		}
 		return resourceMatched;
@@ -29,11 +32,14 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		
 		for(ResourceDescriptor resource : resources)
 		{
+			if(resource.getSearchTerms().size() > searchTerm)
+			{
 			String s = resource.getSearchTerms().get(searchTerm);
 			if(s.toLowerCase().contains(searchString))
 			{
 				resourceMatched.add(resource);
 			}
+		}
 		}
 		return resourceMatched;
 	}
