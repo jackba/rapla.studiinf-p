@@ -36,7 +36,7 @@ public class Studiinf implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		
+		final String language = "en";
 		final Button button1 = new Button("test1");
 		final Button button2 = new Button("test2");
 		final Button button3 = new Button("test3");
@@ -124,8 +124,9 @@ public class Studiinf implements EntryPoint {
 
 		button1.addClickHandler(new MyHandler()
 		{
+			
 			void send() {
-					cs.getResources("rooms",null,new AsyncCallback<List<ResourceDescriptor>>() {
+					cs.getResources("sonstiges",null,language,new AsyncCallback<List<ResourceDescriptor>>() {
 						
 						@Override
 						public void onSuccess(List<ResourceDescriptor> test) {
@@ -154,7 +155,7 @@ public class Studiinf implements EntryPoint {
 						serverResponseLabel.setHTML("Failure need to call test 1 first to get id.");
 						return;
 					}
-					cs.getResource(id,new AsyncCallback<ResourceDetail>() {
+					cs.getResource(id,language,new AsyncCallback<ResourceDetail>() {
 						@Override
 						public void onSuccess(ResourceDetail test) {
 							serverResponseLabel.setHTML("Success " + test);
@@ -175,7 +176,7 @@ public class Studiinf implements EntryPoint {
 		button3.addClickHandler(new MyHandler()
 		{
 			void send() {
-					cs.getOrganigram(null,new AsyncCallback<List<CategoryDescription>>() {
+					cs.getOrganigram(null,language,new AsyncCallback<List<CategoryDescription>>() {
 						@Override
 						public void onSuccess(List<CategoryDescription> test) {
 							serverResponseLabel.setHTML("Success " + test);
