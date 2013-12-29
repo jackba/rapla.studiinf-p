@@ -20,4 +20,10 @@ public class CourseSearch extends AbstractSearchPage {
 		return true;
 	}
 
+	@Override
+	protected void handleSearch(String searchTerm) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

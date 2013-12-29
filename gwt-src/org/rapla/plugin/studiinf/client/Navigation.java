@@ -10,9 +10,9 @@ import org.rapla.plugin.studiinf.client.pages.CourseSearch;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
-import org.rapla.plugin.studiinf.client.pages.PersonSearch;
+import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearch;
-import org.rapla.plugin.studiinf.client.pages.RoomSearch;
+import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
 import com.google.gwt.user.client.History;
 //import com.google.gwt.user.client.Window; Window.alert("text");
@@ -21,10 +21,10 @@ import com.google.gwt.user.client.ui.RootPanel;
 public final class Navigation {
 	
 	public static final AbstractPage homePage = new HomePage();
-	public static final AbstractPage person = new PersonSearch();
+	public static final AbstractPage person = new PersonSearchPage();
 	public static final AbstractPage course = new CourseSearch();
 	public static final AbstractPage poi = new PoiSearch();
-	public static final AbstractPage room = new RoomSearch();
+	public static final AbstractPage room = new RoomSearchPage();
 	public static final AbstractPage roomDetail = new DetailPageRoom();
 	public static final AbstractPage personDetail = new DetailPagePerson();
 	

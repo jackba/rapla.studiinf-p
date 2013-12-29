@@ -42,6 +42,8 @@ public class QRBox extends FlowPanel {
 	@Override
 	protected void onLoad() {
 		super.onLoad();
+		
+	qrCodeBox.getElement().setInnerHTML("");
 		UrlBuilder newUrl = Window.Location.createUrlBuilder();
 		newUrl.setHash(hash);
 		Studiinf.newQRCode(qrCodeBox.getElement().getId(), newUrl.buildString());

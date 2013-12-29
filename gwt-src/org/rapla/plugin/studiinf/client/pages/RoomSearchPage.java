@@ -7,7 +7,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import com.google.gwt.user.client.ui.Image;
 
 
-public class RoomSearch extends AbstractSearchPage {
+public class RoomSearchPage extends AbstractSearchPage {
 
 	@Override
 	public String getTitle() {
@@ -34,6 +34,12 @@ public class RoomSearch extends AbstractSearchPage {
 	@Override
 	public boolean hasOrganigramm() {
 		return false;
+	}
+
+	@Override
+	protected void handleSearch(String searchTerm) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

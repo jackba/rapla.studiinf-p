@@ -75,6 +75,7 @@ public void init() {
 				setSearched(false);
 			} else {
 				setSearched(true);
+				handleSearch(searchField.getText());
 			}
 		}
 	});
@@ -107,5 +108,16 @@ public void init() {
 		
 	}
 	
+	public void clearResult()
+	{
+		results.clear();
+		resultBtns.clear();
+	}
+	
+	abstract protected void handleSearch(String searchTerm);
+	
+		
+	
 	abstract public boolean hasOrganigramm();
+	
 }

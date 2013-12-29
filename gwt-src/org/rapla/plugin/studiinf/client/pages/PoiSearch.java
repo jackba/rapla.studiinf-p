@@ -23,4 +23,10 @@ public class PoiSearch extends AbstractSearchPage {
 		return false;
 	}
 
+	@Override
+	protected void handleSearch(String searchTerm) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

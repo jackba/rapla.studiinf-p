@@ -48,7 +48,7 @@ public abstract class AbstractPage extends ComplexPanel{
 		
 		@Override
 		public void add(Widget child) {
-			this.add(child,(com.google.gwt.dom.client.Element) this.getElement());
+			this.add(child, this.getElement());
 		};
 	
 	   abstract public String getHistoryKey();

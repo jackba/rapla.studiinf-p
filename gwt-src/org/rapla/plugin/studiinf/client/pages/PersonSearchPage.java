@@ -1,13 +1,19 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.Image;
 
 
-public class PersonSearch extends AbstractSearchPage {
+public class PersonSearchPage extends AbstractSearchPage {
 		
 	@Override
 	public String getTitle() {
@@ -33,5 +39,27 @@ public class PersonSearch extends AbstractSearchPage {
 	public boolean hasOrganigramm() {
 		return true;
 	}
+	
+	public void updateResults(List<ResourceDescriptor> results)
+	{
+//		Window.alert("Update begonnen");
+		clearResult();
+//		Window.alert("alte Daten gelöscht");
+		int counter = 1;
+		for(ResourceDescriptor person : results)
+		{
+			addResult(new ResultButton(counter, person.getName(), Navigation.personDetail, person.getId(), new Image("img/Kurse.svg")));
+			counter++;
+		}
+//		Window.alert("Neue Daten");
+	}
+
+	@Override
+	protected void handleSearch(String searchTerm) {
+		//Window.alert("Suche gestartet");
+		PersonSearch ps = new PersonSearch(searchTerm, this);
+		}
+	
+	
 
 }
