@@ -21,7 +21,7 @@ public class HomePage extends AbstractPage {
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
 		
-		QRBox qrBox = new QRBox();
+		QRBox qrBox = new QRBox(getHistoryKey());
 		
 		tileContainer.add(courseBtn);
 		tileContainer.add(personBtn);
@@ -30,6 +30,7 @@ public class HomePage extends AbstractPage {
 		
 		this.add(tileContainer);
 		this.add(qrBox);
+		
 		
 	};
 	

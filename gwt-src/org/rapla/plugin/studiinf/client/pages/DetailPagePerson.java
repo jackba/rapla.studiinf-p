@@ -1,6 +1,5 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import org.rapla.plugin.studiinf.client.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
@@ -86,7 +85,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	}
 
 	@Override
-	public void handleId(String id) {
+	protected void handleId(String id) {
 		// TODO Auto-generated method stub
 		
 	}

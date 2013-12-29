@@ -31,6 +31,8 @@ public class Studiinf implements EntryPoint {
 		History.fireCurrentHistoryState();
 		
 		ModalSpinner.hide();
+		
+		
 	
 	}
 
@@ -41,6 +43,18 @@ public class Studiinf implements EntryPoint {
 	      History.newItem("");
 	    }
 	}
+	
+	public static native void newQRCode(String elementId,String text) /*-{
+		var elm =  $doc.getElementById(elementId);
+		if(elm){
+			var qr = new $wnd.QRCode(elm, {
+    			text: text,
+    		});
+		}else{
+			$wnd.alert(JSON.stringify(elm));
+		}
+	
+	}-*/;
 
 	
 }

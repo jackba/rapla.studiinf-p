@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearch;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
@@ -58,7 +59,7 @@ public final class Navigation {
 		if(id != null){
 			try {
 				AbstractDetailPage detailPage = (AbstractDetailPage) page;
-				detailPage.handleId(id);
+				detailPage.setId(id);
 				History.newItem(page.getHistoryKey()+"/"+id, false);
 			} catch (Throwable e) {
 				History.newItem(page.getHistoryKey(), false);

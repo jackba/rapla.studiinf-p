@@ -357,6 +357,11 @@ nav{
 	width: 10vh;
 	height: 10vh;
 }
+.qrCode img{
+	margin: 1vh;
+	width:8vh;
+	height: 8vh;
+}
 .qrLabel{
 	margin: 1vh;
 	font-weight: bold;

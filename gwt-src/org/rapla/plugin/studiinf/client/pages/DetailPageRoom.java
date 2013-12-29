@@ -1,6 +1,5 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import org.rapla.plugin.studiinf.client.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -74,7 +73,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 
 	@Override
-	public void handleId(String id) {
+	protected void handleId(String id) {
 		roomNumber = "D "+id;
 		refresh();
 		
