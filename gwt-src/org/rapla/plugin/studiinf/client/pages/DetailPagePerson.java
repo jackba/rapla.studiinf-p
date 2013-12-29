@@ -1,7 +1,9 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.studiinf.client.AbstractDetailPage;
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
+import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
@@ -44,7 +46,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image img3 = new Image("img/Kurse.svg");
 		Image img4 = new Image("img/Kurse.svg");
 		
-		Widget roomNrBtn = new IconButton("Raum 1234", img1);
+		Widget roomNrBtn = new NavigationIconButton("D 935", img1,Navigation.roomDetail,"935");
 		Widget mailBtn = new IconButton("test@mail.de", img2);
 		Widget telephoneBtn = new IconButton("0122- 5675765", img3);
 		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", img4);
@@ -61,13 +63,12 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image img5 = new Image("img/Kurse.svg");
 		Image img6 = new Image("img/Raum.svg");
 		
-		Widget showRoomBtn = new IconButton("Raum anzeigen", img5);
+		Widget showRoomBtn = new NavigationIconButton("D 935", img5,Navigation.roomDetail,"935");
 		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", img6);
 		
 		bottomPanel.add(showRoomBtn);
 		bottomPanel.add(showextraInfosBtn);
 		
-		this.add(qrBox);
 
 		this.add(personInfoPanel);
 		this.add(bottomPanel);

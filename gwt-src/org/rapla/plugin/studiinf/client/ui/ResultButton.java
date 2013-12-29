@@ -19,7 +19,7 @@ public class ResultButton extends NavigationButton {
 		
 		
 		topPictureButton = new PictureButton(number, img1);
-		bottomPictureButton = new PictureButton(number, img2);
+		bottomPictureButton = new NavigationPictureButton(number, img2,targetPage,targetId);
 		
 		this.addStyleName("resultButton");
 		
