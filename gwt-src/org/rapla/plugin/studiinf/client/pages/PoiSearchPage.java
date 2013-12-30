@@ -3,7 +3,13 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.PoiSearch;
+import org.rapla.plugin.studiinf.client.ui.ResultButton;
+
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Image;
 
 
 public class PoiSearchPage extends AbstractSearchPage {
@@ -28,14 +34,23 @@ public class PoiSearchPage extends AbstractSearchPage {
 
 	@Override
 	protected void handleSearch(String searchTerm) {
-		// TODO Auto-generated method stub
+		new PoiSearch(searchTerm, this);
 		
 	}
 
 	@Override
 	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
-		// TODO Auto-generated method stub
+		clearResult();
+		int counter = 1;
+		for(ResourceDescriptor poi : ressourcesMatched)
+		{
+			addResult(new ResultButton(counter, poi.getName(), Navigation.roomDetail, poi.getId(), new Image("img/Kurse.svg")));
+			counter++;
+		//	Window.alert(poi.getName());
+		}
 		
 	}
 
+	
+	
 }
