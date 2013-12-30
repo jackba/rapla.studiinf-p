@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
 import com.google.gwtjsonrpc.common.AsyncCallback;
@@ -21,7 +22,7 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 		this.page = page;
 		if( !resourcesMap.containsKey(page))
 			{
-			SearchUtils.getResources(getResourceType(), this);
+			ServiceProvider.getResources(getResourceType(), this);
 			}
 		else
 		{

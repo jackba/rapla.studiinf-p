@@ -1,14 +1,19 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.ServiceProvider;
+import org.rapla.plugin.studiinf.client.search.PersonDescribtor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class DetailPagePerson extends AbstractDetailPage {
 
@@ -20,7 +25,11 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private FlowPanel picture = new FlowPanel();
 	private Label appointmentLabel = new Label("Anstehende Termine");
 	private Label courseLabel = new Label("Kurse");
+	private String name;
 	
+	private NavigationIconButton roomNrBtn;
+	private IconButton mailBtn;
+	private IconButton telephoneBtn;
 	
 	
 	@Override
@@ -45,9 +54,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image img3 = new Image("img/Kurse.svg");
 		Image img4 = new Image("img/Kurse.svg");
 		
-		Widget roomNrBtn = new NavigationIconButton("D 935", img1,Navigation.roomDetail,"935");
-		Widget mailBtn = new IconButton("test@mail.de", img2);
-		Widget telephoneBtn = new IconButton("0122- 5675765", img3);
+		roomNrBtn = new NavigationIconButton("D 935", img1,Navigation.roomDetail,"935");
+		mailBtn = new IconButton("test@mail.de", img2);
+		telephoneBtn = new IconButton("0122- 5675765", img3);
 		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", img4);
 		
 		infos.setWidget(0, 0, roomNrBtn);
@@ -81,12 +90,50 @@ public class DetailPagePerson extends AbstractDetailPage {
 
 	@Override
 	public String getTitle() {
-		return "Name of Person";
+		if(name == null){
+			name ="$NAME$";
+		}
+		return name;
 	}
 
 	@Override
 	protected void handleId(String id) {
-		// TODO Auto-generated method stub
+		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
+			
+			@Override
+			public void onSuccess(ResourceDetail arg0) {
+				//Window.alert(arg0.getKeys().toString());
+				PersonDescribtor person = new PersonDescribtor(arg0);
+				
+				name = person.getName();
+				roomNrBtn.setText(person.getRoomNr());
+				if(!person.getMail().equals("")){
+				mailBtn.setText(person.getMail());
+				mailBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+				}else{
+					mailBtn.getElement().getStyle().setDisplay(Display.NONE);
+				}
+				
+				if(!person.getPhoneNr().equals("")){
+					telephoneBtn.setText(person.getPhoneNr());
+					telephoneBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+					}else{
+						telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
+					}
+				
+				refresh();
+			}
+			
+			@Override
+			public void onFailure(Throwable arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	@Override
+	protected void refresh() {
+		super.refresh();
 		
 	}
 

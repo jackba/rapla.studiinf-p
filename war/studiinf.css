@@ -535,7 +535,12 @@ nav{
 .iconButton {
 	position: absolute;
 	background: #aeb4b8;
-	padding: 1vh;
+	border: solid 1px #ffffff;
+	height: 5vh;
+	font-size: 2vh;
+	padding: 1vh 0px;
+	line-height: 3vh;
+	overflow: hidden;
 }
 .iconIconButton {
 	position: absolute;

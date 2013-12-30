@@ -6,7 +6,7 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
 
-public class PoiSearch extends AbstractSearchPage {
+public class PoiSearchPage extends AbstractSearchPage {
 	
 
 	

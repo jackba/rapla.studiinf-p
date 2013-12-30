@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
-import org.rapla.plugin.studiinf.client.pages.CourseSearch;
+import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
-import org.rapla.plugin.studiinf.client.pages.PoiSearch;
+import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
 import com.google.gwt.user.client.History;
@@ -22,8 +22,8 @@ public final class Navigation {
 	
 	public static final AbstractPage homePage = new HomePage();
 	public static final AbstractPage person = new PersonSearchPage();
-	public static final AbstractPage course = new CourseSearch();
-	public static final AbstractPage poi = new PoiSearch();
+	public static final AbstractPage course = new CourseSearchPage();
+	public static final AbstractPage poi = new PoiSearchPage();
 	public static final AbstractPage room = new RoomSearchPage();
 	public static final AbstractPage roomDetail = new DetailPageRoom();
 	public static final AbstractPage personDetail = new DetailPagePerson();
