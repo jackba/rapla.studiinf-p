@@ -7,6 +7,7 @@ import org.rapla.plugin.freiraum.common.RaplaJsonService;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 
@@ -21,6 +22,10 @@ public class SearchUtils {
 		 	((ServiceDefTarget) service).setServiceEntryPoint(address);
 		}
 		return service;
+	}
+	
+	public static String getServiceLocale(){
+		return  LocaleInfo.getCurrentLocale().getLocaleName().substring(0, 2);
 	}
 
 	public static List<ResourceDescriptor> startsWithSearchTerm(int searchTerm, String searchString, List<ResourceDescriptor> resources)

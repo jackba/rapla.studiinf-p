@@ -5,7 +5,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 
-import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
@@ -25,7 +24,7 @@ public PersonSearch(String searchTerm, PersonSearchPage psPage)
 	page = psPage;
 	if(persons == null)
 		{
-		SearchUtils.getService().getResources("persons", null, LocaleInfo.getCurrentLocale().getLocaleName(), this);
+		SearchUtils.getService().getResources("persons", null,SearchUtils.getServiceLocale(), this);
 		}
 	else
 	{

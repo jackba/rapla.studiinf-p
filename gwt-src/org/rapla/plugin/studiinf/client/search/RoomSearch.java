@@ -5,7 +5,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
-import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
@@ -23,7 +22,7 @@ public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 	page = rsPage;
 	if(rooms == null)
 		{
-		SearchUtils.getService().getResources("rooms", null, LocaleInfo.getCurrentLocale().getLocaleName() , this);
+		SearchUtils.getService().getResources("rooms", null, SearchUtils.getServiceLocale() , this);
 		}
 	else
 	{
