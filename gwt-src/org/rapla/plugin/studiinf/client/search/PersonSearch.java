@@ -24,7 +24,7 @@ public PersonSearch(String searchTerm, PersonSearchPage psPage)
 	page = psPage;
 	if(persons == null)
 		{
-		SearchUtils.getService().getResources("persons", null,SearchUtils.getServiceLocale(), this);
+		SearchUtils.getResources("persons", this);
 		}
 	else
 	{

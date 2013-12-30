@@ -3,19 +3,23 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.rapla.plugin.freiraum.common.CategoryDescription;
+import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.RaplaJsonService;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDetail;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
+import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
 public class SearchUtils {	
 	
 	private static RaplaJsonService service = null;
 	
-	public static RaplaJsonService getService() {
+	private static RaplaJsonService getService() {
 		if(service == null){
 			service = GWT.create(RaplaJsonService.class);
 			String address = GWT.getModuleBaseURL() + "../rapla/json/org.rapla.plugin.freiraum.RaplaJsonService";
@@ -24,7 +28,7 @@ public class SearchUtils {
 		return service;
 	}
 	
-	public static String getServiceLocale(){
+	private static String getServiceLocale(){
 		return  LocaleInfo.getCurrentLocale().getLocaleName().substring(0, 2);
 	}
 
@@ -77,5 +81,29 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 			}
 		}
 		return resourceMatched;
+	}
+
+	public static void getResources(String resourceType, AsyncCallback<List<ResourceDescriptor>> callback) {
+		getService().getResources(resourceType, null, getServiceLocale(), callback);
+		
+	}
+
+	public static void getResource(String resourceId, AsyncCallback<ResourceDetail> callback) {
+		getService().getResource(resourceId, getServiceLocale(), callback);
+	}
+
+	public static void getOrganigram(String categoryId,	AsyncCallback<List<CategoryDescription>> callback) {
+		getService().getOrganigram(categoryId, getServiceLocale(), callback);
+		
+	}
+
+	public static void getFreeResources(String start, String end, String resourceType, AsyncCallback<List<Event>> callback) {
+		getService().getFreeResources(start, end, resourceType, getServiceLocale(), callback);
+		
+	}
+
+	public static void getEvents(String start, String end, String resourceId, AsyncCallback<List<Event>> callback) {
+		getService().getEvents(start, end, resourceId, getServiceLocale(), callback);
+		
 	}
 }

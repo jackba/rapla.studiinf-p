@@ -22,7 +22,7 @@ public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 	page = rsPage;
 	if(rooms == null)
 		{
-		SearchUtils.getService().getResources("rooms", null, SearchUtils.getServiceLocale() , this);
+		SearchUtils.getResources("rooms", this);
 		}
 	else
 	{
