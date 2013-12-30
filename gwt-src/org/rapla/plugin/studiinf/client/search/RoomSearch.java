@@ -2,19 +2,16 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.RaplaJsonService;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
+import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
 public class RoomSearch implements AsyncCallback<List<ResourceDescriptor>>{
 private static final int NAME = 0;
 private static final int TYPE = 1;
-private static RaplaJsonService service = GWT.create(RaplaJsonService.class);
 private String searchTerm;
 private RoomSearchPage page;
 
@@ -22,13 +19,11 @@ private static List<ResourceDescriptor> rooms;
 
 public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 {
-	String address = GWT.getModuleBaseURL() + "../rapla/json/RaplaJsonService";
- 	((ServiceDefTarget) service).setServiceEntryPoint(address);
 	this.searchTerm = searchTerm.toLowerCase();
 	page = rsPage;
 	if(rooms == null)
 		{
-		service.getResources("rooms", null, this);
+		SearchUtils.getService().getResources("rooms", null, LocaleInfo.getCurrentLocale().getLocaleName() , this);
 		}
 	else
 	{
