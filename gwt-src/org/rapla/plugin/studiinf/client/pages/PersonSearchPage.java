@@ -8,8 +8,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.Image;
 
 
@@ -40,11 +38,12 @@ public class PersonSearchPage extends AbstractSearchPage {
 		return true;
 	}
 	
+	@Override
 	public void updateResults(List<ResourceDescriptor> results)
 	{
 //		Window.alert("Update begonnen");
 		clearResult();
-//		Window.alert("alte Daten gelöscht");
+//		Window.alert("alte Daten gelï¿½scht");
 		int counter = 1;
 		for(ResourceDescriptor person : results)
 		{
@@ -56,8 +55,7 @@ public class PersonSearchPage extends AbstractSearchPage {
 
 	@Override
 	protected void handleSearch(String searchTerm) {
-		//Window.alert("Suche gestartet");
-		PersonSearch ps = new PersonSearch(searchTerm, this);
+		 new PersonSearch(searchTerm, this);
 		}
 	
 	

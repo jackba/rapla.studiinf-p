@@ -1,5 +1,8 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
@@ -119,5 +122,8 @@ public void init() {
 		
 	
 	abstract public boolean hasOrganigramm();
+
+
+	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);
 	
 }

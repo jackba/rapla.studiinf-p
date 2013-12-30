@@ -8,7 +8,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 
 
@@ -40,24 +39,22 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public boolean hasOrganigramm() {
 		return false;
 	}
-
+	
+	@Override
 	public void updateResults(List<ResourceDescriptor> results)
 	{
-	//	Window.alert("Update begonnen");
 		clearResult();
-	//	Window.alert("alte Daten gelöscht");
 		int counter = 1;
 		for(ResourceDescriptor room : results)
 		{
 			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image("img/Kurse.svg")));
 			counter++;
 		}
-	//	Window.alert("Neue Daten");
 	}
 	
 	@Override
 	protected void handleSearch(String searchTerm) {
-		RoomSearch rs = new RoomSearch(searchTerm, this);
+		new RoomSearch(searchTerm, this);
 		
 	}
 
