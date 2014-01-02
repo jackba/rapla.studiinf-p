@@ -24,7 +24,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private final String nameImgString = new String("img/Raum.svg");
 	private final String typeImgString = new String("img/Raum.svg");
 	private final String studyImgString = new String("img/Organigramm.svg");
-	private final String roomImgString = new String("img/Räume.svg");
+	private final String occcupancyImgString = new String("img/Räume.svg");
 	private final String noNavigationImgString = new String("img/KeineKarte.svg");
 	
 
@@ -40,7 +40,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		Image roomNameImg = new Image(nameImgString);
 		Image roomTypeImg = new Image(typeImgString);
 		Image studyImg = new Image(studyImgString);
-		Image roomImg = new Image(roomImgString);
+		Image roomImg = new Image(occcupancyImgString);
 		Image noNavigationImg = new Image(noNavigationImgString);
 		
 		
@@ -58,8 +58,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
-		
-		final String occcupancyImgString = new String("img/Kurse.svg");		
+			
 		Image occupancyImg = new Image(occcupancyImgString);
 		
 		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", occupancyImg);
