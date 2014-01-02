@@ -15,6 +15,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private Label infoLabel = new Label("Information");
 	
 	private Grid infos = new Grid(4, 1);
+	private FlowPanel navigationPicture = new FlowPanel();
 	
 	private String roomNumber = "D 459";
 	private String roomType = "Hörsaal";
@@ -29,6 +30,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
+		navigationPicture.setStyleName("navigationPicture");
 		
 		Image img1 = new Image("img/Kurse.svg");
 		Image img2 = new Image("img/Raum.svg");
@@ -55,6 +57,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
+		this.add(navigationPicture);
 	}
 	
 	

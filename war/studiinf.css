@@ -561,3 +561,12 @@ nav{
 	height:19vh;
 	background:#858f95;
 }
+
+.navigationPicture {
+	position:absolute !important;
+	top: 60vh;
+	left: 10vw;
+	width:80vw;
+	height:20vh;
+	background:#858f95;
+}
