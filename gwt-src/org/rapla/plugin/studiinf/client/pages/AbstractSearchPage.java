@@ -20,11 +20,13 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractSearchPage extends AbstractPage{
+	
+	private final String organigramImg = new String("img/Organigramm.svg");
 
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private Grid results = new Grid(3, 2);
-	private Image img = new Image("img/Kurse.svg");
+	private Image img = new Image(organigramImg);
 	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
 	private FlowPanel keyboard = new Keyboard(searchField);
 	protected HorizontalPanel resultBtns = new HorizontalPanel();

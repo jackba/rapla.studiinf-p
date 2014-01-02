@@ -22,7 +22,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label("Information");
 	private Grid infos = new Grid(4, 1);
-	private FlowPanel picture = new FlowPanel();
 	private Label appointmentLabel = new Label("Anstehende Termine");
 	private Label courseLabel = new Label("Kurse");
 	private String name;
@@ -41,38 +40,46 @@ public class DetailPagePerson extends AbstractDetailPage {
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-		picture.setStyleName("personDetailPicture");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseLabel.setStyleName("personCourseLabel");
 		
-		personInfoPanel.add(personInfoLabel);
-		personInfoPanel.add(picture);
-		personInfoPanel.add(infos);
+		final String roomNrImgString = new String("img/Raum.svg");
+		final String mailImgString = new String("img/Telefon.svg");
+		final String telephonImgString = new String("img/Telefon.svg");
+		final String extraInfoImgString = new String("img/ZusätzlicheInformationen.svg");
+		final String noPersonImgString = new String("img/Personen.svg");
 		
-		Image img1 = new Image("img/Kurse.svg");
-		Image img2 = new Image("img/Raum.svg");
-		Image img3 = new Image("img/Kurse.svg");
-		Image img4 = new Image("img/Kurse.svg");
+		Image roomNrImg = new Image(roomNrImgString);
+		Image mailImg = new Image(mailImgString);
+		Image telephonImg = new Image(telephonImgString);
+		Image extraInfoImg = new Image(extraInfoImgString);
+		Image noPersonImg = new Image(noPersonImgString);
 		
-		roomNrBtn = new NavigationIconButton("D 935", img1,Navigation.roomDetail,"935");
-		mailBtn = new IconButton("test@mail.de", img2);
-		telephoneBtn = new IconButton("0122- 5675765", img3);
-		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", img4);
+		roomNrBtn = new NavigationIconButton("D 935", roomNrImg,Navigation.roomDetail,"935");
+		mailBtn = new IconButton("test@mail.de", mailImg);
+		telephoneBtn = new IconButton("0122- 5675765", telephonImg);
+		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", extraInfoImg);
 		
 		infos.setWidget(0, 0, roomNrBtn);
 		infos.setWidget(1, 0, mailBtn);
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
 		
+		noPersonImg.setStyleName("personDetailPicture");
+		
+		personInfoPanel.add(personInfoLabel);
+		personInfoPanel.add(noPersonImg);
+		personInfoPanel.add(infos);
+		
 
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseLabel);
 		
-		Image img5 = new Image("img/Kurse.svg");
-		Image img6 = new Image("img/Raum.svg");
+		Image roomNrImg2 = new Image(roomNrImgString);
+		Image extraInfoImg2 = new Image(extraInfoImgString);
 		
-		Widget showRoomBtn = new NavigationIconButton("D 935", img5,Navigation.roomDetail,"935");
-		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", img6);
+		Widget showRoomBtn = new NavigationIconButton("D 935", roomNrImg2,Navigation.roomDetail,"935");
+		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg2);
 		
 		bottomPanel.add(showRoomBtn);
 		bottomPanel.add(showextraInfosBtn);

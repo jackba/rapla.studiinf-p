@@ -570,3 +570,10 @@ nav{
 	height:20vh;
 	background:#858f95;
 }
+.navigationPicture .img{
+	position:absolute;
+	height: 20vh;
+	width:60vw;
+	top:0px;
+	left:5vh;
+}

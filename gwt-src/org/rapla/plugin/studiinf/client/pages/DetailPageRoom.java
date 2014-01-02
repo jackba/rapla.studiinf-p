@@ -15,12 +15,18 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private Label infoLabel = new Label("Information");
 	
 	private Grid infos = new Grid(4, 1);
-	private FlowPanel navigationPicture = new FlowPanel();
 	
 	private String roomNumber = "D 459";
 	private String roomType = "Hörsaal";
 	
 	private IconButton nameBtn;
+	
+	private final String nameImgString = new String("img/Raum.svg");
+	private final String typeImgString = new String("img/Raum.svg");
+	private final String studyImgString = new String("img/Organigramm.svg");
+	private final String roomImgString = new String("img/Räume.svg");
+	private final String noNavigationImgString = new String("img/KeineKarte.svg");
+	
 
 	@Override
 	public void init(){
@@ -30,17 +36,20 @@ public class DetailPageRoom extends AbstractDetailPage {
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
-		navigationPicture.setStyleName("navigationPicture");
 		
-		Image img1 = new Image("img/Kurse.svg");
-		Image img2 = new Image("img/Raum.svg");
-		Image img3 = new Image("img/Kurse.svg");
-		Image img4 = new Image("img/Kurse.svg");
+		Image roomNameImg = new Image(nameImgString);
+		Image roomTypeImg = new Image(typeImgString);
+		Image studyImg = new Image(studyImgString);
+		Image roomImg = new Image(roomImgString);
+		Image noNavigationImg = new Image(noNavigationImgString);
 		
-		 nameBtn = new IconButton(roomNumber, img1);
-		Widget typeBtn = new IconButton(roomType, img2);
-		Widget studyBtn = new IconButton("Wirtschaftsinformatik", img3);
-		Widget roomBtn = new IconButton("Raumbelegung", img4);
+		
+		noNavigationImg.setStyleName("navigationPicture");
+		
+		 nameBtn = new IconButton(roomNumber, roomNameImg);
+		Widget typeBtn = new IconButton(roomType, roomTypeImg);
+		Widget studyBtn = new IconButton("Wirtschaftsinformatik", studyImg);
+		Widget roomBtn = new IconButton("Raumbelegung", roomImg);
 		
 		infos.setWidget(0, 0, nameBtn);
 		infos.setWidget(1, 0, typeBtn);
@@ -50,14 +59,15 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		Image img5 = new Image("img/Kurse.svg");
+		final String occcupancyImgString = new String("img/Kurse.svg");		
+		Image occupancyImg = new Image(occcupancyImgString);
 		
-		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", img5);
+		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", occupancyImg);
 		roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
-		this.add(navigationPicture);
+		this.add(noNavigationImg);
 	}
 	
 	
