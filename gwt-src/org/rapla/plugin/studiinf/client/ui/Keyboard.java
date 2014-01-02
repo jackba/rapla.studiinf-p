@@ -16,6 +16,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 		super();
 		this.inputField = inputField;
 					
+		addStringAsRow("1|2|3|4|5|6|7|8|9|0");
 		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü|return");
 		addStringAsRow("A|S|D|F|G|H|J|K|L|Ö|Ä");
 		addStringAsRow("Y|X|C|V|B|N|M|.|search");
@@ -57,8 +58,8 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 				
 			}
 			button.getElement().getStyle().setWidth(100/keysArray.length, Unit.PCT);
-			button.getElement().getStyle().setProperty("height", "3.5vh");
-			button.getElement().getStyle().setProperty("fontSize", "2.5vh");
+			button.getElement().getStyle().setProperty("height", "2.6h");
+			button.getElement().getStyle().setProperty("fontSize", "1.5vh");
 			button.getElement().getStyle().setProperty("padding", "0px");
 			row.add(button);
 		}
@@ -68,7 +69,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 		}else if(this.getChildren().size() <= 3){
 			row.getElement().getStyle().setMarginRight(50/keysArray.length, Unit.PCT);
 		}
-		row.getElement().getStyle().setProperty("heigth", "3.75vh");
+		row.getElement().getStyle().setProperty("heigth", "2.6vh");
 	}
 
 	private Button handleSpecialKey(String key) {
