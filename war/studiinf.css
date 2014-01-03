@@ -392,19 +392,20 @@ nav{
 	right:5vw;
 	width:88vw;
 	height:28vh;
-	border-left: solid 1vw #ffffff;
-	border-left-width: 1em;
+	border-left: solid 0.5vw #ffffff;
+	border-left-width: 0.5em;
 	font-size:1vw;
-	border-right: solid 1vw #ffffff;
-	border-right-width: 1em;
-	border-top: solid 1vh #ffffff;
-	border-top-width: 1.77em;
-	border-bottom: solid 1vh #ffffff;
-	border-bottom-width: 1.77em;
+	border-right: solid 0.5vw #ffffff;
+	border-right-width: 0.5em;
+	border-top: solid 0.25vh #ffffff;
+	border-top-width: 0.44em;
+	border-bottom: solid 0.25vh #ffffff;
+	border-bottom-width: 0.44em;
 }
 
 .personInfoPanel {
 	height:25vh;
+	top: 10vh;
 }
 .searchPanel{
 	top:auto;
@@ -494,6 +495,11 @@ nav{
 	bottom: 7vh;
 	height:5.5vh;
 }
+
+.personBottomPanel {
+	bottom: 6.5vh;
+	height:5vh;
+}
 .personMiddlePanel {
 	top: 50vh;
 	bottom: auto;
@@ -549,7 +555,7 @@ nav{
 
 .personInfos {
 	top: 4vh;
-	left: 30vw;
+	left: 27vw;
 }
 
 .personCourses {
@@ -561,10 +567,10 @@ nav{
 }
 
 .infos .iconButton {
-	width: 84vw;
+	width: 87vw;
 }
 .personInfos .iconButton {
-	width: 54vw;
+	width: 60vw;
 }
 
 .personCourses .iconButton {
