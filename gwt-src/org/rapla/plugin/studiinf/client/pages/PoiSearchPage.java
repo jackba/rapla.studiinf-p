@@ -8,7 +8,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 
 

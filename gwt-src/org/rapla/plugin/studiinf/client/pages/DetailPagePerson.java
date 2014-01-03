@@ -107,12 +107,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image firstLectureRoomImg = new Image(roomNrImgString);
 		Image secondLectureRoomImg = new Image(roomNrImgString);
 		Image thirdLectureRoomImg = new Image(roomNrImgString);
-		Image fourthLectureRoomImg = new Image(roomNrImgString);
 		
 		IconButton firstLectureRoom = new IconButton("D195", firstLectureRoomImg);
 		IconButton secondLectureRoom = new IconButton("D295", secondLectureRoomImg);
 		IconButton thirdLectureRoom = new IconButton("D395", thirdLectureRoomImg);
-		IconButton fourthLectureRoom = new IconButton("D495", fourthLectureRoomImg);
 		
 		lectureRooms.setWidget(0, 0, firstLectureRoom);
 		lectureRooms.setWidget(1, 0, secondLectureRoom);
