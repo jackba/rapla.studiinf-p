@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos{
+.results, .infos, .personInfos, .personCourses{
 	position:absolute;
 	top:9vh;
 	left:1vw;
@@ -337,7 +337,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox{
+.qrBox, .personQRBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -346,6 +346,11 @@ nav{
 	height:10vh;
 	background: #ffffff;
 }
+
+.personQRBox {
+	top: 39vh;
+}
+
 .qrLabelImg,.qrCode{
 	float:right;
 	width:8vh;
@@ -396,6 +401,10 @@ nav{
 	border-top-width: 1.77em;
 	border-bottom: solid 1vh #ffffff;
 	border-bottom-width: 1.77em;
+}
+
+.personInfoPanel {
+	height:25vh;
 }
 .searchPanel{
 	top:auto;
@@ -486,9 +495,9 @@ nav{
 	height:5.5vh;
 }
 .personMiddlePanel {
-	top: 56.5vh;
+	top: 50vh;
 	bottom: auto;
-	height:25vh;
+	height:33vh;
 }
 .infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel{
 	display:block;
@@ -505,14 +514,19 @@ nav{
 	color:#ffffff;
 }
 
-.personAppointmentLabel {
-	top: 7vh;
+.personInfoLabel {
+	top: 0.5vh;	
 	height: 5vh;
 }
 
+.personAppointmentLabel {
+	top: 5vh;
+	height: 4.5vh;
+}
+
 .personCourseLabel {
-	top: 13vh;
-	height: 5vh;
+	top: 20vh;
+	height: 4.5vh;
 }
 .infos{
 	top:7vh;
@@ -522,8 +536,16 @@ nav{
 }
 
 .personInfos {
-	top: 6vh;
+	top: 4vh;
 	left: 30vw;
+}
+
+.personCourses {
+	top: auto;
+	bottom: 2vh;
+	height: 8vh;
+	left: 4vw;
+	width: 83vw;
 }
 
 .infos .iconButton {
@@ -531,6 +553,12 @@ nav{
 }
 .personInfos .iconButton {
 	width: 54vw;
+}
+
+.personCourses .iconButton {
+	width: 27vw;
+	height: 4vh;
+	padding: 1vh;
 }
 .iconButton {
 	position: absolute;
@@ -555,10 +583,10 @@ nav{
 
 .personDetailPicture {
 	position:absolute !important;
-	top: 8vh;
+	top: 6vh;
 	left:1vw;
 	width:25vw;
-	height:19vh;
+	height:18vh;
 	background:#858f95;
 }
 

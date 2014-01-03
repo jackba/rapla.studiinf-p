@@ -97,4 +97,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 		nameBtn.setText(roomNumber);
 	}
 
+
+	@Override
+	public boolean hasDefaultQrBox() {
+		return true;
+	}
+
 }

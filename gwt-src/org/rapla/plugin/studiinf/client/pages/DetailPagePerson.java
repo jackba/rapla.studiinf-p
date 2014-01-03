@@ -6,6 +6,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.search.PersonDescribtor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -22,6 +23,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label("Information");
 	private Grid infos = new Grid(4, 1);
+	private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label("Anstehende Termine");
 	private Label courseLabel = new Label("Kurse");
 	private String name;
@@ -30,16 +32,28 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
 	
+	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	
+	@Override
+	public boolean hasDefaultQrBox(){
+		return false;
+	}
+	
 	
 	@Override
 	public void init(){
 		super.init();
+		
+		//QRBox qrBox = getQrBox();
+		//this.remove(qrBox);
+		qrBox.setStyleName("personQRBox");
 		
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
+		courses.setStyleName("personCourses");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseLabel.setStyleName("personCourseLabel");
 		
@@ -65,6 +79,28 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
 		
+		final String courseImgString = new String("img/Kurse.svg");
+		Image firstCourseImg = new Image(courseImgString);
+		Image secondCourseImg = new Image(courseImgString);
+		Image thirdCourseImg = new Image(courseImgString);
+		Image fourthCourseImg = new Image(courseImgString);
+		Image fifthCourseImg = new Image(courseImgString);
+		Image sixthCourseImg = new Image(courseImgString);
+		
+		IconButton firstCourse = new IconButton("Name 1", firstCourseImg);
+		IconButton secondCourse = new IconButton("Name 2", secondCourseImg);
+		IconButton thirdCourse = new IconButton("Name 3", thirdCourseImg);
+		IconButton fourthCourse = new IconButton("Name 4", fourthCourseImg);
+		IconButton fifthCourse = new IconButton("Name 5", fifthCourseImg);
+		IconButton sixthCourse = new IconButton("Name 6", sixthCourseImg);
+		
+		courses.setWidget(0, 0, firstCourse);
+		courses.setWidget(0, 1, secondCourse);
+		courses.setWidget(0, 2, thirdCourse);
+		courses.setWidget(1, 0, fourthCourse);
+		courses.setWidget(1, 1, fifthCourse);
+		courses.setWidget(1, 2, sixthCourse); 
+		
 		noPersonImg.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
@@ -74,6 +110,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseLabel);
+		middlePanel.add(courses);
 		
 		Image roomNrImg2 = new Image(roomNrImgString);
 		Image extraInfoImg2 = new Image(extraInfoImgString);
@@ -88,6 +125,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
+		this.add(qrBox);
 	}
 	
 	@Override

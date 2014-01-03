@@ -8,6 +8,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	abstract protected void handleId(String id);
 	public String id ="";
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	abstract public boolean hasDefaultQrBox();
 	
 	public String getId() {
 		return id;
@@ -16,8 +17,10 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	public void setId(String id) {
 		this.id = id;
 		this.remove(qrBox);
-		qrBox = new QRBox(getHistoryKey()+"/"+getId());
-		this.add(qrBox);
+		if (this.hasDefaultQrBox() == true){
+			qrBox = new QRBox(getHistoryKey()+"/"+getId());
+			this.add(qrBox);
+		}
 		handleId(id);
 	}
 
@@ -25,7 +28,10 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	public void init() {
 		super.init();
 		qrBox.setStyleName("qrBox");
-		this.add(qrBox);
+		if (this.hasDefaultQrBox() == true){
+			this.add(qrBox);
+		}
+		
 
 		
 	}
