@@ -499,7 +499,7 @@ nav{
 	bottom: auto;
 	height:33vh;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -514,13 +514,25 @@ nav{
 	color:#ffffff;
 }
 
+.personCourseOfStudyLabel , .personCourseOfStudyInfo{
+	width: 16vw;
+	height: 5vh;
+	top: 0.5vh;
+}
+
+.personCourseOfStudyInfo {
+	left:27.5vw;
+	width: 49.5vw;
+	background: #aeb4b8;
+}
+
 .personInfoLabel {
 	top: 0.5vh;	
 	height: 5vh;
 }
 
 .personAppointmentLabel {
-	top: 5vh;
+	top: 6vh;
 	height: 4.5vh;
 }
 

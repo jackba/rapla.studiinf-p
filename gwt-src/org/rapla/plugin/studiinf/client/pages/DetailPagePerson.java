@@ -22,6 +22,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private FlowPanel bottomPanel = new FlowPanel();
 	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label("Information");
+	private Label courseOfStudyLabel = new Label("Studiengang");
+	private Label courseOfStudyInfo = new Label("Wirtschaftsinformatik");
 	private Grid infos = new Grid(4, 1);
 	private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label("Anstehende Termine");
@@ -43,11 +45,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	public void init(){
 		super.init();
-		
-		//QRBox qrBox = getQrBox();
-		//this.remove(qrBox);
+	
 		qrBox.setStyleName("personQRBox");
-		
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
@@ -56,6 +55,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courses.setStyleName("personCourses");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseLabel.setStyleName("personCourseLabel");
+		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
+		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
 		final String roomNrImgString = new String("img/Raum.svg");
 		final String mailImgString = new String("img/Telefon.svg");
@@ -111,6 +112,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseLabel);
 		middlePanel.add(courses);
+		middlePanel.add(courseOfStudyLabel);
+		middlePanel.add(courseOfStudyInfo);
 		
 		Image roomNrImg2 = new Image(roomNrImgString);
 		Image extraInfoImg2 = new Image(extraInfoImgString);
