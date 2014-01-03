@@ -25,6 +25,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyLabel = new Label("Studiengang");
 	private Label courseOfStudyInfo = new Label("Wirtschaftsinformatik");
 	private Grid infos = new Grid(4, 1);
+	private Grid lectureRooms = new Grid(3, 1);
 	private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label("Anstehende Termine");
 	private Label courseLabel = new Label("Kurse");
@@ -53,6 +54,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
 		courses.setStyleName("personCourses");
+		lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseLabel.setStyleName("personCourseLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
@@ -102,6 +104,21 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courses.setWidget(1, 1, fifthCourse);
 		courses.setWidget(1, 2, sixthCourse); 
 		
+		Image firstLectureRoomImg = new Image(roomNrImgString);
+		Image secondLectureRoomImg = new Image(roomNrImgString);
+		Image thirdLectureRoomImg = new Image(roomNrImgString);
+		Image fourthLectureRoomImg = new Image(roomNrImgString);
+		
+		IconButton firstLectureRoom = new IconButton("D195", firstLectureRoomImg);
+		IconButton secondLectureRoom = new IconButton("D295", secondLectureRoomImg);
+		IconButton thirdLectureRoom = new IconButton("D395", thirdLectureRoomImg);
+		IconButton fourthLectureRoom = new IconButton("D495", fourthLectureRoomImg);
+		
+		lectureRooms.setWidget(0, 0, firstLectureRoom);
+		lectureRooms.setWidget(1, 0, secondLectureRoom);
+		lectureRooms.setWidget(2, 0, thirdLectureRoom);
+		
+		
 		noPersonImg.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
@@ -114,6 +131,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courses);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
+		middlePanel.add(lectureRooms);
 		
 		Image roomNrImg2 = new Image(roomNrImgString);
 		Image extraInfoImg2 = new Image(extraInfoImgString);

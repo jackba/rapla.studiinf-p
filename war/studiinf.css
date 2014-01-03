@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personCourses{
+.results, .infos, .personInfos, .personCourses, .personLectureRooms{
 	position:absolute;
 	top:9vh;
 	left:1vw;
@@ -342,13 +342,13 @@ nav{
 	top: 45vh;
 	left:5vw;
 	right:5vw;
-	width:90vw;
+	width:89vw;
 	height:10vh;
 	background: #ffffff;
 }
 
 .personQRBox {
-	top: 39vh;
+	top: 37vh;
 }
 
 .qrLabelImg,.qrCode{
@@ -498,12 +498,11 @@ nav{
 
 .personBottomPanel {
 	bottom: 6.5vh;
-	height:5vh;
 }
 .personMiddlePanel {
-	top: 50vh;
+	top: 48vh;
 	bottom: auto;
-	height:33vh;
+	height:38vh;
 }
 .infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo{
 	display:block;
@@ -543,7 +542,8 @@ nav{
 }
 
 .personCourseLabel {
-	top: 20vh;
+	top: auto;
+	bottom: 9vh;
 	height: 4.5vh;
 }
 .infos{
@@ -561,11 +561,17 @@ nav{
 .personCourses {
 	top: auto;
 	bottom: 2vh;
-	height: 8vh;
+	height: 9vh;
 	left: 4vw;
 	width: 83vw;
 }
-
+.personLectureRooms {
+	position: absoute;
+	left: 60vw;
+	top: 8.5vh;
+	width: 33vw;
+	height: 13.5vh;
+}
 .infos .iconButton {
 	width: 87vw;
 }
@@ -575,8 +581,13 @@ nav{
 
 .personCourses .iconButton {
 	width: 27vw;
-	height: 4vh;
-	padding: 1vh;
+	height: 4.5vh;
+	padding: 0.5vh;
+}
+.personLectureRooms .iconButton {
+	width: 27vw;
+	height: 4.5vh;
+	padding: 0.5vh;
 }
 .iconButton {
 	position: absolute;
