@@ -589,7 +589,10 @@ nav{
 	height: 4.5vh;
 	padding: 0.5vh;
 }
-.iconButton {
+.personBottomPanel .iconButton{
+	width: 50vw;
+}
+.iconButton, .personShowExtraInfosBtn {
 	position: absolute;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
@@ -598,6 +601,10 @@ nav{
 	padding: 1vh 0px;
 	line-height: 3vh;
 	overflow: hidden;
+}
+.personShowExtraInfosBtn {
+	left: 50vw;
+	width: 37vw;
 }
 .iconIconButton {
 	position: absolute;

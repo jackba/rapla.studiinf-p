@@ -136,6 +136,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		Widget showRoomBtn = new NavigationIconButton("D 935", roomNrImg2,Navigation.roomDetail,"935");
 		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg2);
+		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		
 		bottomPanel.add(showRoomBtn);
 		bottomPanel.add(showextraInfosBtn);
