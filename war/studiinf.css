@@ -573,7 +573,7 @@ nav{
 	height: 13.5vh;
 }
 .infos .iconButton {
-	width: 87vw;
+	width: 86vw;
 }
 .personInfos .iconButton {
 	width: 60vw;
@@ -623,14 +623,8 @@ nav{
 	position:absolute !important;
 	top: 60vh;
 	left: 10vw;
-	width:80vw;
+	width:77vw;
 	height:20vh;
 	background:#858f95;
 }
-.navigationPicture .img{
-	position:absolute;
-	height: 20vh;
-	width:60vw;
-	top:0px;
-	left:5vh;
-}
+
