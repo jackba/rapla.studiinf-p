@@ -635,3 +635,11 @@ nav{
 	background:#858f95;
 }
 
+.logo {
+	position:absolute !important;
+	top: 9vh;
+	left: 27vw;
+	width:45vw;
+	height:17vh;
+}
+

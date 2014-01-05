@@ -6,6 +6,8 @@ import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
+import com.google.gwt.user.client.ui.Image;
+
 
 public class HomePage extends AbstractPage {
 	
@@ -13,6 +15,9 @@ public class HomePage extends AbstractPage {
 	@Override
 	public void init() {
 		super.init();
+		final String logoImgString = new String("img/Logo.svg");
+		Image logo = new Image(logoImgString);
+		logo.setStyleName("logo");
 		
 		TileContainer tileContainer = new TileContainer();
 		
@@ -30,13 +35,15 @@ public class HomePage extends AbstractPage {
 		
 		this.add(tileContainer);
 		this.add(qrBox);
+		this.add(logo);
 		
 		
 	};
 	
 	@Override
 	public String getTitle() {
-		return Studiinf.i18n.homeScreenTitle();
+		//return Studiinf.i18n.homeScreenTitle();
+		return "";
 	}
 
 	@Override

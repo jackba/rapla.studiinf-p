@@ -10,14 +10,12 @@ import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwtjsonrpc.common.AsyncCallback;
-import com.sun.imageio.plugins.common.I18N;
 
 public class DetailPagePerson extends AbstractDetailPage {
 	
