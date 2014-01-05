@@ -247,9 +247,9 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personCourses, .personLectureRooms{
+.results, .infos, .personInfos, .personCourses, .personLectureRooms, .poiResults{
 	position:absolute;
-	top:9vh;
+	top:8vh;
 	left:1vw;
 	width:86vw;
 	height:18vh;
@@ -258,6 +258,10 @@ nav{
 }
 .results td{
 	border: solid 1px transparent;
+}
+
+.poiResults {
+	height:11vh;
 }
 
 .keyboard {
@@ -337,7 +341,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox, .personQRBox{
+.qrBox, .personQRBox, .poiQrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -348,6 +352,10 @@ nav{
 }
 
 .personQRBox {
+	top: 37vh;
+}
+
+.poiQrBox {
 	top: 37vh;
 }
 
@@ -385,7 +393,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel{
 	position: absolute;
 	top: 11vh;
 	left:5vw;
@@ -401,6 +409,10 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+}
+
+.poiResultsPanel {
+	height:19.5vh;
 }
 
 .personInfoPanel {
@@ -433,7 +445,7 @@ nav{
 	font-size: 2.5vh;
 	font-weight: bold;
 }
-.pictureButton .img{
+.pictureButton .img, .poiRightNav, .poiLeftNav{
 	position:absolute;
 	height: 5vh;
 	width:5vh;
@@ -467,6 +479,14 @@ nav{
 	top:0px;
 	left:0px;
 	border:none;
+}
+.poiRightNav, .poiLeftNav {
+	top: 32vh;
+	left: 30vw;
+	height: 4vh;
+}
+.poiRightNav {
+	left: 60vw;
 }
 .resultBtns .pictureButton{
 	height: 3vh;
@@ -504,7 +524,21 @@ nav{
 	bottom: auto;
 	height:38vh;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo{
+.poiPage {
+	display:block;
+	position:absolute;
+	top: 32vh;
+	height: 4vh;
+	left:40vw;
+	right:1vw;
+	width:11vw;
+	padding:0px 2vw;
+	background: #AEB4B8;
+	font-size:2vh;
+	line-height:5vh;
+	color:#ffffff;
+}
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -518,7 +552,12 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-
+.currentPoiLabel {
+	top: 48vh;
+	left:7.5vw;
+	height: 4.5vh;
+	width:75.5vw;
+}
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
 	width: 16vw;
 	height: 5vh;
@@ -626,13 +665,21 @@ nav{
 	background:#858f95;
 }
 
-.navigationPicture {
+.navigationPicture, .poiNavigationImg {
 	position:absolute !important;
 	top: 60vh;
 	left: 10vw;
 	width:77vw;
 	height:20vh;
 	background:#858f95;
+}
+
+.poiNavigationImg {
+	top: 53vh;
+	width: 85vw;
+	height:34vh;
+	left: 7.5vw;
+	
 }
 
 .logo {
