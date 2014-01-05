@@ -6,7 +6,7 @@ import com.google.gwt.i18n.client.Messages;
 
 
 public interface I18n extends Messages {
-	  String sendRequestToServer(int number);
+	String sendRequestToServer(int number);
 	  String homeScreenTitle();
 	  String otherLanguage();
 	  String otherLanguageURL();
@@ -23,4 +23,6 @@ public interface I18n extends Messages {
 	String organigram();
 	String homeButtonText();
 	String qrInfoText();
+	String courseOfStudy();
+	String nextAppointments();
 	}

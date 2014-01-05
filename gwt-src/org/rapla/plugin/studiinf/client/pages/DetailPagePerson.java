@@ -3,39 +3,49 @@ package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescribtor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwtjsonrpc.common.AsyncCallback;
+import com.sun.imageio.plugins.common.I18N;
 
 public class DetailPagePerson extends AbstractDetailPage {
+	
+	private String courseOfStudy = "Wirtschaftsinformatik";
 
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
 	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label("Information");
-	private Label courseOfStudyLabel = new Label("Studiengang");
-	private Label courseOfStudyInfo = new Label("Wirtschaftsinformatik");
+	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
+	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(4, 1);
 	private Grid lectureRooms = new Grid(3, 1);
 	private Grid courses = new Grid(2, 3);
-	private Label appointmentLabel = new Label("Anstehende Termine");
-	private Label courseLabel = new Label("Kurse");
+	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
+	private Label courseLabel = new Label(Studiinf.i18n.courses());
 	private String name;
 	
 	private NavigationIconButton roomNrBtn;
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
+	private IconButton showRoomBtn;
 	
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	
+	private String departmentText;
+	private String mailText;
+	private String phoneText;
 	
 	@Override
 	public boolean hasDefaultQrBox(){
@@ -60,7 +70,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
-		final String roomNrImgString = new String("img/Raum.svg");
+		final String roomNrImgString = new String("img/Räume.svg");
 		final String mailImgString = new String("img/Telefon.svg");
 		final String telephonImgString = new String("img/Telefon.svg");
 		final String extraInfoImgString = new String("img/ZusätzlicheInformationen.svg");
@@ -72,9 +82,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image extraInfoImg = new Image(extraInfoImgString);
 		Image noPersonImg = new Image(noPersonImgString);
 		
-		roomNrBtn = new NavigationIconButton("D 935", roomNrImg,Navigation.roomDetail,"935");
-		mailBtn = new IconButton("test@mail.de", mailImg);
-		telephoneBtn = new IconButton("0122- 5675765", telephonImg);
+		roomNrBtn = new NavigationIconButton(departmentText, roomNrImg,Navigation.roomDetail,departmentText);
+		mailBtn = new IconButton(mailText, mailImg);
+		telephoneBtn = new IconButton(phoneText, telephonImg);
 		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", extraInfoImg);
 		
 		infos.setWidget(0, 0, roomNrBtn);
@@ -134,7 +144,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Image roomNrImg2 = new Image(roomNrImgString);
 		Image extraInfoImg2 = new Image(extraInfoImgString);
 		
-		Widget showRoomBtn = new NavigationIconButton("D 935", roomNrImg2,Navigation.roomDetail,"935");
+		showRoomBtn = new NavigationIconButton(departmentText, roomNrImg2,Navigation.roomDetail,departmentText);
 		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg2);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		
@@ -169,23 +179,23 @@ public class DetailPagePerson extends AbstractDetailPage {
 			public void onSuccess(ResourceDetail arg0) {
 				//Window.alert(arg0.getKeys().toString());
 				PersonDescribtor person = new PersonDescribtor(arg0);
+				//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
 				
 				name = person.getName();
-				roomNrBtn.setText(person.getRoomNr());
+				departmentText = person.getRoomNr();
 				if(!person.getMail().equals("")){
-				mailBtn.setText(person.getMail());
+				mailText = person.getMail();
 				mailBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 				}else{
 					mailBtn.getElement().getStyle().setDisplay(Display.NONE);
 				}
 				
 				if(!person.getPhoneNr().equals("")){
-					telephoneBtn.setText(person.getPhoneNr());
+					phoneText = person.getPhoneNr();
 					telephoneBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 					}else{
 						telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
 					}
-				
 				refresh();
 			}
 			
@@ -199,6 +209,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
+		roomNrBtn.setText(departmentText);
+		telephoneBtn.setText(phoneText);
+		mailBtn.setText(mailText); 
+		showRoomBtn.setText(departmentText);
 		
 	}
 

@@ -21,16 +21,17 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private IconButton nameBtn;
 	
-	private final String nameImgString = new String("img/Raum.svg");
-	private final String typeImgString = new String("img/Raum.svg");
+	private final String nameImgString = new String("img/Räume.svg");
+	private final String typeImgString = new String("img/Räume.svg");
 	private final String studyImgString = new String("img/Organigramm.svg");
-	private final String occcupancyImgString = new String("img/Räume.svg");
 	private final String noNavigationImgString = new String("img/KeineKarte.svg");
+	final String occupancy = new String("img/Kalender.svg");
 	
 
 	@Override
 	public void init(){
 		super.init();
+		
 		
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
@@ -40,7 +41,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		Image roomNameImg = new Image(nameImgString);
 		Image roomTypeImg = new Image(typeImgString);
 		Image studyImg = new Image(studyImgString);
-		Image roomImg = new Image(occcupancyImgString);
+		Image roomImg = new Image(occupancy);
 		Image noNavigationImg = new Image(noNavigationImgString);
 		
 		
@@ -58,8 +59,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
+		
 			
-		Image occupancyImg = new Image(occcupancyImgString);
+		Image occupancyImg = new Image(occupancy);
 		
 		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", occupancyImg);
 		roomPanel.add(bottomRoomBtn);
