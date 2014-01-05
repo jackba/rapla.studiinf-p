@@ -393,7 +393,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel{
 	position: absolute;
 	top: 11vh;
 	left:5vw;
@@ -409,6 +409,14 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+}
+
+.poiBottomResultPanel {
+	top: auto;
+	bottom: 7vh;
+	left:16.5vw;
+	width:66vw;
+	height:5vh;
 }
 
 .poiResultsPanel {
@@ -445,7 +453,7 @@ nav{
 	font-size: 2.5vh;
 	font-weight: bold;
 }
-.pictureButton .img, .poiRightNav, .poiLeftNav{
+.pictureButton .img, .poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav{
 	position:absolute;
 	height: 5vh;
 	width:5vh;
@@ -480,13 +488,25 @@ nav{
 	left:0px;
 	border:none;
 }
-.poiRightNav, .poiLeftNav {
+.poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav {
 	top: 32vh;
 	left: 30vw;
 	height: 4vh;
 }
-.poiRightNav {
+.poiRightNav{
 	left: 60vw;
+}
+.poiBottomRightNav {
+	right: 7.5vw;
+	left: auto;
+}
+.poiBottomLeftNav {
+	left: 7.5vw;
+}
+
+.poiBottomRightNav, .poiBottomLeftNav {
+	top: auto;
+	bottom: 7.5vh;
 }
 .resultBtns .pictureButton{
 	height: 3vh;

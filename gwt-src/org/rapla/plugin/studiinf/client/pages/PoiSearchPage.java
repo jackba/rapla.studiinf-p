@@ -19,6 +19,7 @@ public class PoiSearchPage extends AbstractDetailPage {
 	private Label currentPage = new Label("Seite 1");
 	private Label currentPoi = new Label("Casino");
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	private FlowPanel bottomResultPanel = new FlowPanel();
 	
 	@Override
 	public void init(){
@@ -30,6 +31,7 @@ public class PoiSearchPage extends AbstractDetailPage {
 		currentPage.setStyleName("poiPage");
 		currentPoi.setStyleName("currentPoiLabel");
 		qrBox.setStyleName("poiQrBox");
+		bottomResultPanel.setStyleName("poiBottomResultPanel");
 		
 		Image img = new Image("img/PoI.svg");
 		
@@ -43,6 +45,11 @@ public class PoiSearchPage extends AbstractDetailPage {
 		results.setWidget(1, 0, thirdResult);
 		results.setWidget(1, 1, fourthResult);
 		
+		bottomResultPanel.add(firstResult.getBottomPictureButton());
+		bottomResultPanel.add(secondResult.getBottomPictureButton());
+		bottomResultPanel.add(thirdResult.getBottomPictureButton());
+		bottomResultPanel.add(fourthResult.getBottomPictureButton());
+		
 		final String navImg = new String("img/KeineKarte.svg");
 		Image navigationImg = new Image(navImg);
 		navigationImg.setStyleName("poiNavigationImg");
@@ -55,6 +62,12 @@ public class PoiSearchPage extends AbstractDetailPage {
 		
 		rightNavImg.setStyleName("poiRightNav");
 		leftNavImg.setStyleName("poiLeftNav");
+		
+		Image bottomRightNavImg = new Image(rightNavigation);
+		Image bottomLeftNavImg = new Image(leftNavigation);
+		
+		bottomRightNavImg.setStyleName("poiBottomRightNav");
+		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
 
 		resultsPanel.add(resultsLabel);
 		resultsPanel.add(results);
@@ -65,6 +78,9 @@ public class PoiSearchPage extends AbstractDetailPage {
 		this.add(qrBox);
 		this.add(leftNavImg);
 		this.add(rightNavImg);
+		this.add(bottomLeftNavImg);
+		this.add(bottomRightNavImg);
+		this.add(bottomResultPanel);
 		
 	}
 	
