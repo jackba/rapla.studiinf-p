@@ -16,13 +16,15 @@ import com.google.gwt.user.client.ui.Label;
 public class PoiSearchPage extends AbstractDetailPage {
 	
 	private int currentPageNr = 1;
-	private int firstResultNumber = 1;
+	private int firstResultNumber;
+	private String currentPoiText = "Casino";
+	private String navImg = new String("img/KeineKarte.svg");
 	private String currentPageLabelText = "Seite "+ currentPageNr;
 	private FlowPanel resultsPanel = new FlowPanel();
 	private Grid results = new Grid(2, 2);
 	private Label resultsLabel = new Label("POIs");
 	private Label currentPage = new Label(currentPageLabelText);
-	private Label currentPoi = new Label("Casino");
+	private Label currentPoi = new Label(currentPoiText);
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	private FlowPanel bottomResultPanel = new FlowPanel();
 	private Image rightNavImg;
@@ -33,10 +35,14 @@ public class PoiSearchPage extends AbstractDetailPage {
 	private ResultButton secondResult;
 	private ResultButton thirdResult;
 	private ResultButton fourthResult;
+	private Image navigationImg;
 	
 	@Override
 	public void init(){
 		super.init();
+		
+		currentPageNr = 1;
+		firstResultNumber = 1;
 		
 		resultsPanel.setStyleName("poiResultsPanel");
 		resultsLabel.setStyleName("poiResultsLabel");
@@ -48,8 +54,8 @@ public class PoiSearchPage extends AbstractDetailPage {
 		
 		addResultButtons();
 		
-		final String navImg = new String("img/KeineKarte.svg");
-		Image navigationImg = new Image(navImg);
+		navImg = new String("img/KeineKarte.svg");
+		navigationImg = new Image(navImg);
 		navigationImg.setStyleName("poiNavigationImg");
 		
 		addNavigationButtonsAndClickhandler();
@@ -87,13 +93,22 @@ public class PoiSearchPage extends AbstractDetailPage {
 	@Override
 	protected void handleId(String id) {
 		// TODO Auto-generated method stub
+		currentPoiText = id;
+		navImg = "img/KeineKarte.svg";
+		refresh();
 		
 	}
 
 	@Override
 	public boolean hasDefaultQrBox() {
-		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void refresh(){
+		currentPoi.setText(currentPoiText);	
+		this.remove(navigationImg);
+		navigationImg.setUrl(navImg);
+		this.add(navigationImg);
 	}
 	
 	public void addNavigationButtonsAndClickhandler(){
@@ -211,10 +226,10 @@ public class PoiSearchPage extends AbstractDetailPage {
 		final String poiSvg = new String("img/PoI.svg");
 		Image img = new Image(poiSvg); 
 		
-		firstResult = new ResultButton(firstResultNumber, "Eins", this, "000", img);
-		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "000", img);
-		thirdResult = new ResultButton(firstResultNumber + 2, "Eins", this, "000", img);
-		fourthResult = new ResultButton(firstResultNumber + 3, "Eins", this, "000", img);
+		firstResult = new ResultButton(firstResultNumber, "Eins", this, "0001", img);
+		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "0002", img);
+		thirdResult = new ResultButton(firstResultNumber + 2, "Eins", this, "0003", img);
+		fourthResult = new ResultButton(firstResultNumber + 3, "Eins", this, "0004", img);
 		
 		results.setWidget(0, 0, firstResult);
 		results.setWidget(0, 1, secondResult);
