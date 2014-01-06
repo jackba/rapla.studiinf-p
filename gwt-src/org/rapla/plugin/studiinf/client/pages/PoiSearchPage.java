@@ -38,9 +38,6 @@ public class PoiSearchPage extends AbstractDetailPage {
 	public void init(){
 		super.init();
 		
-		showLeftNavigation(false);
-		showRightNavigation(true);
-		
 		resultsPanel.setStyleName("poiResultsPanel");
 		resultsLabel.setStyleName("poiResultsLabel");
 		results.setStyleName("poiResults");
@@ -69,6 +66,9 @@ public class PoiSearchPage extends AbstractDetailPage {
 		this.add(bottomLeftNavImg);
 		this.add(bottomRightNavImg);
 		this.add(bottomResultPanel);
+		
+		showLeftNavigation(false);
+		showRightNavigation(true);
 		
 	}
 	
