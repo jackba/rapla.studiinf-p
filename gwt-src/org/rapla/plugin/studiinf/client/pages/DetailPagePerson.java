@@ -76,7 +76,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
 		final String roomNrImgString = new String("img/Räume.svg");
-		final String mailImgString = new String("img/Telefon.svg");
+		final String mailImgString = new String("img/Email.svg");
 		final String telephonImgString = new String("img/Telefon.svg");
 		final String extraInfoImgString = new String("img/ZusätzlicheInformationen.svg");
 		final String noPersonImgString = new String("img/Personen.svg");

@@ -22,8 +22,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private IconButton nameBtn;
 	
 	private final String nameImgString = new String("img/Räume.svg");
-	private final String typeImgString = new String("img/Räume.svg");
-	private final String studyImgString = new String("img/Organigramm.svg");
+	private final String typeImgString = new String("img/Raumart.svg");
+	private final String studyImgString = new String("img/Studiengang.svg");
 	private final String noNavigationImgString = new String("img/KeineKarte.svg");
 	final String occupancy = new String("img/Kalender.svg");
 	
