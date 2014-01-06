@@ -4,6 +4,10 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
+import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -12,14 +16,19 @@ import com.google.gwt.user.client.ui.Label;
 
 public class PoiSearchPage extends AbstractDetailPage {
 	
-	
+	private int currentPageNr = 1;
+	private String currentPageLabelText = "Seite "+ currentPageNr;
 	private FlowPanel resultsPanel = new FlowPanel();
 	private Grid results = new Grid(2, 2);
 	private Label resultsLabel = new Label("POIs");
-	private Label currentPage = new Label("Seite 1");
+	private Label currentPage = new Label(currentPageLabelText);
 	private Label currentPoi = new Label("Casino");
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	private FlowPanel bottomResultPanel = new FlowPanel();
+	private Image rightNavImg;
+	private Image leftNavImg;
+	private Image bottomRightNavImg;
+	private Image bottomLeftNavImg;
 	
 	@Override
 	public void init(){
@@ -57,14 +66,50 @@ public class PoiSearchPage extends AbstractDetailPage {
 		final String rightNavigation = new String("img/PoI.svg");
 		final String leftNavigation = new String("img/PoI.svg");
 		
-		Image rightNavImg = new Image(rightNavigation);
-		Image leftNavImg = new Image(leftNavigation);
+		rightNavImg = new Image(rightNavigation);
+		leftNavImg = new Image(leftNavigation);
 		
 		rightNavImg.setStyleName("poiRightNav");
 		leftNavImg.setStyleName("poiLeftNav");
 		
-		Image bottomRightNavImg = new Image(rightNavigation);
-		Image bottomLeftNavImg = new Image(leftNavigation);
+		rightNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showNextPois();
+				
+			}
+		});
+		
+		leftNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showPreviousPois();
+				
+			}
+		});
+		
+		bottomRightNavImg = new Image(rightNavigation);
+		bottomLeftNavImg = new Image(leftNavigation);
+		
+		bottomRightNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showNextPois();
+				
+			}
+		});
+		
+		bottomLeftNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showPreviousPois();
+				
+			}
+		});
 		
 		bottomRightNavImg.setStyleName("poiBottomRightNav");
 		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
@@ -106,6 +151,29 @@ public class PoiSearchPage extends AbstractDetailPage {
 	public boolean hasDefaultQrBox() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void showNextPois(){
+		currentPageNr += 1;
+		currentPage.setText("Seite "+ currentPageNr);
+		if (currentPageNr == 3){
+			// hide button
+			rightNavImg.getElement().getStyle().setDisplay(Display.NONE);
+			bottomRightNavImg.getElement().getStyle().setDisplay(Display.NONE);
+		}
+		leftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+		bottomLeftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+	}
+	
+	public void showPreviousPois(){
+		currentPageNr -= 1;
+		currentPage.setText("Seite "+ currentPageNr);
+		if (currentPageNr == 1){
+			leftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+		}
+		rightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+		bottomRightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
 	}
 
 	
