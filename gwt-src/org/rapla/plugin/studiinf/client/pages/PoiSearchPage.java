@@ -7,7 +7,6 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -17,6 +16,7 @@ import com.google.gwt.user.client.ui.Label;
 public class PoiSearchPage extends AbstractDetailPage {
 	
 	private int currentPageNr = 1;
+	private int firstResultNumber = 1;
 	private String currentPageLabelText = "Seite "+ currentPageNr;
 	private FlowPanel resultsPanel = new FlowPanel();
 	private Grid results = new Grid(2, 2);
@@ -29,10 +29,17 @@ public class PoiSearchPage extends AbstractDetailPage {
 	private Image leftNavImg;
 	private Image bottomRightNavImg;
 	private Image bottomLeftNavImg;
+	private ResultButton firstResult;
+	private ResultButton secondResult;
+	private ResultButton thirdResult;
+	private ResultButton fourthResult;
 	
 	@Override
 	public void init(){
 		super.init();
+		
+		showLeftNavigation(false);
+		showRightNavigation(true);
 		
 		resultsPanel.setStyleName("poiResultsPanel");
 		resultsLabel.setStyleName("poiResultsLabel");
@@ -42,22 +49,28 @@ public class PoiSearchPage extends AbstractDetailPage {
 		qrBox.setStyleName("poiQrBox");
 		bottomResultPanel.setStyleName("poiBottomResultPanel");
 		
-		Image img = new Image("img/PoI.svg");
+		refreshResultButtons();
+		
+		/*
+		final String poiSvg = new String("img/PoI.svg");
+		
+		Image img = new Image(poiSvg);
 		
 		ResultButton firstResult = new ResultButton(1, "Eins", this, "000", img);
 		ResultButton secondResult = new ResultButton(2, "Eins", this, "000", img);
 		ResultButton thirdResult = new ResultButton(3, "Eins", this, "000", img);
-		ResultButton fourthResult = new ResultButton(4, "Eins", this, "000", img);
+		ResultButton fourthResult = new ResultButton(4, "Eins", this, "000", img); */
 		
+		/*
 		results.setWidget(0, 0, firstResult);
 		results.setWidget(0, 1, secondResult);
 		results.setWidget(1, 0, thirdResult);
-		results.setWidget(1, 1, fourthResult);
-		
+		results.setWidget(1, 1, fourthResult); */
+		/*
 		bottomResultPanel.add(firstResult.getBottomPictureButton());
 		bottomResultPanel.add(secondResult.getBottomPictureButton());
 		bottomResultPanel.add(thirdResult.getBottomPictureButton());
-		bottomResultPanel.add(fourthResult.getBottomPictureButton());
+		bottomResultPanel.add(fourthResult.getBottomPictureButton()); */
 		
 		final String navImg = new String("img/KeineKarte.svg");
 		Image navigationImg = new Image(navImg);
@@ -153,27 +166,78 @@ public class PoiSearchPage extends AbstractDetailPage {
 		return false;
 	}
 	
-	public void showNextPois(){
-		currentPageNr += 1;
-		currentPage.setText("Seite "+ currentPageNr);
-		if (currentPageNr == 3){
-			// hide button
+	public void showRightNavigation(boolean show){
+		if (show == true){
+			rightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+			bottomRightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+		} else {
 			rightNavImg.getElement().getStyle().setDisplay(Display.NONE);
 			bottomRightNavImg.getElement().getStyle().setDisplay(Display.NONE);
 		}
-		leftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-		bottomLeftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+
+	}
+	
+	public void showLeftNavigation(boolean show){
+		if (show == true){
+			leftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+		} else {
+			leftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+		}
+
+	}
+	
+	public void showNextPois(){
+		currentPageNr += 1;
+		firstResultNumber += 4;
+		currentPage.setText("Seite "+ currentPageNr);
+		refreshResultButtons();
+		if (currentPageNr == 3){
+			showRightNavigation(false);
+		}
+		showLeftNavigation(true);
 	}
 	
 	public void showPreviousPois(){
 		currentPageNr -= 1;
+		firstResultNumber -= 4;
 		currentPage.setText("Seite "+ currentPageNr);
+		refreshResultButtons();
 		if (currentPageNr == 1){
-			leftNavImg.getElement().getStyle().setDisplay(Display.NONE);
-			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+			showLeftNavigation(false);
 		}
-		rightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-		bottomRightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+		showRightNavigation(true);
+	}
+	
+	public void refreshResultButtons(){
+		final String poiSvg = new String("img/PoI.svg");
+		Image img = new Image(poiSvg);
+		
+		results.remove(firstResult);
+		results.remove(secondResult);
+		results.remove(thirdResult);
+		results.remove(fourthResult);
+		
+		bottomResultPanel.remove(firstResult.getBottomPictureButton());
+		bottomResultPanel.remove(secondResult.getBottomPictureButton());
+		bottomResultPanel.remove(thirdResult.getBottomPictureButton());
+		bottomResultPanel.remove(fourthResult.getBottomPictureButton()); 
+		
+		firstResult = new ResultButton(firstResultNumber, "Eins", this, "000", img);
+		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "000", img);
+		thirdResult = new ResultButton(firstResultNumber + 2, "Eins", this, "000", img);
+		fourthResult = new ResultButton(firstResultNumber + 3, "Eins", this, "000", img);
+		
+		results.setWidget(0, 0, firstResult);
+		results.setWidget(0, 1, secondResult);
+		results.setWidget(1, 0, thirdResult);
+		results.setWidget(1, 1, fourthResult);
+		
+		bottomResultPanel.add(firstResult.getBottomPictureButton());
+		bottomResultPanel.add(secondResult.getBottomPictureButton());
+		bottomResultPanel.add(thirdResult.getBottomPictureButton());
+		bottomResultPanel.add(fourthResult.getBottomPictureButton());
 	}
 
 	
