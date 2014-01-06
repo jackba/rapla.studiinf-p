@@ -91,19 +91,14 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(3, 0, extraInfosBtn);
 		
 		final String courseImgString = new String("img/Kurse.svg");
-		Image firstCourseImg = new Image(courseImgString);
-		Image secondCourseImg = new Image(courseImgString);
-		Image thirdCourseImg = new Image(courseImgString);
-		Image fourthCourseImg = new Image(courseImgString);
-		Image fifthCourseImg = new Image(courseImgString);
-		Image sixthCourseImg = new Image(courseImgString);
+		Image courseImg = new Image(courseImgString);
 		
-		IconButton firstCourse = new IconButton("Name 1", firstCourseImg);
-		IconButton secondCourse = new IconButton("Name 2", secondCourseImg);
-		IconButton thirdCourse = new IconButton("Name 3", thirdCourseImg);
-		IconButton fourthCourse = new IconButton("Name 4", fourthCourseImg);
-		IconButton fifthCourse = new IconButton("Name 5", fifthCourseImg);
-		IconButton sixthCourse = new IconButton("Name 6", sixthCourseImg);
+		IconButton firstCourse = new IconButton("Name 1", courseImg);
+		IconButton secondCourse = new IconButton("Name 2", courseImg);
+		IconButton thirdCourse = new IconButton("Name 3", courseImg);
+		IconButton fourthCourse = new IconButton("Name 4", courseImg);
+		IconButton fifthCourse = new IconButton("Name 5", courseImg);
+		IconButton sixthCourse = new IconButton("Name 6", courseImg);
 		
 		courses.setWidget(0, 0, firstCourse);
 		courses.setWidget(0, 1, secondCourse);
@@ -112,13 +107,11 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courses.setWidget(1, 1, fifthCourse);
 		courses.setWidget(1, 2, sixthCourse); 
 		
-		Image firstLectureRoomImg = new Image(roomNrImgString);
-		Image secondLectureRoomImg = new Image(roomNrImgString);
-		Image thirdLectureRoomImg = new Image(roomNrImgString);
+		Image lectureRoomImg = new Image(roomNrImgString);
 		
-		IconButton firstLectureRoom = new IconButton("D195", firstLectureRoomImg);
-		IconButton secondLectureRoom = new IconButton("D295", secondLectureRoomImg);
-		IconButton thirdLectureRoom = new IconButton("D395", thirdLectureRoomImg);
+		IconButton firstLectureRoom = new IconButton("D195", lectureRoomImg);
+		IconButton secondLectureRoom = new IconButton("D295", lectureRoomImg);
+		IconButton thirdLectureRoom = new IconButton("D395", lectureRoomImg);
 		
 		lectureRooms.setWidget(0, 0, firstLectureRoom);
 		lectureRooms.setWidget(1, 0, secondLectureRoom);
@@ -139,11 +132,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectureRooms);
 		
-		Image roomNrImg2 = new Image(roomNrImgString);
-		Image extraInfoImg2 = new Image(extraInfoImgString);
-		
-		showRoomBtn = new NavigationIconButton(departmentText, roomNrImg2,Navigation.roomDetail,departmentText);
-		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg2);
+		showRoomBtn = new NavigationIconButton(departmentText, roomNrImg,Navigation.roomDetail,departmentText);
+		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		
 		bottomPanel.add(showRoomBtn);

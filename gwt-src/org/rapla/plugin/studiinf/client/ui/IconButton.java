@@ -8,10 +8,11 @@ public class IconButton extends Button {
 	
 	private Image icon;
 	
-	public IconButton(String title, Image icon) {
+	public IconButton(String title, Image img) {
 		super(title);
 		
-		this.icon = icon;
+		Image icon = new Image(img.getUrl());
+		
 		icon.setStyleName("iconIconButton");
 		this.setStyleName("iconButton");
 	
