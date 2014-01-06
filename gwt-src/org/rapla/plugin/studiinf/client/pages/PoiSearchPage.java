@@ -49,83 +49,13 @@ public class PoiSearchPage extends AbstractDetailPage {
 		qrBox.setStyleName("poiQrBox");
 		bottomResultPanel.setStyleName("poiBottomResultPanel");
 		
-		refreshResultButtons();
-		
-		/*
-		final String poiSvg = new String("img/PoI.svg");
-		
-		Image img = new Image(poiSvg);
-		
-		ResultButton firstResult = new ResultButton(1, "Eins", this, "000", img);
-		ResultButton secondResult = new ResultButton(2, "Eins", this, "000", img);
-		ResultButton thirdResult = new ResultButton(3, "Eins", this, "000", img);
-		ResultButton fourthResult = new ResultButton(4, "Eins", this, "000", img); */
-		
-		/*
-		results.setWidget(0, 0, firstResult);
-		results.setWidget(0, 1, secondResult);
-		results.setWidget(1, 0, thirdResult);
-		results.setWidget(1, 1, fourthResult); */
-		/*
-		bottomResultPanel.add(firstResult.getBottomPictureButton());
-		bottomResultPanel.add(secondResult.getBottomPictureButton());
-		bottomResultPanel.add(thirdResult.getBottomPictureButton());
-		bottomResultPanel.add(fourthResult.getBottomPictureButton()); */
+		addResultButtons();
 		
 		final String navImg = new String("img/KeineKarte.svg");
 		Image navigationImg = new Image(navImg);
 		navigationImg.setStyleName("poiNavigationImg");
 		
-		final String rightNavigation = new String("img/PoI.svg");
-		final String leftNavigation = new String("img/PoI.svg");
-		
-		rightNavImg = new Image(rightNavigation);
-		leftNavImg = new Image(leftNavigation);
-		
-		rightNavImg.setStyleName("poiRightNav");
-		leftNavImg.setStyleName("poiLeftNav");
-		
-		rightNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showNextPois();
-				
-			}
-		});
-		
-		leftNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showPreviousPois();
-				
-			}
-		});
-		
-		bottomRightNavImg = new Image(rightNavigation);
-		bottomLeftNavImg = new Image(leftNavigation);
-		
-		bottomRightNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showNextPois();
-				
-			}
-		});
-		
-		bottomLeftNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showPreviousPois();
-				
-			}
-		});
-		
-		bottomRightNavImg.setStyleName("poiBottomRightNav");
-		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
+		addNavigationButtonsAndClickhandler();
 
 		resultsPanel.add(resultsLabel);
 		resultsPanel.add(results);
@@ -164,6 +94,58 @@ public class PoiSearchPage extends AbstractDetailPage {
 	public boolean hasDefaultQrBox() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void addNavigationButtonsAndClickhandler(){
+		final String rightNavigation = new String("img/PoI.svg");
+		final String leftNavigation = new String("img/PoI.svg");
+		
+		rightNavImg = new Image(rightNavigation);
+		leftNavImg = new Image(leftNavigation);
+		
+		bottomRightNavImg = new Image(rightNavigation);
+		bottomLeftNavImg = new Image(leftNavigation);
+		
+		rightNavImg.setStyleName("poiRightNav");
+		leftNavImg.setStyleName("poiLeftNav");
+		bottomRightNavImg.setStyleName("poiBottomRightNav");
+		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
+		
+		rightNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showNextPois();
+				
+			}
+		});
+		
+		leftNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showPreviousPois();
+				
+			}
+		});
+		
+		bottomRightNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showNextPois();
+				
+			}
+		});
+		
+		bottomLeftNavImg.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				showPreviousPois();
+				
+			}
+		});
 	}
 	
 	public void showRightNavigation(boolean show){
@@ -211,18 +193,23 @@ public class PoiSearchPage extends AbstractDetailPage {
 	}
 	
 	public void refreshResultButtons(){
-		final String poiSvg = new String("img/PoI.svg");
-		Image img = new Image(poiSvg);
-		
+
 		results.remove(firstResult);
 		results.remove(secondResult);
 		results.remove(thirdResult);
 		results.remove(fourthResult);
-		
+
 		bottomResultPanel.remove(firstResult.getBottomPictureButton());
 		bottomResultPanel.remove(secondResult.getBottomPictureButton());
 		bottomResultPanel.remove(thirdResult.getBottomPictureButton());
 		bottomResultPanel.remove(fourthResult.getBottomPictureButton()); 
+		
+		addResultButtons();
+	}
+	
+	public void addResultButtons(){
+		final String poiSvg = new String("img/PoI.svg");
+		Image img = new Image(poiSvg); 
 		
 		firstResult = new ResultButton(firstResultNumber, "Eins", this, "000", img);
 		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "000", img);
