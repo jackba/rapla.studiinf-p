@@ -1,5 +1,9 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
@@ -10,6 +14,7 @@ import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -33,6 +38,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 	private Label courseLabel = new Label(Studiinf.i18n.courses());
 	private String name;
+	List<Event> events;
 	
 	private NavigationIconButton roomNrBtn;
 	private IconButton mailBtn;
@@ -44,6 +50,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String departmentText;
 	private String mailText;
 	private String phoneText;
+	private String id ;
 	
 	@Override
 	public boolean hasDefaultQrBox(){
@@ -161,6 +168,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 
 	@Override
 	protected void handleId(String id) {
+
 		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
 			
 			@Override
@@ -184,7 +192,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 					}else{
 						telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
 					}
+				
 				refresh();
+				
 			}
 			
 			@Override
@@ -193,7 +203,38 @@ public class DetailPagePerson extends AbstractDetailPage {
 				
 			}
 		});
+		
+//		ServiceProvider.getEvents("2000-01-07 09:00", "2014-01-07 18:00", id, new AsyncCallback<List<Event>>() {
+//
+//			@Override
+//			public void onFailure(Throwable arg0) {
+//				
+//				
+//			}
+//
+//			@Override
+//			public void onSuccess(List<Event> arg0) {
+//				events = new ArrayList<Event>(arg0);
+//				
+//				/* TODO
+//				 * if(events.size>=1)
+//				 * {
+//				 * event01 = events.get(0).toString();
+//				 * if(events.size>=2)
+//				 * {
+//				 * event02 = events.get(1).toString();
+//				 * if(events.size>=3)
+//				 * {
+//				 * event03 = events.get(2).toString();
+//				 * }}}
+//				 * 
+//				 */
+//				
+//				}
+//		});
 	}
+	
+
 	@Override
 	protected void refresh() {
 		super.refresh();
