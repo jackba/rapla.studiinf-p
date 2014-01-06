@@ -19,7 +19,7 @@ public class PoiSearchPage extends AbstractDetailPage {
 	private int firstResultNumber;
 	private String currentPoiText = "Casino";
 	private String navImg = new String("img/KeineKarte.svg");
-	private String currentPageLabelText = "Seite "+ currentPageNr;
+	private String currentPageLabelText = Studiinf.i18n.page() + currentPageNr;
 	private FlowPanel resultsPanel = new FlowPanel();
 	private Grid results = new Grid(2, 2);
 	private Label resultsLabel = new Label("POIs");
@@ -188,7 +188,7 @@ public class PoiSearchPage extends AbstractDetailPage {
 	public void showNextPois(){
 		currentPageNr += 1;
 		firstResultNumber += 4;
-		currentPage.setText("Seite "+ currentPageNr);
+		currentPage.setText(Studiinf.i18n.page()+ currentPageNr);
 		refreshResultButtons();
 		if (currentPageNr == 3){
 			showRightNavigation(false);

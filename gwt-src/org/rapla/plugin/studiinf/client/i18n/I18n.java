@@ -25,4 +25,5 @@ public interface I18n extends Messages {
 	String qrInfoText();
 	String courseOfStudy();
 	String nextAppointments();
+	String page();
 	}
