@@ -28,11 +28,14 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private Grid results = new Grid(3, 2);
 	private Image img = new Image(organigramImg);
 	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
-	private FlowPanel keyboard = new Keyboard(searchField);
+	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected HorizontalPanel resultBtns = new HorizontalPanel();
 	private QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
+	
+	private KeyUpHandler inputChanger;
+	
 	
 	private boolean searched = false;
 	
@@ -68,9 +71,7 @@ public void init() {
 	searchPanel.setStyleName("searchPanel");
 	
 
-	
-	
-	searchField.addKeyUpHandler(new KeyUpHandler() {
+	inputChanger = new KeyUpHandler() {
 		
 		@Override
 		public void onKeyUp(KeyUpEvent event) {
@@ -83,7 +84,9 @@ public void init() {
 				handleSearch(searchField.getText());
 			}
 		}
-	});
+	};
+	
+	searchField.addKeyUpHandler(inputChanger);
 	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
@@ -117,6 +120,10 @@ public void init() {
 	{
 		results.clear();
 		resultBtns.clear();
+	}
+	
+	public void fakeKeyUp(){
+		inputChanger.onKeyUp(null);
 	}
 	
 	abstract protected void handleSearch(String searchTerm);

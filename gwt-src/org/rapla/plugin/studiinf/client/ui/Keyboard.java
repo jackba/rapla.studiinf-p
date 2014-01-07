@@ -1,23 +1,25 @@
 package org.rapla.plugin.studiinf.client.ui;
 
-import com.google.gwt.dom.client.Document;
+import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.DomEvent;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
 public class Keyboard extends FlowPanel implements ClickHandler {
 	private final TextBox inputField;
+	private final AbstractSearchPage searchpage;
 	
-	public Keyboard(TextBox inputField) {
+	public Keyboard(TextBox inputField, AbstractSearchPage searchpage) {
 		super();
 		this.inputField = inputField;
+		this.searchpage = searchpage;
 					
-		addStringAsRow("1|2|3|4|5|6|7|8|9|0");
-		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü|return");
+		addStringAsRow("1|2|3|4|5|6|7|8|9|0|return");
+		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü");
 		addStringAsRow("A|S|D|F|G|H|J|K|L|Ö|Ä");
 		addStringAsRow("Y|X|C|V|B|N|M|.|search");
 		addStringAsRow(" ");
@@ -28,14 +30,10 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 	public void onClick(ClickEvent event) {
 		try {
 			Button key = (Button) event.getSource();
-			inputField.setText(inputField.getText() + key.getText());
-			char keyChar =  key.getText().charAt(0);
 			
-			DomEvent.fireNativeEvent(
-					Document.get().createKeyUpEvent(
-							false, false, false, false,keyChar)
-							, inputField);
-
+			inputField.setText(inputField.getText() + key.getText());
+			
+			searchpage.fakeKeyUp();
 					
 		} catch (Exception e) {
 			
@@ -80,11 +78,14 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 				
 				@Override
 				public void onClick(ClickEvent event) {
-					inputField.setText(inputField.getText().substring(0, inputField.getText().length() - 1));
-					DomEvent.fireNativeEvent(
-							Document.get().createKeyUpEvent(
-									false, false, false, false,0)
-									, inputField);
+					String text = inputField.getText();
+					if(text == null){
+						text = "";
+					}else if(text.length() >= 1){
+						text = text.substring(0, text.length() - 1);
+					}
+					inputField.setText(text);
+					searchpage.fakeKeyUp();
 				}
 			});
 		}else if(key.equals("search")){
@@ -93,10 +94,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 				
 				@Override
 				public void onClick(ClickEvent event) {
-					DomEvent.fireNativeEvent(
-							Document.get().createKeyUpEvent(
-									false, false, false, false,0)
-									, inputField);
+					searchpage.fakeKeyUp();
 				}
 			});
 		}

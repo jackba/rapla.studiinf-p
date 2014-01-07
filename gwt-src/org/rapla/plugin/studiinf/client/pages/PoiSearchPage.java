@@ -1,6 +1,11 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.PoiSearch;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
@@ -13,7 +18,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
 
-public class PoiSearchPage extends AbstractDetailPage {
+public class PoiSearchPage extends AbstractSearchPage {
 	
 	private int currentPageNr = 1;
 	private int firstResultNumber;
@@ -25,7 +30,6 @@ public class PoiSearchPage extends AbstractDetailPage {
 	private Label resultsLabel = new Label("POIs");
 	private Label currentPage = new Label(currentPageLabelText);
 	private Label currentPoi = new Label(currentPoiText);
-	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	private FlowPanel bottomResultPanel = new FlowPanel();
 	private Image rightNavImg;
 	private Image leftNavImg;
@@ -49,7 +53,6 @@ public class PoiSearchPage extends AbstractDetailPage {
 		results.setStyleName("poiResults");
 		currentPage.setStyleName("poiPage");
 		currentPoi.setStyleName("currentPoiLabel");
-		qrBox.setStyleName("poiQrBox");
 		bottomResultPanel.setStyleName("poiBottomResultPanel");
 		
 		addResultButtons();
@@ -60,21 +63,20 @@ public class PoiSearchPage extends AbstractDetailPage {
 		
 		addNavigationButtonsAndClickhandler();
 
-		resultsPanel.add(resultsLabel);
-		resultsPanel.add(results);
-		this.add(resultsPanel);
-		this.add(currentPage);
-		this.add(currentPoi);
-		this.add(navigationImg);
-		this.add(qrBox);
-		this.add(leftNavImg);
-		this.add(rightNavImg);
-		this.add(bottomLeftNavImg);
-		this.add(bottomRightNavImg);
-		this.add(bottomResultPanel);
+//		resultsPanel.add(resultsLabel);
+//		resultsPanel.add(results);
+//		this.add(resultsPanel);
+//		this.add(currentPage);
+//		this.add(currentPoi);
+//		this.add(navigationImg);
+//		this.add(leftNavImg);
+//		this.add(rightNavImg);
+//		this.add(bottomLeftNavImg);
+//		this.add(bottomRightNavImg);
+//		this.add(bottomResultPanel);
 		
-		showLeftNavigation(false);
-		showRightNavigation(true);
+//		showLeftNavigation(false);
+//		showRightNavigation(true);
 		
 	}
 	
@@ -90,20 +92,7 @@ public class PoiSearchPage extends AbstractDetailPage {
 	}
 
 
-	@Override
-	protected void handleId(String id) {
-		// TODO Auto-generated method stub
-		currentPoiText = id;
-		navImg = "img/KeineKarte.svg";
-		refresh();
 		
-	}
-
-	@Override
-	public boolean hasDefaultQrBox() {
-		return false;
-	}
-	
 	public void refresh(){
 		currentPoi.setText(currentPoiText);	
 		this.remove(navigationImg);
@@ -240,6 +229,29 @@ public class PoiSearchPage extends AbstractDetailPage {
 		bottomResultPanel.add(secondResult.getBottomPictureButton());
 		bottomResultPanel.add(thirdResult.getBottomPictureButton());
 		bottomResultPanel.add(fourthResult.getBottomPictureButton());
+	}
+
+	@Override
+	protected void handleSearch(String searchTerm) {
+		new PoiSearch(searchTerm,this);
+		
+	}
+
+	@Override
+	public boolean hasOrganigramm() {
+		return false;
+	}
+
+	@Override
+	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
+		clearResult();
+		int counter = 1;
+		for(ResourceDescriptor room : ressourcesMatched)
+		{
+			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image("img/PoI.svg")));
+			counter++;
+		}
+		
 	}
 
 	

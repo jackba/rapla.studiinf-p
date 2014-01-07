@@ -204,34 +204,35 @@ public class DetailPagePerson extends AbstractDetailPage {
 			}
 		});
 		
-//		ServiceProvider.getEvents("2000-01-07 09:00", "2014-01-07 18:00", id, new AsyncCallback<List<Event>>() {
-//
-//			@Override
-//			public void onFailure(Throwable arg0) {
-//				
-//				
-//			}
-//
-//			@Override
-//			public void onSuccess(List<Event> arg0) {
-//				events = new ArrayList<Event>(arg0);
-//				
-//				/* TODO
-//				 * if(events.size>=1)
-//				 * {
-//				 * event01 = events.get(0).toString();
-//				 * if(events.size>=2)
-//				 * {
-//				 * event02 = events.get(1).toString();
-//				 * if(events.size>=3)
-//				 * {
-//				 * event03 = events.get(2).toString();
-//				 * }}}
-//				 * 
-//				 */
-//				
-//				}
-//		});
+		ServiceProvider.getEvents("2000-01-07 09:00", "2014-01-07 18:00", id, new AsyncCallback<List<Event>>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+				
+				
+			}
+
+			@Override
+			public void onSuccess(List<Event> arg0) {
+				//events = new ArrayList<Event>(arg0);
+				Window.alert(arg0.toString());
+				
+				/* TODO
+				 * if(events.size>=1)
+				 * {
+				 * event01 = events.get(0).toString();
+				 * if(events.size>=2)
+				 * {
+				 * event02 = events.get(1).toString();
+				 * if(events.size>=3)
+				 * {
+				 * event03 = events.get(2).toString();
+				 * }}}
+				 * 
+				 */
+				
+				}
+		});
 	}
 	
 

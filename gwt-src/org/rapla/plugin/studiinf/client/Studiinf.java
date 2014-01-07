@@ -49,6 +49,7 @@ public class Studiinf implements EntryPoint {
 		if(elm){
 			var qr = new $wnd.QRCode(elm, {
     			text: text,
+    			correctLevel : $wnd.QRCode.CorrectLevel.L
     		});
 		}else{
 			$wnd.alert(JSON.stringify(elm));
