@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
@@ -21,7 +22,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractSearchPage extends AbstractPage{
 	
-	private final String organigramImg = new String("img/Organigramm.svg");
+	private final String organigramImg = new String(IconProvider.ORGANIGRAMM);
 
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());

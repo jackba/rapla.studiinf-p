@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -15,8 +16,7 @@ public class HomePage extends AbstractPage {
 	@Override
 	public void init() {
 		super.init();
-		final String logoImgString = new String("img/Logo.svg");
-		Image logo = new Image(logoImgString);
+		Image logo = new Image(IconProvider.LOGO);
 		logo.setStyleName("logo");
 		
 		TileContainer tileContainer = new TileContainer();

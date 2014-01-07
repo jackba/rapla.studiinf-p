@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
@@ -39,7 +40,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 		int counter = 1;
 		for(ResourceDescriptor course : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, course.getName(), Navigation.course, course.getId(), new Image("img/Kurse.svg")));
+			addResult(new ResultButton(counter, course.getName(), Navigation.course, course.getId(), new Image(IconProvider.COURSES)));
 			counter++;
 		}
 	}

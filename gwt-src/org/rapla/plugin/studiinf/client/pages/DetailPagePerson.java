@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -13,7 +14,6 @@ import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -73,17 +73,11 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
-		final String roomNrImgString = new String("img/Räume.svg");
-		final String mailImgString = new String("img/Email.svg");
-		final String telephonImgString = new String("img/Telefon.svg");
-		final String extraInfoImgString = new String("img/ZusätzlicheInformationen.svg");
-		final String noPersonImgString = new String("img/Personen.svg");
-		
-		Image roomNrImg = new Image(roomNrImgString);
-		Image mailImg = new Image(mailImgString);
-		Image telephonImg = new Image(telephonImgString);
-		Image extraInfoImg = new Image(extraInfoImgString);
-		Image noPersonImg = new Image(noPersonImgString);
+		Image roomNrImg = new Image(IconProvider.ROOMS);
+		Image mailImg = new Image(IconProvider.E_MAIL);
+		Image telephonImg = new Image(IconProvider.PHONE);
+		Image extraInfoImg = new Image(IconProvider.ADDITIONAL_INFORMATION);
+		Image noPersonImg = new Image(IconProvider.PERSONS);
 		
 		roomNrBtn = new NavigationIconButton(departmentText, roomNrImg,Navigation.roomDetail,departmentText);
 		mailBtn = new IconButton(mailText, mailImg);
@@ -95,8 +89,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
 		
-		final String courseImgString = new String("img/Kurse.svg");
-		Image courseImg = new Image(courseImgString);
+		Image courseImg = new Image(IconProvider.COURSES);
 		
 		IconButton firstCourse = new IconButton("Name 1", courseImg);
 		IconButton secondCourse = new IconButton("Name 2", courseImg);
@@ -112,7 +105,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courses.setWidget(1, 1, fifthCourse);
 		courses.setWidget(1, 2, sixthCourse); 
 		
-		Image lectureRoomImg = new Image(roomNrImgString);
+		Image lectureRoomImg = new Image(IconProvider.ROOMS);
 		
 		IconButton firstLectureRoom = new IconButton("D195", lectureRoomImg);
 		IconButton secondLectureRoom = new IconButton("D295", lectureRoomImg);
@@ -213,7 +206,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 			@Override
 			public void onSuccess(List<Event> arg0) {
 				//events = new ArrayList<Event>(arg0);
-				Window.alert(arg0.toString());
+//				Window.alert(arg0.toString());
 				
 				/* TODO
 				 * if(events.size>=1)

@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -21,11 +22,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private IconButton nameBtn;
 	
-	private final String nameImgString = new String("img/Räume.svg");
-	private final String typeImgString = new String("img/Raumart.svg");
-	private final String studyImgString = new String("img/Studiengang.svg");
-	private final String noNavigationImgString = new String("img/KeineKarte.svg");
-	final String occupancy = new String("img/Kalender.svg");
 	
 
 	@Override
@@ -38,11 +34,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
 		
-		Image roomNameImg = new Image(nameImgString);
-		Image roomTypeImg = new Image(typeImgString);
-		Image studyImg = new Image(studyImgString);
-		Image roomImg = new Image(occupancy);
-		Image noNavigationImg = new Image(noNavigationImgString);
+		Image roomNameImg = new Image(IconProvider.ROOMS);
+		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
+		Image studyImg = new Image(IconProvider.COURSE);
+		Image roomImg = new Image(IconProvider.CALENDAR);
+		Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 		
 		
 		noNavigationImg.setStyleName("navigationPicture");
@@ -61,7 +57,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infos);
 		
 			
-		Image occupancyImg = new Image(occupancy);
+		Image occupancyImg = new Image(IconProvider.CALENDAR);
 		
 		Widget bottomRoomBtn = new IconButton("Raumbelegung anzeigen", occupancyImg);
 		roomPanel.add(bottomRoomBtn);

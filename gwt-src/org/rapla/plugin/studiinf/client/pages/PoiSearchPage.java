@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
@@ -22,7 +23,6 @@ public class PoiSearchPage extends AbstractSearchPage {
 	private int currentPageNr = 1;
 	private int firstResultNumber;
 	private String currentPoiText = "Casino";
-	private String navImg = new String("img/KeineKarte.svg");
 	private String currentPageLabelText = Studiinf.i18n.page() + currentPageNr;
 	private FlowPanel resultsPanel = new FlowPanel();
 	private Grid results = new Grid(2, 2);
@@ -56,8 +56,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		
 		addResultButtons();
 		
-		navImg = new String("img/KeineKarte.svg");
-		navigationImg = new Image(navImg);
+		navigationImg = new Image(IconProvider.MISSING_MAP);
 		navigationImg.setStyleName("poiNavigationImg");
 		
 		addNavigationButtonsAndClickhandler();
@@ -95,19 +94,16 @@ public class PoiSearchPage extends AbstractSearchPage {
 	public void refresh(){
 		currentPoi.setText(currentPoiText);	
 		this.remove(navigationImg);
-		navigationImg.setUrl(navImg);
+		navigationImg.setUrl(IconProvider.MISSING_MAP);
 		this.add(navigationImg);
 	}
 	
 	public void addNavigationButtonsAndClickhandler(){
-		final String rightNavigation = new String("img/PoI.svg");
-		final String leftNavigation = new String("img/PoI.svg");
+		rightNavImg = new Image(IconProvider.POI);
+		leftNavImg = new Image(IconProvider.POI);
 		
-		rightNavImg = new Image(rightNavigation);
-		leftNavImg = new Image(leftNavigation);
-		
-		bottomRightNavImg = new Image(rightNavigation);
-		bottomLeftNavImg = new Image(leftNavigation);
+		bottomRightNavImg = new Image(IconProvider.POI);
+		bottomLeftNavImg = new Image(IconProvider.POI);
 		
 		rightNavImg.setStyleName("poiRightNav");
 		leftNavImg.setStyleName("poiLeftNav");
@@ -247,7 +243,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		int counter = 1;
 		for(ResourceDescriptor room : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image("img/PoI.svg")));
+			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.POI)));
 			counter++;
 		}
 		

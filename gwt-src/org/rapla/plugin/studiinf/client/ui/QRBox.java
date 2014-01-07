@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
 import com.google.gwt.http.client.UrlBuilder;
@@ -12,9 +13,9 @@ import com.google.gwt.user.client.ui.Label;
 public class QRBox extends FlowPanel {
 	
 	private Label qrLabel = new Label(Studiinf.i18n.qrInfoText());
-	private Image qrLabelImg = new Image("img/QR.svg");
+	private Image qrLabelImg = new Image(IconProvider.QR_BOX);
 	private FlowPanel qrCodeBox = new FlowPanel();
-	private Image qrCode = new Image("img/qr_sample.jpg");
+	private Image qrCode = new Image();
 	
 	private final String hash;
 	

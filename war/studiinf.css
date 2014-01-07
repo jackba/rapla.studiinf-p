@@ -748,8 +748,9 @@ nav{
 .logo {
 	position:absolute !important;
 	top: 9vh;
-	left: 27vw;
-	width:45vw;
-	height:17vh;
+	left: 50vw;
+	width:28vh;
+	height:9.5vh;
+	margin-left:-14vh;
 }
 
