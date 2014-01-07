@@ -273,6 +273,49 @@ nav{
 	background:#858f95;
 }
 
+.keyboardButton {
+	width: 7vw;
+	height: 3vh;
+	font-size: 1.5vh;
+	padding: 0px;
+	margin: 0.05vh 0.05vw;
+}
+
+.keyboardSpace {
+	width: 58vw;
+	height: 3vh;
+	font-size: 1.5vh;
+}
+
+.keyboardReturn {
+	width: 10vw;
+	height: 3vh;
+	font-size: 1.5vh;
+}
+
+.keyboardRow {
+	height: 2,6vh;
+}
+
+.keyboardRowOne {
+	margin-left: 2.9vw;
+}
+
+.keyboardRowTwo {
+	margin-left: 5vw;
+}
+
+.keyboardRowThree {
+	margin-left: 6vw;
+}
+
+.keyboardRowFour {
+	margin-left: 7.5vw;
+}
+.keyboardRowFive {
+	margin-left: 12vw;
+}
+
 .resultBtns {
 	position:absolute;
 	bottom:7vh;
