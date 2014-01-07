@@ -6,12 +6,12 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class IconButton extends Button {
 	
-	private Image icon;
+	protected Image icon;
 	
 	public IconButton(String title, Image img) {
 		super(title);
 		
-		Image icon = new Image(img.getUrl());
+		icon = new Image(img.getUrl());
 		
 		icon.setStyleName("iconIconButton");
 		this.setStyleName("iconButton");

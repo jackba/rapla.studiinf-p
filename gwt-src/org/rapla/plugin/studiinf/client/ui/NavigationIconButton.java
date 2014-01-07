@@ -31,5 +31,6 @@ public class NavigationIconButton extends IconButton implements ClickHandler {
 			Navigation.goToPage(targetPage, targetId);
 		}
 	}
+	
 
 }

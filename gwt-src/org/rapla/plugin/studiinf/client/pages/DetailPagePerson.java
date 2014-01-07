@@ -73,16 +73,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
-		Image roomNrImg = new Image(IconProvider.ROOMS);
-		Image mailImg = new Image(IconProvider.E_MAIL);
-		Image telephonImg = new Image(IconProvider.PHONE);
-		Image extraInfoImg = new Image(IconProvider.ADDITIONAL_INFORMATION);
-		Image noPersonImg = new Image(IconProvider.PERSONS);
-		
-		roomNrBtn = new NavigationIconButton(departmentText, roomNrImg,Navigation.roomDetail,departmentText);
-		mailBtn = new IconButton(mailText, mailImg);
-		telephoneBtn = new IconButton(phoneText, telephonImg);
-		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", extraInfoImg);
+		roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
+		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
+		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
+		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", new Image(IconProvider.ADDITIONAL_INFORMATION));
 		
 		infos.setWidget(0, 0, roomNrBtn);
 		infos.setWidget(1, 0, mailBtn);
@@ -116,10 +110,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectureRooms.setWidget(2, 0, thirdLectureRoom);
 		
 		
-		noPersonImg.setStyleName("personDetailPicture");
+		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
-		personInfoPanel.add(noPersonImg);
+		personInfoPanel.add(new Image(IconProvider.PERSONS));
 		personInfoPanel.add(infos);
 		
 
@@ -130,8 +124,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectureRooms);
 		
-		showRoomBtn = new NavigationIconButton(departmentText, roomNrImg,Navigation.roomDetail,departmentText);
-		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", extraInfoImg);
+		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
+		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION));
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		
 		bottomPanel.add(showRoomBtn);
@@ -183,6 +177,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 					}else{
 						telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
 					}
+				
+				courseOfStudyInfo.setText(person.getDepartment());
 				
 				refresh();
 				
