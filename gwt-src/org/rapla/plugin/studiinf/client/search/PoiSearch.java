@@ -3,10 +3,7 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
-import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
-
-import com.google.gwt.user.client.Window;
 
 public class PoiSearch extends AbstractSearch {
 

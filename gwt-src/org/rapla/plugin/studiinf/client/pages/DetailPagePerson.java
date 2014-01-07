@@ -1,6 +1,5 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
@@ -50,7 +49,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String departmentText;
 	private String mailText;
 	private String phoneText;
-	private String id ;
 	
 	@Override
 	public boolean hasDefaultQrBox(){

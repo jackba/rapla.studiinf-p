@@ -2,7 +2,6 @@ package org.rapla.plugin.studiinf.client.ui;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
