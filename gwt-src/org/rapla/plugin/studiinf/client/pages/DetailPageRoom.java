@@ -123,7 +123,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 			}else{
 				typeBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
-		if (!rd.getRoomType().equals("")){
+		if (!rd.getDepartment().equals("")){
 			courseOfStudy = rd.getDepartment();
 			studyBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
