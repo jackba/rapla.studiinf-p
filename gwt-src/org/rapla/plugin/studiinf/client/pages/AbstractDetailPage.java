@@ -1,11 +1,14 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
+import com.google.gwtjsonrpc.common.AsyncCallback;
+
 public abstract class AbstractDetailPage extends AbstractPage {
 
-	abstract protected void handleId(String id);
 	public String id ="";
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	abstract public boolean hasDefaultQrBox();
@@ -42,5 +45,21 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		
 	}
 
+	protected void handleId(final String id){
+		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
+				
+				@Override
+				public void onSuccess(ResourceDetail arg0) {
+					handleRessource(id, arg0);
+				}
+
+				@Override
+				public void onFailure(Throwable arg0) {
+					
+				}
+		});
+	};
+	
+	abstract protected void handleRessource(String id, ResourceDetail resource);
 
 }

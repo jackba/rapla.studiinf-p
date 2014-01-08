@@ -151,45 +151,44 @@ public class DetailPagePerson extends AbstractDetailPage {
 		return name;
 	}
 
-	@Override
-	protected void handleId(String id) {
+	
+	
 
-		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
-			
-			@Override
-			public void onSuccess(ResourceDetail arg0) {
-				//Window.alert(arg0.getKeys().toString());
-				PersonDescribtor person = new PersonDescribtor(arg0);
-				//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
-				
-				name = person.getName();
-				departmentText = person.getRoomNr();
-				if(!person.getMail().equals("")){
-				mailText = person.getMail();
-				mailBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-				}else{
-					mailBtn.getElement().getStyle().setDisplay(Display.NONE);
-				}
-				
-				if(!person.getPhoneNr().equals("")){
-					phoneText = person.getPhoneNr();
-					telephoneBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-					}else{
-						telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
-					}
-				
-				courseOfStudyInfo.setText(person.getDepartment());
-				
-				refresh();
-				
+	@Override
+	protected void refresh() {
+		super.refresh();
+		roomNrBtn.setText(departmentText);
+		telephoneBtn.setText(phoneText);
+		mailBtn.setText(mailText); 
+		showRoomBtn.setText(departmentText);
+		
+	}
+
+
+	@Override
+	protected void handleRessource(String id, ResourceDetail resource) {
+		PersonDescribtor person = new PersonDescribtor(resource);
+		//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
+		
+		name = person.getName();
+		departmentText = person.getRoomNr();
+		if(!person.getMail().equals("")){
+		mailText = person.getMail();
+		mailBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		}else{
+			mailBtn.getElement().getStyle().setDisplay(Display.NONE);
+		}
+		
+		if(!person.getPhoneNr().equals("")){
+			phoneText = person.getPhoneNr();
+			telephoneBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
-			
-			@Override
-			public void onFailure(Throwable arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		
+		courseOfStudyInfo.setText(person.getDepartment());
+		
+		refresh();
 		
 		ServiceProvider.getEvents("2000-01-07 09:00", "2014-01-07 18:00", id, new AsyncCallback<List<Event>>() {
 
@@ -220,16 +219,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 				
 				}
 		});
-	}
-	
-
-	@Override
-	protected void refresh() {
-		super.refresh();
-		roomNrBtn.setText(departmentText);
-		telephoneBtn.setText(phoneText);
-		mailBtn.setText(mailText); 
-		showRoomBtn.setText(departmentText);
 		
 	}
 
