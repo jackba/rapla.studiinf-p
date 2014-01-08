@@ -1,8 +1,11 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -19,8 +22,12 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private String roomNumber = "D 459";
 	private String roomType = "Hörsaal";
+	private String courseOfStudy = "Wirtschaftsinformatik";
 	
 	private IconButton nameBtn;
+	private IconButton typeBtn;
+	private IconButton studyBtn;
+	private IconButton roomBtn;
 	
 	
 
@@ -43,10 +50,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		noNavigationImg.setStyleName("navigationPicture");
 		
-		 nameBtn = new IconButton(roomNumber, roomNameImg);
-		Widget typeBtn = new IconButton(roomType, roomTypeImg);
-		Widget studyBtn = new IconButton("Wirtschaftsinformatik", studyImg);
-		Widget roomBtn = new IconButton("Raumbelegung", roomImg);
+		nameBtn = new IconButton(roomNumber, roomNameImg);
+		typeBtn = new IconButton(roomType, roomTypeImg);
+		studyBtn = new IconButton(courseOfStudy, studyImg);
+		roomBtn = new IconButton("Raumbelegung", roomImg);
 		
 		infos.setWidget(0, 0, nameBtn);
 		infos.setWidget(1, 0, typeBtn);
@@ -65,6 +72,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.add(infoPanel);
 		this.add(roomPanel);
 		this.add(noNavigationImg);
+		
 	}
 	
 	
@@ -82,23 +90,28 @@ public class DetailPageRoom extends AbstractDetailPage {
 	}
 
 
-	@Override
-	protected void handleId(String id) {
-		roomNumber = "D "+id;
-		refresh();
-		
-	}
 	
 	@Override
 	protected void refresh() {
 		super.refresh();
 		nameBtn.setText(roomNumber);
+		typeBtn.setText(roomType);
+		studyBtn.setText(courseOfStudy);
 	}
 
 
 	@Override
 	public boolean hasDefaultQrBox() {
 		return true;
+	}
+
+
+	@Override
+	protected void handleRessource(String id, ResourceDetail resource) {
+		roomNumber = "D "+id;
+		RoomDescriptor rd = new RoomDescriptor(resource);
+		refresh();
+		
 	}
 
 }

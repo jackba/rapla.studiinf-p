@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
-public class PersonDescribtor{
+public class PersonDescriptor{
 	private String name;
 	private String mail;
 	private String roomNr;
@@ -49,11 +49,9 @@ public class PersonDescribtor{
 		return phoneNr;
 	}
 
-	public PersonDescribtor(ResourceDetail person) {
+	public PersonDescriptor(ResourceDetail person) {
 		this.person = person;
-		keys = person.getKeys();
-		
-		
+		keys = person.getKeys();		
 		
 	}
 	
