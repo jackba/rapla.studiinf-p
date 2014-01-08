@@ -730,19 +730,15 @@ nav{
 
 .navigationPicture, .poiNavigationImg {
 	position:absolute !important;
-	top: 60vh;
-	left: 10vw;
-	width:77vw;
-	height:20vh;
+	top: 53vh;
+	left: 7.5vw;
+	width: 85vw;
+	height:34vh;
 	background:#858f95;
 }
 
 .poiNavigationImg {
 	top: 53vh;
-	width: 85vw;
-	height:34vh;
-	left: 7.5vw;
-	
 }
 
 .logo {
