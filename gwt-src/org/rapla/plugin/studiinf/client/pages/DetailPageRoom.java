@@ -129,6 +129,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 			}else{
 				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
+		
+		Window.alert(rd.getPicture());
 		refresh();
 		
 	}

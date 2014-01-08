@@ -591,13 +591,10 @@ nav{
 	height:5.5vh;
 }
 
-.personBottomPanel {
-	bottom: 6.5vh;
-}
 .personMiddlePanel {
-	top: 48vh;
+	top: 60vh;
 	bottom: auto;
-	height:38vh;
+	height:25vh;
 }
 .poiPage {
 	display:block;

@@ -33,9 +33,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(4, 1);
 	private Grid lectureRooms = new Grid(3, 1);
-	private Grid courses = new Grid(2, 3);
+	//private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
-	private Label courseLabel = new Label(Studiinf.i18n.courses());
+//	private Label courseLabel = new Label(Studiinf.i18n.courses());
 	private String name;
 	List<Event> events;
 	
@@ -44,7 +44,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
 	
-	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	//private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	
 	private String departmentText;
 	private String mailText;
@@ -52,7 +52,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	
 	@Override
 	public boolean hasDefaultQrBox(){
-		return false;
+		return true;
 	}
 	
 	
@@ -60,16 +60,16 @@ public class DetailPagePerson extends AbstractDetailPage {
 	public void init(){
 		super.init();
 	
-		qrBox.setStyleName("personQRBox");
+		//qrBox.setStyleName("personQRBox");
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-		courses.setStyleName("personCourses");
+		//courses.setStyleName("personCourses");
 		lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
-		courseLabel.setStyleName("personCourseLabel");
+		//courseLabel.setStyleName("personCourseLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
@@ -83,8 +83,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
 		
-		Image courseImg = new Image(IconProvider.COURSES);
-		
+		//Image courseImg = new Image(IconProvider.COURSES);
+		/*
 		IconButton firstCourse = new IconButton("Name 1", courseImg);
 		IconButton secondCourse = new IconButton("Name 2", courseImg);
 		IconButton thirdCourse = new IconButton("Name 3", courseImg);
@@ -97,7 +97,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courses.setWidget(0, 2, thirdCourse);
 		courses.setWidget(1, 0, fourthCourse);
 		courses.setWidget(1, 1, fifthCourse);
-		courses.setWidget(1, 2, sixthCourse); 
+		courses.setWidget(1, 2, sixthCourse); */
 		
 		Image lectureRoomImg = new Image(IconProvider.ROOMS);
 		
@@ -118,8 +118,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 
 		middlePanel.add(appointmentLabel);
-		middlePanel.add(courseLabel);
-		middlePanel.add(courses);
+//		middlePanel.add(courseLabel);
+	//	middlePanel.add(courses);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectureRooms);
@@ -135,7 +135,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
-		this.add(qrBox);
+		//this.add(qrBox);
 	}
 	
 	@Override
