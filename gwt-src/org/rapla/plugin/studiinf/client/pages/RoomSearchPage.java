@@ -14,6 +14,10 @@ import com.google.gwt.user.client.ui.Image;
 
 public class RoomSearchPage extends AbstractSearchPage {
 
+	public RoomSearchPage() {
+		super(false, true);
+	}
+
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
@@ -34,11 +38,6 @@ public class RoomSearchPage extends AbstractSearchPage {
 		addResult(new ResultButton(4, "D 004",Navigation.roomDetail,"004", new Image(IconProvider.ROOMS)));
 		addResult(new ResultButton(5, "D 005",Navigation.roomDetail,"005", new Image(IconProvider.ROOMS)));
 		addResult(new ResultButton(6, "D 006",Navigation.roomDetail,"006", new Image(IconProvider.ROOMS)));
-	}
-
-	@Override
-	public boolean hasOrganigramm() {
-		return false;
 	}
 	
 	@Override

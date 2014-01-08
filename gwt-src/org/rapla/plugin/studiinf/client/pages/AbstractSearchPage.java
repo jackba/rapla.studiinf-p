@@ -46,6 +46,15 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	
 	private boolean searched = false;
 	
+	private final boolean hasOrganigramm;
+	private final boolean showKeyboard;
+	
+	
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showKeyboard) {
+		this.hasOrganigramm = hasOrganigramm;
+		this.showKeyboard = showKeyboard;
+	}
+	
 	
 public boolean isSearched() {
 	return searched;
@@ -98,12 +107,14 @@ public void init() {
 	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
-	searchPanel.add(keyboard);
+	if(showKeyboard){
+		searchPanel.add(keyboard);
+	}
 	searchPanel.add(searchField);
 	
 	this.add(searchPanel);
 	this.add(resultPanel);
-	if(this.hasOrganigramm()){
+	if(this.hasOrganigramm){
 		this.add(organigramBtn);
 	}
 	this.add(resultBtns);
@@ -161,7 +172,6 @@ public void init() {
 	
 		
 	
-	abstract public boolean hasOrganigramm();
 
 
 	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);
