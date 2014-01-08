@@ -18,8 +18,8 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 		this.searchpage = searchpage;
 					
 		addStringAsRow("1|2|3|4|5|6|7|8|9|0|return");
-		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ãœ");
-		addStringAsRow("A|S|D|F|G|H|J|K|L|Ã–|Ã„");
+		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü");
+		addStringAsRow("A|S|D|F|G|H|J|K|L|Ö|Ä");
 		addStringAsRow("Y|X|C|V|B|N|M|.|-|search");
 		addStringAsRow(" ");
 		
@@ -31,6 +31,8 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 			Button key = (Button) event.getSource();
 			
 			inputField.setText(inputField.getText() + key.getText());
+			
+			key.addStyleName("keyboardButtonClicked");
 			
 			searchpage.fakeKeyUp();
 					
@@ -68,10 +70,6 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 				button.addStyleName("keyboardReturn");
 			}
 			
-//			button.getElement().getStyle().setWidth(100/keysArray.length, Unit.PCT);
-//			button.getElement().getStyle().setProperty("height", "2.6h");
-//			button.getElement().getStyle().setProperty("fontSize", "1.5vh");
-//			button.getElement().getStyle().setProperty("padding", "0px");
 			row.add(button);
 		}
 		this.add(row);
@@ -91,9 +89,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 		if(this.getChildren().size() == 5){
 			row.addStyleName("keyboardRowFive");
 		}
-//		else if(this.getChildren().size() <= 3){
-//			row.getElement().getStyle().setMarginRight(50/keysArray.length, Unit.PCT);
-//		}
+
 		row.addStyleName("keyboardRow");
 	}
 
