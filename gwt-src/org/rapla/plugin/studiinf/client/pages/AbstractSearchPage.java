@@ -1,5 +1,7 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
@@ -34,6 +36,8 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
+	
+	private List<ResultButton> resultList = new LinkedList<ResultButton>();
 	
 	private KeyUpHandler inputChanger;
 	
@@ -104,23 +108,36 @@ public void init() {
 	}
 	
 	public void addResult(ResultButton res){
-		for(int i= 0 ; i < results.getRowCount(); i++){
-			for(int j=0; j < results.getCellCount(i);j++){
-				if(results.getWidget(i, j) == null){
-					results.setWidget(i,j, res);
-					resultBtns.add(res.getBottomPictureButton());
-					return;
-				}
-			}
-		}
+		resultList.add(res);
+		refresh();
 		
 		
 	}
 	
-	public void clearResult()
-	{
+	@Override
+	protected void refresh() {
+		super.refresh();
+		
 		results.clear();
 		resultBtns.clear();
+		Iterator<ResultButton> resultButtons = resultList.iterator();
+		for(int i= 0 ; i < results.getRowCount() && resultButtons.hasNext(); i++){
+			for(int j=0; j < results.getCellCount(i) && resultButtons.hasNext();j++){
+				if(results.getWidget(i, j) != null){
+					results.remove(results.getWidget(i, j));
+				}
+					ResultButton res = resultButtons.next();
+					results.setWidget(i,j, res);
+					resultBtns.add(res.getBottomPictureButton());
+			}
+		}
+	}
+	
+	
+	public void clearResult()
+	{
+		resultList.clear();
+		refresh();
 	}
 	
 	public void fakeKeyUp(){
