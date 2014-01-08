@@ -11,7 +11,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
-import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -33,9 +32,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(4, 1);
 	private Grid lectureRooms = new Grid(3, 1);
-	//private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
-//	private Label courseLabel = new Label(Studiinf.i18n.courses());
 	private String name;
 	List<Event> events;
 	
@@ -43,8 +40,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
-	
-	//private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	
 	private String departmentText;
 	private String mailText;
@@ -90,14 +85,12 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectureRooms.setWidget(1, 0, secondLectureRoom);
 		lectureRooms.setWidget(2, 0, thirdLectureRoom);
 		
-		
 		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
 		personInfoPanel.add(new Image(IconProvider.PERSONS));
 		personInfoPanel.add(infos);
 		
-
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
@@ -110,7 +103,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		bottomPanel.add(showRoomBtn);
 		bottomPanel.add(showextraInfosBtn);
 		
-
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
