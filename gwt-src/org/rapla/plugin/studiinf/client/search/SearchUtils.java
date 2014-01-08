@@ -33,6 +33,21 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		}
 		return resourceMatched;
 	}
+	
+	public static List<ResourceDescriptor> startsWithName(String searchString, List<ResourceDescriptor> resources)
+	{
+List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
+		
+		for(ResourceDescriptor resource : resources)
+		{
+			String s = resource.getName();
+			if(s.toLowerCase().startsWith(searchString))
+			{
+				resourceMatched.add(resource);
+			}
+		}
+		return resourceMatched;
+	}
 
 	public static List<ResourceDescriptor> containsSearchTerm(int searchTerm, String searchString, List<ResourceDescriptor> resources)
 	{

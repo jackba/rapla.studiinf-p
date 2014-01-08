@@ -8,7 +8,7 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
-import org.rapla.plugin.studiinf.client.search.PersonDescribtor;
+import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -167,7 +167,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
-		PersonDescribtor person = new PersonDescribtor(resource);
+		PersonDescriptor person = new PersonDescriptor(resource);
 		//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
 		
 		name = person.getName();

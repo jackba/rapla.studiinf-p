@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -66,6 +67,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.add(infoPanel);
 		this.add(roomPanel);
 		this.add(noNavigationImg);
+		
 	}
 	
 	

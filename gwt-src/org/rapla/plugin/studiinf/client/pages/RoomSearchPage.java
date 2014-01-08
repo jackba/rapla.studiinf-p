@@ -6,6 +6,7 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
@@ -50,6 +51,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 		{
 			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.ROOMS)));
 			counter++;
+			
 		}
 	}
 	

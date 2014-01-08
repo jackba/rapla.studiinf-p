@@ -14,10 +14,11 @@ public class PoiSearch extends AbstractSearch {
 
 	@Override
 	protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
-		NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
-		roomMatched.addAll(SearchUtils.containsName(searchTerm, resources));
+		NoDuplicatesList<ResourceDescriptor> POIMatched = new NoDuplicatesList<ResourceDescriptor>();
+		POIMatched.addAll(SearchUtils.startsWithName(searchTerm, resources));
+		POIMatched.addAll(SearchUtils.containsName(searchTerm, resources));
 			
-		return roomMatched;
+		return POIMatched;
 	}
 
 
