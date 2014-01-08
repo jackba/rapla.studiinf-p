@@ -602,7 +602,7 @@ nav{
 .roomPanel, .personBottomPanel {
 	top: auto;
 	bottom: 7vh;
-	height:5.5vh;
+	height:6vh;
 }
 
 .personMiddlePanel {
@@ -691,8 +691,9 @@ nav{
 }
 .personBottomPanel .iconButton{
 	width: 50vw;
+	top: 0.5vh;
 }
-.iconButton, .personShowExtraInfosBtn {
+.iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn {
 	position: absolute;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
@@ -702,9 +703,19 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
+.personShowRoomBtn {
+	top: 0.5vh;
+	width: 18vw;	
+}
 .personShowExtraInfosBtn {
+	top: 0.5vh;
 	left: 50vw;
 	width: 37vw;
+}
+.personLinkRaplabtn {
+	top: 0.5vh;
+	left: 19vw;
+	width: 30vw;
 }
 .iconIconButton {
 	position: absolute;
