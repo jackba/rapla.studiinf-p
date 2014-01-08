@@ -269,16 +269,22 @@ nav{
 	bottom:0.5625vh;
 	left:1vw;
 	width:86vw;
-	height:15vh;
-	background:#858f95;
+	height:15.7vh;
 }
 
-.keyboardButton {
+.keyboardButton, .keyboardSpace, .keyboardReturn, .keyboardButtonClicked  {
 	width: 7vw;
 	height: 3vh;
 	font-size: 1.5vh;
 	padding: 0px;
-	margin: 0.05vh 0.05vw;
+	margin: 0.08vh 0.1vw;
+	background:#5c6971;
+	color:#ffffff;
+	border:0px solid #bbb;
+  	border-bottom: 0px solid #a0a0a0;
+ 	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .keyboardSpace {
@@ -298,22 +304,26 @@ nav{
 }
 
 .keyboardRowOne {
-	margin-left: 2.9vw;
+	margin-left: 1.9vw;
 }
 
 .keyboardRowTwo {
-	margin-left: 5vw;
+	margin-left: 4vw;
 }
 
 .keyboardRowThree {
-	margin-left: 6vw;
+	margin-left: 5vw;
 }
 
 .keyboardRowFour {
-	margin-left: 7.5vw;
+	margin-left: 6.5vw;
 }
 .keyboardRowFive {
-	margin-left: 12vw;
+	margin-left: 13vw;
+}
+
+.keyboardButtonClicked{
+	background:#aeb4b8;
 }
 
 .resultBtns {
@@ -439,7 +449,7 @@ nav{
 .resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel{
 	position: absolute;
 	top: 11vh;
-	left:5vw;
+	left:5.5vw;
 	right:5vw;
 	width:88vw;
 	height:28vh;
@@ -473,7 +483,7 @@ nav{
 .searchPanel{
 	top:auto;
 	bottom:12vh;
-	height:22vh;
+	height:25vh;
 }
 
 .pictureButton{
@@ -748,9 +758,8 @@ nav{
 .logo {
 	position:absolute !important;
 	top: 9vh;
-	left: 50vw;
-	width:28vh;
-	height:9.5vh;
-	margin-left:-14vh;
+	left: 27vw;
+	width:45vw;
+	height:17vh;
 }
 
