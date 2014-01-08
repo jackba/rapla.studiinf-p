@@ -278,7 +278,7 @@ nav{
 	font-size: 1.5vh;
 	padding: 0px;
 	margin: 0.08vh 0.1vw;
-	background:#5c6971;
+	background:#5c6971; 
 	color:#ffffff;
 	border:0px solid #bbb;
   	border-bottom: 0px solid #a0a0a0;
@@ -322,7 +322,7 @@ nav{
 	margin-left: 13vw;
 }
 
-.keyboardButtonClicked{
+.keyboardButtonClicked:active{
 	background:#aeb4b8;
 }
 
