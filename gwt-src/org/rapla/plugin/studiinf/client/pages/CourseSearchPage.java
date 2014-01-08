@@ -40,7 +40,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 		int counter = 1;
 		for(ResourceDescriptor course : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, course.getName(), Navigation.course, course.getId(), new Image(IconProvider.COURSES)));
+			addResult(new ResultButton(counter, course.getName(), Navigation.courseDetail, course.getId(), new Image(IconProvider.COURSES)));
 			counter++;
 		}
 	}
