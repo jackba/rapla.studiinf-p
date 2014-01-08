@@ -250,7 +250,7 @@ nav{
 .results, .infos, .personInfos, .personLectureRooms, .poiResults{
 	position:absolute;
 	top:8vh;
-	left:1vw;
+	left:1.3vw;
 	width:86vw;
 	height:18vh;
 	
@@ -272,7 +272,7 @@ nav{
 	height:15.7vh;
 }
 
-.keyboardButton, .keyboardSpace, .keyboardReturn, .keyboardButtonClicked  {
+.keyboardButton, .keyboardSpace, .keyboardReturn{
 	width: 7vw;
 	height: 3vh;
 	font-size: 1.5vh;
@@ -322,7 +322,18 @@ nav{
 	margin-left: 13vw;
 }
 
-.keyboardButtonClicked:active{
+.keyboardButton:active{
+	width: 7vw;
+	height: 3vh;
+	font-size: 1.5vh;
+	padding: 0px;
+	margin: 0.08vh 0.1vw;
+	color:#ffffff;
+	border:0px solid #bbb;
+  	border-bottom: 0px solid #a0a0a0;
+ 	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 	background:#aeb4b8;
 }
 
@@ -431,7 +442,7 @@ nav{
 .resultLabel{
 	display:block;
 	position:absolute;
-	top: 1vh;
+	top: 0.6vh;
 	height: 6vh;
 	left:1vw;
 	right:1vw;
@@ -458,6 +469,13 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+}
+
+.resultPanel{
+	top: 11vh;
+	left:6vw;
+	width:88vw;
+	height:26.3vh;
 }
 
 .poiBottomResultPanel {
