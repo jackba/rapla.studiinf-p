@@ -5,6 +5,7 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
@@ -20,9 +21,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private Grid infos = new Grid(4, 1);
 	
-	private String roomNumber = "D 459";
-	private String roomType = "Hörsaal";
-	private String courseOfStudy = "Wirtschaftsinformatik";
+	private String roomNumber;
+	private String roomType;
+	private String courseOfStudy;
 	
 	private IconButton nameBtn;
 	private IconButton typeBtn;
@@ -108,8 +109,26 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
-		roomNumber = "D "+id;
 		RoomDescriptor rd = new RoomDescriptor(resource);
+		
+		if (!rd.getRoomNr().equals("")){
+			roomNumber = rd.getRoomNr();
+			roomBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				roomBtn.getElement().getStyle().setDisplay(Display.NONE);
+			}
+		if (!rd.getRoomType().equals("")){
+			roomType = rd.getRoomType();
+			typeBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				typeBtn.getElement().getStyle().setDisplay(Display.NONE);
+			}
+		if (!rd.getRoomType().equals("")){
+			courseOfStudy = rd.getDepartment();
+			studyBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
+			}
 		refresh();
 		
 	}
