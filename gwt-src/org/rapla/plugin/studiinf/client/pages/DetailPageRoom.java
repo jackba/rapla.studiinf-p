@@ -5,6 +5,7 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -102,6 +103,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		roomNumber = "D "+id;
+		RoomDescriptor rd = new RoomDescriptor(resource);
 		refresh();
 		
 	}
