@@ -114,11 +114,22 @@ public void init() {
 		
 	}
 	
+	
+
+	
+	
 	@Override
 	protected void refresh() {
 		super.refresh();
 		
-		results.clear();
+//		results.clear();
+		for(int i= 0 ; i < results.getRowCount(); i++){
+			for(int j=0; j < results.getCellCount(i);j++){
+				if(results.getWidget(i, j) != null){
+					results.remove(results.getWidget(i, j));
+				}
+			}
+		}
 		resultBtns.clear();
 		Iterator<ResultButton> resultButtons = resultList.iterator();
 		for(int i= 0 ; i < results.getRowCount() && resultButtons.hasNext(); i++){

@@ -5,6 +5,8 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 
+import com.google.gwt.user.client.Window;
+
 public class PoiSearch extends AbstractSearch {
 
 	public PoiSearch(String searchTerm, PoiSearchPage page) {
@@ -14,10 +16,10 @@ public class PoiSearch extends AbstractSearch {
 
 	@Override
 	protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
-		NoDuplicatesList<ResourceDescriptor> POIMatched = new NoDuplicatesList<ResourceDescriptor>();
-		POIMatched.addAll(resources);
-			
-		return POIMatched;
+		NoDuplicatesList<ResourceDescriptor> pOIMatched = new NoDuplicatesList<ResourceDescriptor>();
+			pOIMatched.addAll(resources);
+			Window.alert(pOIMatched.toString());
+		return pOIMatched;
 	}
 
 
