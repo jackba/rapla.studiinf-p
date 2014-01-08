@@ -250,7 +250,7 @@ nav{
 .results, .infos, .personInfos, .personCourses, .personLectureRooms, .poiResults{
 	position:absolute;
 	top:8vh;
-	left:1vw;
+	left:1.3vw;
 	width:86vw;
 	height:18vh;
 	
@@ -435,7 +435,7 @@ nav{
 .resultLabel{
 	display:block;
 	position:absolute;
-	top: 1vh;
+	top: 0.6vh;
 	height: 6vh;
 	left:1vw;
 	right:1vw;
@@ -462,6 +462,13 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+}
+
+.resultPanel{
+	top: 11vh;
+	left:6vw;
+	width:88vw;
+	height:26.3vh;
 }
 
 .poiBottomResultPanel {
