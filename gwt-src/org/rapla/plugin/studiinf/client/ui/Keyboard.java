@@ -18,8 +18,8 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 		this.searchpage = searchpage;
 					
 		addStringAsRow("1|2|3|4|5|6|7|8|9|0|return");
-		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü");
-		addStringAsRow("A|S|D|F|G|H|J|K|L|Ö|Ä");
+		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ãœ");
+		addStringAsRow("A|S|D|F|G|H|J|K|L|Ã–|Ã„");
 		addStringAsRow("Y|X|C|V|B|N|M|.|-|search");
 		addStringAsRow(" ");
 		
