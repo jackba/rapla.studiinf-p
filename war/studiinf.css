@@ -473,7 +473,7 @@ nav{
 }
 
 .personInfoPanel {
-	height:25vh;
+	height:34vh;
 	top: 10vh;
 }
 .searchPanel{
@@ -638,11 +638,6 @@ nav{
 	background: #aeb4b8;
 }
 
-.personInfoLabel {
-	top: 0.5vh;	
-	height: 5vh;
-}
-
 .personAppointmentLabel {
 	top: 6vh;
 	height: 4.5vh;
@@ -656,8 +651,9 @@ nav{
 }
 
 .personInfos {
-	top: 4vh;
-	left: 27vw;
+	top: 5vh;
+	left: 30vw;
+	height: 26vh;
 }
 
 .personLectureRooms {
@@ -671,7 +667,7 @@ nav{
 	width: 86vw;
 }
 .personInfos .iconButton {
-	width: 60vw;
+	width: 56vw;
 }
 
 .personLectureRooms .iconButton {
@@ -711,8 +707,8 @@ nav{
 	position:absolute !important;
 	top: 6vh;
 	left:1vw;
-	width:25vw;
-	height:18vh;
+	width:30vw;
+	height:25vh;
 	background:#858f95;
 }
 

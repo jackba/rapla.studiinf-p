@@ -30,7 +30,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label personInfoLabel = new Label("Information");
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
-	private Grid infos = new Grid(4, 1);
+	private Grid infos = new Grid(5, 1);
 	private Grid lectureRooms = new Grid(3, 1);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 	private String name;
@@ -40,6 +40,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
+	private NavigationIconButton raplaBtn;
 	
 	private String departmentText;
 	private String mailText;
@@ -69,11 +70,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
 		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", new Image(IconProvider.ADDITIONAL_INFORMATION));
+		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), this);
 		
 		infos.setWidget(0, 0, roomNrBtn);
 		infos.setWidget(1, 0, mailBtn);
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
+		infos.setWidget(4, 0, raplaBtn);
 		
 		Image lectureRoomImg = new Image(IconProvider.ROOMS);
 		
