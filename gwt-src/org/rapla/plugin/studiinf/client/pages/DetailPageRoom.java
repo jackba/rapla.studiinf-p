@@ -36,7 +36,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	public void init(){
 		super.init();
 		
-		
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
