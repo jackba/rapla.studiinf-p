@@ -606,9 +606,9 @@ nav{
 }
 
 .personMiddlePanel {
-	top: 60vh;
+	top: 57vh;
 	bottom: auto;
-	height:25vh;
+	height:28vh;
 }
 .poiPage {
 	display:block;
@@ -646,8 +646,6 @@ nav{
 }
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
 	width: 16vw;
-	height: 5vh;
-	top: 0.5vh;
 }
 
 .personCourseOfStudyInfo {
@@ -657,8 +655,8 @@ nav{
 }
 
 .personAppointmentLabel {
-	top: 6vh;
-	height: 4.5vh;
+	top: 7.5vh;
+	height: 5vh;
 }
 
 .infos{
@@ -677,7 +675,7 @@ nav{
 .personLectureRooms {
 	position: absoute;
 	left: 60vw;
-	top: 8.5vh;
+	top: 11vh;
 	width: 33vw;
 	height: 13.5vh;
 }
@@ -690,8 +688,6 @@ nav{
 
 .personLectureRooms .iconButton {
 	width: 27vw;
-	height: 4.5vh;
-	padding: 0.5vh;
 }
 .personBottomPanel .iconButton{
 	width: 50vw;
