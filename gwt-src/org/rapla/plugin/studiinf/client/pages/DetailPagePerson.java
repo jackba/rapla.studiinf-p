@@ -60,16 +60,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 	public void init(){
 		super.init();
 	
-		//qrBox.setStyleName("personQRBox");
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-		//courses.setStyleName("personCourses");
 		lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
-		//courseLabel.setStyleName("personCourseLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
@@ -82,22 +79,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(1, 0, mailBtn);
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
-		
-		//Image courseImg = new Image(IconProvider.COURSES);
-		/*
-		IconButton firstCourse = new IconButton("Name 1", courseImg);
-		IconButton secondCourse = new IconButton("Name 2", courseImg);
-		IconButton thirdCourse = new IconButton("Name 3", courseImg);
-		IconButton fourthCourse = new IconButton("Name 4", courseImg);
-		IconButton fifthCourse = new IconButton("Name 5", courseImg);
-		IconButton sixthCourse = new IconButton("Name 6", courseImg);
-		
-		courses.setWidget(0, 0, firstCourse);
-		courses.setWidget(0, 1, secondCourse);
-		courses.setWidget(0, 2, thirdCourse);
-		courses.setWidget(1, 0, fourthCourse);
-		courses.setWidget(1, 1, fifthCourse);
-		courses.setWidget(1, 2, sixthCourse); */
 		
 		Image lectureRoomImg = new Image(IconProvider.ROOMS);
 		
@@ -118,8 +99,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 
 		middlePanel.add(appointmentLabel);
-//		middlePanel.add(courseLabel);
-	//	middlePanel.add(courses);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectureRooms);
@@ -135,7 +114,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
-		//this.add(qrBox);
 	}
 	
 	@Override
