@@ -232,8 +232,8 @@ nav{
 }
 .organigramBtn{
 	position:absolute;
-	bottom:38vh;
-	left:25vw;
+	bottom:37vh;
+	left:30vw;
 	rigth:25vw;
 	width:40vw;
 	height:5.25vh;
@@ -483,7 +483,9 @@ nav{
 .searchPanel{
 	top:auto;
 	bottom:12vh;
-	height:25vh;
+	height:21.7vh;
+	width:88.2vw;
+	left:5,9vw;
 }
 
 .pictureButton{
