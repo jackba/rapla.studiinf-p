@@ -18,7 +18,6 @@ public class PoiSearch extends AbstractSearch {
 	protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
 		NoDuplicatesList<ResourceDescriptor> pOIMatched = new NoDuplicatesList<ResourceDescriptor>();
 			pOIMatched.addAll(resources);
-			Window.alert(pOIMatched.toString());
 		return pOIMatched;
 	}
 

@@ -247,7 +247,6 @@ public class PoiSearchPage extends AbstractSearchPage {
 	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
 		clearResult();
 		int counter = 1;
-		Window.alert(ressourcesMatched.toString());
 		for(ResourceDescriptor room : ressourcesMatched)
 		{
 			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.POI)));
