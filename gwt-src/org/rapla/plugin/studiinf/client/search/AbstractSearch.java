@@ -8,6 +8,7 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescriptor>> {
@@ -44,7 +45,6 @@ public void onSuccess(List<ResourceDescriptor> arg0) {
 		resourcesMap.put(page, arg0);
 	}
 	NoDuplicatesList<ResourceDescriptor> ressourcesMatched = searchRessources(resourcesMap.get(page));
-	
 	page.updateResults(ressourcesMatched);
 
 }

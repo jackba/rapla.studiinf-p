@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personCourses, .personLectureRooms, .poiResults{
+.results, .infos, .personInfos, .personLectureRooms, .poiResults{
 	position:absolute;
 	top:8vh;
 	left:1.3vw;
@@ -405,7 +405,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox, .personQRBox, .poiQrBox{
+.qrBox, .poiQrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -413,10 +413,6 @@ nav{
 	width:89vw;
 	height:10vh;
 	background: #ffffff;
-}
-
-.personQRBox {
-	top: 37vh;
 }
 
 .poiQrBox {
@@ -495,7 +491,7 @@ nav{
 }
 
 .personInfoPanel {
-	height:25vh;
+	height:34vh;
 	top: 10vh;
 }
 .searchPanel{
@@ -606,16 +602,13 @@ nav{
 .roomPanel, .personBottomPanel {
 	top: auto;
 	bottom: 7vh;
-	height:5.5vh;
+	height:6vh;
 }
 
-.personBottomPanel {
-	bottom: 6.5vh;
-}
 .personMiddlePanel {
-	top: 48vh;
+	top: 57vh;
 	bottom: auto;
-	height:38vh;
+	height:28vh;
 }
 .poiPage {
 	display:block;
@@ -631,7 +624,7 @@ nav{
 	line-height:5vh;
 	color:#ffffff;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -653,8 +646,6 @@ nav{
 }
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
 	width: 16vw;
-	height: 5vh;
-	top: 0.5vh;
 }
 
 .personCourseOfStudyInfo {
@@ -663,21 +654,11 @@ nav{
 	background: #aeb4b8;
 }
 
-.personInfoLabel {
-	top: 0.5vh;	
+.personAppointmentLabel {
+	top: 7.5vh;
 	height: 5vh;
 }
 
-.personAppointmentLabel {
-	top: 6vh;
-	height: 4.5vh;
-}
-
-.personCourseLabel {
-	top: auto;
-	bottom: 9vh;
-	height: 4.5vh;
-}
 .infos{
 	top:7vh;
 }
@@ -686,21 +667,15 @@ nav{
 }
 
 .personInfos {
-	top: 4vh;
-	left: 27vw;
+	top: 5vh;
+	left: 30vw;
+	height: 26vh;
 }
 
-.personCourses {
-	top: auto;
-	bottom: 2vh;
-	height: 9vh;
-	left: 4vw;
-	width: 83vw;
-}
 .personLectureRooms {
 	position: absoute;
 	left: 60vw;
-	top: 8.5vh;
+	top: 11vh;
 	width: 33vw;
 	height: 13.5vh;
 }
@@ -708,23 +683,17 @@ nav{
 	width: 86vw;
 }
 .personInfos .iconButton {
-	width: 60vw;
+	width: 56vw;
 }
 
-.personCourses .iconButton {
-	width: 27vw;
-	height: 4.5vh;
-	padding: 0.5vh;
-}
 .personLectureRooms .iconButton {
 	width: 27vw;
-	height: 4.5vh;
-	padding: 0.5vh;
 }
 .personBottomPanel .iconButton{
 	width: 50vw;
+	top: 0.5vh;
 }
-.iconButton, .personShowExtraInfosBtn {
+.iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn {
 	position: absolute;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
@@ -734,9 +703,19 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
+.personShowRoomBtn {
+	top: 0.5vh;
+	width: 18vw;	
+}
 .personShowExtraInfosBtn {
+	top: 0.5vh;
 	left: 50vw;
 	width: 37vw;
+}
+.personLinkRaplabtn {
+	top: 0.5vh;
+	left: 19vw;
+	width: 30vw;
 }
 .iconIconButton {
 	position: absolute;
@@ -753,8 +732,8 @@ nav{
 	position:absolute !important;
 	top: 6vh;
 	left:1vw;
-	width:25vw;
-	height:18vh;
+	width:30vw;
+	height:25vh;
 	background:#858f95;
 }
 

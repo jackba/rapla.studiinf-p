@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -44,22 +45,27 @@ public class PoiSearchPage extends AbstractSearchPage {
 	public void init(){
 		super.init();
 		
-		currentPageNr = 1;
-		firstResultNumber = 1;
+//		currentPageNr = 1;
+//		firstResultNumber = 1;
+//		
+//		resultsPanel.setStyleName("poiResultsPanel");
+//		resultsLabel.setStyleName("poiResultsLabel");
+//		results.setStyleName("poiResults");
+//		currentPage.setStyleName("poiPage");
+//		currentPoi.setStyleName("currentPoiLabel");
+//		bottomResultPanel.setStyleName("poiBottomResultPanel");
 		
-		resultsPanel.setStyleName("poiResultsPanel");
-		resultsLabel.setStyleName("poiResultsLabel");
-		results.setStyleName("poiResults");
-		currentPage.setStyleName("poiPage");
-		currentPoi.setStyleName("currentPoiLabel");
-		bottomResultPanel.setStyleName("poiBottomResultPanel");
+		addResult( new ResultButton(1, "D 001", Navigation.roomDetail,"001", new Image(IconProvider.ROOMS)));
 		
-		addResultButtons();
+//		addResultButtons();
 		
-		navigationImg = new Image(IconProvider.MISSING_MAP);
-		navigationImg.setStyleName("poiNavigationImg");
+		setSearched(true);
+		handleSearch("-");
 		
-		addNavigationButtonsAndClickhandler();
+//		navigationImg = new Image(IconProvider.MISSING_MAP);
+//		navigationImg.setStyleName("poiNavigationImg");
+		
+//		addNavigationButtonsAndClickhandler();
 
 //		resultsPanel.add(resultsLabel);
 //		resultsPanel.add(results);
@@ -91,144 +97,144 @@ public class PoiSearchPage extends AbstractSearchPage {
 
 
 		
-	public void refresh(){
-		currentPoi.setText(currentPoiText);	
-		this.remove(navigationImg);
-		navigationImg.setUrl(IconProvider.MISSING_MAP);
-		this.add(navigationImg);
-	}
-	
-	public void addNavigationButtonsAndClickhandler(){
-		rightNavImg = new Image(IconProvider.POI);
-		leftNavImg = new Image(IconProvider.POI);
-		
-		bottomRightNavImg = new Image(IconProvider.POI);
-		bottomLeftNavImg = new Image(IconProvider.POI);
-		
-		rightNavImg.setStyleName("poiRightNav");
-		leftNavImg.setStyleName("poiLeftNav");
-		bottomRightNavImg.setStyleName("poiBottomRightNav");
-		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
-		
-		rightNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showNextPois();
-				
-			}
-		});
-		
-		leftNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showPreviousPois();
-				
-			}
-		});
-		
-		bottomRightNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showNextPois();
-				
-			}
-		});
-		
-		bottomLeftNavImg.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				showPreviousPois();
-				
-			}
-		});
-	}
-	
-	public void showRightNavigation(boolean show){
-		if (show == true){
-			rightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-			bottomRightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-		} else {
-			rightNavImg.getElement().getStyle().setDisplay(Display.NONE);
-			bottomRightNavImg.getElement().getStyle().setDisplay(Display.NONE);
-		}
-
-	}
-	
-	public void showLeftNavigation(boolean show){
-		if (show == true){
-			leftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
-		} else {
-			leftNavImg.getElement().getStyle().setDisplay(Display.NONE);
-			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.NONE);
-		}
-
-	}
-	
-	public void showNextPois(){
-		currentPageNr += 1;
-		firstResultNumber += 4;
-		currentPage.setText(Studiinf.i18n.page()+ currentPageNr);
-		refreshResultButtons();
-		if (currentPageNr == 3){
-			showRightNavigation(false);
-		}
-		showLeftNavigation(true);
-	}
-	
-	public void showPreviousPois(){
-		currentPageNr -= 1;
-		firstResultNumber -= 4;
-		currentPage.setText("Seite "+ currentPageNr);
-		refreshResultButtons();
-		if (currentPageNr == 1){
-			showLeftNavigation(false);
-		}
-		showRightNavigation(true);
-	}
-	
-	public void refreshResultButtons(){
-
-		results.remove(firstResult);
-		results.remove(secondResult);
-		results.remove(thirdResult);
-		results.remove(fourthResult);
-
-		bottomResultPanel.remove(firstResult.getBottomPictureButton());
-		bottomResultPanel.remove(secondResult.getBottomPictureButton());
-		bottomResultPanel.remove(thirdResult.getBottomPictureButton());
-		bottomResultPanel.remove(fourthResult.getBottomPictureButton()); 
-		
-		addResultButtons();
-	}
-	
-	public void addResultButtons(){
-		final String poiSvg = new String("img/PoI.svg");
-		Image img = new Image(poiSvg); 
-		
-		firstResult = new ResultButton(firstResultNumber, "Eins", this, "0001", img);
-		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "0002", img);
-		thirdResult = new ResultButton(firstResultNumber + 2, "Eins", this, "0003", img);
-		fourthResult = new ResultButton(firstResultNumber + 3, "Eins", this, "0004", img);
-		
-		results.setWidget(0, 0, firstResult);
-		results.setWidget(0, 1, secondResult);
-		results.setWidget(1, 0, thirdResult);
-		results.setWidget(1, 1, fourthResult);
-		
-		bottomResultPanel.add(firstResult.getBottomPictureButton());
-		bottomResultPanel.add(secondResult.getBottomPictureButton());
-		bottomResultPanel.add(thirdResult.getBottomPictureButton());
-		bottomResultPanel.add(fourthResult.getBottomPictureButton());
-	}
+//	public void refresh(){
+//		currentPoi.setText(currentPoiText);	
+//		this.remove(navigationImg);
+//		navigationImg.setUrl(IconProvider.MISSING_MAP);
+//		this.add(navigationImg);
+//	}
+//	
+//	public void addNavigationButtonsAndClickhandler(){
+//		rightNavImg = new Image(IconProvider.POI);
+//		leftNavImg = new Image(IconProvider.POI);
+//		
+//		bottomRightNavImg = new Image(IconProvider.POI);
+//		bottomLeftNavImg = new Image(IconProvider.POI);
+//		
+//		rightNavImg.setStyleName("poiRightNav");
+//		leftNavImg.setStyleName("poiLeftNav");
+//		bottomRightNavImg.setStyleName("poiBottomRightNav");
+//		bottomLeftNavImg.setStyleName("poiBottomLeftNav");
+//		
+//		rightNavImg.addClickHandler(new ClickHandler() {
+//			
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				showNextPois();
+//				
+//			}
+//		});
+//		
+//		leftNavImg.addClickHandler(new ClickHandler() {
+//			
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				showPreviousPois();
+//				
+//			}
+//		});
+//		
+//		bottomRightNavImg.addClickHandler(new ClickHandler() {
+//			
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				showNextPois();
+//				
+//			}
+//		});
+//		
+//		bottomLeftNavImg.addClickHandler(new ClickHandler() {
+//			
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				showPreviousPois();
+//				
+//			}
+//		});
+//	}
+//	
+//	public void showRightNavigation(boolean show){
+//		if (show == true){
+//			rightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+//			bottomRightNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+//		} else {
+//			rightNavImg.getElement().getStyle().setDisplay(Display.NONE);
+//			bottomRightNavImg.getElement().getStyle().setDisplay(Display.NONE);
+//		}
+//
+//	}
+//	
+//	public void showLeftNavigation(boolean show){
+//		if (show == true){
+//			leftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+//			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.INLINE);
+//		} else {
+//			leftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+//			bottomLeftNavImg.getElement().getStyle().setDisplay(Display.NONE);
+//		}
+//
+//	}
+//	
+//	public void showNextPois(){
+//		currentPageNr += 1;
+//		firstResultNumber += 4;
+//		currentPage.setText(Studiinf.i18n.page()+ currentPageNr);
+//		refreshResultButtons();
+//		if (currentPageNr == 3){
+//			showRightNavigation(false);
+//		}
+//		showLeftNavigation(true);
+//	}
+//	
+//	public void showPreviousPois(){
+//		currentPageNr -= 1;
+//		firstResultNumber -= 4;
+//		currentPage.setText("Seite "+ currentPageNr);
+//		refreshResultButtons();
+//		if (currentPageNr == 1){
+//			showLeftNavigation(false);
+//		}
+//		showRightNavigation(true);
+//	}
+//	
+//	public void refreshResultButtons(){
+//
+//		results.remove(firstResult);
+//		results.remove(secondResult);
+//		results.remove(thirdResult);
+//		results.remove(fourthResult);
+//
+//		bottomResultPanel.remove(firstResult.getBottomPictureButton());
+//		bottomResultPanel.remove(secondResult.getBottomPictureButton());
+//		bottomResultPanel.remove(thirdResult.getBottomPictureButton());
+//		bottomResultPanel.remove(fourthResult.getBottomPictureButton()); 
+//		
+//		addResultButtons();
+//	}
+//	
+//	public void addResultButtons(){
+//		final String poiSvg = new String("img/PoI.svg");
+//		Image img = new Image(poiSvg); 
+//		
+//		firstResult = new ResultButton(firstResultNumber, "Eins", this, "0001", img);
+//		secondResult = new ResultButton(firstResultNumber + 1, "Eins", this, "0002", img);
+//		thirdResult = new ResultButton(firstResultNumber + 2, "Eins", this, "0003", img);
+//		fourthResult = new ResultButton(firstResultNumber + 3, "Eins", this, "0004", img);
+//		
+//		results.setWidget(0, 0, firstResult);
+//		results.setWidget(0, 1, secondResult);
+//		results.setWidget(1, 0, thirdResult);
+//		results.setWidget(1, 1, fourthResult);
+//		
+//		bottomResultPanel.add(firstResult.getBottomPictureButton());
+//		bottomResultPanel.add(secondResult.getBottomPictureButton());
+//		bottomResultPanel.add(thirdResult.getBottomPictureButton());
+//		bottomResultPanel.add(fourthResult.getBottomPictureButton());
+//	}
 
 	@Override
 	protected void handleSearch(String searchTerm) {
-		new PoiSearch(searchTerm,this);
+		new PoiSearch("*",this);
 		
 	}
 

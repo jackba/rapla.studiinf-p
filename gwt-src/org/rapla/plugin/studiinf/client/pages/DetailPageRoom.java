@@ -36,7 +36,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	public void init(){
 		super.init();
 		
-		
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
@@ -123,12 +122,14 @@ public class DetailPageRoom extends AbstractDetailPage {
 			}else{
 				typeBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
-		if (!rd.getRoomType().equals("")){
+		if (!rd.getDepartment().equals("")){
 			courseOfStudy = rd.getDepartment();
 			studyBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
+		
+		Window.alert(rd.getPicture());
 		refresh();
 		
 	}

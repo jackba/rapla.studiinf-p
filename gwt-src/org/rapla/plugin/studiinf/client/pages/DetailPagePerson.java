@@ -11,7 +11,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
-import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -31,11 +30,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label personInfoLabel = new Label("Information");
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
-	private Grid infos = new Grid(4, 1);
+	private Grid infos = new Grid(5, 1);
 	private Grid lectureRooms = new Grid(3, 1);
-	private Grid courses = new Grid(2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
-	private Label courseLabel = new Label(Studiinf.i18n.courses());
 	private String name;
 	List<Event> events;
 	
@@ -43,8 +40,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
-	
-	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	private NavigationIconButton raplaBtn;
 	
 	private String departmentText;
 	private String mailText;
@@ -52,7 +48,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	
 	@Override
 	public boolean hasDefaultQrBox(){
-		return false;
+		return true;
 	}
 	
 	
@@ -60,16 +56,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 	public void init(){
 		super.init();
 	
-		qrBox.setStyleName("personQRBox");
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("personInfoLabel");
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-		courses.setStyleName("personCourses");
 		lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
-		courseLabel.setStyleName("personCourseLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
@@ -77,27 +70,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
 		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", new Image(IconProvider.ADDITIONAL_INFORMATION));
+		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), this);
 		
 		infos.setWidget(0, 0, roomNrBtn);
 		infos.setWidget(1, 0, mailBtn);
 		infos.setWidget(2, 0, telephoneBtn);
 		infos.setWidget(3, 0, extraInfosBtn);
-		
-		Image courseImg = new Image(IconProvider.COURSES);
-		
-		IconButton firstCourse = new IconButton("Name 1", courseImg);
-		IconButton secondCourse = new IconButton("Name 2", courseImg);
-		IconButton thirdCourse = new IconButton("Name 3", courseImg);
-		IconButton fourthCourse = new IconButton("Name 4", courseImg);
-		IconButton fifthCourse = new IconButton("Name 5", courseImg);
-		IconButton sixthCourse = new IconButton("Name 6", courseImg);
-		
-		courses.setWidget(0, 0, firstCourse);
-		courses.setWidget(0, 1, secondCourse);
-		courses.setWidget(0, 2, thirdCourse);
-		courses.setWidget(1, 0, fourthCourse);
-		courses.setWidget(1, 1, fifthCourse);
-		courses.setWidget(1, 2, sixthCourse); 
+		infos.setWidget(4, 0, raplaBtn);
 		
 		Image lectureRoomImg = new Image(IconProvider.ROOMS);
 		
@@ -109,33 +88,31 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectureRooms.setWidget(1, 0, secondLectureRoom);
 		lectureRooms.setWidget(2, 0, thirdLectureRoom);
 		
-		
 		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
 		personInfoPanel.add(new Image(IconProvider.PERSONS));
 		personInfoPanel.add(infos);
 		
-
 		middlePanel.add(appointmentLabel);
-		middlePanel.add(courseLabel);
-		middlePanel.add(courses);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectureRooms);
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
+		showRoomBtn.setStyleName("personShowRoomBtn");
 		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION));
+		NavigationIconButton linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),this,"");
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
+		linkRapla2.setStyleName("personLinkRaplabtn");
 		
 		bottomPanel.add(showRoomBtn);
 		bottomPanel.add(showextraInfosBtn);
+		bottomPanel.add(linkRapla2);
 		
-
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
-		this.add(qrBox);
 	}
 	
 	@Override

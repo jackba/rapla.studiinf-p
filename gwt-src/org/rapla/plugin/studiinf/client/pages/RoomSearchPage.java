@@ -6,7 +6,6 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
-import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
