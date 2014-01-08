@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
@@ -82,12 +83,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	}
 
 
-	@Override
-	protected void handleId(String id) {
-		roomNumber = "D "+id;
-		refresh();
-		
-	}
 	
 	@Override
 	protected void refresh() {
@@ -99,6 +94,14 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	public boolean hasDefaultQrBox() {
 		return true;
+	}
+
+
+	@Override
+	protected void handleRessource(String id, ResourceDetail resource) {
+		roomNumber = "D "+id;
+		refresh();
+		
 	}
 
 }
