@@ -32,6 +32,7 @@ public final class Navigation {
 	public static final AbstractPage personDetail = new DetailPagePerson();
 	public static final AbstractPage courseDetail = new DetailPageCourse();
 	
+	public static final String ID_PREFIX = "org.rapla.entities.domain.Allocatable_";
 	
 	private static List<AbstractPage> pages;
 	
@@ -63,8 +64,8 @@ public final class Navigation {
 		if(id != null){
 			try {
 				AbstractDetailPage detailPage = (AbstractDetailPage) page;
-				detailPage.setId(id);
-				History.newItem(page.getHistoryKey()+"/"+id, false);
+				detailPage.setId(idForService(id));
+				History.newItem(page.getHistoryKey()+"/"+idForURL(id), false);
 			} catch (Throwable e) {
 				History.newItem(page.getHistoryKey(), false);
 			}
@@ -98,6 +99,13 @@ public final class Navigation {
 			}
 		}
 		return null;
+	}
+	
+	public static String idForService(String idForUrl){
+		return ID_PREFIX + idForUrl.replace(ID_PREFIX, "");
+	}
+	public static String idForURL(String idForService){
+		return idForService.replace(ID_PREFIX, "");
 	}
 
 }

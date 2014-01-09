@@ -13,7 +13,9 @@ import com.google.gwt.user.client.ui.Image;
 
 
 public class RoomSearchPage extends AbstractSearchPage {
-
+	
+	private static final String ROOMS = "rooms";
+	
 	public RoomSearchPage() {
 		super(false, true,true);
 	}
@@ -32,12 +34,6 @@ public class RoomSearchPage extends AbstractSearchPage {
 	@Override
 	public void init() {
 		super.init();
-		addResult( new ResultButton(1, "D 001", Navigation.roomDetail,"001", new Image(IconProvider.ROOMS)));
-		addResult(new ResultButton(2, "D 002",Navigation.roomDetail,"002", new Image(IconProvider.ROOMS)));
-		addResult(new ResultButton(3, "D 003",Navigation.roomDetail,"003", new Image(IconProvider.ROOMS)));
-		addResult(new ResultButton(4, "D 004",Navigation.roomDetail,"004", new Image(IconProvider.ROOMS)));
-		addResult(new ResultButton(5, "D 005",Navigation.roomDetail,"005", new Image(IconProvider.ROOMS)));
-		addResult(new ResultButton(6, "D 006",Navigation.roomDetail,"006", new Image(IconProvider.ROOMS)));
 	}
 	
 	@Override
@@ -57,6 +53,11 @@ public class RoomSearchPage extends AbstractSearchPage {
 	protected void handleSearch(String searchTerm) {
 		new RoomSearch(searchTerm, this);
 		
+	}
+
+	@Override
+	public String getResourceType() {
+		return ROOMS;
 	}
 
 }

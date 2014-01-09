@@ -7,7 +7,7 @@ import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 
 
 public class PersonSearch extends AbstractSearch{
-private static final String PERSONS = "persons";
+
 private static final int FIRST_NAME = 0;
 private static final int LAST_NAME = 1;
 
@@ -31,10 +31,6 @@ protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDes
 	return personMatched;
 }
 
-@Override
-protected String getResourceType() {
-	return PERSONS;
-}
 
 	
 	

@@ -12,11 +12,14 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescriptor>> {
 	protected String searchTerm;
-	private AbstractSearchPage page;
+	protected AbstractSearchPage page;
 
-	 private static Map<AbstractSearchPage,List<ResourceDescriptor>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescriptor>>();
+	 protected static Map<AbstractSearchPage,List<ResourceDescriptor>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescriptor>>();
 	
 	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
+		if(searchTerm == null){
+			searchTerm ="";
+		}
 		this.searchTerm = searchTerm.toLowerCase();
 		
 		this.page = page;
@@ -51,6 +54,7 @@ public void onSuccess(List<ResourceDescriptor> arg0) {
 
 	protected abstract NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources);
 
-
-	protected abstract String getResourceType();
+	protected final String getResourceType() {
+		return page.getResourceType();
+	}
 }

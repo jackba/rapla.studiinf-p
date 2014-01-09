@@ -186,5 +186,6 @@ public void init() {
 
 
 	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);
+	abstract public String getResourceType();
 	
 }

@@ -16,14 +16,12 @@ public class PoiSearchPage extends AbstractSearchPage {
 	
 	
 	public PoiSearchPage() {
-		super(false, false,false,10,2);
+		super(false, false,true,8,2);
 	}
 
 	@Override
 	public void init(){
 		super.init();
-				
-		addResult( new ResultButton(1, "D 001", Navigation.roomDetail,"001", new Image(IconProvider.ROOMS)));
 		
 		setSearched(true);
 		handleSearch("*");
@@ -50,12 +48,17 @@ public class PoiSearchPage extends AbstractSearchPage {
 	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
 		clearResult();
 		int counter = 1;
-		for(ResourceDescriptor room : ressourcesMatched)
+		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.POI)));
+			addResult(new ResultButton(counter, poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
 			counter++;
 		}
 		
+	}
+
+	@Override
+	public String getResourceType() {
+		return "sonstiges";
 	}
 
 	

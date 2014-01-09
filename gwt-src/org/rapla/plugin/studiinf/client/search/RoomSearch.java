@@ -7,7 +7,7 @@ import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
 
 public class RoomSearch extends AbstractSearch{
-private static final String ROOMS = "rooms";
+
 private static final int NAME = 0;
 private static final int TYPE = 1;
 
@@ -33,10 +33,6 @@ protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDes
 	return roomMatched;
 }
 
-@Override
-protected String getResourceType() {
-	return ROOMS;
-}
 
 	
 	

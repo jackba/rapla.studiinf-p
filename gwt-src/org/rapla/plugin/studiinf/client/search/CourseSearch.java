@@ -23,9 +23,6 @@ public class CourseSearch extends AbstractSearch {
 		return coursesMatched;
 	}
 
-	@Override
-	protected String getResourceType() {
-		return "courses";
-	}
+
 
 }

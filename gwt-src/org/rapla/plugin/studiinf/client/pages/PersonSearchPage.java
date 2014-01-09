@@ -13,7 +13,8 @@ import com.google.gwt.user.client.ui.Image;
 
 
 public class PersonSearchPage extends AbstractSearchPage {
-		
+	private static final String PERSONS = "persons";
+	
 	public PersonSearchPage() {
 		super(true, true,true);
 	}
@@ -30,12 +31,6 @@ public class PersonSearchPage extends AbstractSearchPage {
 	@Override
 	public void init() {
 		super.init();
-		addResult( new ResultButton(1, "Stephan Bürger", Navigation.personDetail,"001", new Image(IconProvider.PERSONS)));
-		addResult(new ResultButton(2, "Sara Dresdner",Navigation.personDetail,"002", new Image(IconProvider.PERSONS)));
-		addResult(new ResultButton(3, "Prof. Dr. R. Küstermann",Navigation.personDetail,"003", new Image(IconProvider.PERSONS)));
-		addResult(new ResultButton(4, "Leon Schmid",Navigation.personDetail,"004", new Image(IconProvider.PERSONS)));
-		addResult(new ResultButton(5, "Franziska Zimmermann",Navigation.personDetail,"005", new Image(IconProvider.PERSONS)));
-		addResult(new ResultButton(6, "Anne Schiffer",Navigation.personDetail,"006", new Image(IconProvider.PERSONS)));
 	}
 
 	
@@ -58,6 +53,11 @@ public class PersonSearchPage extends AbstractSearchPage {
 	protected void handleSearch(String searchTerm) {
 		 new PersonSearch(searchTerm, this);
 		}
+
+	@Override
+	public String getResourceType() {
+		return PERSONS;
+	}
 	
 	
 

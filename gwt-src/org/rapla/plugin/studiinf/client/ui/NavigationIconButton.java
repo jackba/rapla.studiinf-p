@@ -9,8 +9,8 @@ import com.google.gwt.user.client.ui.Image;
 
 public class NavigationIconButton extends IconButton implements ClickHandler {
 	
-	private AbstractPage targetPage;
-	private String targetId;
+	protected AbstractPage targetPage;
+	protected String targetId;
 	
 	public NavigationIconButton(String title, Image icon, AbstractPage targetPage) {
 		super(title, icon);
@@ -31,6 +31,7 @@ public class NavigationIconButton extends IconButton implements ClickHandler {
 			Navigation.goToPage(targetPage, targetId);
 		}
 	}
+	
 	
 
 }

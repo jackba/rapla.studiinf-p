@@ -21,6 +21,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	    Navigation.add(this);
 	    
 	    this.setStyleName("page");
+	    this.addStyleName("page-"+getHistoryKey());
 	    
 	    header = new PageHeader(this);
 	    footer = new PageFooter(this);

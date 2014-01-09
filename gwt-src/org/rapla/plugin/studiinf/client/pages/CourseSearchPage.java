@@ -45,4 +45,9 @@ public class CourseSearchPage extends AbstractSearchPage {
 		}
 	}
 
+	@Override
+	public String getResourceType() {
+		return "courses";
+	}
+
 }

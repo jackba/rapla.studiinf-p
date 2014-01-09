@@ -20,9 +20,4 @@ public class PoiSearch extends AbstractSearch {
 	}
 
 
-	@Override
-	protected String getResourceType() {
-		return "sonstiges";
-	}
-
 }
