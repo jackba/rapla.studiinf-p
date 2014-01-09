@@ -16,13 +16,25 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 
 	 protected static Map<AbstractSearchPage,List<ResourceDescriptor>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescriptor>>();
 	
-	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
+	public AbstractSearch(String searchTerm,AbstractSearchPage page,boolean autoinit) {
 		if(searchTerm == null){
 			searchTerm ="";
 		}
 		this.searchTerm = searchTerm.toLowerCase();
 		
 		this.page = page;
+		
+		if(autoinit){
+			init();
+		}
+		
+	}
+	
+	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
+		this(searchTerm,page,true);
+	}
+	
+	public void init(){
 		if( !resourcesMap.containsKey(page))
 			{
 			ServiceProvider.getResources(getResourceType(), this);
@@ -31,7 +43,6 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 		{
 			this.onSuccess(resourcesMap.get(page));
 		}
-		
 	}
 	
 

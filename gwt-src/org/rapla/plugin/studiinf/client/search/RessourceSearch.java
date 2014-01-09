@@ -9,8 +9,9 @@ import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 public class RessourceSearch extends AbstractSearch {
 	private RessourceButton button;
 	public RessourceSearch(String searchTerm, AbstractSearchPage page, RessourceButton button) {
-		super(searchTerm, page);
+		super(searchTerm, page, false);
 		this.button = button;
+		init();
 	}
 
 	@Override
@@ -39,6 +40,7 @@ public class RessourceSearch extends AbstractSearch {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	
 
 }

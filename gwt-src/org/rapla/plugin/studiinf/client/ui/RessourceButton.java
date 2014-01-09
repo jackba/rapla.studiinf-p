@@ -30,9 +30,11 @@ public class RessourceButton extends NavigationIconButton {
 	
 	@Override
 	public void setText(String text) {
-		super.setText(text);
-		this.targetId = null;
-		new RessourceSearch(text, page, this);
+		if(!getText().equals(text)){
+			super.setText(text);
+			this.targetId = null;
+			new RessourceSearch(text, page, this);
+		}
 	}
 	
 
