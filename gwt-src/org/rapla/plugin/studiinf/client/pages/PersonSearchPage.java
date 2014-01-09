@@ -14,6 +14,10 @@ import com.google.gwt.user.client.ui.Image;
 
 public class PersonSearchPage extends AbstractSearchPage {
 		
+	public PersonSearchPage() {
+		super(true, true);
+	}
+
 	@Override
 	public String getTitle() {
 		return Studiinf.i18n.personSearchPage();
@@ -34,10 +38,6 @@ public class PersonSearchPage extends AbstractSearchPage {
 		addResult(new ResultButton(6, "Anne Schiffer",Navigation.personDetail,"006", new Image(IconProvider.PERSONS)));
 	}
 
-	@Override
-	public boolean hasOrganigramm() {
-		return true;
-	}
 	
 	@Override
 	public void updateResults(List<ResourceDescriptor> results)

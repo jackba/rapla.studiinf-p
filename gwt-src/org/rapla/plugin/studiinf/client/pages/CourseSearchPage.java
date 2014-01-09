@@ -14,6 +14,10 @@ import com.google.gwt.user.client.ui.Image;
 
 public class CourseSearchPage extends AbstractSearchPage {
 
+	public CourseSearchPage() {
+		super(true, true);
+	}
+
 	@Override
 	public String getTitle() {
 		return Studiinf.i18n.courseSearchPage();
@@ -24,10 +28,6 @@ public class CourseSearchPage extends AbstractSearchPage {
 		return "course";
 	}
 
-	@Override
-	public boolean hasOrganigramm() {
-		return true;
-	}
 
 	@Override
 	protected void handleSearch(String searchTerm) {

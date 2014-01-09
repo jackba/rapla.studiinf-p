@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
+import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
@@ -30,7 +32,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private Grid results = new Grid(3, 2);
 	private Image img = new Image(organigramImg);
-	private Widget organigramBtn = new IconButton(Studiinf.i18n.organigram(), img);
+	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected HorizontalPanel resultBtns = new HorizontalPanel();
 	private QRBox qrBox = new QRBox(getHistoryKey());
@@ -43,6 +45,15 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	
 	
 	private boolean searched = false;
+	
+	private final boolean hasOrganigramm;
+	private final boolean showKeyboard;
+	
+	
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showKeyboard) {
+		this.hasOrganigramm = hasOrganigramm;
+		this.showKeyboard = showKeyboard;
+	}
 	
 	
 public boolean isSearched() {
@@ -65,6 +76,7 @@ public void setSearched(boolean searched) {
 @Override
 public void init() {
 	super.init();
+	organigramBtn = new NavigationIconButton(Studiinf.i18n.organigram(), img, Navigation.organisationChart,"1");
 	
 	searchField.setStyleName("searchField");
 	resultLabel.setStyleName("resultLabel");
@@ -95,12 +107,14 @@ public void init() {
 	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
-	searchPanel.add(keyboard);
+	if(showKeyboard){
+		searchPanel.add(keyboard);
+	}
 	searchPanel.add(searchField);
 	
 	this.add(searchPanel);
 	this.add(resultPanel);
-	if(this.hasOrganigramm()){
+	if(this.hasOrganigramm){
 		this.add(organigramBtn);
 	}
 	this.add(resultBtns);
@@ -158,7 +172,6 @@ public void init() {
 	
 		
 	
-	abstract public boolean hasOrganigramm();
 
 
 	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);

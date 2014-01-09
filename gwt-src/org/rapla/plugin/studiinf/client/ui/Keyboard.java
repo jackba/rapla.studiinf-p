@@ -32,8 +32,6 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 			
 			inputField.setText(inputField.getText() + key.getText());
 			
-			key.addStyleName("keyboardButtonClicked");
-			
 			searchpage.fakeKeyUp();
 					
 		} catch (Exception e) {
