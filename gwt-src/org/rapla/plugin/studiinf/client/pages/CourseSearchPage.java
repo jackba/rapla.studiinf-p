@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Image;
 public class CourseSearchPage extends AbstractSearchPage {
 
 	public CourseSearchPage() {
-		super(true, true);
+		super(true, true,true);
 	}
 
 	@Override

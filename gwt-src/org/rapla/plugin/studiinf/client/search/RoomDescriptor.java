@@ -4,8 +4,6 @@ import java.util.Collection;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
-import com.google.gwt.user.client.Window;
-
 public class RoomDescriptor {
 	
 	private String roomNr;	

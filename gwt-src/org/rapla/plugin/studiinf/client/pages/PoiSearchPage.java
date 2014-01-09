@@ -16,7 +16,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 	
 	
 	public PoiSearchPage() {
-		super(false, false);
+		super(false, false,false,10,2);
 	}
 
 	@Override
@@ -26,13 +26,12 @@ public class PoiSearchPage extends AbstractSearchPage {
 		addResult( new ResultButton(1, "D 001", Navigation.roomDetail,"001", new Image(IconProvider.ROOMS)));
 		
 		setSearched(true);
-		handleSearch("-");
+		handleSearch("*");
 				
 	}
 	
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
 		return Studiinf.i18n.poiSearchPage();
 	}
 

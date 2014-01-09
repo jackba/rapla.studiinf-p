@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Image;
 public class RoomSearchPage extends AbstractSearchPage {
 
 	public RoomSearchPage() {
-		super(false, true);
+		super(false, true,true);
 	}
 
 	@Override

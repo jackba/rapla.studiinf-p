@@ -5,8 +5,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 
-import com.google.gwt.user.client.Window;
-
 public class PoiSearch extends AbstractSearch {
 
 	public PoiSearch(String searchTerm, PoiSearchPage page) {

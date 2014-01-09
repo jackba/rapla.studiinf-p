@@ -8,7 +8,6 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -18,7 +17,6 @@ import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -30,11 +28,11 @@ public abstract class AbstractSearchPage extends AbstractPage{
 
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
-	private Grid results = new Grid(3, 2);
+	private Grid results ;
 	private Image img = new Image(organigramImg);
 	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
-	protected HorizontalPanel resultBtns = new HorizontalPanel();
+	protected FlowPanel resultBtns = new FlowPanel();
 	private QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
@@ -47,14 +45,24 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private boolean searched = false;
 	
 	private final boolean hasOrganigramm;
-	private final boolean showKeyboard;
+	private final boolean showInput;
+	private final boolean showQRBox;
+	
+	private final int resultRows;
+	private final int resultColumns;
 	
 	
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showKeyboard) {
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns) {
 		this.hasOrganigramm = hasOrganigramm;
-		this.showKeyboard = showKeyboard;
+		this.showInput = showInput;
+		this.showQRBox = showQRBox;
+		this.resultRows = resultRows;
+		this.resultColumns = resultColumns;
+		this.results = new Grid(this.resultRows, this.resultColumns);
 	}
-	
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
+		this(hasOrganigramm,showInput,showQRBox,3,2);
+	}
 	
 public boolean isSearched() {
 	return searched;
@@ -107,18 +115,21 @@ public void init() {
 	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
-	if(showKeyboard){
+	if(showInput){
 		searchPanel.add(keyboard);
+		searchPanel.add(searchField);
+		this.add(searchPanel);
 	}
-	searchPanel.add(searchField);
 	
-	this.add(searchPanel);
 	this.add(resultPanel);
 	if(this.hasOrganigramm){
 		this.add(organigramBtn);
 	}
 	this.add(resultBtns);
-	this.add(qrBox);
+	
+	if(this.showQRBox){
+		this.add(qrBox);
+	}
 	}
 	
 	public void addResult(ResultButton res){

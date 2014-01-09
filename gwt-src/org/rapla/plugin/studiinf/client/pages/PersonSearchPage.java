@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Image;
 public class PersonSearchPage extends AbstractSearchPage {
 		
 	public PersonSearchPage() {
-		super(true, true);
+		super(true, true,true);
 	}
 
 	@Override

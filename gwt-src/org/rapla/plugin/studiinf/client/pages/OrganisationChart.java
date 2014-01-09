@@ -1,11 +1,10 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import java.awt.Button;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
-import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Grid;
 
 public class OrganisationChart extends AbstractDetailPage  {
