@@ -344,7 +344,8 @@ nav{
 .resultBtns {
 	position:absolute;
 	bottom:7vh;
-	left:5vw;
+	left:4vw;
+	width:92vw;
 }
 .tileContainer{
 	position:absolute;
