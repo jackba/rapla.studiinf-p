@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personLectureRooms, .poiResults{
+.results, .infos, .personInfos, .personLectureRooms, .poiResults, .courseInfos{
 	position:absolute;
 	top:8vh;
 	left:1.3vw;
@@ -258,6 +258,10 @@ nav{
 }
 .results td{
 	border: solid 1px transparent;
+}
+
+.courseInfos {
+	height:26vh;
 }
 
 .poiResults {
@@ -453,7 +457,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -624,7 +628,7 @@ nav{
 	line-height:5vh;
 	color:#ffffff;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
