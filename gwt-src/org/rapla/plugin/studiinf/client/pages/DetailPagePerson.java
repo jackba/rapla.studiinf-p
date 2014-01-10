@@ -27,6 +27,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 public class DetailPagePerson extends AbstractDetailPage {
 	
 	private String courseOfStudy = "Wirtschaftsinformatik";
+	private String id;
 
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
@@ -74,7 +75,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
-		Widget extraInfosBtn = new IconButton("Zusätzliche Infos", new Image(IconProvider.ADDITIONAL_INFORMATION));
+		NavigationIconButton extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), this);
 		
 		infos.setWidget(0, 0, roomNrBtn);
@@ -106,7 +107,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
-		Widget showextraInfosBtn = new IconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION));
+		NavigationIconButton showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		NavigationIconButton linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),this,"");
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		linkRapla2.setStyleName("personLinkRaplabtn");
@@ -150,6 +151,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		PersonDescriptor person = new PersonDescriptor(resource);
+		this.id = id;
 		//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
 		
 		name = person.getName();
