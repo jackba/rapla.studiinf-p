@@ -265,8 +265,9 @@ nav{
 	height:25vh;
 }
 
-.poiResults {
-	height:11vh;
+.resultBtns {
+	left:4vw;
+	width:92vw;
 }
 
 .keyboard {
@@ -410,7 +411,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox, .poiQrBox{
+.qrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -419,11 +420,9 @@ nav{
 	height:10vh;
 	background: #ffffff;
 }
-
-.poiQrBox {
-	top: 37vh;
+.page-poi .qrBox {
+	top: 67vh;
 }
-
 .qrLabelImg,.qrCode{
 	float:right;
 	width:8vh;
