@@ -22,11 +22,11 @@ public PersonSearch(String searchTerm, PersonSearchPage psPage)
 protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
 	NoDuplicatesList<ResourceDescriptor> personMatched = new NoDuplicatesList<ResourceDescriptor>();
 	
-	personMatched.addAll(SearchUtils.startsWithSearchTerm(LAST_NAME, searchTerm, resources));
-	personMatched.addAll(SearchUtils.startsWithSearchTerm(FIRST_NAME, searchTerm, resources));
-	personMatched.addAll(SearchUtils.containsSearchTerm(LAST_NAME, searchTerm, resources));
-	personMatched.addAll(SearchUtils.containsSearchTerm(FIRST_NAME, searchTerm, resources));
-	personMatched.addAll(SearchUtils.containsName(searchTerm, resources));
+	personMatched.addAll(SearchUtils.startsWithSearchTerm(LAST_NAME, searchString, resources));
+	personMatched.addAll(SearchUtils.startsWithSearchTerm(FIRST_NAME, searchString, resources));
+	personMatched.addAll(SearchUtils.containsSearchTerm(LAST_NAME, searchString, resources));
+	personMatched.addAll(SearchUtils.containsSearchTerm(FIRST_NAME, searchString, resources));
+	personMatched.addAll(SearchUtils.containsName(searchString, resources));
 		
 	return personMatched;
 }

@@ -16,9 +16,9 @@ public class CourseSearch extends AbstractSearch {
 		NoDuplicatesList<ResourceDescriptor> coursesMatched = new NoDuplicatesList<ResourceDescriptor>();
 		
 		//SearchUtils.alertSearchTerms(resources);
-		coursesMatched.addAll(SearchUtils.startsWithSearchTerm(0, searchTerm, resources));
-		coursesMatched.addAll(SearchUtils.containsSearchTerm(0, searchTerm, resources));
-		coursesMatched.addAll(SearchUtils.containsName(searchTerm, resources));
+		coursesMatched.addAll(SearchUtils.startsWithSearchTerm(0, searchString, resources));
+		coursesMatched.addAll(SearchUtils.containsSearchTerm(0, searchString, resources));
+		coursesMatched.addAll(SearchUtils.containsName(searchString, resources));
 			
 		return coursesMatched;
 	}

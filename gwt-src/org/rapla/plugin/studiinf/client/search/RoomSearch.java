@@ -24,11 +24,11 @@ protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDes
 	
 	NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
 	
-	roomMatched.addAll(SearchUtils.startsWithSearchTerm(NAME, searchTerm, resources));
-	roomMatched.addAll(SearchUtils.startsWithSearchTerm(TYPE, searchTerm, resources));
-	roomMatched.addAll(SearchUtils.containsSearchTerm(NAME, searchTerm, resources));
+	roomMatched.addAll(SearchUtils.startsWithSearchTerm(NAME, searchString, resources));
+	roomMatched.addAll(SearchUtils.startsWithSearchTerm(TYPE, searchString, resources));
+	roomMatched.addAll(SearchUtils.containsSearchTerm(NAME, searchString, resources));
 	//roomMatched.addAll(SearchUtils.containsSearchTerm(TYPE, searchTerm, resources));
-	roomMatched.addAll(SearchUtils.containsName(searchTerm, resources));
+	roomMatched.addAll(SearchUtils.containsName(searchString, resources));
 		
 	return roomMatched;
 }

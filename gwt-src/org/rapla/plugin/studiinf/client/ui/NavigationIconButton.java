@@ -12,6 +12,12 @@ public class NavigationIconButton extends IconButton implements ClickHandler {
 	protected AbstractPage targetPage;
 	protected String targetId;
 	
+	public String getTargetId() {
+		return targetId;
+	}
+	public void setTargetId(String targetId) {
+		this.targetId = targetId;
+	}
 	public NavigationIconButton(String title, Image icon, AbstractPage targetPage) {
 		super(title, icon);
 

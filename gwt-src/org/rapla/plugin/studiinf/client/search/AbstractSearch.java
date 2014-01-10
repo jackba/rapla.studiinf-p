@@ -11,7 +11,7 @@ import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescriptor>> {
-	protected String searchTerm;
+	protected String searchString;
 	protected AbstractSearchPage page;
 
 	 protected static Map<AbstractSearchPage,List<ResourceDescriptor>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescriptor>>();
@@ -20,7 +20,7 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 		if(searchTerm == null){
 			searchTerm ="";
 		}
-		this.searchTerm = searchTerm.toLowerCase();
+		this.searchString = searchTerm.toLowerCase();
 		
 		this.page = page;
 		

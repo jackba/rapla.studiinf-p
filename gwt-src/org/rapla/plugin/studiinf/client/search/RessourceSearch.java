@@ -19,7 +19,7 @@ public class RessourceSearch extends AbstractSearch {
 			List<ResourceDescriptor> resources) {
 		NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
 		
-		roomMatched.addAll(SearchUtils.containsName(searchTerm, resources));
+		roomMatched.addAll(SearchUtils.containsName(searchString, resources));
 			
 		return roomMatched;
 	}
