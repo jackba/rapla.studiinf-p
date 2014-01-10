@@ -204,7 +204,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				middlePanel.add(firstLecture);
 				if(!events.get(0).getResources().isEmpty())
 				{
-				IconButton firstLectureRoom = new IconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg );
+				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
 				lectureRooms.setWidget(0, 0, firstLectureRoom);
 				}
 				}
@@ -215,7 +215,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				middlePanel.add(secondLecture);
 				if(!events.get(1).getResources().isEmpty())
 				{
-					IconButton secondLectureRoom = new IconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg);
+					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
 				lectureRooms.setWidget(1, 0, secondLectureRoom);
 				}
 				}
@@ -226,7 +226,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				middlePanel.add(thirdLecture);
 				if(!events.get(2).getResources().isEmpty())
 				{
-					IconButton thirdLectureRoom = new IconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg);
+					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
 				lectureRooms.setWidget(2, 0, thirdLectureRoom);
 				}
 				}

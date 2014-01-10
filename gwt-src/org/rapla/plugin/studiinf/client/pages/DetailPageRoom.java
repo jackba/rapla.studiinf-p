@@ -129,7 +129,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		
-		Window.alert(rd.getPicture());
+//		Window.alert(rd.getPicture());
 		refresh();
 		
 	}
