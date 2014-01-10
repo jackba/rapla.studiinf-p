@@ -706,7 +706,7 @@ nav{
 	width: 50vw;
 	top: 0.5vh;
 }
-.iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn {
+.iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn, .courseProf, .courseRoom, .courseEvents {
 	position: absolute;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
@@ -716,16 +716,16 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
-.personShowRoomBtn {
+.personShowRoomBtn , .courseRoom{
 	top: 0.5vh;
 	width: 18vw;	
 }
-.personShowExtraInfosBtn {
+.personShowExtraInfosBtn,  .courseProf{
 	top: 0.5vh;
 	left: 50vw;
 	width: 37vw;
 }
-.personLinkRaplabtn {
+.personLinkRaplabtn, .courseEvents {
 	top: 0.5vh;
 	left: 19vw;
 	width: 30vw;
