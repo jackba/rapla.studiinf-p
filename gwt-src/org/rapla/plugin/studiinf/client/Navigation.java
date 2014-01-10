@@ -15,6 +15,7 @@ import org.rapla.plugin.studiinf.client.pages.OrganisationChart;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
+import org.rapla.plugin.studiinf.client.pages.extraInfoPage;
 
 import com.google.gwt.user.client.History;
 //import com.google.gwt.user.client.Window; Window.alert("text");
@@ -31,6 +32,7 @@ public final class Navigation {
 	public static final AbstractPage organisationChart = new OrganisationChart();
 	public static final AbstractPage personDetail = new DetailPagePerson();
 	public static final AbstractPage courseDetail = new DetailPageCourse();
+	public static final AbstractPage extraInfo = new extraInfoPage();
 	
 	public static final String ID_PREFIX = "org.rapla.entities.domain.Allocatable_";
 	
