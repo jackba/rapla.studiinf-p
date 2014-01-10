@@ -102,7 +102,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
-		middlePanel.add(lectureRooms);
+
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
@@ -199,41 +199,36 @@ public class DetailPagePerson extends AbstractDetailPage {
 				if(events.size()>=1)
 				{
 				Label firstLecture = new Label(events.get(0).toString());
-				IconButton firstLectureRoom = new IconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg );
 				middlePanel.add(firstLecture);
+				if(!events.get(0).getResources().isEmpty())
+				{
+				IconButton firstLectureRoom = new IconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg );
 				lectureRooms.setWidget(0, 0, firstLectureRoom);
+				}
 				}
 				if(events.size()>=2)
 				{
-				Label secondLecture = new Label(events.get(0).toString());
-				IconButton secondLectureRoom = new IconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg);
+				Label secondLecture = new Label(events.get(1).toString());
+				
 				middlePanel.add(secondLecture);
+				if(!events.get(1).getResources().isEmpty())
+				{
+					IconButton secondLectureRoom = new IconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg);
 				lectureRooms.setWidget(1, 0, secondLectureRoom);
+				}
 				}
 				if(events.size()>=3)
 				{
 				Label thirdLecture = new Label(events.get(0).toString());	
-				IconButton thirdLectureRoom = new IconButton(events.get(2).toString(), lectureRoomImg);
+				
 				middlePanel.add(thirdLecture);
+				if(!events.get(2).getResources().isEmpty())
+				{
+					IconButton thirdLectureRoom = new IconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg);
 				lectureRooms.setWidget(2, 0, thirdLectureRoom);
 				}
-							
-				
-//				Window.alert(arg0.toString());
-				
-				/* TODO
-				 * if(events.size>=1)
-				 * {
-				 * event01 = events.get(0).toString();
-				 * if(events.size>=2)
-				 * {
-				 * event02 = events.get(1).toString();
-				 * if(events.size>=3)
-				 * {
-				 * event03 = events.get(2).toString();
-				 * }}}
-				 * 
-				 */
+				}
+				middlePanel.add(lectureRooms);			
 				
 				}
 		});
