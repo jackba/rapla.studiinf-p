@@ -1,5 +1,7 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
@@ -14,6 +16,7 @@ import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -80,15 +83,15 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(3, 0, extraInfosBtn);
 		infos.setWidget(4, 0, raplaBtn);
 		
-		Image lectureRoomImg = new Image(IconProvider.ROOMS);
+//		Image lectureRoomImg = new Image(IconProvider.ROOMS);
+//		
+//		IconButton firstLectureRoom = new IconButton("D195", lectureRoomImg);
+//		IconButton secondLectureRoom = new IconButton("D295", lectureRoomImg);
+//		IconButton thirdLectureRoom = new IconButton("D395", lectureRoomImg);
 		
-		IconButton firstLectureRoom = new IconButton("D195", lectureRoomImg);
-		IconButton secondLectureRoom = new IconButton("D295", lectureRoomImg);
-		IconButton thirdLectureRoom = new IconButton("D395", lectureRoomImg);
-		
-		lectureRooms.setWidget(0, 0, firstLectureRoom);
-		lectureRooms.setWidget(1, 0, secondLectureRoom);
-		lectureRooms.setWidget(2, 0, thirdLectureRoom);
+//		lectureRooms.setWidget(0, 0, firstLectureRoom);
+//		lectureRooms.setWidget(1, 0, secondLectureRoom);
+//		lectureRooms.setWidget(2, 0, thirdLectureRoom);
 		
 		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
 		
@@ -169,7 +172,16 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		refresh();
 		
-		ServiceProvider.getEvents("2000-01-07 09:00", "2014-01-07 18:00", id, new AsyncCallback<List<Event>>() {
+		Date dateBegin = new Date();
+		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
+		String begin = f.format(dateBegin);
+		Date dateEnd = new Date();
+		dateEnd.setHours(23);
+		dateEnd.setMinutes(59);
+
+		String end = f.format(dateEnd);
+		
+		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
 
 			@Override
 			public void onFailure(Throwable arg0) {
@@ -179,7 +191,34 @@ public class DetailPagePerson extends AbstractDetailPage {
 
 			@Override
 			public void onSuccess(List<Event> arg0) {
-				//events = new ArrayList<Event>(arg0);
+				
+				events = new ArrayList<Event>(arg0);
+				
+				
+				Image lectureRoomImg = new Image(IconProvider.ROOMS);
+				if(events.size()>=1)
+				{
+				Label firstLecture = new Label(events.get(0).toString());
+				IconButton firstLectureRoom = new IconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg );
+				middlePanel.add(firstLecture);
+				lectureRooms.setWidget(0, 0, firstLectureRoom);
+				}
+				if(events.size()>=2)
+				{
+				Label secondLecture = new Label(events.get(0).toString());
+				IconButton secondLectureRoom = new IconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg);
+				middlePanel.add(secondLecture);
+				lectureRooms.setWidget(1, 0, secondLectureRoom);
+				}
+				if(events.size()>=3)
+				{
+				Label thirdLecture = new Label(events.get(0).toString());	
+				IconButton thirdLectureRoom = new IconButton(events.get(2).toString(), lectureRoomImg);
+				middlePanel.add(thirdLecture);
+				lectureRooms.setWidget(2, 0, thirdLectureRoom);
+				}
+							
+				
 //				Window.alert(arg0.toString());
 				
 				/* TODO
