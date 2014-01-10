@@ -261,7 +261,8 @@ nav{
 }
 
 .courseInfos {
-	height:26vh;
+	top: 6vh;
+	height:25vh;
 }
 
 .poiResults {
@@ -344,8 +345,7 @@ nav{
 .resultBtns {
 	position:absolute;
 	bottom:7vh;
-	left:4vw;
-	width:92vw;
+	left:5vw;
 }
 .tileContainer{
 	position:absolute;
@@ -410,7 +410,7 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox{
+.qrBox, .poiQrBox{
 	position:absolute;
 	top: 45vh;
 	left:5vw;
@@ -420,8 +420,8 @@ nav{
 	background: #ffffff;
 }
 
-.page-poi .qrBox {
-	top: 67vh;
+.poiQrBox {
+	top: 37vh;
 }
 
 .qrLabelImg,.qrCode{
@@ -458,7 +458,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -474,6 +474,10 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+}
+
+.courseInfoPanel{
+	height:34vh;
 }
 
 .resultPanel{
@@ -604,7 +608,7 @@ nav{
 .infoPanel {
 	height:29vh;
 }
-.roomPanel, .personBottomPanel {
+.roomPanel, .personBottomPanel, .courseBottomPanel{
 	top: auto;
 	bottom: 7vh;
 	height:6vh;
@@ -685,6 +689,10 @@ nav{
 	height: 13.5vh;
 }
 .infos .iconButton {
+	width: 86vw;
+}
+
+.courseInfos .iconButton {
 	width: 86vw;
 }
 .personInfos .iconButton {
