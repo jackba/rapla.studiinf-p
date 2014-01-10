@@ -24,6 +24,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 public class DetailPagePerson extends AbstractDetailPage {
 	
 	private String courseOfStudy = "Wirtschaftsinformatik";
+	private String id;
 
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
@@ -147,6 +148,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		PersonDescriptor person = new PersonDescriptor(resource);
+		this.id = id;
 		//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
 		
 		name = person.getName();
