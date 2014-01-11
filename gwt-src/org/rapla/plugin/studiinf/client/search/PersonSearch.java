@@ -19,7 +19,7 @@ public PersonSearch(String searchTerm, PersonSearchPage psPage)
 
 
 @Override
-protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
+public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
 	NoDuplicatesList<ResourceDescriptor> personMatched = new NoDuplicatesList<ResourceDescriptor>();
 	
 	personMatched.addAll(SearchUtils.startsWithSearchTerm(LAST_NAME, searchString, resources));

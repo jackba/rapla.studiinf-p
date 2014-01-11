@@ -13,7 +13,7 @@ public class PoiSearch extends AbstractSearch {
 
 
 	@Override
-	protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
+	public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
 		NoDuplicatesList<ResourceDescriptor> pOIMatched = new NoDuplicatesList<ResourceDescriptor>();
 			pOIMatched.addAll(resources);
 		return pOIMatched;

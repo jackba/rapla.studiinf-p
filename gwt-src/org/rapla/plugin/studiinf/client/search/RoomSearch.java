@@ -20,7 +20,7 @@ public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 
 
 @Override
-protected NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
+public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
 	
 	NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
 	
