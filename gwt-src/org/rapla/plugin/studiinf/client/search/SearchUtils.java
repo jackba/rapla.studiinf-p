@@ -25,7 +25,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 			
 			if(resource.getSearchTerms().size() > searchTerm)
 			{
-			if(resource.getSearchTerms().get(searchTerm).toLowerCase().startsWith(searchString))
+			if(resource.getSearchTerms().get(searchTerm).toLowerCase().startsWith(searchString.toLowerCase()))
 			{
 				resourceMatched.add(resource);
 			}
@@ -41,7 +41,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		for(ResourceDescriptor resource : resources)
 		{
 			String s = resource.getName();
-			if(s.toLowerCase().startsWith(searchString))
+			if(s.toLowerCase().startsWith(searchString.toLowerCase()))
 			{
 				resourceMatched.add(resource);
 			}
@@ -58,7 +58,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 			if(resource.getSearchTerms().size() > searchTerm)
 			{
 			String s = resource.getSearchTerms().get(searchTerm);
-			if(s.toLowerCase().contains(searchString))
+			if(s.toLowerCase().contains(searchString.toLowerCase()))
 			{
 				resourceMatched.add(resource);
 			}
@@ -74,7 +74,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		for(ResourceDescriptor resource : resources)
 		{
 			String s = resource.getName();
-			if(s.toLowerCase().contains(searchString))
+			if(s.toLowerCase().contains(searchString.toLowerCase()))
 			{
 				resourceMatched.add(resource);
 			}
