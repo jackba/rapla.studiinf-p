@@ -34,10 +34,9 @@ public class ResultButton extends NavigationButton implements ResultObject {
 		this.add(topPictureButton);
 	}
 
-	public ResultButton(int number, String title, AbstractPage targetPage, String targetId, Image img) {
+	public ResultButton(String title, AbstractPage targetPage, String targetId, Image img) {
 		super("<span>"+title+"</span>", targetPage, targetId);
-		number = 0;
-		this.number = number;
+		this.number = 0;
 		this.targetPage = targetPage;
 		this.targetId = targetId;
 		this.img = img;

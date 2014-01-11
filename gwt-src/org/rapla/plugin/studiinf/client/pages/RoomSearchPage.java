@@ -40,11 +40,9 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public void updateResults(List<ResourceDescriptor> results)
 	{
 		clearResult();
-		int counter = 1;
 		for(ResourceDescriptor room : results)
 		{
-			addResult(new ResultButton(counter, room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.ROOMS)));
-			counter++;
+			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.ROOMS)));
 			
 		}
 		refresh();

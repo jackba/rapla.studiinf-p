@@ -37,11 +37,9 @@ public class CourseSearchPage extends AbstractSearchPage {
 	@Override
 	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
 		clearResult();
-		int counter = 1;
 		for(ResourceDescriptor course : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, course.getName(), Navigation.courseDetail, course.getId(), new Image(IconProvider.COURSES)));
-			counter++;
+			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), new Image(IconProvider.COURSES)));
 		}
 		refresh();
 	}

@@ -47,11 +47,9 @@ public class PoiSearchPage extends AbstractSearchPage {
 	@Override
 	public void updateResults(List<ResourceDescriptor> ressourcesMatched) {
 		clearResult();
-		int counter = 1;
 		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(counter, poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
-			counter++;
+			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
 		}
 		refresh();
 		

@@ -5,27 +5,26 @@ import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
+import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
 public class HomePage extends AbstractPage {
 	
-	private FlexTable freeRoomsTable;
+	private ResultTable freeRoomsTable;
+	protected FlowPanel resultBtns = new FlowPanel();
 	
 	
 	@Override
@@ -40,9 +39,10 @@ public class HomePage extends AbstractPage {
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
-		freeRoomsTable = new FlexTable();
+		freeRoomsTable = new ResultTable(resultBtns, 2, 8);
 		freeRoomsTable.setStyleName("results");
 		
+		resultBtns.setStyleName("resultBtns");
 
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
@@ -56,6 +56,7 @@ public class HomePage extends AbstractPage {
 		this.add(qrBox);
 		this.add(logo);
 		this.add(freeRoomsTable);
+		this.add(resultBtns);
 		this.updateFreeRooms();
 	};
 	
@@ -75,19 +76,10 @@ public class HomePage extends AbstractPage {
 		
 		for(Event e : freeResources)
 			{
-				List<ResourceDescriptor> rdlist =  e.getResources();
-				int row = freeRoomsTable.getRowCount();
-				if(row>= 6)
-				{
-					break;
-				}
-				else
-				{
-				freeRoomsTable.setWidget(row, 0, new NavigationIconButton(rdlist.get(0).getName(), new Image(IconProvider.ROOMS), Navigation.roomDetail, rdlist.get(0).getId()));
-				freeRoomsTable.setWidget(row, 1, new Label("frei bis " + e.getEnd()));
-				}
+				freeRoomsTable.addResult(new FreeRoomButton(e));
 				
 			}
+		freeRoomsTable.refresh();
 	}
 	
 	@SuppressWarnings("deprecation")
