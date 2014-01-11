@@ -25,7 +25,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 			
 			if(resource.getSearchTerms().size() > searchTerm)
 			{
-			if(resource.getSearchTerms().get(searchTerm).toLowerCase().startsWith(searchString.toLowerCase()))
+			if(clearSearchString(resource.getSearchTerms().get(searchTerm)).startsWith(clearSearchString(searchString)))
 			{
 				resourceMatched.add(resource);
 			}
@@ -41,7 +41,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		for(ResourceDescriptor resource : resources)
 		{
 			String s = resource.getName();
-			if(s.toLowerCase().startsWith(searchString.toLowerCase()))
+			if(clearSearchString(s).startsWith(clearSearchString(searchString)))
 			{
 				resourceMatched.add(resource);
 			}
@@ -58,7 +58,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 			if(resource.getSearchTerms().size() > searchTerm)
 			{
 			String s = resource.getSearchTerms().get(searchTerm);
-			if(s.toLowerCase().contains(searchString.toLowerCase()))
+			if(clearSearchString(s).contains(clearSearchString(searchString)))
 			{
 				resourceMatched.add(resource);
 			}
@@ -74,7 +74,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		for(ResourceDescriptor resource : resources)
 		{
 			String s = resource.getName();
-			if(s.toLowerCase().contains(searchString.toLowerCase()))
+			if(clearSearchString(s).contains(clearSearchString(searchString)))
 			{
 				resourceMatched.add(resource);
 			}
@@ -90,5 +90,19 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 				id++;
 			}
 		}
+	}
+	
+	public static String clearSearchString(String searchString)
+	{
+		searchString = searchString.toLowerCase();
+		searchString = searchString.replace("ä", "ae");
+		searchString = searchString.replace("ü", "ue");
+		searchString = searchString.replace("ö", "oe");
+		searchString = searchString.replace("ß", "ss");
+		
+		String clearedString = searchString;
+		
+		return clearedString;
+		
 	}
 }

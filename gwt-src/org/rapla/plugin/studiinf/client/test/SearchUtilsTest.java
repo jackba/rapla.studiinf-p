@@ -150,17 +150,17 @@ public class SearchUtilsTest extends GWTTestCase {
 		assertEquals(expectedList, resultList);
 	}
 	
-	public void testContainsSearchTermPersonLastName()
-	{	
-		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
-		expectedList.add(person1);
-		expectedList.add(person3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(1, "ü", pList);
-		assertEquals(expectedList, resultList);
-	}
+//	public void testContainsSearchTermPersonLastName()
+//	{	
+//		initPersonSearch();
+//		resultList = new ArrayList<ResourceDescriptor>();
+//		expectedList = new ArrayList<ResourceDescriptor>();
+//		expectedList.add(person1);
+//		expectedList.add(person3);
+//		SearchUtils su = new SearchUtils();
+//		resultList = su.containsSearchTerm(1, "ü", pList);
+//		assertEquals(expectedList, resultList);
+//	}
 	
 	public void testStartsWithSearchTermPersonFirstName()
 	{	
@@ -336,5 +336,36 @@ public class SearchUtilsTest extends GWTTestCase {
 		assertEquals(expectedList, resultList);
 	}
 	
+	public void testClearSearchString()
+	{
+		String expected = "kuestermann";
+		SearchUtils su = new SearchUtils();		
+		assertEquals(expected, su.clearSearchString("Küstermann"));
+		
+	}
+	
+	public void testStartsWithSearchTermPersonLastNameUmlauts()
+	{	
+		initPersonSearch();
+		resultList = new ArrayList<ResourceDescriptor>();
+		expectedList = new ArrayList<ResourceDescriptor>();
+		expectedList.add(person1);
+		SearchUtils su = new SearchUtils();
+		resultList = su.startsWithSearchTerm(1, "kue", pList);
+		assertEquals(expectedList, resultList);
+	}
+	
+	public void testContainsSearchTermPersonLastNameUmlauts()
+	{	
+		initPersonSearch();
+		resultList = new ArrayList<ResourceDescriptor>();
+		expectedList = new ArrayList<ResourceDescriptor>();
+		expectedList.add(person1);
+		expectedList.add(person2);
+		expectedList.add(person3);
+		SearchUtils su = new SearchUtils();
+		resultList = su.containsSearchTerm(1, "ue", pList);
+		assertEquals(expectedList, resultList);
+	}
 
 }
