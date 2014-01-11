@@ -43,6 +43,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 			addResult(new ResultButton(counter, course.getName(), Navigation.courseDetail, course.getId(), new Image(IconProvider.COURSES)));
 			counter++;
 		}
+		refresh();
 	}
 
 	@Override

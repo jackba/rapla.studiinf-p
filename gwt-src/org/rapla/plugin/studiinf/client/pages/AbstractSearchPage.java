@@ -1,7 +1,5 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
@@ -12,11 +10,11 @@ import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
+import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -28,7 +26,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
-	private Grid results ;
+	private ResultTable results ;
 	private Image img = new Image(organigramImg);
 	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
@@ -37,7 +35,6 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
 	
-	private List<ResultButton> resultList = new LinkedList<ResultButton>();
 	
 	private KeyUpHandler inputChanger;
 	
@@ -58,7 +55,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		this.showQRBox = showQRBox;
 		this.resultRows = resultRows;
 		this.resultColumns = resultColumns;
-		this.results = new Grid(this.resultRows, this.resultColumns);
+		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
 	}
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
 		this(hasOrganigramm,showInput,showQRBox,3,2);
@@ -133,8 +130,7 @@ public void init() {
 	}
 	
 	public void addResult(ResultButton res){
-		resultList.add(res);
-		refresh();
+		results.addResult( res);
 		
 		
 	}
@@ -146,33 +142,15 @@ public void init() {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		
-		for(int i= 0 ; i < results.getRowCount(); i++){
-			for(int j=0; j < results.getCellCount(i);j++){
-				if(results.getWidget(i, j) != null){
-					results.remove(results.getWidget(i, j));
-				}
-			}
-		}
+
 		resultBtns.clear();
-		Iterator<ResultButton> resultButtons = resultList.iterator();
-		for(int i= 0 ; i < results.getRowCount() && resultButtons.hasNext(); i++){
-			for(int j=0; j < results.getCellCount(i) && resultButtons.hasNext();j++){
-				if(results.getWidget(i, j) != null){
-					results.remove(results.getWidget(i, j));
-				}
-					ResultButton res = resultButtons.next();
-					results.setWidget(i,j, res);
-					resultBtns.add(res.getBottomPictureButton());
-			}
-		}
+		results.refresh();
 	}
 	
 	
 	public void clearResult()
 	{
-		resultList.clear();
-		refresh();
+		results.clearResults();
 	}
 	
 	public void fakeKeyUp(){

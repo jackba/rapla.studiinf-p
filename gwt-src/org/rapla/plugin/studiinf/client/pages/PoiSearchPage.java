@@ -53,6 +53,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 			addResult(new ResultButton(counter, poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
 			counter++;
 		}
+		refresh();
 		
 	}
 

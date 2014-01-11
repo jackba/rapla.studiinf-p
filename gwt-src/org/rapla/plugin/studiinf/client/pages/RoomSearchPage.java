@@ -47,6 +47,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 			counter++;
 			
 		}
+		refresh();
 	}
 	
 	@Override
