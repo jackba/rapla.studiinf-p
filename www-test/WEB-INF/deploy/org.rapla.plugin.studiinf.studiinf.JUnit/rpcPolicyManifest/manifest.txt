@@ -1,0 +1,2 @@
+# Module org.rapla.plugin.studiinf.studiinf.JUnit
+# RPC service class, partial path of RPC policy file
