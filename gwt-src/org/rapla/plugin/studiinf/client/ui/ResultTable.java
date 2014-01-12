@@ -3,8 +3,14 @@ package org.rapla.plugin.studiinf.client.ui;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.rapla.plugin.studiinf.client.IconProvider;
+
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ResultTable extends FlexTable {
@@ -13,11 +19,81 @@ public class ResultTable extends FlexTable {
 	private int columns;
 	private int maxRows;
 	private final FlowPanel footerPanel;
+	private int page;
+	private IconButton backButton = new IconButton("previous",new Image(IconProvider.PHONE));
+	private IconButton nextButton = new IconButton("next",new Image(IconProvider.PHONE));
 	
+	public int getPage() {
+		return page;
+	}
+
+
+
+
+	public void setPage(int page) {
+		if(page > 0 && page < getMaxPages()){
+			this.page = page;
+		
+		}else if(page > 0){
+			this.page = getMaxPages();
+			
+		}else{
+			this.page = 0;
+		}
+			
+	}
+
+	public void nextPage(){
+		setPage(getPage() + 1); 
+	}
+
+	public void previousPage(){
+		setPage(getPage() - 1); 
+	}
+
+
+	/**
+	 * 
+	 */
+	public int getMaxPages() {
+		return (int) Math.ceil(results.size() / (columns*maxRows));
+	}
+
+	public boolean hasPages(){
+		return getMaxPages() > 1;
+	}
+	public boolean hasNextPage(){
+		return hasPages() && getPage() < getMaxPages();
+	}
+	public boolean hasPreviousPage(){
+		return hasPages() && getPage() > 0;
+	}
+
+
+
 	public ResultTable(FlowPanel footerPanel,int columns,int maxRows) {
 	this.columns = columns;	
 	this.maxRows = maxRows;
 	this.footerPanel = footerPanel;
+	this.page = 0;
+	
+	this.backButton.addClickHandler(new ClickHandler() {
+		
+		@Override
+		public void onClick(ClickEvent event) {
+			previousPage();
+			refresh();
+		}
+	});
+	this.nextButton.addClickHandler(new ClickHandler() {
+		
+		@Override
+		public void onClick(ClickEvent event) {
+			nextPage();
+			refresh();
+		}
+	});
+	
 	}
 	
 		
@@ -47,17 +123,30 @@ public class ResultTable extends FlexTable {
 		int count = 0;
 		for (ResultObject result : results){
 			for(Widget cell : result.getCellObjects()){
-				if(Math.floor((count / columns))>= maxRows){
+//				Window.alert(Math.floor((count / columns))+" - "+(page*maxRows) + " >= " + maxRows);
+				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 					break;
 				}
-
-				setWidget((int)(count / columns), (int) count % columns, cell);
+				if(count >= page*columns*maxRows){
+//					Window.alert(count+" -> "+Math.floor((count / columns)-(page*maxRows)) +"/"+(count % columns)+" = "+cell.toString());
+				setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, cell);
+				}
 				count++;
 			}
+			if(count >= page*columns*maxRows+1){
 			footerPanel.add(result.getFooterButton());
-			if(Math.floor((count / columns))>= maxRows){
+			}
+			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 				break;
 			}
+		}
+		
+		if(hasPages()){
+//			int pageNavRow = getRowCount();
+			backButton.setEnabled(hasPreviousPage());
+			nextButton.setEnabled(hasNextPage());
+			setWidget((int)((count+1 / columns))-(page*maxRows), 0, backButton);
+			setWidget((int)((count+1 / columns))-(page*maxRows), 1, nextButton);
 		}
 	}
 	
@@ -70,6 +159,7 @@ public class ResultTable extends FlexTable {
 
 	public void setColumns(int columns) {
 		this.columns = columns;
+		setPage(0);
 		refresh();
 	}
 }

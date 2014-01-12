@@ -18,6 +18,7 @@ import org.rapla.plugin.studiinf.client.ui.TileContainer;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
@@ -25,6 +26,8 @@ public class HomePage extends AbstractPage {
 	
 	private ResultTable freeRoomsTable;
 	protected FlowPanel resultBtns = new FlowPanel();
+	private Label resultLabel = new Label(Studiinf.i18n.freeRooms());
+	private FlowPanel resultPanel = new FlowPanel();
 	
 	
 	@Override
@@ -39,10 +42,12 @@ public class HomePage extends AbstractPage {
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
-		freeRoomsTable = new ResultTable(resultBtns, 2, 8);
+		freeRoomsTable = new ResultTable(resultBtns, 2, 3);
 		freeRoomsTable.setStyleName("results");
 		
 		resultBtns.setStyleName("resultBtns");
+		resultLabel.setStyleName("resultLabel");
+		resultPanel.setStyleName("resultPanel");
 
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
@@ -55,7 +60,9 @@ public class HomePage extends AbstractPage {
 		this.add(tileContainer);
 		this.add(qrBox);
 		this.add(logo);
-		this.add(freeRoomsTable);
+		resultPanel.add(resultLabel);
+		resultPanel.add(freeRoomsTable);
+		this.add(resultPanel);
 		this.add(resultBtns);
 		this.updateFreeRooms();
 	};

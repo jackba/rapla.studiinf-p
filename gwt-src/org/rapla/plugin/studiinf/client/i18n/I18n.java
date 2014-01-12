@@ -26,4 +26,5 @@ public interface I18n extends Messages {
 	String courseOfStudy();
 	String nextAppointments();
 	String page();
+	String freeRooms();
 	}

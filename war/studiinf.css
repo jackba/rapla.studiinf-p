@@ -769,4 +769,6 @@ nav{
 	width:45vw;
 	height:17vh;
 }
-
+.results td{
+	width:50%;
+}
