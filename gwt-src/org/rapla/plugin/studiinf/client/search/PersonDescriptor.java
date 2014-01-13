@@ -10,7 +10,7 @@ public class PersonDescriptor{
 	private String roomNr;
 	private String department;
 	private String phoneNr;
-	
+
 	private ResourceDetail person;
 	private Collection<String> keys;
 	

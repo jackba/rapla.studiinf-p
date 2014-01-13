@@ -77,6 +77,9 @@ public class ResultTable extends FlexTable {
 	this.footerPanel = footerPanel;
 	this.page = 0;
 	
+	//backButton.setStyleName("backButton");
+	//nextButton.setStyleName("nextbutton");
+	
 	this.backButton.addClickHandler(new ClickHandler() {
 		
 		@Override

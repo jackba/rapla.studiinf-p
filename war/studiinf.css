@@ -247,7 +247,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personLectureRooms, .poiResults, .courseInfos{
+.results, .infos, .personInfos, .personLectureRooms, .poiResults, .courseInfos, .freeRooms{
 	position:absolute;
 	top:8vh;
 	left:1.3vw;
@@ -256,8 +256,12 @@ nav{
 	
 	border-spacing: 0;
 }
-.results td{
+.results td, .freeRooms td{
 	border: solid 1px transparent;
+}
+
+.freeRooms {
+	top:7vh;
 }
 
 .courseInfos {
@@ -350,7 +354,7 @@ nav{
 }
 .tileContainer{
 	position:absolute;
-	top:60vh;
+	top:56.5vh;
 	bottom:8vh;
 	left:5vw;
 	right:5vw;
