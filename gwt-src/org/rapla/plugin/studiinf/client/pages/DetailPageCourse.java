@@ -19,6 +19,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private String studyName;
 	private String profName;
 	private String roomName;
+	private String id;
 	
 	private FlowPanel infoPanel;
 	private FlowPanel bottomPanel;
@@ -47,7 +48,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		study = new IconButton(studyName, new Image(IconProvider.COURSES));
 		prof = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
 		room = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
-		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), this);
+		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
 		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
 		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
@@ -103,6 +104,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 		prof.setText(profName);
 		room.setText(roomName);
 		room2.setText(roomName);
+		events.setTargetId(id);
+		
 
 	}
 
@@ -117,6 +120,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	protected void handleRessource(String id, ResourceDetail resource) {
 		CourseDescriptor cd = new CourseDescriptor(resource);
 		
+		this.id = id;
 		courseName = cd.getName();
 		cd.getPicture();
 		
