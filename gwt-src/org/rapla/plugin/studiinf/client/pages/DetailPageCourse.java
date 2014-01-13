@@ -1,11 +1,13 @@
 package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -42,14 +44,14 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos = new Grid(5, 1);
 		
 		name = new IconButton(courseName, new Image(IconProvider.COURSE));
-		study = new IconButton(studyName, new Image(IconProvider.COURSE));
-		prof = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), this);
-		room = new NavigationIconButton(roomName, new Image(IconProvider.PERSONS), this);
-		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.PERSONS), this);
+		study = new IconButton(studyName, new Image(IconProvider.COURSES));
+		prof = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
+		room = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), this);
 		
-		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), this);
-		room2 = new NavigationIconButton(roomName, new Image(IconProvider.PERSONS), this);
-		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.PERSONS), this);
+		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
+		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), this);
 		
 		prof2.setStyleName("courseProf");
 		room2.setStyleName("courseRoom");
@@ -100,6 +102,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		study.setText(studyName);
 		prof.setText(profName);
 		room.setText(roomName);
+		room2.setText(roomName);
 
 	}
 
@@ -135,6 +138,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 			}
 		
 		refresh();
+		//Window.alert("cd.getName(): "+ cd.getName()+ ", cd.getYear():"+ cd.getYear()+ ", cd.getDepartment(): "+ cd.getDepartment()+", cd.getRoomNr(): "+ cd.getRoomNr());
 		
 	}
 
