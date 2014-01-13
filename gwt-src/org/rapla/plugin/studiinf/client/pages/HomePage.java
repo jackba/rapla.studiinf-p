@@ -16,6 +16,7 @@ import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -48,7 +49,10 @@ public class HomePage extends AbstractPage {
 		resultBtns.setStyleName("resultBtns");
 		resultLabel.setStyleName("resultLabel");
 		resultPanel.setStyleName("resultPanel");
-
+		
+		for(Button b : freeRoomsTable.getButtonsBottom()){
+			this.add(b);
+		}
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
 		

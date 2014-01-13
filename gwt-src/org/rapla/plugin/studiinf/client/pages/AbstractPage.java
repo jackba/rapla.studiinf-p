@@ -44,6 +44,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	   public void init(){
 		    add(header);
 		    add(footer);
+		    footer.init();
 	   };
 	   
 		

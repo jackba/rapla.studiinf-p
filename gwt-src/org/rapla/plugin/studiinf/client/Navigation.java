@@ -18,6 +18,7 @@ import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 import org.rapla.plugin.studiinf.client.pages.extraInfoPage;
 
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.Window;
 //import com.google.gwt.user.client.Window; Window.alert("text");
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -61,6 +62,7 @@ public final class Navigation {
 		goToPage(page,null);
 	}
 	public static void goToPage(AbstractPage page,String id){
+		if(page != null){
 		RootPanel.get().clear();
 		RootPanel.get().add(page);
 		if(id != null){
@@ -75,7 +77,9 @@ public final class Navigation {
 			History.newItem(page.getHistoryKey(), false);
 		}
 		
-		
+		}else{
+			Window.alert("Nav to NULL !");
+		}
 	}
 	
 	public static void goToPage(String key, String id){

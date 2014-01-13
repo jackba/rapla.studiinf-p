@@ -14,6 +14,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -112,6 +113,11 @@ public void init() {
 	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
+	
+	for(Button b : results.getButtonsBottom()){
+		this.add(b);
+	}
+	
 	if(showInput){
 		searchPanel.add(keyboard);
 		searchPanel.add(searchField);
