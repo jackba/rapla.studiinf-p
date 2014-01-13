@@ -52,13 +52,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		
 		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
-			Window.alert(Picture.getImageURL(roomNumber));
 			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);
 		}
 		else{
-			Window.alert(Picture.getImageURL(roomNumber));
 			noNavigationImg.setStyleName("navigationPicture");
 			this.add(noNavigationImg);
 		}
@@ -115,13 +113,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.remove(noNavigationImg);
 		
 		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
-			Window.alert(Picture.getImageURL(roomNumber));
 			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);
 		}
 		else{
-			Window.alert(Picture.getImageURL(roomNumber));
 			noNavigationImg.setStyleName("navigationPicture");
 			this.add(noNavigationImg);
 		}
