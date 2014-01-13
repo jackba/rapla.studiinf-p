@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 
@@ -30,6 +31,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private IconButton studyBtn;
 	private IconButton roomBtn;
 	
+	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
+	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
+	
 	
 
 	@Override
@@ -45,10 +49,20 @@ public class DetailPageRoom extends AbstractDetailPage {
 		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
 		Image studyImg = new Image(IconProvider.COURSE);
 		Image roomImg = new Image(IconProvider.CALENDAR);
-		Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 		
 		
-		noNavigationImg.setStyleName("navigationPicture");
+		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
+			Window.alert(Picture.getImageURL(roomNumber));
+			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
+			wayDescriptionImg.setStyleName("navigationPicture");
+			this.add(wayDescriptionImg);
+		}
+		else{
+			Window.alert(Picture.getImageURL(roomNumber));
+			noNavigationImg.setStyleName("navigationPicture");
+			this.add(noNavigationImg);
+		}
+		
 		
 		nameBtn = new IconButton(roomNumber, roomNameImg);
 		typeBtn = new IconButton(roomType, roomTypeImg);
@@ -71,7 +85,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
-		this.add(noNavigationImg);
 		
 	}
 	
@@ -97,6 +110,22 @@ public class DetailPageRoom extends AbstractDetailPage {
 		nameBtn.setText(roomNumber);
 		typeBtn.setText(roomType);
 		studyBtn.setText(courseOfStudy);
+		
+		this.remove(wayDescriptionImg);
+		this.remove(noNavigationImg);
+		
+		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
+			Window.alert(Picture.getImageURL(roomNumber));
+			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
+			wayDescriptionImg.setStyleName("navigationPicture");
+			this.add(wayDescriptionImg);
+		}
+		else{
+			Window.alert(Picture.getImageURL(roomNumber));
+			noNavigationImg.setStyleName("navigationPicture");
+			this.add(noNavigationImg);
+		}
+		
 	}
 
 
