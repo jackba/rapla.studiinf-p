@@ -14,6 +14,7 @@ import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
+import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -36,7 +37,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(5, 1);
-	private Grid lectureRooms = new Grid(3, 1);
+//	private Grid lectureRooms = new Grid(3, 1);
+	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 	private String name;
 	List<Event> events;
@@ -66,10 +68,11 @@ public class DetailPagePerson extends AbstractDetailPage {
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-		lectureRooms.setStyleName("personLectureRooms");
+	//	lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
+		lectures.setStyleName("lecturesTable");
 		
 		//roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
@@ -104,6 +107,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(appointmentLabel);
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
+		middlePanel.add(lectures);
 
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
@@ -197,41 +201,49 @@ public class DetailPagePerson extends AbstractDetailPage {
 				
 				events = new ArrayList<Event>(arg0);
 				
-				
+				lectures.clear();
 				Image lectureRoomImg = new Image(IconProvider.ROOMS);
 				if(events.size()>=1)
 				{
 				Label firstLecture = new Label(events.get(0).toString());
-				middlePanel.add(firstLecture);
+//				middlePanel.add(firstLecture);
+				lectures.setWidget(0, 0, firstLecture);
 				if(!events.get(0).getResources().isEmpty())
 				{
 				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
-				lectureRooms.setWidget(0, 0, firstLectureRoom);
+	//			lectureRooms.setWidget(0, 0, firstLectureRoom);
+				lectures.setWidget(0, 1, firstLectureRoom);
 				}
 				}
 				if(events.size()>=2)
 				{
 				Label secondLecture = new Label(events.get(1).toString());
 				
-				middlePanel.add(secondLecture);
+//				middlePanel.add(secondLecture);
+				lectures.setWidget(1, 0, secondLecture);
 				if(!events.get(1).getResources().isEmpty())
 				{
 					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
-				lectureRooms.setWidget(1, 0, secondLectureRoom);
+			//	lectureRooms.setWidget(1, 0, secondLectureRoom);
+					lectures.setWidget(1, 1, secondLectureRoom);
+			//	lectures.add(secondLecture);
 				}
 				}
 				if(events.size()>=3)
 				{
 				Label thirdLecture = new Label(events.get(2).toString());	
 				
-				middlePanel.add(thirdLecture);
+//				middlePanel.add(thirdLecture);
+				lectures.setWidget(2, 0, thirdLecture);
 				if(!events.get(2).getResources().isEmpty())
 				{
 					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
-				lectureRooms.setWidget(2, 0, thirdLectureRoom);
+				//lectureRooms.setWidget(2, 0, thirdLectureRoom);
+					lectures.setWidget(2, 1, thirdLectureRoom);
+				//lectures.add(thirdLecture);
 				}
 				}
-				middlePanel.add(lectureRooms);			
+				middlePanel.add(lectures);			
 				
 				}
 		});
