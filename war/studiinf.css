@@ -794,3 +794,12 @@ nav{
 .backButtonBottom[disabled],.nextButtonBottom[disabled]{
 	display:none;	
 }
+
+.raplaFrame{
+	width: 200vw;
+	height: 200vh;
+	margin-top: 12vh;
+	margin-bottom: 7vh;
+	border: none;
+ zoom: 0.5; -moz-transform: scale(0.5); transform: scale(0.5); -moz-transform-origin: 0 0;
+}

@@ -10,6 +10,7 @@ public class PersonDescriptor{
 	private String roomNr;
 	private String department;
 	private String phoneNr;
+	private String raplaLink;
 
 	private ResourceDetail person;
 	private Collection<String> keys;
@@ -54,6 +55,15 @@ public class PersonDescriptor{
 		keys = person.getKeys();		
 		
 	}
+	
+	
+	public String getRaplaLink() {
+		if(raplaLink == null)
+		{
+			raplaLink = getCell("resourceURL");
+			}
+		return raplaLink;
+		}
 	
 	private String getCell(String cellName){
 		if(keys.contains(cellName)){

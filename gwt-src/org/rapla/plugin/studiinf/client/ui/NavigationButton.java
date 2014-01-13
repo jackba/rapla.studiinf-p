@@ -23,6 +23,14 @@ public class NavigationButton extends Button implements ClickHandler {
 		this(title,targetPage);
 		this.targetId = targetId;
 	}
+	
+	public String getTargetId() {
+		return targetId;
+	}
+	public void setTargetId(String targetId) {
+		this.targetId = targetId;
+	}
+	
 	@Override
 	public void onClick(ClickEvent event) {
 		if(targetId == null){

@@ -18,6 +18,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -80,7 +81,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
 		NavigationIconButton extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
-		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), this);
+		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.raplaPersonLink, id);
 		
 		infos.setWidget(0, 0, roomNrBtn);
 		infos.setWidget(1, 0, mailBtn);
@@ -113,7 +114,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
 		NavigationIconButton showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
-		NavigationIconButton linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),this,"");
+		NavigationIconButton linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		linkRapla2.setStyleName("personLinkRaplabtn");
 		
@@ -149,6 +150,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		telephoneBtn.setText(phoneText);
 		mailBtn.setText(mailText); 
 		showRoomBtn.setText(departmentText);
+		raplaBtn.setTargetId(id);
 		
 	}
 

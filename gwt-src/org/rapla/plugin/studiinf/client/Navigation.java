@@ -6,14 +6,18 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.pages.CourseRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
 import org.rapla.plugin.studiinf.client.pages.DetailPageCourse;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.OrganisationChart;
+import org.rapla.plugin.studiinf.client.pages.PersonRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
+import org.rapla.plugin.studiinf.client.pages.RaplaPage;
+import org.rapla.plugin.studiinf.client.pages.RoomRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 import org.rapla.plugin.studiinf.client.pages.extraInfoPage;
 
@@ -34,6 +38,9 @@ public final class Navigation {
 	public static final AbstractPage personDetail = new DetailPagePerson();
 	public static final AbstractPage courseDetail = new DetailPageCourse();
 	public static final AbstractPage extraInfo = new extraInfoPage();
+	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
+	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
+	public static final AbstractPage raplaCourseLink = new CourseRaplaPage();
 	
 	public static final String ID_PREFIX = "org.rapla.entities.domain.Allocatable_";
 	
