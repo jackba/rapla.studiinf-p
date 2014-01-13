@@ -5,6 +5,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public abstract class AbstractDetailPage extends AbstractPage {
@@ -46,16 +47,17 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	}
 
 	protected void handleId(final String id){
+//		Window.alert(id+": ?");
 		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
-				
 				@Override
 				public void onSuccess(ResourceDetail arg0) {
+//					Window.alert(id+": " + arg0.toString());
 					handleRessource(id, arg0);
 				}
 
 				@Override
 				public void onFailure(Throwable arg0) {
-					
+					Window.alert("JSON fail: "+arg0.toString());
 				}
 		});
 	};

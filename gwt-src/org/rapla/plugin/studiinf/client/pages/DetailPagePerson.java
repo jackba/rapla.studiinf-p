@@ -222,7 +222,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				}
 				if(events.size()>=3)
 				{
-				Label thirdLecture = new Label(events.get(0).toString());	
+				Label thirdLecture = new Label(events.get(2).toString());	
 				
 				middlePanel.add(thirdLecture);
 				if(!events.get(2).getResources().isEmpty())

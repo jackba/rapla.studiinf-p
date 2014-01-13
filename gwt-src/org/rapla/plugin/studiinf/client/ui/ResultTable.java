@@ -7,7 +7,7 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
@@ -22,6 +22,8 @@ public class ResultTable extends FlexTable {
 	private int page;
 	private IconButton backButton = new IconButton("previous",new Image(IconProvider.PHONE));
 	private IconButton nextButton = new IconButton("next",new Image(IconProvider.PHONE));
+	private Button backButtonBottom = new Button("<i class='fa fa-chevron-left'></i>");
+	private Button nextButtonBottom = new Button("<i class='fa fa-chevron-right'></i>");
 	
 	public int getPage() {
 		return page;
@@ -97,6 +99,33 @@ public class ResultTable extends FlexTable {
 		}
 	});
 	
+	this.backButtonBottom.setStyleName("backButtonBottom");
+	this.nextButtonBottom.setStyleName("nextButtonBottom");
+	this.backButtonBottom.setVisible(false);
+	this.nextButtonBottom.setVisible(false);
+	
+	this.backButtonBottom.addClickHandler(new ClickHandler() {
+		
+		@Override
+		public void onClick(ClickEvent event) {
+			previousPage();
+			refresh();
+		}
+	});
+	this.nextButtonBottom.addClickHandler(new ClickHandler() {
+		
+		@Override
+		public void onClick(ClickEvent event) {
+			nextPage();
+			refresh();
+		}
+	});
+	
+	
+		
+		
+		
+		
 	}
 	
 		
@@ -148,9 +177,26 @@ public class ResultTable extends FlexTable {
 //			int pageNavRow = getRowCount();
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
-			setWidget((int)((count+1 / columns))-(page*maxRows), 0, backButton);
-			setWidget((int)((count+1 / columns))-(page*maxRows), 1, nextButton);
+			
+//			int pageNavRow = getRowCount();
+			backButtonBottom.setEnabled(hasPreviousPage());
+			nextButtonBottom.setEnabled(hasNextPage());
+			
+			backButtonBottom.setVisible(hasPreviousPage());
+			nextButtonBottom.setVisible(hasNextPage());
+			
+			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
+			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
+			
+	
 		}
+	}
+	
+	public List<Button> getButtonsBottom(){
+		List<Button> buttons = new LinkedList<Button>();
+		buttons.add(backButtonBottom);
+		buttons.add(nextButtonBottom);
+		return buttons;
 	}
 	
 	
