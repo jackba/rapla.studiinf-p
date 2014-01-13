@@ -71,8 +71,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		
-		roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-				
+		//roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
+		
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
 		NavigationIconButton extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
