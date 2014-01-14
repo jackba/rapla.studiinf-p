@@ -487,9 +487,11 @@ nav{
 	top: 11vh;
 	left:6vw;
 	width:88vw;
-	height:26.3vh;
+	height:31.3vh;
 }
-
+.page-poi .resultPanel{
+	height:51.3vh;
+}
 .poiBottomResultPanel {
 	top: auto;
 	bottom: 7vh;

@@ -49,6 +49,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
 	private NavigationIconButton raplaBtn;
+	private NavigationIconButton linkRapla2;
 	
 	private String departmentText;
 	private String mailText;
@@ -75,8 +76,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		lectures.setStyleName("lecturesTable");
 		
-		//roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
+		roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		//roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
@@ -114,12 +115,12 @@ public class DetailPagePerson extends AbstractDetailPage {
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
 		NavigationIconButton showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
-		NavigationIconButton linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
+		linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		linkRapla2.setStyleName("personLinkRaplabtn");
-		
-		bottomPanel.add(showRoomBtn);
-		bottomPanel.add(showextraInfosBtn);
+		showextraInfosBtn.setEnabled(false);
+//		bottomPanel.add(showRoomBtn);
+//		bottomPanel.add(showextraInfosBtn);
 		bottomPanel.add(linkRapla2);
 		
 		this.add(personInfoPanel);
@@ -151,6 +152,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		mailBtn.setText(mailText); 
 		showRoomBtn.setText(departmentText);
 		raplaBtn.setTargetId(id);
+		linkRapla2.setTargetId(id);
 		
 	}
 

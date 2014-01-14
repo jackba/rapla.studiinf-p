@@ -32,6 +32,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private IconButton typeBtn;
 	private IconButton studyBtn;
 	private NavigationIconButton roomBtn;
+	private NavigationIconButton bottomRoomBtn;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -82,7 +83,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 			
 		Image occupancyImg = new Image(IconProvider.CALENDAR);
 		
-		Widget bottomRoomBtn = new NavigationIconButton("Raumbelegung anzeigen", occupancyImg, Navigation.raplaRoomLink, id);
+		bottomRoomBtn = new NavigationIconButton("Raumbelegung anzeigen", occupancyImg, Navigation.raplaRoomLink, id);
 		roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);
@@ -113,6 +114,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		typeBtn.setText(roomType);
 		studyBtn.setText(courseOfStudy);
 		roomBtn.setTargetId(id);
+		bottomRoomBtn.setTargetId(id);
 		
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);

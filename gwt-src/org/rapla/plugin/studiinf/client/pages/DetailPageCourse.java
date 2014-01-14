@@ -52,7 +52,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
 		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
-		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), this);
+		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
 		prof2.setStyleName("courseProf");
 		room2.setStyleName("courseRoom");
@@ -73,7 +73,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		bottomPanel.add(prof2);
+//		bottomPanel.add(prof2);
 		bottomPanel.add(room2);
 		bottomPanel.add(events2);
 		
@@ -105,6 +105,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		room.setText(roomName);
 		room2.setText(roomName);
 		events.setTargetId(id);
+		events2.setTargetId(id);
 		
 
 	}
