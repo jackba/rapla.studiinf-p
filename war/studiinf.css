@@ -803,3 +803,32 @@ nav{
 	border: none;
  zoom: 0.5; -moz-transform: scale(0.5); transform: scale(0.5); -moz-transform-origin: 0 0;
 }
+.lecturesTable{
+	width: 100%;
+	margin-top:13vh;
+}
+.lecturesTable td{
+	width:30%;
+	height:3vh;
+}
+.lecturesTable td:first-of-type{
+	width:70%;
+}
+.lecturesTable td .gwt-Label,.lecturesTable td .iconButton{
+	position: relative;
+	font-size: 2vh;
+	height:4.5vh;
+	 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+padding: 1vh 0px;
+line-height: 3vh;
+background: #AEB4B8;
+padding: 1vh 0px;
+border: 1px solid #FFF;
+overflow: hidden;
+}
+.lecturesTable td .gwt-Label{
+	padding-left: 1vh;
+}
+.personCourseOfStudyLabel{
+	overflow:hidden;
+}
