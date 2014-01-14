@@ -34,8 +34,8 @@ public class HomePage extends AbstractPage {
 	@Override
 	public void init() {
 		super.init();
-		Image logo = new Image(IconProvider.LOGO);
-		logo.setStyleName("logo");
+//		Image logo = new Image(IconProvider.LOGO);
+//		logo.setStyleName("logo");
 		
 		TileContainer tileContainer = new TileContainer();
 		
@@ -63,7 +63,7 @@ public class HomePage extends AbstractPage {
 		
 		this.add(tileContainer);
 		this.add(qrBox);
-		this.add(logo);
+//		this.add(logo);
 		resultPanel.add(resultLabel);
 		resultPanel.add(freeRoomsTable);
 		this.add(resultPanel);
@@ -100,8 +100,8 @@ public class HomePage extends AbstractPage {
 	DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
 	String begin = f.format(dateBegin);
 	Date dateEnd = new Date();
-	dateEnd.setHours(23);
-	dateEnd.setMinutes(59);
+	dateEnd.setHours(18);
+	dateEnd.setMinutes(00);
 
 	String end = f.format(dateEnd);
 	

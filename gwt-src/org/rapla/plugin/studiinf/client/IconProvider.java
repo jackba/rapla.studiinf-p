@@ -15,5 +15,7 @@ public class IconProvider {
 	public static final String CALENDAR ="img/Kalender.png";
 	public static final String LOGO ="img/Logo.png";
 	public static final String POI ="img/PoI.png";
+	public static final String LEFT ="img/Left.png";
+	public static final String RIGHT ="img/Right.png";
 	
 }

@@ -832,3 +832,25 @@ overflow: hidden;
 .personCourseOfStudyLabel{
 	overflow:hidden;
 }
+.freeRooms .iconButton{
+	position: relative;
+}
+
+.iconButton[disabled] .iconIconButton{
+	background: #5C6971;
+}
+.raplaBackButton{
+	position: absolute;
+	bottom: 10vh;
+	left:20vw;
+	right:20vw;
+	width:60vw;
+	background: #aeb4b8;
+	border: solid 1px #ffffff;
+	height: 5vh;
+	font-size: 2vh;
+	padding: 1vh 0px;
+	line-height: 3vh;
+	overflow: hidden;
+	
+}

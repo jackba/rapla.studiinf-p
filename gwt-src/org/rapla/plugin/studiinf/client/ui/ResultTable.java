@@ -20,8 +20,8 @@ public class ResultTable extends FlexTable {
 	private int maxRows;
 	private final FlowPanel footerPanel;
 	private int page;
-	private IconButton backButton = new IconButton("previous",new Image(IconProvider.PHONE));
-	private IconButton nextButton = new IconButton("next",new Image(IconProvider.PHONE));
+	private IconButton backButton = new IconButton("previous",new Image(IconProvider.LEFT));
+	private IconButton nextButton = new IconButton("next",new Image(IconProvider.RIGHT));
 	private Button backButtonBottom = new Button("<i class='fa fa-chevron-left'></i>");
 	private Button nextButtonBottom = new Button("<i class='fa fa-chevron-right'></i>");
 	

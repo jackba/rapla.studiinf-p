@@ -28,7 +28,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		frame.setStyleName("raplaFrame");
 		
 		backBtn = new NavigationButton("Zurück", target, id);
-		backBtn.setStyleName("backButton");
+		backBtn.setStyleName("raplaBackButton");
 		this.add(backBtn);
 			
 	}
