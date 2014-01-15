@@ -72,6 +72,7 @@ public final class Navigation {
 		if(page != null){
 		RootPanel.get().clear();
 		RootPanel.get().add(page);
+		page.onShow();
 		if(id != null){
 			try {
 				AbstractDetailPage detailPage = (AbstractDetailPage) page;

@@ -111,6 +111,7 @@ public void init() {
 	
 	searchField.addKeyUpHandler(inputChanger);
 	
+	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
 	
@@ -141,7 +142,13 @@ public void init() {
 		
 	}
 	
-	
+	@Override
+	public void onShow() {
+		super.onShow();
+		searchField.setText("");
+		searchField.setFocus(true);
+		searchField.setCursorPos(searchField.getText().length());
+	}
 
 	
 	
