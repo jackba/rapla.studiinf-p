@@ -1,8 +1,10 @@
 package org.rapla.plugin.studiinf.client.search;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 
 public class PersonDescriptor{
 	private String name;
@@ -14,6 +16,16 @@ public class PersonDescriptor{
 
 	private ResourceDetail person;
 	private Collection<String> keys;
+	
+	public LinkedList<ResourceDetailRow> getDetails(){
+		LinkedList<ResourceDetailRow> results= new LinkedList<ResourceDetailRow>();
+		for (String key: keys){
+			if (key != "resourceURL" && key != "bild"){
+				results.add(person.getRow(key));
+			}
+		}
+		return results;
+	}
 	
 	public String getName() {
 		if(name == null){

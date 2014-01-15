@@ -48,8 +48,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private IconButton mailBtn;
 	private IconButton telephoneBtn;
 	private IconButton showRoomBtn;
+	private NavigationIconButton extraInfosBtn;
 	private NavigationIconButton raplaBtn;
 	private NavigationIconButton linkRapla2;
+	private NavigationIconButton showextraInfosBtn;
 	
 	private String departmentText;
 	private String mailText;
@@ -81,7 +83,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
-		NavigationIconButton extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		raplaBtn = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.raplaPersonLink, id);
 		
 		infos.setWidget(0, 0, roomNrBtn);
@@ -114,7 +116,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
-		NavigationIconButton showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		linkRapla2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
 		linkRapla2.setStyleName("personLinkRaplabtn");
@@ -153,6 +155,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		showRoomBtn.setText(departmentText);
 		raplaBtn.setTargetId(id);
 		linkRapla2.setTargetId(id);
+		extraInfosBtn.setTargetId(id);
+		showextraInfosBtn.setTargetId(id);
 		
 	}
 
