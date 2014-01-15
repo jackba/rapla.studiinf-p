@@ -93,6 +93,7 @@ public void init() {
 	resultPanel.setStyleName("resultPanel");
 	searchPanel.setStyleName("searchPanel");
 	
+	qrBox.getElement().getStyle().setProperty("top", "45vh");
 
 	inputChanger = new KeyUpHandler() {
 		

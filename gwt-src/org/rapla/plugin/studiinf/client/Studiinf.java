@@ -6,6 +6,7 @@ import org.rapla.plugin.studiinf.client.ui.ModalSpinner;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.History;
 
 
@@ -56,6 +57,17 @@ public class Studiinf implements EntryPoint {
 		}
 	
 	}-*/;
+	public static native void newQRCode(Element element,String text) /*-{
+	if(element){
+		var qr = new $wnd.QRCode(element, {
+			text: text,
+			correctLevel : $wnd.QRCode.CorrectLevel.L
+		});
+	}else{
+		$wnd.alert(JSON.stringify(element));
+	}
+
+}-*/;
 
 	
 }
