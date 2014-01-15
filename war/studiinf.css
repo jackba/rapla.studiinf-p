@@ -856,3 +856,23 @@ overflow: hidden;
 	overflow: hidden;
 	
 }
+
+.detailsTable {
+	position: absolute;
+	top: 10vh;
+	left: 5vw;
+	width: 90vw;
+}
+
+.detailKey, .detailValue {
+	font-size: 3vh;
+	color: #ffffff;
+	display: inline-block;
+	float: left;
+	width: 30vw;
+}
+
+.detailValue {
+	width: 55vw;
+}
+

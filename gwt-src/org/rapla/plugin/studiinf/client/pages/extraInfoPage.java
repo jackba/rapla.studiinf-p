@@ -1,15 +1,26 @@
 package org.rapla.plugin.studiinf.client.pages;
 
-import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
+import java.util.LinkedList;
+import java.util.Map;
 
+import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.freiraum.common.ResourceDetailRow;
+import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
+import org.rapla.plugin.studiinf.client.ui.DetailEntry;
+
+import com.google.gwt.thirdparty.guava.common.collect.Table;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.FlexTable;
 
 public class extraInfoPage extends AbstractDetailPage {
-
+FlexTable detailsTable;
+	
 	@Override
 	public void init(){
 		super.init();
+		detailsTable = new FlexTable();
+		detailsTable.setStyleName("detailsTable");
+		this.add(detailsTable);
 		
 	}
 	
@@ -36,8 +47,16 @@ public class extraInfoPage extends AbstractDetailPage {
 	protected void handleRessource(String id, ResourceDetail resource) {
 		// TODO Auto-generated method stub
 		PersonDescriptor person = new PersonDescriptor(resource);
-		Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
-		
+		LinkedList<ResourceDetailRow> details = person.getDetails();
+		detailsTable.removeAllRows();
+		for (ResourceDetailRow detail:details){
+			addDetails(detail.getLabel(), detail.getValue());
+		}
+	}
+	
+	public void addDetails(String label, String value){
+		DetailEntry detail = new DetailEntry(label, value);
+		detailsTable.setWidget(detailsTable.getRowCount(), 0, detail);
 	}
 
 }
