@@ -229,6 +229,8 @@ nav{
 	width:86vw;
 	height:4vh;
 	padding:0px;
+	font-size: 2.6vh;
+	line-height:4vh;
 }
 .organigramBtn{
 	position:absolute;
