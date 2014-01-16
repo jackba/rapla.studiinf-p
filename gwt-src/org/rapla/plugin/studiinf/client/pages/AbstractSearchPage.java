@@ -106,7 +106,6 @@ public void init() {
 	searchField.addKeyUpHandler(inputChanger);
 	
 	
-	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
 	
@@ -155,10 +154,7 @@ public void init() {
 		searchField.setText("");
 		searchField.setFocus(true);
 		searchField.setCursorPos(searchField.getText().length());
-<<<<<<< Upstream, based on origin/firstImplementation
 		handleKeyEvent();
-=======
->>>>>>> 9af7eac Search field
 	}
 
 	
