@@ -732,7 +732,7 @@ nav{
 	left: 50vw;
 	width: 37vw;
 }
-.personLinkRaplabtn, .courseEvents {
+.personLinkbtn, .courseEvents {
 	top: 0.5vh;
 	left: 19vw;
 	width: 30vw;
@@ -800,12 +800,12 @@ nav{
 }
 
 .raplaFrame{
-	width: 200vw;
-	height: 140vh;
-	margin-top: 12vh;
-	margin-bottom: 7vh;
+	position:absolute;
+	width: 100vw;
+	height: 70vh;
+	top: 12vh;
+	bottom: 7vh;
 	border: none;
- zoom: 0.5; -moz-transform: scale(0.5); transform: scale(0.5); -moz-transform-origin: 0 0;
 }
 .lecturesTable{
 	width: 100%;
