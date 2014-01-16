@@ -59,4 +59,9 @@ public class RoomSearchPage extends AbstractSearchPage {
 		return ROOMS;
 	}
 
+	@Override
+	protected void handleMostFrequent() {
+		clearResult();
+	}
+
 }

@@ -60,6 +60,12 @@ public class PoiSearchPage extends AbstractSearchPage {
 		return "sonstiges";
 	}
 
+	@Override
+	protected void handleMostFrequent() {
+		clearResult();
+		
+	}
+
 	
 	
 }

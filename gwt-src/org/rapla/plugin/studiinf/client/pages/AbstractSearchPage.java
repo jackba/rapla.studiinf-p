@@ -98,14 +98,7 @@ public void init() {
 		
 		@Override
 		public void onKeyUp(KeyUpEvent event) {
-			searchField.setCursorPos(searchField.getText().length());
-			searchField.setFocus(true);
-			if (searchField.getText().equals("")){
-				setSearched(false);
-			} else {
-				setSearched(true);
-				handleSearch(searchField.getText());
-			}
+			handleKeyEvent();
 		}
 	};
 	
@@ -135,6 +128,18 @@ public void init() {
 		this.add(qrBox);
 	}
 	}
+
+	private void handleKeyEvent(){
+		searchField.setCursorPos(searchField.getText().length());
+		searchField.setFocus(true);
+		if (searchField.getText().equals("")){
+			setSearched(false);
+			handleMostFrequent();
+		} else {
+			setSearched(true);
+			handleSearch(searchField.getText());
+		}
+	}
 	
 	public void addResult(ResultButton res){
 		results.addResult( res);
@@ -148,6 +153,7 @@ public void init() {
 		searchField.setText("");
 		searchField.setFocus(true);
 		searchField.setCursorPos(searchField.getText().length());
+		handleKeyEvent();
 	}
 
 	
@@ -172,7 +178,7 @@ public void init() {
 	
 	abstract protected void handleSearch(String searchTerm);
 	
-		
+	abstract protected void handleMostFrequent();
 	
 
 

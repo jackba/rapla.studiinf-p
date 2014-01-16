@@ -54,6 +54,12 @@ public class PersonSearchPage extends AbstractSearchPage {
 	public String getResourceType() {
 		return PERSONS;
 	}
+
+	@Override
+	protected void handleMostFrequent() {
+		clearResult();
+		
+	}
 	
 	
 
