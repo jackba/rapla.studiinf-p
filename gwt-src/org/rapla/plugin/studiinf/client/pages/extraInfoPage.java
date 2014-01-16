@@ -76,6 +76,7 @@ private LinkedList<ResourceDetailRow> details;
 	
 	public void addDetails(String label, String value){
 		DetailEntry detail = new DetailEntry(label, value);
+		detail.setStyleName("detailEntry");
 		detailsTable.setWidget(detailsTable.getRowCount(), 0, detail);
 	}
 

@@ -871,10 +871,27 @@ overflow: hidden;
 	color: #ffffff;
 	display: inline-block;
 	float: left;
-	width: 30vw;
+	width: 33vw;
+	top: auto;
+	height: auto;
+	background: #5c6971;
+	border-left: solid 0.125vw #ffffff;
+	border-left-width: 0.125em;
+	border-right: solid 0.125vw #ffffff;
+	border-right-width: 0.125em;
+	border-top: solid 0.125vh #ffffff;
+	border-top-width: 0.11em;
+	border-bottom: solid 0.125vh #ffffff;
+	border-bottom-width: 0.11em;
 }
 
 .detailValue {
-	width: 55vw;
+	width: 53vw;
+	background: #aeb4b8;
+	float: right;
 }
+
+
+
+
 
