@@ -61,6 +61,9 @@ public abstract class AbstractPage extends ComplexPanel{
 		   header.refresh();
 	   }
 	   
+	   public void onShow(){
+		   
+	   }
 	   
 	   
 }

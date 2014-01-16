@@ -49,4 +49,10 @@ public class CourseSearchPage extends AbstractSearchPage {
 		return "courses";
 	}
 
+	@Override
+	protected void handleMostFrequent() {
+		clearResult();
+		
+	}
+
 }
