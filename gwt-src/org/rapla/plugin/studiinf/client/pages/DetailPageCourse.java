@@ -106,8 +106,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		room2.setText(roomName);
 		events.setTargetId(id);
 		events2.setTargetId(id);
-		
-
 	}
 
 
@@ -143,7 +141,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 			}
 		
 		refresh();
-		//Window.alert("cd.getName(): "+ cd.getName()+ ", cd.getYear():"+ cd.getYear()+ ", cd.getDepartment(): "+ cd.getDepartment()+", cd.getRoomNr(): "+ cd.getRoomNr());
 		
 	}
 
