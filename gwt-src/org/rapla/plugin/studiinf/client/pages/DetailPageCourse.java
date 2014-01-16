@@ -4,10 +4,9 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -28,12 +27,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 	
 	private IconButton name;
 	private IconButton study;
-	private NavigationIconButton prof;
-	private NavigationIconButton room;
-	private NavigationIconButton events;
-	private NavigationIconButton prof2;
-	private NavigationIconButton room2;
-	private NavigationIconButton events2;
+	private NavButton prof;
+	private NavButton room;
+	private NavButton events;
+	private NavButton prof2;
+	private NavButton room2;
+	private NavButton events2;
 	
 	@Override
 	public void init(){
@@ -46,13 +45,13 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		name = new IconButton(courseName, new Image(IconProvider.COURSE));
 		study = new IconButton(studyName, new Image(IconProvider.COURSES));
-		prof = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
-		room = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
-		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
+		prof = new NavButton(IconProvider.Persons ,profName, Navigation.personDetail,null);
+		room = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
+		events = new NavButton(IconProvider.Calendar,"Link Rapla",  Navigation.raplaCourseLink, id);
 		
-		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
-		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
-		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
+		prof2 = new NavButton(IconProvider.Persons,profName, Navigation.personDetail,null);
+		room2 = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
+		events2 = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
 		
 		prof2.setStyleName("courseProf");
 		room2.setStyleName("courseRoom");

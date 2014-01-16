@@ -9,8 +9,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.ui.Image;
-
 
 public class PoiSearchPage extends AbstractSearchPage {
 	
@@ -49,7 +47,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
+			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), IconProvider.Rooms));
 		}
 		refresh();
 		

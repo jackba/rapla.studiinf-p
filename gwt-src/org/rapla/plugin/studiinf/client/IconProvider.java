@@ -1,5 +1,7 @@
 package org.rapla.plugin.studiinf.client;
 
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
+
 public class IconProvider {
 	public static final String QR_BOX ="img/QR.png";
 	public static final String ORGANIGRAMM ="img/Organigramm.png";
@@ -17,5 +19,25 @@ public class IconProvider {
 	public static final String POI ="img/PoI.png";
 	public static final String LEFT ="img/Left.png";
 	public static final String RIGHT ="img/Right.png";
+	
+	public static final FontIcon Phone = new FontIcon("icon-Phone");
+	public static final FontIcon Persons = new FontIcon("icon-Persons");
+	public static final FontIcon Organigram = new FontIcon("icon-Organigram");
+	public static final FontIcon No_Map = new FontIcon("icon-No_Map");
+	public static final FontIcon Next = new FontIcon("icon-Next");
+	public static final FontIcon Home = new FontIcon("icon-Home");
+	public static final FontIcon Email = new FontIcon("icon-Email");
+	public static final FontIcon Additional_Information = new FontIcon("icon-Additional_Information");
+	public static final FontIcon Barrier_Free = new FontIcon("icon-Barrier-Free");
+	public static final FontIcon Calendar = new FontIcon("icon-Calendar");
+	public static final FontIcon Course_Of_Studies = new FontIcon("icon-Course_Of_Studies");
+	public static final FontIcon Courses = new FontIcon("icon-Courses");
+	public static final FontIcon Down = new FontIcon("icon-Down");
+	public static final FontIcon World = new FontIcon("icon-World");
+	public static final FontIcon Up = new FontIcon("icon-Up");
+	public static final FontIcon Type_Of_Room = new FontIcon("icon-Type_Of_Room");
+	public static final FontIcon Rooms = new FontIcon("icon-Rooms");
+	public static final FontIcon QR_Handy = new FontIcon("icon-QR_Handy");
+	public static final FontIcon Previous = new FontIcon("icon-Previous");
 	
 }

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
@@ -16,12 +17,12 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	private NavButton footerButton; 
 	
 	public FreeRoomButton(Event e) {
-		super(0,new FontIcon("icon-Raeume"),e.getResources().get(0).getName().toString(),Navigation.roomDetail,e.getResources().get(0).getId());
+		super(0,IconProvider.Rooms,e.getResources().get(0).getName().toString(),Navigation.roomDetail,e.getResources().get(0).getId());
 		this.setWidth("100%");
 		this.setSize(0.8);
 		setTargetPage(Navigation.roomDetail);
 		targetId = e.getResources().get(0).getId();
-		freeUntil =  new NavButton(new FontIcon("icon-Kalender"),"frei bis " + e.getEnd(), null, null);//new IconButton("frei bis " + e.getEnd(),new Image(IconProvider.CALENDAR));
+		freeUntil =  new NavButton(IconProvider.Calendar,"frei bis " + e.getEnd(), null, null);
 		freeUntil.setSize(0.8);
 		freeUntil.setWidth("100%");
 	}

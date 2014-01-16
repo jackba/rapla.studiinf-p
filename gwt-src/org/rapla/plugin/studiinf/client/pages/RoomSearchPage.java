@@ -9,8 +9,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.ui.Image;
-
 
 public class RoomSearchPage extends AbstractSearchPage {
 	
@@ -22,7 +20,6 @@ public class RoomSearchPage extends AbstractSearchPage {
 
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
 		return Studiinf.i18n.roomSearchPage();
 	}
 
@@ -42,7 +39,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor room : results)
 		{
-			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), new Image(IconProvider.ROOMS)));
+			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), IconProvider.Rooms));
 			
 		}
 		refresh();

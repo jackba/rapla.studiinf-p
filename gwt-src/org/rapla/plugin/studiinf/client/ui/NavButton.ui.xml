@@ -135,7 +135,7 @@
 	</ui:style>
 	<g:Button styleName="{style.navigationButton}" ui:field="button">
 		    <span class="{style.number}" ui:field="number"></span>
-		    <span class="{style.icon}" ui:field="icon"><span class="icon-Kalender"></span></span>
+		    <span class="{style.icon}" ui:field="icon"></span>
 		    <span class="{style.text}" ui:field="textLabel"></span>
 		    <div class="{style.shadow}"></div>
 	</g:Button>

@@ -6,15 +6,13 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Widget;
 
 public class DetailPageRoom extends AbstractDetailPage {
 
@@ -31,8 +29,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private IconButton nameBtn;
 	private IconButton typeBtn;
 	private IconButton studyBtn;
-	private NavigationIconButton roomBtn;
-	private NavigationIconButton bottomRoomBtn;
+	private NavButton roomBtn;
+	private NavButton bottomRoomBtn;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -53,7 +51,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		Image roomNameImg = new Image(IconProvider.ROOMS);
 		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
 		Image studyImg = new Image(IconProvider.COURSE);
-		Image roomImg = new Image(IconProvider.CALENDAR);
 		
 		
 		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
@@ -70,7 +67,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		nameBtn = new IconButton(roomNumber, roomNameImg);
 		typeBtn = new IconButton(roomType, roomTypeImg);
 		studyBtn = new IconButton(courseOfStudy, studyImg);
-		roomBtn = new NavigationIconButton("Raumbelegung", roomImg, Navigation.raplaRoomLink, id);
+		roomBtn = new NavButton(IconProvider.Rooms,"Raumbelegung", Navigation.raplaRoomLink, id);
 		
 		infos.setWidget(0, 0, nameBtn);
 		infos.setWidget(1, 0, typeBtn);
@@ -81,9 +78,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infos);
 		
 			
-		Image occupancyImg = new Image(IconProvider.CALENDAR);
 		
-		bottomRoomBtn = new NavigationIconButton("Raumbelegung anzeigen", occupancyImg, Navigation.raplaRoomLink, id);
+		bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
 		roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);

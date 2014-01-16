@@ -1,0 +1,82 @@
+@font-face {
+	font-family: 'studiInfFont';
+	src:url('fonts/studiInfFont.eot');
+	src:url('fonts/studiInfFont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/studiInfFont.woff') format('woff'),
+		url('fonts/studiInfFont.ttf') format('truetype'),
+		url('fonts/studiInfFont.svg#studiInfFont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'studiInfFont';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Phone:before {
+	content: "\e600";
+}
+.icon-Persons:before {
+	content: "\e601";
+}
+.icon-Organigram:before {
+	content: "\e602";
+}
+.icon-No_Map:before {
+	content: "\e603";
+}
+.icon-Next:before {
+	content: "\e604";
+}
+.icon-Home:before {
+	content: "\e605";
+}
+.icon-Email:before {
+	content: "\e606";
+}
+.icon-Additional_Information:before {
+	content: "\e607";
+}
+.icon-Barrier-Free:before {
+	content: "\e608";
+}
+.icon-Calendar:before {
+	content: "\e609";
+}
+.icon-Course_Of_Studies:before {
+	content: "\e60a";
+}
+.icon-Courses:before {
+	content: "\e60b";
+}
+.icon-Down:before {
+	content: "\e60c";
+}
+.icon-World:before {
+	content: "\e60d";
+}
+.icon-Up:before {
+	content: "\e60e";
+}
+.icon-Type_Of_Room:before {
+	content: "\e60f";
+}
+.icon-Rooms:before {
+	content: "\e610";
+}
+.icon-QR_Handy:before {
+	content: "\e611";
+}
+.icon-Previous:before {
+	content: "\e612";
+}

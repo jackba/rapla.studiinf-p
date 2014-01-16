@@ -8,6 +8,7 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -31,6 +32,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	FontIcon fontIcon;
 	String text;
 	boolean enabled = true;
+	ClickHandler clickHandler;
 
 	public NavButton(String text,AbstractPage targetPage,String targetId) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -73,11 +75,16 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	protected void handlePressEvent(){
 		if(getEnabled()){
-			if(targetId == null){
-				Navigation.goToPage(targetPage);
+			if(getClickHandler() == null){
+				if(targetId == null){
+					Navigation.goToPage(targetPage);
+				}else{
+					Navigation.goToPage(targetPage, targetId);
+				}
 			}else{
-				Navigation.goToPage(targetPage, targetId);
+				getClickHandler().onClick( null);
 			}
+			
 		}
 	}
 	
@@ -116,7 +123,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	@Override
 	public void setIcon(FontIcon fontIcon) {
 		this.fontIcon = fontIcon;
-		if(fontIcon.getUrl().startsWith("icon-")){
+		if(fontIcon != null && fontIcon.getUrl().startsWith("icon-")){
 			icon.setInnerHTML("<span class='"+fontIcon.getUrl()+"'></span>");
 		}else{
 			icon.setInnerHTML("");
@@ -163,17 +170,21 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	@Override
 	public boolean getEnabled() {
 		boolean result = enabled;
-		if(targetPage == null){
-			result = false;
-		}else{
-			try {
-				AbstractDetailPage d = (AbstractDetailPage) targetPage;
-				if(d.getHistoryKey() == null || targetId == null){
-					result = false;
+		if(getClickHandler() == null){
+			if(targetPage == null){
+				result = false;
+			}else{
+				try {
+					AbstractDetailPage d = (AbstractDetailPage) targetPage;
+					if(d.getHistoryKey() == null || targetId == null){
+						result = false;
+					}
+				} catch (Exception e) {
+					result = enabled;
 				}
-			} catch (Exception e) {
-				result = enabled;
 			}
+		}else{
+			result = enabled;
 		}
 		return result;
 	}
@@ -185,7 +196,14 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 			this.getElement().setAttribute("disabled","disabled");
 		}
 	}
-	
+
+	public void setClickHandler(ClickHandler clickHandler) {
+				this.clickHandler = clickHandler;
+				updateEnabledState();
+	}
+	public ClickHandler getClickHandler(){
+		return clickHandler;
+	}
 
 
 }

@@ -9,8 +9,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.ui.Image;
-
 
 public class PersonSearchPage extends AbstractSearchPage {
 	private static final String PERSONS = "persons";
@@ -40,7 +38,7 @@ public class PersonSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor person : results)
 		{
-			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), new Image(IconProvider.PERSONS)));
+			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), IconProvider.Persons));
 		}
 		refresh();
 	}
