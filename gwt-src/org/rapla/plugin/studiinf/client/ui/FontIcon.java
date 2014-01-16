@@ -3,9 +3,9 @@ package org.rapla.plugin.studiinf.client.ui;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Widget;
 
-public class FontIcon extends Image {
+public class FontIcon extends Widget {
 	
 	
 	
@@ -21,14 +21,19 @@ public class FontIcon extends Image {
 		this.getElement().getStyle().setFontSize(Math.max(width, height), Unit.PX);
 		super.setPixelSize(width, height);
 	}
-	@Override
+
 	public void setUrl(SafeUri url) {
 		setUrl(url.asString());
 	}
 	
-	@Override
+
 	public void setUrl(String url) {
-		getElement().setClassName(url);
+		if(url.startsWith("icon-")){
+			getElement().setClassName(url);
+		}
+	}
+	public String getUrl() {
+		return getElement().getClassName();	
 	}
 	
 }

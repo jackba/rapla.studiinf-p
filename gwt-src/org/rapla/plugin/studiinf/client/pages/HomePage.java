@@ -9,7 +9,6 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.plugin.studiinf.client.ui.Tile;
@@ -69,7 +68,7 @@ public class HomePage extends AbstractPage {
 		this.add(resultPanel);
 		this.add(resultBtns);
 		this.updateFreeRooms();
-		this.add(new NavButton(Navigation.homePage,null));
+//		this.add(new NavButton(Navigation.homePage,null));
 	};
 	
 	@Override

@@ -59,6 +59,7 @@
 		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 		box-sizing: border-box;         /* Opera/IE 8+ */
 		padding:0.5em;
+		text-align:left;
 		
 	}
 	.shadow{
@@ -93,11 +94,19 @@
 	.number:empty+.icon:empty+.text{
 		margin-left:0;
 	}
+	.text:empty{
+		padding:0;
+		width:0;
+		
+	}
+	.navigationButton[disabled] .icon{
+		color: #aeb4b8;
+	}
 	</ui:style>
 	<g:Button styleName="{style.navigationButton}" ui:field="button">
 		    <span class="{style.number}" ui:field="number"></span>
 		    <span class="{style.icon}" ui:field="icon"><span class="icon-Kalender"></span></span>
-		    <span class="{style.text}" ui:field="text">Button</span>
+		    <span class="{style.text}" ui:field="textLabel"></span>
 		    <div class="{style.shadow}"></div>
 	</g:Button>
 </ui:UiBinder> 

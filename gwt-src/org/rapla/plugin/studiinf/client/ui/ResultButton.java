@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class ResultButton extends NavigationButton implements ResultObject {
 	
 	private PictureButton topPictureButton;
-	private PictureButton bottomPictureButton;
+	private NavButton bottomPictureButton;
 	private List<Widget> cellList;
 	private int number;
 	private AbstractPage targetPage;
@@ -30,7 +30,7 @@ public class ResultButton extends NavigationButton implements ResultObject {
 		Image img1 = new Image(img.getUrl());
 		Image img2 = new Image(img.getUrl());
 		topPictureButton = new PictureButton(number, img1);
-		bottomPictureButton = new NavigationPictureButton(number, img2,targetPage,targetId);
+		bottomPictureButton = new NavButton(number, new FontIcon("icon-Studiengang2"),null,targetPage,targetId);
 		this.add(topPictureButton);
 	}
 
@@ -46,7 +46,7 @@ public class ResultButton extends NavigationButton implements ResultObject {
 		
 		
 		topPictureButton = new PictureButton(number, img1);
-		bottomPictureButton = new NavigationPictureButton(number, img2,targetPage,targetId);
+		bottomPictureButton = new NavButton(number, new FontIcon("icon-Studiengang2"),null,targetPage,targetId);
 		
 		
 		
@@ -65,9 +65,6 @@ public class ResultButton extends NavigationButton implements ResultObject {
 		this.getElement().removeChild(w.getElement());
 	}
 	
-	public PictureButton getBottomPictureButton(){
-		return bottomPictureButton;
-	}
 
 	@Override
 	public List<Widget> getCellObjects() {
@@ -79,7 +76,7 @@ public class ResultButton extends NavigationButton implements ResultObject {
 	}
 
 	@Override
-	public Widget getFooterButton() {
+	public NavButton getFooterButton() {
 		return bottomPictureButton;
 	}
 

@@ -27,4 +27,5 @@ public interface I18n extends Messages {
 	String nextAppointments();
 	String page();
 	String freeRooms();
+	String numberFormat(int numberValue);
 	}
