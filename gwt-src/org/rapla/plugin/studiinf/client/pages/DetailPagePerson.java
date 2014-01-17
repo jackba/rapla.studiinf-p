@@ -18,12 +18,10 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class DetailPagePerson extends AbstractDetailPage {
@@ -38,7 +36,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(5, 1);
-//	private Grid lectureRooms = new Grid(3, 1);
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 	private String name;
@@ -72,15 +69,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		bottomPanel.setStyleName("personBottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
-	//	lectureRooms.setStyleName("personLectureRooms");
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		lectures.setStyleName("lecturesTable");
 		
 		roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		//roomNrBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
-		
+				
 		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
 		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
 		extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
@@ -92,16 +87,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(3, 0, extraInfosBtn);
 		infos.setWidget(4, 0, raplaBtn);
 		
-//		Image lectureRoomImg = new Image(IconProvider.ROOMS);
-//		
-//		IconButton firstLectureRoom = new IconButton("D195", lectureRoomImg);
-//		IconButton secondLectureRoom = new IconButton("D295", lectureRoomImg);
-//		IconButton thirdLectureRoom = new IconButton("D395", lectureRoomImg);
-		
-//		lectureRooms.setWidget(0, 0, firstLectureRoom);
-//		lectureRooms.setWidget(1, 0, secondLectureRoom);
-//		lectureRooms.setWidget(2, 0, thirdLectureRoom);
-		
 		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
@@ -112,7 +97,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectures);
-
 		
 		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
 		showRoomBtn.setStyleName("personShowRoomBtn");
@@ -165,7 +149,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	protected void handleRessource(String id, ResourceDetail resource) {
 		PersonDescriptor person = new PersonDescriptor(resource);
 		this.id = id;
-		//Window.alert(person.getName() + ", "+ person.getMail()+ ", "+ person.getPhoneNr());
 		
 		name = person.getName();
 		departmentText = person.getRoomNr();
@@ -214,12 +197,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 				if(events.size()>=1)
 				{
 				Label firstLecture = new Label(events.get(0).toString());
-//				middlePanel.add(firstLecture);
 				lectures.setWidget(0, 0, firstLecture);
 				if(!events.get(0).getResources().isEmpty())
 				{
 				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
-	//			lectureRooms.setWidget(0, 0, firstLectureRoom);
 				lectures.setWidget(0, 1, firstLectureRoom);
 				}
 				}
@@ -227,28 +208,22 @@ public class DetailPagePerson extends AbstractDetailPage {
 				{
 				Label secondLecture = new Label(events.get(1).toString());
 				
-//				middlePanel.add(secondLecture);
 				lectures.setWidget(1, 0, secondLecture);
 				if(!events.get(1).getResources().isEmpty())
 				{
 					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
-			//	lectureRooms.setWidget(1, 0, secondLectureRoom);
 					lectures.setWidget(1, 1, secondLectureRoom);
-			//	lectures.add(secondLecture);
 				}
 				}
 				if(events.size()>=3)
 				{
 				Label thirdLecture = new Label(events.get(2).toString());	
 				
-//				middlePanel.add(thirdLecture);
 				lectures.setWidget(2, 0, thirdLecture);
 				if(!events.get(2).getResources().isEmpty())
 				{
 					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
-				//lectureRooms.setWidget(2, 0, thirdLectureRoom);
 					lectures.setWidget(2, 1, thirdLectureRoom);
-				//lectures.add(thirdLecture);
 				}
 				}
 				middlePanel.add(lectures);			
