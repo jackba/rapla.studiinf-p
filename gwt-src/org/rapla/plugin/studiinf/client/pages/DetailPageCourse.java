@@ -39,6 +39,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 	
+	
 	private IconButton name;
 	private IconButton study;
 	private NavigationIconButton prof;
@@ -77,6 +78,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		bottomPanel.setStyleName("courseBottomPanel");
 		infoLabel.setStyleName("courseInfoLabel");
 		infos.setStyleName("courseInfos");
+		lectures.setStyleName("lecturesTable");
 		
 		infos.setWidget(0, 0, name);
 		infos.setWidget(1, 0, study);
@@ -87,6 +89,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
+		
+		middlePanel.add(lectures);
 		
 //		bottomPanel.add(prof2);
 		bottomPanel.add(room2);
@@ -158,81 +162,79 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		refresh();
 		
-//		Date dateBegin = new Date();
-//		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
-//		String begin = f.format(dateBegin);
-//		Date dateEnd = new Date();
-//		dateEnd.setHours(23);
-//		dateEnd.setMinutes(59);
-//
-//		String end = f.format(dateEnd);
-//		
-//		Window.alert(id + " " + begin + " " + end);
-//		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
-//
-//			@Override
-//			public void onFailure(Throwable arg0) {
+		Date dateBegin = new Date();
+		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
+		String begin = f.format(dateBegin);
+		Date dateEnd = new Date();
+		dateEnd.setHours(23);
+		dateEnd.setMinutes(59);
+
+		String end = f.format(dateEnd);
+		
+		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+				
+				
+			}
+
+			@Override
+			public void onSuccess(List<Event> arg0) {
+				
+				
+				events = new ArrayList<Event>(arg0);
+				
+				lectures.clear();
+
+				Image lectureRoomImg = new Image(IconProvider.ROOMS);
+				if(events.size()>=1)
+				{
+
+				Label firstLecture = new Label(events.get(0).toString());
+
+				lectures.setWidget(0, 0, firstLecture);
+				if(!events.get(0).getResources().isEmpty())
+				{
+
+				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
+
+				lectures.setWidget(0, 1, firstLectureRoom);
+				}
+				}
+				if(events.size()>=2)
+				{
+				Label secondLecture = new Label(events.get(1).toString());
+				
+
+				lectures.setWidget(1, 0, secondLecture);
+				if(!events.get(1).getResources().isEmpty())
+				{
+					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
+
+					lectures.setWidget(1, 1, secondLectureRoom);
+
+				}
+				}
+				if(events.size()>=3)
+				{
+				Label thirdLecture = new Label(events.get(2).toString());	
+				
 //				
-//				
-//			}
-//
-//			@Override
-//			public void onSuccess(List<Event> arg0) {
-//				
-//				
-//				events = new ArrayList<Event>(arg0);
-//				
-//				lectures.clear();
-//				Window.alert("onsuccess");
-//				Image lectureRoomImg = new Image(IconProvider.ROOMS);
-//				if(events.size()>=1)
-//				{
-//					Window.alert("vor Label");
-//				Label firstLecture = new Label(events.get(0).toString());
-////				middlePanel.add(firstLecture);
-//				lectures.setWidget(0, 0, firstLecture);
-//				if(!events.get(0).getResources().isEmpty())
-//				{
-//					Window.alert("Vor Raumabfrage");
-//				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
-//	//			lectureRooms.setWidget(0, 0, firstLectureRoom);
-//				Window.alert("nach Raumabfrage");
-//				lectures.setWidget(0, 1, firstLectureRoom);
-//				}
-//				}
-//				if(events.size()>=2)
-//				{
-//				Label secondLecture = new Label(events.get(1).toString());
-//				
-////				middlePanel.add(secondLecture);
-//				lectures.setWidget(1, 0, secondLecture);
-//				if(!events.get(1).getResources().isEmpty())
-//				{
-//					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
-//			//	lectureRooms.setWidget(1, 0, secondLectureRoom);
-//					lectures.setWidget(1, 1, secondLectureRoom);
-//			//	lectures.add(secondLecture);
-//				}
-//				}
-//				if(events.size()>=3)
-//				{
-//				Label thirdLecture = new Label(events.get(2).toString());	
-//				
-////				middlePanel.add(thirdLecture);
-//				lectures.setWidget(2, 0, thirdLecture);
-//				if(!events.get(2).getResources().isEmpty())
-//				{
-//					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
-//				//lectureRooms.setWidget(2, 0, thirdLectureRoom);
-//					lectures.setWidget(2, 1, thirdLectureRoom);
-//				//lectures.add(thirdLecture);
-//				}
-//				}
-//				middlePanel.add(lectures);			
-//				
-//				}
-//		});
-//		
+				lectures.setWidget(2, 0, thirdLecture);
+				if(!events.get(2).getResources().isEmpty())
+				{
+					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
+	
+					lectures.setWidget(2, 1, thirdLectureRoom);
+				
+				}
+				}
+				middlePanel.add(lectures);			
+				
+				}
+		});
+		
 		
 	}
 
