@@ -8,7 +8,7 @@ import org.rapla.plugin.studiinf.client.search.RessourceSearch;
 public class RessourceButton extends NavButton {
 	
 	private AbstractSearchPage page;
-	private boolean hideText;
+	private boolean hideText = false;
 	
 	public boolean isHideText() {
 		return hideText;
@@ -22,12 +22,12 @@ public class RessourceButton extends NavButton {
 	}
 
 	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page) {
-		super(icon, title, targetPage, null);
-		this.page = page;
+		this(title, icon, targetPage, page,false);
 	}
 	
 	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page,boolean hideText) {
-		this(title, icon, targetPage, page);
+		super(icon, title, targetPage, null);
+		this.page = page;
 		setHideText(hideText);
 	}
 	

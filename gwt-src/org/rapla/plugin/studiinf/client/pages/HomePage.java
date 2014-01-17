@@ -9,13 +9,14 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
+import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
@@ -32,23 +33,20 @@ public class HomePage extends AbstractPage {
 	@Override
 	public void init() {
 		super.init();
-//		Image logo = new Image(IconProvider.LOGO);
-//		logo.setStyleName("logo");
-		
 		TileContainer tileContainer = new TileContainer();
 		
 		Tile courseBtn = new Tile(Studiinf.i18n.courses(),Navigation.course);
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
-		freeRoomsTable = new ResultTable(resultBtns, 2, 3);
+		freeRoomsTable = new FreeRoomTable(resultBtns, 2, 3);
 		freeRoomsTable.setStyleName("freeRooms");
 		
 		resultBtns.setStyleName("resultBtns");
 		resultLabel.setStyleName("resultLabel");
 		resultPanel.setStyleName("resultPanel");
 		
-		for(Button b : freeRoomsTable.getButtonsBottom()){
+		for(NavButton b : freeRoomsTable.getButtonsBottom()){
 			this.add(b);
 		}
 		
@@ -122,5 +120,11 @@ public class HomePage extends AbstractPage {
 	
 	});
 	
+	}
+	
+	@Override
+	public void onShow() {
+		freeRoomsTable.setPage(0);
+		super.onShow();
 	}
 }

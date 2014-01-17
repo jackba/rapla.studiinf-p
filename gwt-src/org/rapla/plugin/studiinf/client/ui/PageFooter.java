@@ -15,12 +15,9 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 public class PageFooter extends FlowPanel {
 	
-	private AbstractPage parent;
 	
 	public PageFooter(AbstractPage parent) {
-		
-		    this.parent = parent;
-		    
+				    
 	}
 	
 	public void init(){
@@ -28,7 +25,6 @@ public class PageFooter extends FlowPanel {
 	    
 	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);
 	    
-	    homeBtn.getElement().getStyle().setProperty("float", "right");
 	    
 	    NavButton languageButton = new NavButton(IconProvider.World ,Studiinf.i18n.otherLanguage(),null,null);
 	    languageButton.setClickHandler(new ClickHandler() {
@@ -41,9 +37,12 @@ public class PageFooter extends FlowPanel {
 				
 			}
 		});
-	    languageButton.getElement().getStyle().setProperty("float", "left");
 	    this.add(languageButton);
 	    this.add(homeBtn);
+	    languageButton.getElement().getStyle().setProperty("float", "left");
+	    homeBtn.getElement().getStyle().setProperty("float", "right");
+	    languageButton.addStyleName("left");
+	    homeBtn.addStyleName("right");
 	    
 	}
 

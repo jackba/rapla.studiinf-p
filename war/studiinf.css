@@ -233,7 +233,7 @@ nav{
 	line-height:4vh;
 }
 .organigramBtn{
-	position:absolute;
+	position:absolute !important;
 	bottom:37vh;
 	left:30vw;
 	rigth:25vw;
@@ -358,9 +358,9 @@ nav{
 	position:absolute;
 	top:56.5vh;
 	bottom:8vh;
-	left:5vw;
-	right:5vw;
-	width:90vw;
+	left:4vw;
+	right:4vw;
+	width:92vw;
 	height:32vh;
 }/*
 .tile{
@@ -783,11 +783,6 @@ nav{
 .backButtonBottom,.nextButtonBottom{
 	position:absolute;
 	bottom: 7vh;
-	width:3vw;
-	padding:0;
-	margin:0;
-	border:none;
-	background:transparent;
 }
 .backButtonBottom{
 	left: 1vw;
@@ -878,3 +873,9 @@ overflow: hidden;
 	width: 55vw;
 }
 
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}

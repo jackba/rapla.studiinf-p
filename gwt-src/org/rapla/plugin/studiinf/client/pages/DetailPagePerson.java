@@ -11,6 +11,7 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
+import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
@@ -37,7 +38,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(5, 1);
 //	private Grid lectureRooms = new Grid(3, 1);
-	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
+	private ResultTable lectures = new FreeRoomTable(new FlowPanel(), 2, 3);
 	private Label appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 	private String name;
 	List<Event> events;
@@ -157,6 +158,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	}
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		PersonDescriptor person = new PersonDescriptor(resource);

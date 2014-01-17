@@ -28,6 +28,11 @@ public class ResultButton extends NavButton implements ResultObject {
 		this.setWidth("100%");	
 	}
 		
+	@Override
+	public void setIcon(FontIcon fontIcon) {
+		super.setIcon(fontIcon);
+		bottomPictureButton.setIcon(fontIcon);
+	}
 
 	@Override
 	public List<Widget> getCellObjects() {

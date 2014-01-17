@@ -14,7 +14,6 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -56,7 +55,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
 	}
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
-		this(hasOrganigramm,showInput,showQRBox,3,2);
+		this(hasOrganigramm,showInput,showQRBox,6,2);
 	}
 	
 public boolean isSearched() {
@@ -84,7 +83,7 @@ public void init() {
 	searchField.setStyleName("searchField");
 	resultLabel.setStyleName("resultLabel");
 	results.setStyleName("results");
-	organigramBtn.setStyleName("organigramBtn");
+	organigramBtn.addStyleName("organigramBtn");
 	keyboard.setStyleName("keyboard");
 	resultBtns.setStyleName("resultBtns");
 	resultPanel.setStyleName("resultPanel");
@@ -106,7 +105,7 @@ public void init() {
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
 	
-	for(Button b : results.getButtonsBottom()){
+	for(NavButton b : results.getButtonsBottom()){
 		this.add(b);
 	}
 	

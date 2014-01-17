@@ -10,6 +10,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -26,12 +27,31 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 
 	interface NavButtonUiBinder extends UiBinder<Widget, NavButton> {
 	}
+	interface NavButtonStyle extends CssResource{
+		String navigationButton();	
+		String tile();
+		String twoLines();
+	}
 	AbstractPage targetPage;
 	String targetId;
 	int numberValue = 0;
 	FontIcon fontIcon;
 	String text;
 	boolean enabled = true;
+	boolean twoLines = false;
+	public boolean isTwoLines() {
+		return twoLines;
+	}
+
+	public void setTwoLines(boolean twoLines) {
+		this.twoLines = twoLines;
+		if(twoLines){
+			textLabel.addClassName(style.twoLines());
+		}else{
+			textLabel.removeClassName(style.twoLines());
+		}
+	}
+
 	ClickHandler clickHandler;
 
 	public NavButton(String text,AbstractPage targetPage,String targetId) {
@@ -61,6 +81,9 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	@UiField
 	SpanElement textLabel;
+	
+	@UiField
+	NavButtonStyle style;
 	
 	
 	@UiHandler("button")
