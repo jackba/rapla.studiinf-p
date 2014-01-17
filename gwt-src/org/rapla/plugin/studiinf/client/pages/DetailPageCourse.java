@@ -17,7 +17,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	
 	private String courseName;
 	private String studyName;
-	private String profName;
 	private String roomName;
 	private String id;
 	
@@ -28,7 +27,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	
 	private IconButton name;
 	private IconButton study;
-	private NavigationIconButton prof;
 	private NavigationIconButton room;
 	private NavigationIconButton events;
 	private NavigationIconButton prof2;
@@ -42,15 +40,13 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infoPanel = new FlowPanel();
 		bottomPanel = new FlowPanel();
 		infoLabel = new Label("Information");
-		infos = new Grid(5, 1);
+		infos = new Grid(4, 1);
 		
 		name = new IconButton(courseName, new Image(IconProvider.COURSE));
 		study = new IconButton(studyName, new Image(IconProvider.COURSES));
-		prof = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
 		room = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		events = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
-		prof2 = new NavigationIconButton(profName, new Image(IconProvider.PERSONS), Navigation.personDetail);
 		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
@@ -65,15 +61,13 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		infos.setWidget(0, 0, name);
 		infos.setWidget(1, 0, study);
-		infos.setWidget(2, 0, prof);
-		infos.setWidget(3, 0, room);
-		infos.setWidget(4, 0, events);
+		infos.setWidget(2, 0, room);
+		infos.setWidget(3, 0, events);
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-//		bottomPanel.add(prof2);
 		bottomPanel.add(room2);
 		bottomPanel.add(events2);
 		
@@ -101,7 +95,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		super.refresh();
 		name.setText(courseName);
 		study.setText(studyName);
-		prof.setText(profName);
 		room.setText(roomName);
 		room2.setText(roomName);
 		events.setTargetId(id);
