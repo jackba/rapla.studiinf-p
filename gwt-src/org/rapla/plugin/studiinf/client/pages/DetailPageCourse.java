@@ -7,7 +7,6 @@ import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -29,7 +28,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private IconButton study;
 	private NavigationIconButton room;
 	private NavigationIconButton events;
-	private NavigationIconButton prof2;
 	private NavigationIconButton room2;
 	private NavigationIconButton events2;
 	
@@ -50,7 +48,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
-		prof2.setStyleName("courseProf");
 		room2.setStyleName("courseRoom");
 		events2.setStyleName("courseEvents");
 		
