@@ -1,15 +1,12 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 import java.util.LinkedList;
-import java.util.Map;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.DetailEntry;
 
-import com.google.gwt.thirdparty.guava.common.collect.Table;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlexTable;
 
 public class extraInfoPage extends AbstractDetailPage {
