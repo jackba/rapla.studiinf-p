@@ -52,12 +52,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
 		
-		Image roomNameImg = new Image(IconProvider.ROOMS);
-		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
-		Image studyImg = new Image(IconProvider.COURSE);
-		Image roomImg = new Image(IconProvider.CALENDAR);
-		
-		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
@@ -69,10 +63,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 		
 		
-		nameButton = new IconButton(nameButtonText, roomNameImg);
-		typeButton = new IconButton(typeButtonText, roomTypeImg);
-		courseOfStudyButton = new IconButton(courseOfStudyButtonText, studyImg);
-		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), roomImg, Navigation.raplaRoomLink, id);
+		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
+		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
+		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSE));
+		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
 		
 		infos.setWidget(0, 0, nameButton);
 		infos.setWidget(1, 0, typeButton);
@@ -82,10 +77,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-			
-		Image occupancyImg = new Image(IconProvider.CALENDAR);
-		
-		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), occupancyImg, Navigation.raplaRoomLink, id);
 		roomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
