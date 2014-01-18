@@ -1,10 +1,16 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
+import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
@@ -12,11 +18,13 @@ import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class DetailPagePoi extends AbstractDetailPage {
 
@@ -32,6 +40,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private String roomButtonText;
 	
 	private RessourceButton roomButton;
+	private RessourceButton roomButton2;
 	private IconButton rowOneButton;
 	private IconButton rowTwoButton;
 	private NavigationIconButton raplaButton;
@@ -67,9 +76,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		
 		roomButton = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton2 = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
 		rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
 		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, rowOneButton);
@@ -79,11 +90,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-			
-		Image occupancyImg = new Image(IconProvider.CALENDAR);
-		
-		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), occupancyImg, Navigation.raplaRoomLink, id);
 		roomPanel.add(raplaButton2);
+		roomPanel.add(roomButton2);
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
@@ -110,6 +118,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 	protected void refresh() {
 		super.refresh();
 		roomButton.setText(roomButtonText);
+		roomButton2.setText(roomButtonText);
 		rowOneButton.setText(rowOneButtonText);
 		rowTwoButton.setText(rowTwoButtonText);
 		raplaButton.setTargetId(id);
@@ -128,6 +137,17 @@ public class DetailPagePoi extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 		
+	}
+	
+	public void showRaplaLinks(boolean show){
+		if (show == true){
+			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+			raplaButton2.getElement().getStyle().setDisplay(Display.INLINE);
+		} else {
+			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
+		}
+
 	}
 
 
@@ -148,8 +168,10 @@ public class DetailPagePoi extends AbstractDetailPage {
 		if (!pd.getRoomNr().equals("")){
 			roomButtonText = pd.getRoomNr();
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			roomButton2.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
+				roomButton2.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!pd.getRowOne().equals("")){
 			rowOneButtonText = pd.getRowOne();
@@ -174,6 +196,35 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 //		Window.alert(rd.getPicture());
 		refresh();
+		
+		
+		Date dateBegin = new Date();
+		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
+		String begin = f.format(dateBegin);
+		Date dateEnd = new Date();
+		dateEnd.setHours(23);
+		dateEnd.setMinutes(59);
+
+		String end = f.format(dateEnd);
+		
+		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+				
+			}
+
+			@Override
+			public void onSuccess(List<Event> arg0) {
+				List<Event> events = new ArrayList<Event>(arg0);
+				if (events.size()>=1) {
+					showRaplaLinks(true);
+				} else {
+					showRaplaLinks(false);
+				}
+			}
+			
+		});
 		
 	}
 
