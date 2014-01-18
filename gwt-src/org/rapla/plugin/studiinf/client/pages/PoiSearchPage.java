@@ -49,7 +49,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
+			addResult(new ResultButton(poi.getName(), Navigation.poiDetail, poi.getId(), new Image(IconProvider.POI)));
 		}
 		refresh();
 		
