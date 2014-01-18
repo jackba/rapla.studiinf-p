@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
@@ -39,9 +40,9 @@ public class DetailPageCourse extends AbstractDetailPage {
 
 	private IconButton nameButton;
 	private IconButton courseOfStudyButton;
-	private NavigationIconButton roomButton;
+	private RessourceButton roomButton;
 	private NavigationIconButton raplaButton;
-	private NavigationIconButton roomButton2;
+	private RessourceButton roomButton2;
 	private NavigationIconButton raplaButton2;
 	
 	private String nameButtonText;
@@ -61,9 +62,11 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.COURSE));
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
-		roomButton = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		roomButton = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton2 = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		//roomButton = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
-		roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		//roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
 		roomButton2.setStyleName("courseRoom");
