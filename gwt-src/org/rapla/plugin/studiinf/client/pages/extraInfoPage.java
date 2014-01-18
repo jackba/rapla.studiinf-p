@@ -34,13 +34,11 @@ private LinkedList<ResourceDetailRow> details;
 
 	@Override
 	public String getHistoryKey() {
-		// TODO Auto-generated method stub
 		return "extraInfos";
 	}
 
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
 		return "Extra Infos";
 	}
 
@@ -51,7 +49,6 @@ private LinkedList<ResourceDetailRow> details;
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
-		// TODO Auto-generated method stub
 		this.id = id;
 		PersonDescriptor person = new PersonDescriptor(resource);
 		details = person.getDetails();
