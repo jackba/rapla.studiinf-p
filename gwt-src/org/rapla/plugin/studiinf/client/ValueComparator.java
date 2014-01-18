@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 import com.google.gwt.text.client.IntegerParser;
 
-import edu.emory.mathcs.backport.java.util.TreeMap;
+//import edu.emory.mathcs.backport.java.util.TreeMap;
 
 public class ValueComparator implements Comparator<String> {
 

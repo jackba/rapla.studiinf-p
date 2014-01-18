@@ -170,7 +170,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 //		roomLS.readStorage(id);
 		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
 //		"localStorage: " + targetID + " " + count
-		Window.alert(roomLS.readStorage(id));
+//		Window.alert(roomLS.readStorage(id));
 //		Window.alert(rd.getPicture());
 		
 //		Window.alert(rd.getPicture());
