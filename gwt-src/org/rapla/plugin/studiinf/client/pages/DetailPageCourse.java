@@ -25,9 +25,6 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class DetailPageCourse extends AbstractDetailPage {
 	
-	private String courseName;
-	private String studyName;
-	private String roomName;
 	private String id;
 	
 	private FlowPanel infoPanel;
@@ -39,14 +36,17 @@ public class DetailPageCourse extends AbstractDetailPage {
 	
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
-	
-	
-	private IconButton name;
-	private IconButton study;
-	private NavigationIconButton room;
+
+	private IconButton nameButton;
+	private IconButton courseOfStudyButton;
+	private NavigationIconButton roomButton;
 	private NavigationIconButton raplaButton;
-	private NavigationIconButton room2;
+	private NavigationIconButton roomButton2;
 	private NavigationIconButton raplaButton2;
+	
+	private String nameButtonText;
+	private String courseOfStudyButtonText;
+	private String roomButtonText;
 	
 	@Override
 	public void init(){
@@ -59,15 +59,15 @@ public class DetailPageCourse extends AbstractDetailPage {
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		
-		name = new IconButton(courseName, new Image(IconProvider.COURSE));
-		study = new IconButton(studyName, new Image(IconProvider.COURSES));
-		room = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		nameButton = new IconButton(nameButtonText, new Image(IconProvider.COURSE));
+		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
+		roomButton = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
-		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
+		roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
-		room2.setStyleName("courseRoom");
+		roomButton2.setStyleName("courseRoom");
 		raplaButton2.setStyleName("courseEvents");
 		
 		infoPanel.setStyleName("courseInfoPanel");
@@ -78,9 +78,9 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos.setStyleName("courseInfos");
 		lectures.setStyleName("courseLecturesTable");
 		
-		infos.setWidget(0, 0, name);
-		infos.setWidget(1, 0, study);
-		infos.setWidget(2, 0, room);
+		infos.setWidget(0, 0, nameButton);
+		infos.setWidget(1, 0, courseOfStudyButton);
+		infos.setWidget(2, 0, roomButton);
 		infos.setWidget(3, 0, raplaButton);
 
 		
@@ -93,7 +93,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		middlePanel.add(appointmentLabel);
 		
 
-		bottomPanel.add(room2);
+		bottomPanel.add(roomButton2);
 		bottomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
@@ -108,10 +108,10 @@ public class DetailPageCourse extends AbstractDetailPage {
 
 	@Override
 	public String getTitle() {
-		if(courseName == null){
-			courseName = "";
+		if(nameButtonText == null){
+			nameButtonText = "";
 		}
-		return courseName;
+		return nameButtonText;
 	}
 
 
@@ -119,10 +119,10 @@ public class DetailPageCourse extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		name.setText(courseName);
-		study.setText(studyName);
-		room.setText(roomName);
-		room2.setText(roomName);
+		nameButton.setText(nameButtonText);
+		courseOfStudyButton.setText(courseOfStudyButtonText);
+		roomButton.setText(roomButtonText);
+		roomButton2.setText(roomButtonText);
 		raplaButton.setTargetId(id);
 		raplaButton2.setTargetId(id);
 	}
@@ -151,24 +151,24 @@ public class DetailPageCourse extends AbstractDetailPage {
 		CourseDescriptor cd = new CourseDescriptor(resource);
 		
 		this.id = id;
-		courseName = cd.getName();
+		nameButtonText = cd.getName();
 		cd.getPicture();
 		
 		cd.getYear();
 		
 		if(!cd.getDepartment().equals("")){
-			studyName = cd.getDepartment();
-			study.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			courseOfStudyButtonText = cd.getDepartment();
+			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				study.getElement().getStyle().setDisplay(Display.NONE);
+				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if(!cd.getRoomNr().equals("")){
-			roomName = cd.getRoomNr();
-			room.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-			room2.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			roomButtonText = cd.getRoomNr();
+			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			roomButton2.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				room.getElement().getStyle().setDisplay(Display.NONE);
-				room2.getElement().getStyle().setDisplay(Display.NONE);
+				roomButton.getElement().getStyle().setDisplay(Display.NONE);
+				roomButton2.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		
 		refresh();

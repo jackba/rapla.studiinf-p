@@ -41,18 +41,18 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String name;
 	List<Event> events;
 	
-	private NavigationIconButton roomNrBtn;
-	private IconButton mailBtn;
-	private IconButton telephoneBtn;
-	private IconButton showRoomBtn;
-	private NavigationIconButton extraInfosBtn;
+	private IconButton mailButton;
+	private IconButton telephoneButton;
+	private NavigationIconButton roomButton;
+	private IconButton roomButton2;
 	private NavigationIconButton raplaButton;
 	private NavigationIconButton raplaButton2;
-	private NavigationIconButton showextraInfosBtn;
+	private NavigationIconButton extraInfosButton;
+	private NavigationIconButton extraInfosButton2;
 	
-	private String departmentText;
-	private String mailText;
-	private String phoneText;
+	private String roomButtonText;
+	private String mailButtonText;
+	private String telephoneButtonText;
 	
 	@Override
 	public boolean hasDefaultQrBox(){
@@ -74,17 +74,17 @@ public class DetailPagePerson extends AbstractDetailPage {
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		lectures.setStyleName("lecturesTable");
 		
-		roomNrBtn = new RessourceButton(departmentText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton = new RessourceButton(roomButtonText,new  Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 				
-		mailBtn = new IconButton(mailText, new Image(IconProvider.E_MAIL));
-		telephoneBtn = new IconButton(phoneText, new Image(IconProvider.PHONE));
-		extraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		mailButton = new IconButton(mailButtonText, new Image(IconProvider.E_MAIL));
+		telephoneButton = new IconButton(telephoneButtonText, new Image(IconProvider.PHONE));
+		extraInfosButton = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		raplaButton = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.raplaPersonLink, id);
 		
-		infos.setWidget(0, 0, roomNrBtn);
-		infos.setWidget(1, 0, mailBtn);
-		infos.setWidget(2, 0, telephoneBtn);
-		infos.setWidget(3, 0, extraInfosBtn);
+		infos.setWidget(0, 0, roomButton);
+		infos.setWidget(1, 0, mailButton);
+		infos.setWidget(2, 0, telephoneButton);
+		infos.setWidget(3, 0, extraInfosButton);
 		infos.setWidget(4, 0, raplaButton);
 		
 		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
@@ -98,13 +98,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectures);
 		
-		showRoomBtn = new NavigationIconButton(departmentText, new Image(IconProvider.ROOMS),Navigation.roomDetail,departmentText);
-		showRoomBtn.setStyleName("personShowRoomBtn");
-		showextraInfosBtn = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS),Navigation.roomDetail,roomButtonText);
+		roomButton2.setStyleName("personShowRoomBtn");
+		extraInfosButton2 = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		raplaButton2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
-		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
+		extraInfosButton2.setStyleName("personShowExtraInfosBtn");
 		raplaButton2.setStyleName("personLinkRaplabtn");
-		showextraInfosBtn.setEnabled(false);
+		extraInfosButton2.setEnabled(false);
 //		bottomPanel.add(showRoomBtn);
 //		bottomPanel.add(showextraInfosBtn);
 		bottomPanel.add(raplaButton2);
@@ -142,14 +142,14 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		roomNrBtn.setText(departmentText);
-		telephoneBtn.setText(phoneText);
-		mailBtn.setText(mailText); 
-		showRoomBtn.setText(departmentText);
+		roomButton.setText(roomButtonText);
+		telephoneButton.setText(telephoneButtonText);
+		mailButton.setText(mailButtonText); 
+		roomButton2.setText(roomButtonText);
 		raplaButton.setTargetId(id);
 		raplaButton2.setTargetId(id);
-		extraInfosBtn.setTargetId(id);
-		showextraInfosBtn.setTargetId(id);
+		extraInfosButton.setTargetId(id);
+		extraInfosButton2.setTargetId(id);
 		
 	}
 
@@ -160,19 +160,19 @@ public class DetailPagePerson extends AbstractDetailPage {
 		this.id = id;
 		
 		name = person.getName();
-		departmentText = person.getRoomNr();
+		roomButtonText = person.getRoomNr();
 		if(!person.getMail().equals("")){
-		mailText = person.getMail();
-		mailBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		mailButtonText = person.getMail();
+		mailButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		}else{
-			mailBtn.getElement().getStyle().setDisplay(Display.NONE);
+			mailButton.getElement().getStyle().setDisplay(Display.NONE);
 		}
 		
 		if(!person.getPhoneNr().equals("")){
-			phoneText = person.getPhoneNr();
-			telephoneBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			telephoneButtonText = person.getPhoneNr();
+			telephoneButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				telephoneBtn.getElement().getStyle().setDisplay(Display.NONE);
+				telephoneButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		
 		courseOfStudyInfo.setText(person.getDepartment());
