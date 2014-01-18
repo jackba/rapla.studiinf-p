@@ -8,6 +8,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
@@ -33,6 +34,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private FlowPanel bottomPanel;
 	private FlowPanel middlePanel;
 	private Label infoLabel;
+	private Label appointmentLabel;
 	private Grid infos;
 	
 	private List<Event> events;
@@ -44,7 +46,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private NavigationIconButton room;
 	private NavigationIconButton raplaButton;
 	private NavigationIconButton room2;
-	private NavigationIconButton events2;
+	private NavigationIconButton raplaButton2;
 	
 	@Override
 	public void init(){
@@ -54,6 +56,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		middlePanel = new FlowPanel();
 		bottomPanel = new FlowPanel();
 		infoLabel = new Label("Information");
+		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		
 		name = new IconButton(courseName, new Image(IconProvider.COURSE));
@@ -62,15 +65,16 @@ public class DetailPageCourse extends AbstractDetailPage {
 		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
 		room2 = new NavigationIconButton(roomName, new Image(IconProvider.ROOMS), Navigation.roomDetail);
-		events2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
+		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
 		room2.setStyleName("courseRoom");
-		events2.setStyleName("courseEvents");
+		raplaButton2.setStyleName("courseEvents");
 		
 		infoPanel.setStyleName("courseInfoPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		bottomPanel.setStyleName("courseBottomPanel");
 		infoLabel.setStyleName("courseInfoLabel");
+		appointmentLabel.setStyleName("personAppointmentLabel");
 		infos.setStyleName("courseInfos");
 		lectures.setStyleName("lecturesTable");
 		
@@ -86,10 +90,11 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 
 		middlePanel.add(lectures);
+		middlePanel.add(appointmentLabel);
 		
 
 		bottomPanel.add(room2);
-		bottomPanel.add(events2);
+		bottomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
 		this.add(bottomPanel);
@@ -119,13 +124,25 @@ public class DetailPageCourse extends AbstractDetailPage {
 		room.setText(roomName);
 		room2.setText(roomName);
 		raplaButton.setTargetId(id);
-		events2.setTargetId(id);
+		raplaButton2.setTargetId(id);
 	}
 
 
 	@Override
 	public boolean hasDefaultQrBox() {
 		return true;
+	}
+	
+	public void showRaplaLinks(boolean show){
+		if (show == true){
+			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+			raplaButton2.getElement().getStyle().setDisplay(Display.INLINE);
+		} else {
+			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
+			appointmentLabel.setText("There are no Appointments for Today.");
+		}
+
 	}
 
 
@@ -178,48 +195,40 @@ public class DetailPageCourse extends AbstractDetailPage {
 				
 				
 				events = new ArrayList<Event>(arg0);
-				
+				if (events.size()<1) {
+					showRaplaLinks(false);
+				}
 				lectures.clear();
 
 				Image lectureRoomImg = new Image(IconProvider.ROOMS);
 				if(events.size()>=1)
 				{
-
+				showRaplaLinks(true);
 				Label firstLecture = new Label(events.get(0).toString());
-
 				lectures.setWidget(0, 0, firstLecture);
 				if(!events.get(0).getResources().isEmpty())
 				{
-
 				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
-
 				lectures.setWidget(0, 1, firstLectureRoom);
 				}
 				}
 				if(events.size()>=2)
 				{
 				Label secondLecture = new Label(events.get(1).toString());
-				
-
 				lectures.setWidget(1, 0, secondLecture);
 				if(!events.get(1).getResources().isEmpty())
 				{
 					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
-
 					lectures.setWidget(1, 1, secondLectureRoom);
-
 				}
 				}
 				if(events.size()>=3)
 				{
 				Label thirdLecture = new Label(events.get(2).toString());	
-				
-//				
 				lectures.setWidget(2, 0, thirdLecture);
 				if(!events.get(2).getResources().isEmpty())
 				{
 					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
-	
 					lectures.setWidget(2, 1, thirdLectureRoom);
 				
 				}
