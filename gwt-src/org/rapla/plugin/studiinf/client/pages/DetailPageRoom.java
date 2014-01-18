@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
@@ -38,6 +39,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
 	
 	private String id;
+	
+	public LocalStorage roomLS = new LocalStorage();
 	
 	
 
@@ -162,6 +165,14 @@ public class DetailPageRoom extends AbstractDetailPage {
 			}else{
 				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
 			}
+		
+		roomLS.writeStorage(id);
+		roomLS.fillMap();
+//		roomLS.readStorage(id);
+		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
+//		"localStorage: " + targetID + " " + count
+		Window.alert(roomLS.readStorage(id));
+//		Window.alert(rd.getPicture());
 		
 //		Window.alert(rd.getPicture());
 		refresh();
