@@ -63,7 +63,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
 		roomButton = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
-		
 		roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
@@ -83,15 +82,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos.setWidget(2, 0, roomButton);
 		infos.setWidget(3, 0, raplaButton);
 
-		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-
 		middlePanel.add(lectures);
 		middlePanel.add(appointmentLabel);
-		
 
 		bottomPanel.add(roomButton2);
 		bottomPanel.add(raplaButton2);
@@ -186,14 +182,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 
 			@Override
 			public void onFailure(Throwable arg0) {
-				
-				
+					
 			}
 
 			@Override
 			public void onSuccess(List<Event> arg0) {
-				
-				
+
 				events = new ArrayList<Event>(arg0);
 				if (events.size()<1) {
 					showRaplaLinks(false);

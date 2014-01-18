@@ -23,10 +23,11 @@ private LinkedList<ResourceDetailRow> details;
 	public void init(){
 		super.init();
 		detailsTable = new FlexTable();
-		detailsTable.setStyleName("detailsTable");
-		
 		backBtn = new NavigationButton(Studiinf.i18n.back(), Navigation.personDetail, id);
+		
+		detailsTable.setStyleName("detailsTable");
 		backBtn.setStyleName("raplaBackButton");
+		
 		this.add(backBtn); 
 		this.add(detailsTable);	
 	}

@@ -729,20 +729,14 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
-.personShowRoomBtn , .courseRoom{
-	top: 0.5vh;
-	width: 18vw;	
+.personShowRoomBtn , .courseRoom, .personShowExtraInfosBtn, .personLinkbtn, .courseEvents, .personLinkRaplabtn{
+	top: 0.5vh;	
+	display: inline-block;
+	position: relative;
+	width: 29vw;
 }
-.personShowExtraInfosBtn,  .courseProf{
-	top: 0.5vh;
-	left: 50vw;
-	width: 37vw;
-}
-.personLinkbtn, .courseEvents {
-	top: 0.5vh;
-	left: 19vw;
-	width: 30vw;
-}
+
+
 .iconIconButton {
 	position: absolute;
 	top: 0px;
