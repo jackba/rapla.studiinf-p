@@ -78,8 +78,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 				
 		mailButton = new IconButton(mailButtonText, new Image(IconProvider.E_MAIL));
 		telephoneButton = new IconButton(telephoneButtonText, new Image(IconProvider.PHONE));
-		extraInfosButton = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
-		raplaButton = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.raplaPersonLink, id);
+		extraInfosButton = new NavigationIconButton(Studiinf.i18n.extraInfos(), new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.raplaPersonLink, id);
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, mailButton);
@@ -100,8 +100,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 		roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS),Navigation.roomDetail,roomButtonText);
 		roomButton2.setStyleName("personShowRoomBtn");
-		extraInfosButton2 = new NavigationIconButton("Extrainfos anzeigen", new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
-		raplaButton2 = new NavigationIconButton("Link to Rapla", new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
+		extraInfosButton2 = new NavigationIconButton(Studiinf.i18n.extraInfos(), new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
+		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
+		
 		extraInfosButton2.setStyleName("personShowExtraInfosBtn");
 		raplaButton2.setStyleName("personLinkRaplabtn");
 		extraInfosButton2.setEnabled(false);
@@ -134,7 +135,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
-			appointmentLabel.setText("There are no Appointments for Today.");
+			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}
 	

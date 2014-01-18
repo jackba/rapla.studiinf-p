@@ -140,7 +140,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
-			appointmentLabel.setText("There are no Appointments for Today.");
+			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 
 	}

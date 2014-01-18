@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -18,7 +17,6 @@ import org.rapla.plugin.studiinf.client.ui.TileContainer;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 

@@ -4,17 +4,16 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Widget;
 
 public class DetailPageRoom extends AbstractDetailPage {
 
@@ -70,7 +69,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		nameButton = new IconButton(nameButtonText, roomNameImg);
 		typeButton = new IconButton(typeButtonText, roomTypeImg);
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, studyImg);
-		raplaButton = new NavigationIconButton("Raumbelegung", roomImg, Navigation.raplaRoomLink, id);
+		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), roomImg, Navigation.raplaRoomLink, id);
 		
 		infos.setWidget(0, 0, nameButton);
 		infos.setWidget(1, 0, typeButton);
@@ -83,7 +82,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 			
 		Image occupancyImg = new Image(IconProvider.CALENDAR);
 		
-		raplaButton2 = new NavigationIconButton("Raumbelegung anzeigen", occupancyImg, Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), occupancyImg, Navigation.raplaRoomLink, id);
 		roomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
