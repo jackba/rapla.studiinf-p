@@ -8,8 +8,8 @@ import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 
 public class PersonSearch extends AbstractSearch{
 
-private static final int FIRST_NAME = 0;
-private static final int LAST_NAME = 1;
+private static final int FIRST_NAME = 1;
+private static final int LAST_NAME = 0;
 
 
 public PersonSearch(String searchTerm, PersonSearchPage psPage)

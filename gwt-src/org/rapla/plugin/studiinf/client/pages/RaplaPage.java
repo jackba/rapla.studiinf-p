@@ -3,9 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.NavigationButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Frame;
 
 abstract public class RaplaPage extends AbstractDetailPage {
