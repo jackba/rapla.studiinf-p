@@ -30,4 +30,5 @@ public interface I18n extends Messages {
 	String noAppointments();
 	String linkRapla();
 	String extraInfos();
+	String back();
 	}

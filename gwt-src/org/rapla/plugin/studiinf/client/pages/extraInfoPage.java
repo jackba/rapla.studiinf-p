@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.DetailEntry;
 import org.rapla.plugin.studiinf.client.ui.NavigationButton;
@@ -24,7 +25,7 @@ private LinkedList<ResourceDetailRow> details;
 		detailsTable = new FlexTable();
 		detailsTable.setStyleName("detailsTable");
 		
-		backBtn = new NavigationButton("Zurück", Navigation.personDetail, id);
+		backBtn = new NavigationButton(Studiinf.i18n.back(), Navigation.personDetail, id);
 		backBtn.setStyleName("raplaBackButton");
 		this.add(backBtn); 
 		this.add(detailsTable);	
