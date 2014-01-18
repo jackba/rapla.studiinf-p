@@ -268,7 +268,7 @@ nav{
 
 .courseInfos {
 	top: 6vh;
-	height:25vh;
+	height:20vh;
 }
 
 .resultBtns {
@@ -463,7 +463,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel, .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -482,7 +482,7 @@ nav{
 }
 
 .courseInfoPanel{
-	height:34vh;
+	height:29vh;
 }
 
 .resultPanel{
@@ -621,10 +621,16 @@ nav{
 	height:6vh;
 }
 
-.personMiddlePanel {
+.personMiddlePanel{
 	top: 57vh;
 	bottom: auto;
 	height:28vh;
+}
+
+.courseMiddlePanel {
+	height:23vh;
+	top: 57vh;
+	bottom: auto;
 }
 .poiPage {
 	display:block;
@@ -640,7 +646,7 @@ nav{
 	line-height:5vh;
 	color:#ffffff;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -807,6 +813,8 @@ nav{
 	bottom: 7vh;
 	border: none;
 }
+
+
 .lecturesTable{
 	width: 100%;
 	margin-top:13vh;
@@ -819,10 +827,10 @@ nav{
 	width:70%;
 }
 .lecturesTable td .gwt-Label,.lecturesTable td .iconButton{
-	position: relative;
-	font-size: 2vh;
-	height:4.5vh;
-	 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+position: relative;
+font-size: 2vh;
+height:4.5vh;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 padding: 1vh 0px;
 line-height: 3vh;
 background: #AEB4B8;
@@ -831,6 +839,33 @@ border: 1px solid #FFF;
 overflow: hidden;
 }
 .lecturesTable td .gwt-Label{
+	padding-left: 1vh;
+}
+.courseLecturesTable {
+	width: 100%;
+	margin-top:7vh;
+}
+
+.courseLecturesTable td{
+	width:30%;
+	height:3vh;
+}
+.courseLecturesTable td:first-of-type{
+	width:70%;
+}
+.courseLecturesTable td .gwt-Label, .courseLecturesTable td .iconButton{
+position: relative;
+font-size: 2vh;
+height:4.5vh;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+padding: 1vh 0px;
+line-height: 3vh;
+background: #AEB4B8;
+padding: 1vh 0px;
+border: 1px solid #FFF;
+overflow: hidden;
+}
+.courseLecturesTable td .gwt-Label{
 	padding-left: 1vh;
 }
 .personCourseOfStudyLabel{

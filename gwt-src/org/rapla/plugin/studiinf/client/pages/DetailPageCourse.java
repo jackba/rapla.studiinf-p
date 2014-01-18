@@ -71,12 +71,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 		raplaButton2.setStyleName("courseEvents");
 		
 		infoPanel.setStyleName("courseInfoPanel");
-		middlePanel.setStyleName("personMiddlePanel");
+		middlePanel.setStyleName("courseMiddlePanel");
 		bottomPanel.setStyleName("courseBottomPanel");
 		infoLabel.setStyleName("courseInfoLabel");
-		appointmentLabel.setStyleName("personAppointmentLabel");
+		appointmentLabel.setStyleName("courseAppointmentLabel");
 		infos.setStyleName("courseInfos");
-		lectures.setStyleName("lecturesTable");
+		lectures.setStyleName("courseLecturesTable");
 		
 		infos.setWidget(0, 0, name);
 		infos.setWidget(1, 0, study);
