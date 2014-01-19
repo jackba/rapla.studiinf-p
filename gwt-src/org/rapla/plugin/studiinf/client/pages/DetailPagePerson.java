@@ -44,7 +44,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	
 	private IconButton mailButton;
 	private IconButton telephoneButton;
-	private NavButton roomButton;
+	private RessourceButton roomButton;
 	private RessourceButton roomButton2;
 	private NavButton raplaButton;
 	private NavButton raplaButton2;
