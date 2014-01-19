@@ -17,6 +17,7 @@ import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
@@ -87,7 +88,12 @@ public class HomePage extends AbstractPage {
 	
 	public void setFreeRooms(List<Event> freeResources)
 	{
-		
+		if(freeResources.size()< 1){
+			resultLabel.setText(Studiinf.i18n.nofreeRooms());
+		}else{
+			resultLabel.setText(Studiinf.i18n.freeRooms());
+			
+		}
 		for(Event e : freeResources)
 			{
 				freeRoomsTable.addResult(new FreeRoomButton(e));
