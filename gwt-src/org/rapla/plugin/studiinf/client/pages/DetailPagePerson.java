@@ -42,11 +42,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String name;
 	List<Event> events;
 	
-
-	//private RessourceButton showRoomBtn;
-
-	//private NavButton linkRapla2;
-	//private NavButton showextraInfosBtn;
 	private IconButton mailButton;
 	private IconButton telephoneButton;
 	private NavButton roomButton;
@@ -112,19 +107,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		extraInfosButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		roomButton2.setStyleName("bottomButton");
-		
-	//	showRoomBtn = new RessourceButton(departmentText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
-	//	showRoomBtn.setStyleName("personShowRoomBtn");
-		//showextraInfosBtn = new NavButton(IconProvider.Additional_Information,"Extrainfos anzeigen",  Navigation.extraInfo, id);
-		//linkRapla2 = new NavButton(IconProvider.Rooms,"Link to Rapla", Navigation.raplaPersonLink, id);
-	//	showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
-
-		//linkRapla2.addStyleName("personLinkRaplabtn");
-
-//		showextraInfosBtn.setEnabled(false);
-//		bottomPanel.add(showRoomBtn);
-//		bottomPanel.add(showextraInfosBtn);
-		//bottomPanel.add(linkRapla2);
+	
 		bottomPanel.add(roomButton2);
 		bottomPanel.add(extraInfosButton2);
 		bottomPanel.add(raplaButton2);
@@ -163,9 +146,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		roomButton.setText(roomButtonText);
 		telephoneButton.setText(telephoneButtonText);
 		mailButton.setText(mailButtonText); 
+		roomButton.setText(roomButtonText);
 		roomButton2.setText(roomButtonText);
 		raplaButton.setTargetId(id);
 		raplaButton2.setTargetId(id);
