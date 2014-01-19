@@ -58,10 +58,6 @@ public class ResultTable extends FlexTable {
 		setPage(getPage() - 1); 
 	}
 
-
-	/**
-	 * 
-	 */
 	public int getMaxPages() {
 		return (int) Math.ceil(results.size() / (columns*maxRows));
 	}
@@ -83,9 +79,6 @@ public class ResultTable extends FlexTable {
 	this.maxRows = maxRows;
 	this.footerPanel = footerPanel;
 	this.page = 0;
-	
-	//backButton.setStyleName("backButton");
-	//nextButton.setStyleName("nextbutton");
 	
 	this.backButton.addClickHandler(new ClickHandler() {
 		
@@ -125,26 +118,17 @@ public class ResultTable extends FlexTable {
 			refresh();
 		}
 	});
-	
-	
-		
-		
-		
 		
 	}
 	
-		
-	
-	
+
 	public void addResult(ResultObject result){
 		results.add(result);
 		result.setNumber(results.indexOf(result) + 1);
-//		refresh();
 	}
 	
 	public boolean removeResult(ResultObject result) {
 		boolean removed = results.remove(result);
-//		refresh();
 		return removed;
 	}
 	
@@ -154,18 +138,15 @@ public class ResultTable extends FlexTable {
 	}
 	
 	public void refresh(){
-//		Window.alert("refresh");
 		clear();
 		footerPanel.clear();
 		int count = 0;
 		for (ResultObject result : results){
 			for(Widget cell : result.getCellObjects()){
-//				Window.alert(Math.floor((count / columns))+" - "+(page*maxRows) + " >= " + maxRows);
 				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 					break;
 				}
 				if(count >= page*columns*maxRows){
-//					Window.alert(count+" -> "+Math.floor((count / columns)-(page*maxRows)) +"/"+(count % columns)+" = "+cell.toString());
 				setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, cell);
 				}
 				count++;
@@ -179,11 +160,9 @@ public class ResultTable extends FlexTable {
 		}
 		
 		if(hasPages()){
-//			int pageNavRow = getRowCount();
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
 			
-//			int pageNavRow = getRowCount();
 			backButtonBottom.setEnabled(hasPreviousPage());
 			nextButtonBottom.setEnabled(hasNextPage());
 			
