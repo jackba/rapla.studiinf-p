@@ -42,13 +42,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String name;
 	List<Event> events;
 	
-	private NavButton roomNrBtn;
-	private IconButton mailBtn;
-	private IconButton telephoneBtn;
-	private RessourceButton showRoomBtn;
-	private NavButton extraInfosBtn;
-	private NavButton raplaBtn;
-	private NavButton linkRapla2;
+
+	//private RessourceButton showRoomBtn;
+
+	//private NavButton linkRapla2;
 	private NavButton showextraInfosBtn;
 	private IconButton mailButton;
 	private IconButton telephoneButton;
@@ -62,8 +59,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String roomButtonText;
 	private String mailButtonText;
 	private String telephoneButtonText;
-	private String roo;
-	private String departmentText;
 	
 	@Override
 	public boolean hasDefaultQrBox(){
@@ -118,16 +113,16 @@ public class DetailPagePerson extends AbstractDetailPage {
 		raplaButton2.setStyleName("bottomButton");
 		roomButton2.setStyleName("bottomButton");
 		
-		showRoomBtn = new RessourceButton(departmentText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
-		showRoomBtn.setStyleName("personShowRoomBtn");
+	//	showRoomBtn = new RessourceButton(departmentText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
+	//	showRoomBtn.setStyleName("personShowRoomBtn");
 		showextraInfosBtn = new NavButton(IconProvider.Additional_Information,"Extrainfos anzeigen",  Navigation.extraInfo, id);
-		linkRapla2 = new NavButton(IconProvider.Rooms,"Link to Rapla", Navigation.raplaPersonLink, id);
+		//linkRapla2 = new NavButton(IconProvider.Rooms,"Link to Rapla", Navigation.raplaPersonLink, id);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
-		linkRapla2.setStyleName("personLinkRaplabtn");
+		//linkRapla2.setStyleName("personLinkRaplabtn");
 		showextraInfosBtn.setEnabled(false);
 //		bottomPanel.add(showRoomBtn);
 //		bottomPanel.add(showextraInfosBtn);
-		bottomPanel.add(linkRapla2);
+		//bottomPanel.add(linkRapla2);
 		bottomPanel.add(roomButton2);
 		bottomPanel.add(extraInfosButton2);
 		bottomPanel.add(raplaButton2);
@@ -174,8 +169,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		raplaButton2.setTargetId(id);
 		extraInfosButton.setTargetId(id);
 		extraInfosButton2.setTargetId(id);
-		extraInfosBtn.setTargetId(id);
-		showextraInfosBtn.setTargetId(id);
 		
 	}
 

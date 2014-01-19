@@ -28,10 +28,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
-	private IconButton nameBtn;
-	private IconButton typeBtn;
-	private IconButton studyBtn;
-	private NavButton roomBtn;
+
 	private NavButton bottomRoomBtn;
 	private IconButton nameButton;
 	private IconButton typeButton;
@@ -58,12 +55,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.setStyleName("infoPanel");
 		roomPanel.setStyleName("roomPanel");
 		infoLabel.setStyleName("infoLabel");
-		infos.setStyleName("infos");
-		
-		Image roomNameImg = new Image(IconProvider.ROOMS);
-		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
-		Image studyImg = new Image(IconProvider.COURSE);
-		
+		infos.setStyleName("infos");		
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
@@ -76,10 +68,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 		
 		
-		nameBtn = new IconButton(roomNumber, roomNameImg);
-		typeBtn = new IconButton(roomType, roomTypeImg);
-		studyBtn = new IconButton(courseOfStudy, studyImg);
-		roomBtn = new NavButton(IconProvider.Rooms,"Raumbelegung", Navigation.raplaRoomLink, id);
+
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
 		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSE));
