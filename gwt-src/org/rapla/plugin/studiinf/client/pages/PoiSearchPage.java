@@ -30,6 +30,13 @@ public class PoiSearchPage extends AbstractSearchPage {
 	}
 	
 	@Override
+	public void onShow() {
+		super.onShow();
+		setSearched(true);
+		handleSearch("*");
+	}
+	
+	@Override
 	public String getTitle() {
 		return Studiinf.i18n.poiSearchPage();
 	}
