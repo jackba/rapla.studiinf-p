@@ -29,7 +29,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String courseOfStudyButtonText;
 	
 
-	private NavButton bottomRoomBtn;
+	//private NavButton bottomRoomBtn;
 	private IconButton nameButton;
 	private IconButton typeButton;
 	private IconButton courseOfStudyButton;
@@ -85,8 +85,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 			
 		roomPanel.add(raplaButton2);
 		
-		bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
-		roomPanel.add(bottomRoomBtn);
+		//bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
+		//roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);
 		this.add(roomPanel);
