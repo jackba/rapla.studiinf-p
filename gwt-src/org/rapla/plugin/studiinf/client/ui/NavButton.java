@@ -227,6 +227,12 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	public ClickHandler getClickHandler(){
 		return clickHandler;
 	}
-
+	
+	@Override
+	public void setStyleName(String style) {
+		super.setStyleName(style);
+		this.addStyleName(this.style.navigationButton());
+	}
+	
 
 }

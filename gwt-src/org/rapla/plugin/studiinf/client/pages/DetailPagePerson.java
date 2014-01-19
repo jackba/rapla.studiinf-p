@@ -46,7 +46,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	//private RessourceButton showRoomBtn;
 
 	//private NavButton linkRapla2;
-	private NavButton showextraInfosBtn;
+	//private NavButton showextraInfosBtn;
 	private IconButton mailButton;
 	private IconButton telephoneButton;
 	private NavButton roomButton;
@@ -115,11 +115,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		
 	//	showRoomBtn = new RessourceButton(departmentText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
 	//	showRoomBtn.setStyleName("personShowRoomBtn");
-		showextraInfosBtn = new NavButton(IconProvider.Additional_Information,"Extrainfos anzeigen",  Navigation.extraInfo, id);
+		//showextraInfosBtn = new NavButton(IconProvider.Additional_Information,"Extrainfos anzeigen",  Navigation.extraInfo, id);
 		//linkRapla2 = new NavButton(IconProvider.Rooms,"Link to Rapla", Navigation.raplaPersonLink, id);
-		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
-		//linkRapla2.setStyleName("personLinkRaplabtn");
-		showextraInfosBtn.setEnabled(false);
+	//	showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
+
+		//linkRapla2.addStyleName("personLinkRaplabtn");
+
+//		showextraInfosBtn.setEnabled(false);
 //		bottomPanel.add(showRoomBtn);
 //		bottomPanel.add(showextraInfosBtn);
 		//bottomPanel.add(linkRapla2);
