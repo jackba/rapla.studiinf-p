@@ -42,9 +42,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String id;
 	
 	public LocalStorage roomLS = new LocalStorage();
-	private String roomNumber;
-	private String roomType;
-	private String courseOfStudy;
 	
 	
 

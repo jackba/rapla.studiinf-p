@@ -34,9 +34,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private Label appointmentLabel;
 	private Grid infos;
 	
-
-	//private NavButton room2;
-	//private NavButton events2;
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 
@@ -51,13 +48,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private String courseOfStudyButtonText;
 	private String roomButtonText;
 
-	private String courseName;
-
-	private String studyName;
-
-	private String profName;
-
-	private String roomName;
 	
 	@Override
 	public void init(){
@@ -70,11 +60,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		
-//		name = new IconButton(courseName, new Image(IconProvider.COURSE));
-//		study = new IconButton(studyName, new Image(IconProvider.COURSES));
-//		prof = new NavButton(IconProvider.Persons ,profName, Navigation.personDetail,null);
-//		room = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
-//		eventsBtn = new NavButton(IconProvider.Calendar,"Link Rapla",  Navigation.raplaCourseLink, id);
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.COURSE));
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
 		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
@@ -82,13 +67,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		raplaButton = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
 		raplaButton2 = new NavButton(IconProvider.Calendar,"Link Rapla",Navigation.raplaCourseLink, id);
 		
-//		prof2 = new NavButton(IconProvider.Persons,profName, Navigation.personDetail,null);
-//		room2 = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
-//		events2 = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
-//		
-//		prof2.setStyleName("courseProf");
-//		room2.setStyleName("courseRoom");
-//		events2.setStyleName("courseEvents");
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
@@ -217,7 +195,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 				}
 				lectures.clear();
 
-				Image lectureRoomImg = new Image(IconProvider.ROOMS);
 				if(events.size()>=1)
 				{
 				showRaplaLinks(true);
