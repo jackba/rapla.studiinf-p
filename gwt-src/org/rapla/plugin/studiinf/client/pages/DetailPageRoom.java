@@ -160,8 +160,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		roomLS.writeStorage(id);
 		roomLS.fillMap();
-<<<<<<< HEAD
-=======
+
 //		roomLS.readStorage(id);
 		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
 //		"localStorage: " + targetID + " " + count
@@ -169,7 +168,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 //		Window.alert(rd.getPicture());
 		
 //		Window.alert(rd.getPicture());
->>>>>>> 974febb793a44f1394f16a3be3518873b208bc11
+
 		refresh();
 		
 	}
