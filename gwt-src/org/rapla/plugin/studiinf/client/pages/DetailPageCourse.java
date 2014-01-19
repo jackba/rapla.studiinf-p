@@ -67,6 +67,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 		raplaButton = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
 		raplaButton2 = new NavButton(IconProvider.Calendar,"Link Rapla",Navigation.raplaCourseLink, id);
 		
+		raplaButton.setStyleName("resultPanelButton");
+		roomButton.setStyleName("resultPanelButton");
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		

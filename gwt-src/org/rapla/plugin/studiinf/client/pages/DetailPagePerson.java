@@ -76,11 +76,14 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectures.setStyleName("lecturesTable");
 		
 		roomButton = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		
 		mailButton = new IconButton(mailButtonText, new Image(IconProvider.E_MAIL));
 		telephoneButton = new IconButton(telephoneButtonText, new Image(IconProvider.PHONE));
 		extraInfosButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id);
-		raplaButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
+		raplaButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);		
+		
+		roomButton.setStyleName("personInfoButtons");
+		extraInfosButton.setStyleName("personInfoButtons");
+		raplaButton.setStyleName("personInfoButtons");
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, mailButton);
@@ -100,7 +103,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectures);
 
-		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
+		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		extraInfosButton2 = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(),Navigation.extraInfo, id);
 		raplaButton2 = new NavButton(IconProvider.Rooms,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
 		
