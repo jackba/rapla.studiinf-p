@@ -14,7 +14,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 	
 	
 	public PoiSearchPage() {
-		super(false, false,true,8,2);
+		super(false, false,true,8,2, false);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), IconProvider.Rooms));
+			addResult(new ResultButton(poi.getName(), Navigation.poiDetail, poi.getId(), IconProvider.Rooms));
 		}
 		refresh();
 		

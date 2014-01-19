@@ -2,8 +2,10 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
@@ -22,20 +24,30 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private Grid infos = new Grid(4, 1);
 	
-	private String roomNumber;
-	private String roomType;
-	private String courseOfStudy;
+	private String nameButtonText;
+	private String typeButtonText;
+	private String courseOfStudyButtonText;
 	
 	private IconButton nameBtn;
 	private IconButton typeBtn;
 	private IconButton studyBtn;
 	private NavButton roomBtn;
 	private NavButton bottomRoomBtn;
+	private IconButton nameButton;
+	private IconButton typeButton;
+	private IconButton courseOfStudyButton;
+	private NavButton raplaButton;
+	private NavButton raplaButton2;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
 	
 	private String id;
+	
+	public LocalStorage roomLS = new LocalStorage();
+	private String roomNumber;
+	private String roomType;
+	private String courseOfStudy;
 	
 	
 
@@ -53,8 +65,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		Image studyImg = new Image(IconProvider.COURSE);
 		
 		
-		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
-			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
+		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
+			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);
 		}
@@ -68,16 +80,24 @@ public class DetailPageRoom extends AbstractDetailPage {
 		typeBtn = new IconButton(roomType, roomTypeImg);
 		studyBtn = new IconButton(courseOfStudy, studyImg);
 		roomBtn = new NavButton(IconProvider.Rooms,"Raumbelegung", Navigation.raplaRoomLink, id);
+		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
+		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
+		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSE));
+		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
 		
-		infos.setWidget(0, 0, nameBtn);
-		infos.setWidget(1, 0, typeBtn);
-		infos.setWidget(2, 0, studyBtn);
-		infos.setWidget(3, 0, roomBtn);
+		raplaButton2.setStyleName("bottomButton");
+		
+		infos.setWidget(0, 0, nameButton);
+		infos.setWidget(1, 0, typeButton);
+		infos.setWidget(2, 0, courseOfStudyButton);
+		infos.setWidget(3, 0, raplaButton);
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
 			
+		roomPanel.add(raplaButton2);
 		
 		bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
 		roomPanel.add(bottomRoomBtn);
@@ -95,10 +115,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 	@Override
 	public String getTitle() {
-		if(roomNumber == null){
-			roomNumber = "";
+		if(nameButtonText == null){
+			nameButtonText = "";
 		}
-		return roomNumber;
+		return nameButtonText;
 	}
 
 
@@ -106,17 +126,17 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		nameBtn.setText(roomNumber);
-		typeBtn.setText(roomType);
-		studyBtn.setText(courseOfStudy);
-		roomBtn.setTargetId(id);
-		bottomRoomBtn.setTargetId(id);
+		nameButton.setText(nameButtonText);
+		typeButton.setText(typeButtonText);
+		courseOfStudyButton.setText(courseOfStudyButtonText);
+		raplaButton.setTargetId(id);
+		raplaButton2.setTargetId(id);
 		
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
 		
-		if (roomNumber.equals("A051") || roomNumber.equals("A052")  || roomNumber.equals("LA051") || roomNumber.equals("LA052")  || roomNumber.equals("RA051") || roomNumber.equals("RA052")){
-			wayDescriptionImg = new Image(Picture.getImageURL(roomNumber));
+		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
+			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);
 		}
@@ -141,23 +161,31 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.id = id;
 		
 		if (!rd.getRoomNr().equals("")){
-			roomNumber = rd.getRoomNr();
-			roomBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			nameButtonText = rd.getRoomNr();
+			raplaButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				roomBtn.getElement().getStyle().setDisplay(Display.NONE);
+				raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!rd.getRoomType().equals("")){
-			roomType = rd.getRoomType();
-			typeBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			typeButtonText = rd.getRoomType();
+			typeButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				typeBtn.getElement().getStyle().setDisplay(Display.NONE);
+				typeButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!rd.getDepartment().equals("")){
-			courseOfStudy = rd.getDepartment();
-			studyBtn.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			courseOfStudyButtonText = rd.getDepartment();
+			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				studyBtn.getElement().getStyle().setDisplay(Display.NONE);
+				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
+		
+		roomLS.writeStorage(id);
+		roomLS.fillMap();
+//		roomLS.readStorage(id);
+		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
+//		"localStorage: " + targetID + " " + count
+//		Window.alert(roomLS.readStorage(id));
+//		Window.alert(rd.getPicture());
 		
 //		Window.alert(rd.getPicture());
 		refresh();

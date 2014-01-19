@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ResultTable extends FlexTable {
-	
+
 	private List<ResultObject> results = new LinkedList<ResultObject>();
 	private int columns;
 	private int maxRows;

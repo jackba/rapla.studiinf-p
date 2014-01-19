@@ -59,6 +59,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		frame.setUrl(person.getRaplaLink());
 		this.add(frame);
 		
+		
 	}
 	
 	

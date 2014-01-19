@@ -55,9 +55,22 @@ html{
 	position:absolute;
 	top: 6.25vh;
 	width:100vw;
-	height:3vh;
+	height:2.5vh;
 	background-color:#ffffff;
 	color:#000000;
+}
+
+.subheader p {
+	font-size:1.5vh;
+	line-height:2vh;
+	text-align:center;
+	padding:0;
+	margin:0;
+	position:absolute;
+	top:0;
+	left:5vw;
+	width:90vw;
+	text-shadow:0 0 0.1vh #000000;
 }
 	.header h1{
 		padding:0;
@@ -268,7 +281,7 @@ nav{
 
 .courseInfos {
 	top: 6vh;
-	height:25vh;
+	height:20vh;
 }
 
 .resultBtns {
@@ -465,7 +478,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel{
+.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel, .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -484,14 +497,14 @@ nav{
 }
 
 .courseInfoPanel{
-	height:34vh;
+	height:29vh;
 }
 
 .resultPanel{
 	top: 11vh;
 	left:6vw;
 	width:88vw;
-	height:31.3vh;
+	height:26vh;
 }
 .page-poi .resultPanel{
 	height:51.3vh;
@@ -623,10 +636,16 @@ nav{
 	height:6vh;
 }
 
-.personMiddlePanel {
+.personMiddlePanel{
 	top: 57vh;
 	bottom: auto;
 	height:28vh;
+}
+
+.courseMiddlePanel {
+	height:23vh;
+	top: 57vh;
+	bottom: auto;
 }
 .poiPage {
 	display:block;
@@ -642,7 +661,7 @@ nav{
 	line-height:5vh;
 	color:#ffffff;
 }
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
+.infoLabel, .personInfoLabel, .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -715,7 +734,7 @@ nav{
 	width: 50vw;
 	top: 0.5vh;
 }
-.iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn, .courseProf, .courseRoom, .courseEvents {
+.iconButton, .courseRoom, .courseEvents, .bottomButton {
 	/*position: absolute;*/
 	position:relative;
 	background: #aeb4b8;
@@ -726,9 +745,11 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
-.personShowRoomBtn , .courseRoom{
-	top: 0.5vh;
-	width: 18vw;	
+.courseRoom,  .courseEvents, .bottomButton{
+	top: 0.5vh;	
+	display: inline-block;
+	position: relative;
+	width: 29vw;
 }
 .personShowExtraInfosBtn,  .courseProf{
 	top: 0.5vh;
@@ -740,6 +761,7 @@ nav{
 	left: 19vw;
 	width: 30vw;
 }
+
 .iconIconButton {
 	position: absolute;
 	top: 0px;
@@ -783,6 +805,17 @@ nav{
 .results td{
 	width:50%;
 }
+
+.backButton, .nextButton {
+	position: absolute;
+	top: 38vh;
+	left: 10vw;
+	width: 23vw;
+}
+.nextButton {
+	left: auto;
+	right: 10vw;
+}
 .backButtonBottom,.nextButtonBottom{
 	position:absolute;
 	bottom: 7vh;
@@ -805,6 +838,8 @@ nav{
 	bottom: 7vh;
 	border: none;
 }
+
+
 .lecturesTable{
 	width: 100%;
 	margin-top:13vh;
@@ -817,10 +852,10 @@ nav{
 	width:70%;
 }
 .lecturesTable td .gwt-Label,.lecturesTable td .iconButton{
-	position: relative;
-	font-size: 2vh;
-	height:4.5vh;
-	 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+position: relative;
+font-size: 2vh;
+height:4.5vh;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 padding: 1vh 0px;
 line-height: 3vh;
 background: #AEB4B8;
@@ -829,6 +864,33 @@ border: 1px solid #FFF;
 overflow: hidden;
 }
 .lecturesTable td .gwt-Label{
+	padding-left: 1vh;
+}
+.courseLecturesTable {
+	width: 100%;
+	margin-top:7vh;
+}
+
+.courseLecturesTable td{
+	width:30%;
+	height:3vh;
+}
+.courseLecturesTable td:first-of-type{
+	width:70%;
+}
+.courseLecturesTable td .gwt-Label, .courseLecturesTable td .iconButton{
+position: relative;
+font-size: 2vh;
+height:4.5vh;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+padding: 1vh 0px;
+line-height: 3vh;
+background: #AEB4B8;
+padding: 1vh 0px;
+border: 1px solid #FFF;
+overflow: hidden;
+}
+.courseLecturesTable td .gwt-Label{
 	padding-left: 1vh;
 }
 .personCourseOfStudyLabel{
@@ -856,6 +918,43 @@ overflow: hidden;
 	overflow: hidden;
 	
 }
+
+.detailsTable {
+	position: absolute;
+	top: 10vh;
+	left: 5vw;
+	width: 90vw;
+}
+
+.detailKey, .detailValue {
+	font-size: 3vh;
+	color: #ffffff;
+	display: inline-block;
+	float: left;
+	width: 33vw;
+	top: auto;
+	height: auto;
+	background: #5c6971;
+	border-left: solid 0.125vw #ffffff;
+	border-left-width: 0.125em;
+	border-right: solid 0.125vw #ffffff;
+	border-right-width: 0.125em;
+	border-top: solid 0.125vh #ffffff;
+	border-top-width: 0.11em;
+	border-bottom: solid 0.125vh #ffffff;
+	border-bottom-width: 0.11em;
+}
+
+.detailValue {
+	width: 53vw;
+	background: #aeb4b8;
+	float: right;
+}
+
+
+
+
+
 
 .detailsTable {
 	position: absolute;

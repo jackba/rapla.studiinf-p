@@ -58,6 +58,9 @@ public class HomePage extends AbstractPage {
 		
 		qrBox.getElement().getStyle().setProperty("top", "45vh");
 		
+//		freeRoomsTable.getBackButton().addStyleName("backButton");
+//		freeRoomsTable.getNextButton().addStyleName("nextButton");
+		
 		this.add(tileContainer);
 		this.add(qrBox);
 //		this.add(logo);
@@ -65,6 +68,8 @@ public class HomePage extends AbstractPage {
 		resultPanel.add(freeRoomsTable);
 		this.add(resultPanel);
 		this.add(resultBtns);
+//		this.add(freeRoomsTable.getBackButton());
+//		this.add(freeRoomsTable.getNextButton());
 		this.updateFreeRooms();
 //		this.add(new NavButton(Navigation.homePage,null));
 	};
