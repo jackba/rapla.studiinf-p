@@ -28,8 +28,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
-
-	//private NavButton bottomRoomBtn;
 	private IconButton nameButton;
 	private IconButton typeButton;
 	private IconButton courseOfStudyButton;
@@ -63,8 +61,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 			noNavigationImg.setStyleName("navigationPicture");
 			this.add(noNavigationImg);
 		}
-		
-		
 
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
 		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
@@ -81,12 +77,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
-		
 			
 		roomPanel.add(raplaButton2);
-		
-		//bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
-		//roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);
 		this.add(roomPanel);

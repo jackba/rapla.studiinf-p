@@ -40,8 +40,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private IconButton nameButton;
 	private IconButton courseOfStudyButton;
 	private RessourceButton roomButton;
-	private NavButton raplaButton;
 	private RessourceButton roomButton2;
+	private NavButton raplaButton;
 	private NavButton raplaButton2;
 	
 	private String nameButtonText;
