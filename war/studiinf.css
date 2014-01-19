@@ -734,7 +734,7 @@ nav{
 	width: 50vw;
 	top: 0.5vh;
 }
-.iconButton, .courseRoom, .courseEvents, .bottomButton {
+.iconButton, /*.courseRoom, .courseEvents, */.bottomButton {
 	/*position: absolute;*/
 	position:relative;
 	background: #aeb4b8;
@@ -745,12 +745,13 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
-.courseRoom,  .courseEvents, .bottomButton{
+/*.courseRoom,  .courseEvents, */.bottomButton{
 	top: 0.5vh;	
 	display: inline-block;
 	position: relative;
 	width: 29vw;
 }
+/*
 .personShowExtraInfosBtn,  .courseProf{
 	top: 0.5vh;
 	left: 50vw;
@@ -760,7 +761,7 @@ nav{
 	top: 0.5vh;
 	left: 19vw;
 	width: 30vw;
-}
+} */
 
 .iconIconButton {
 	position: absolute;
