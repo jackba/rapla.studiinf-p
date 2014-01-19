@@ -28,7 +28,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected FlowPanel resultBtns = new FlowPanel();
-	private QRBox qrBox = new QRBox(getHistoryKey());
+	protected QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
 	
