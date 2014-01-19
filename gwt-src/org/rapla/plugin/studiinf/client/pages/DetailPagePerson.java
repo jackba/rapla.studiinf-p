@@ -123,7 +123,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		showextraInfosBtn = new NavButton(IconProvider.Additional_Information,"Extrainfos anzeigen",  Navigation.extraInfo, id);
 		linkRapla2 = new NavButton(IconProvider.Rooms,"Link to Rapla", Navigation.raplaPersonLink, id);
 		showextraInfosBtn.setStyleName("personShowExtraInfosBtn");
-		linkRapla2.setStyleName("personLinkRaplabtn");
+		linkRapla2.addStyleName("personLinkRaplabtn");
 		showextraInfosBtn.setEnabled(false);
 //		bottomPanel.add(showRoomBtn);
 //		bottomPanel.add(showextraInfosBtn);
