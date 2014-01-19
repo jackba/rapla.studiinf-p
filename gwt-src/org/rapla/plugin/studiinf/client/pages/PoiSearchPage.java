@@ -9,23 +9,31 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.ui.Image;
-
 
 public class PoiSearchPage extends AbstractSearchPage {
 	
 	
 	public PoiSearchPage() {
-		super(false, false,true,8,2);
+		super(false, false,true,8,2, false);
 	}
 
 	@Override
 	public void init(){
 		super.init();
 		
+		qrBox.getElement().getStyle().setProperty("top", "65vh");
+
+		
 		setSearched(true);
 		handleSearch("*");
 				
+	}
+	
+	@Override
+	public void onShow() {
+		super.onShow();
+		setSearched(true);
+		handleSearch("*");
 	}
 	
 	@Override
@@ -49,7 +57,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor poi : ressourcesMatched)
 		{
-			addResult(new ResultButton(poi.getName(), Navigation.roomDetail, poi.getId(), new Image(IconProvider.POI)));
+			addResult(new ResultButton(poi.getName(), Navigation.poiDetail, poi.getId(), IconProvider.Rooms));
 		}
 		refresh();
 		

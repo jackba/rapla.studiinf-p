@@ -8,5 +8,5 @@ public interface ResultObject {
 
 	List<Widget> getCellObjects();
 	public void setNumber(int number);
-	public Widget getFooterButton();
+	public NavButton getFooterButton();
 }

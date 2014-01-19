@@ -27,8 +27,11 @@ public interface I18n extends Messages {
 	String nextAppointments();
 	String page();
 	String freeRooms();
+	String numberFormat(int numberValue);
 	String noAppointments();
 	String linkRapla();
 	String extraInfos();
 	String back();
+	String freeUntil();
+	String nofreeRooms();
 	}

@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
-import org.rapla.plugin.studiinf.client.ui.NavigationButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.user.client.ui.Frame;
 
@@ -11,7 +11,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 	private Frame frame;
 	private String id;
 	private AbstractPage target;
-	private NavigationButton backBtn;
+	private NavButton backBtn;
 
 	public RaplaPage(AbstractPage target)
 	{
@@ -25,7 +25,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		frame = new Frame("#");
 		frame.setStyleName("raplaFrame");
 		
-		backBtn = new NavigationButton("Zurück", target, id);
+		backBtn = new NavButton("Zurück", target, id);
 		backBtn.setStyleName("raplaBackButton");
 		this.add(backBtn);
 			
@@ -58,6 +58,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		
 		frame.setUrl(person.getRaplaLink());
 		this.add(frame);
+		
 		
 	}
 	

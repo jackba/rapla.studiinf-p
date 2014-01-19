@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
-import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.search.SearchUtils;
 
 import com.google.gwt.junit.client.GWTTestCase;
@@ -145,8 +144,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(person2);
 		expectedList.add(person4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(1, "lau", pList);
+		resultList = SearchUtils.startsWithSearchTerm(1, "lau", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -157,8 +155,7 @@ public class SearchUtilsTest extends GWTTestCase {
 //		expectedList = new ArrayList<ResourceDescriptor>();
 //		expectedList.add(person1);
 //		expectedList.add(person3);
-//		SearchUtils su = new SearchUtils();
-//		resultList = su.containsSearchTerm(1, "ü", pList);
+//		resultList = SearchUtils.containsSearchTerm(1, "ü", pList);
 //		assertEquals(expectedList, resultList);
 //	}
 	
@@ -168,8 +165,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(person1);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(0, "roland", pList);
+		resultList = SearchUtils.startsWithSearchTerm(0, "roland", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -181,8 +177,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList.add(person1);
 		expectedList.add(person3);
 		expectedList.add(person4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(0, "n", pList);
+		resultList = SearchUtils.containsSearchTerm(0, "n", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -193,8 +188,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(person1);
 		expectedList.add(person3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsName("ü", pList);
+		resultList = SearchUtils.containsName("ü", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -207,8 +201,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList.add(person2);
 		expectedList.add(person3);
 		expectedList.add(person4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithName("Prof", pList);
+		resultList = SearchUtils.startsWithName("Prof", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -222,8 +215,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(room1);
 		expectedList.add(room2);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(0, "A5", pList);
+		resultList = SearchUtils.startsWithSearchTerm(0, "A5", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -234,8 +226,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(room3);
 		expectedList.add(room4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(1, "Hörsaal", pList);
+		resultList = SearchUtils.startsWithSearchTerm(1, "Hörsaal", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -247,8 +238,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList.add(room1);
 		expectedList.add(room2);
 		expectedList.add(room3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(0, "5", pList);
+		resultList = SearchUtils.containsSearchTerm(0, "5", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -258,8 +248,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(room4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsName("DIMAX", pList);
+		resultList = SearchUtils.containsName("DIMAX", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -274,8 +263,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(course1);
 		expectedList.add(course4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(0, "W", pList);
+		resultList = SearchUtils.startsWithSearchTerm(0, "W", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -285,8 +273,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(course3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(0, "12", pList);
+		resultList = SearchUtils.containsSearchTerm(0, "12", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -296,8 +283,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(course2);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsName("Students", pList);
+		resultList = SearchUtils.containsName("Students", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -309,8 +295,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(poi3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(0, "Rektorat", pList);
+		resultList = SearchUtils.startsWithSearchTerm(0, "Rektorat", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -320,8 +305,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(poi1);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(0, "sino", pList);
+		resultList = SearchUtils.containsSearchTerm(0, "sino", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -331,16 +315,14 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(poi4);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsName("Räume", pList);
+		resultList = SearchUtils.containsName("Räume", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
 	public void testClearSearchString()
 	{
 		String expected = "kuestermann";
-		SearchUtils su = new SearchUtils();		
-		assertEquals(expected, su.clearSearchString("Küstermann"));
+		assertEquals(expected, SearchUtils.clearSearchString("Küstermann"));
 		
 	}
 	
@@ -350,8 +332,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescriptor>();
 		expectedList = new ArrayList<ResourceDescriptor>();
 		expectedList.add(person1);
-		SearchUtils su = new SearchUtils();
-		resultList = su.startsWithSearchTerm(1, "kue", pList);
+		resultList = SearchUtils.startsWithSearchTerm(1, "kue", pList);
 		assertEquals(expectedList, resultList);
 	}
 	
@@ -363,8 +344,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		expectedList.add(person1);
 		expectedList.add(person2);
 		expectedList.add(person3);
-		SearchUtils su = new SearchUtils();
-		resultList = su.containsSearchTerm(1, "ue", pList);
+		resultList = SearchUtils.containsSearchTerm(1, "ue", pList);
 		assertEquals(expectedList, resultList);
 	}
 

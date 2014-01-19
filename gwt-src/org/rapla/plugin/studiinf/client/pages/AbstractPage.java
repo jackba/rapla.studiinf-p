@@ -62,7 +62,6 @@ public abstract class AbstractPage extends ComplexPanel{
 	   }
 	   
 	   public void onShow(){
-		   
 	   }
 	   
 	   

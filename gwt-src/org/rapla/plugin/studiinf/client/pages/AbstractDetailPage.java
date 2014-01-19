@@ -4,6 +4,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
+import org.rapla.plugin.studiinf.client.ui.QRBoxOLD;
 
 import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;
@@ -20,10 +21,8 @@ public abstract class AbstractDetailPage extends AbstractPage {
 
 	public void setId(String id) {
 		this.id = id;
-		this.remove(qrBox);
 		if (this.hasDefaultQrBox() == true){
-			qrBox = new QRBox(getHistoryKey()+"/"+getId());
-			this.add(qrBox);
+			qrBox.setHash(getHistoryKey()+"/"+getId());
 		}
 		handleId(id);
 	}
@@ -31,8 +30,8 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	@Override
 	public void init() {
 		super.init();
-		qrBox.setStyleName("qrBox");
 		if (this.hasDefaultQrBox() == true){
+			qrBox.getElement().getStyle().setProperty("top", "45vh");
 			this.add(qrBox);
 		}
 		

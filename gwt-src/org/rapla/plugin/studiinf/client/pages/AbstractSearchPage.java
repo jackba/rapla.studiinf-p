@@ -7,32 +7,28 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractSearchPage extends AbstractPage{
 	
-	private final String organigramImg = new String(IconProvider.ORGANIGRAMM);
 
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private ResultTable results ;
-	private Image img = new Image(organigramImg);
 	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected FlowPanel resultBtns = new FlowPanel();
-	private QRBox qrBox = new QRBox(getHistoryKey());
+	protected QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
 	
@@ -45,21 +41,23 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private final boolean hasOrganigramm;
 	private final boolean showInput;
 	private final boolean showQRBox;
+	private final boolean hasNavigationButtons;
 	
 	private final int resultRows;
 	private final int resultColumns;
 	
 	
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns) {
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons) {
 		this.hasOrganigramm = hasOrganigramm;
 		this.showInput = showInput;
 		this.showQRBox = showQRBox;
 		this.resultRows = resultRows;
 		this.resultColumns = resultColumns;
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
+		this.hasNavigationButtons = hasNavigationButtons;
 	}
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
-		this(hasOrganigramm,showInput,showQRBox,3,2);
+		this(hasOrganigramm,showInput,showQRBox,6,2,true);
 	}
 	
 public boolean isSearched() {
@@ -82,17 +80,20 @@ public void setSearched(boolean searched) {
 @Override
 public void init() {
 	super.init();
-	organigramBtn = new NavigationIconButton(Studiinf.i18n.organigram(), img, Navigation.organisationChart,"1");
+	organigramBtn = new NavButton(IconProvider.Organigram, Studiinf.i18n.organigram(), Navigation.organisationChart,"1");
 	
 	searchField.setStyleName("searchField");
 	resultLabel.setStyleName("resultLabel");
 	results.setStyleName("results");
-	organigramBtn.setStyleName("organigramBtn");
+	organigramBtn.addStyleName("organigramBtn");
 	keyboard.setStyleName("keyboard");
 	resultBtns.setStyleName("resultBtns");
 	resultPanel.setStyleName("resultPanel");
 	searchPanel.setStyleName("searchPanel");
+//	results.getBackButton().addStyleName("backButton");
+//	results.getNextButton().addStyleName("nextButton");
 	
+	qrBox.getElement().getStyle().setProperty("top", "45vh");
 
 	inputChanger = new KeyUpHandler() {
 		
@@ -105,10 +106,11 @@ public void init() {
 	searchField.addKeyUpHandler(inputChanger);
 	
 	
+	
 	resultPanel.add(resultLabel);
 	resultPanel.add(results);
 	
-	for(Button b : results.getButtonsBottom()){
+	for(NavButton b : results.getButtonsBottom()){
 		this.add(b);
 	}
 	
@@ -122,8 +124,13 @@ public void init() {
 	if(this.hasOrganigramm){
 		this.add(organigramBtn);
 	}
-	this.add(resultBtns);
 	
+	if (this.hasNavigationButtons){
+//		this.add(results.getBackButton());
+//		this.add(results.getNextButton());
+	}
+	this.add(resultBtns);
+
 	if(this.showQRBox){
 		this.add(qrBox);
 	}
@@ -140,6 +147,7 @@ public void init() {
 			handleSearch(searchField.getText());
 		}
 	}
+
 	
 	public void addResult(ResultButton res){
 		results.addResult( res);
