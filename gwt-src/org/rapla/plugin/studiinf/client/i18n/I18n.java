@@ -31,4 +31,5 @@ public interface I18n extends Messages {
 	String linkRapla();
 	String extraInfos();
 	String back();
+	String freeUntil();
 	}
