@@ -12,7 +12,7 @@ import com.google.gwt.user.client.Window;
 public class SearchUtils {	
 	
 	public static String getServiceLocale(){
-		return  LocaleInfo.getCurrentLocale().getLocaleName().substring(0, 2);
+		return  LocaleInfo.getCurrentLocale().getLocaleName();
 	}
 
 	public static List<ResourceDescriptor> startsWithSearchTerm(int searchTerm, String searchString, List<ResourceDescriptor> resources)
