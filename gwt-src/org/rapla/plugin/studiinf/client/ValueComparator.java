@@ -41,20 +41,26 @@ public class ValueComparator implements Comparator<String> {
 	    //System.out.println("Map:  " + map);
 	    for(Map.Entry<String, String> entry : map.entrySet() ){
 	    	sortedEntries.add(new ResourceEntry(entry));
+	    	System.out.println("simon Test: " +sortedEntries);
+	    	
+	    	
 	    }
 	    
+	    System.out.println("erstes: "+sortedEntries.subSet(sortedEntries.first(), sortedEntries.last()));
 	    for (Entry<String, Integer> keyValuePair : sortedEntries) {
 	    	   System.out.println("key: " + keyValuePair.getKey() + " value: " + keyValuePair.getValue());
 			   sortedMap.put(keyValuePair.getKey(), keyValuePair.getValue());
+//			   System.out.println("Test 1: "+sortedMap);
 	        }
 	    
-	    System.out.println("Sorted Map:" + sortedMap);
+//	    System.out.println("Sorted Map:" + sortedMap);
 		
 	    }
 	    
 	    public SortedSet<Map.Entry<String,Integer>> getSortedSet(){
 	    	return sortedEntries;
 	    }
+	    
 	    
 	    	
 	    
