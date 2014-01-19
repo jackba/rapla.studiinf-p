@@ -4,35 +4,29 @@ import java.util.LinkedList;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
-import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.DetailEntry;
-import org.rapla.plugin.studiinf.client.ui.NavigationButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.user.client.ui.FlexTable;
 
 public class extraInfoPage extends AbstractDetailPage {
-	
-private FlexTable detailsTable;
-private NavigationButton backBtn;
-private String id;
-private LinkedList<ResourceDetailRow> details;
+FlexTable detailsTable;
+private NavButton backBtn;
 	
 	@Override
 	public void init(){
 		super.init();
 		detailsTable = new FlexTable();
-		backBtn = new NavigationButton(Studiinf.i18n.back(), Navigation.personDetail, id);
-		
 		detailsTable.setStyleName("detailsTable");
-		backBtn.setStyleName("raplaBackButton");
+		backBtn = new NavButton(Studiinf.i18n.back(),null,null);
+		this.add(detailsTable);
 		
-		this.add(backBtn); 
-		this.add(detailsTable);	
 	}
 	
-
+	
+	
 	@Override
 	public String getHistoryKey() {
 		return "extraInfos";
@@ -50,22 +44,16 @@ private LinkedList<ResourceDetailRow> details;
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
+
 		this.id = id;
 		PersonDescriptor person = new PersonDescriptor(resource);
-		details = person.getDetails();
-		refresh();
-
-	}
-	
-	@Override
-	public void refresh(){
-		super.refresh();
+		LinkedList<ResourceDetailRow> details = person.getDetails();
 		detailsTable.removeAllRows();
 		for (ResourceDetailRow detail:details){
 			addDetails(detail.getLabel(), detail.getValue());
 		}
-		backBtn.setTargetId(id);
 	}
+	
 	
 	public void addDetails(String label, String value){
 		DetailEntry detail = new DetailEntry(label, value);

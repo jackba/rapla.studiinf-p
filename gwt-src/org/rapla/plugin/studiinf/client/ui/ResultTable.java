@@ -5,37 +5,33 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.IconProvider;
 
+import com.google.gwt.dom.client.Style.Position;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ResultTable extends FlexTable {
-	
+
 	private List<ResultObject> results = new LinkedList<ResultObject>();
 	private int columns;
 	private int maxRows;
 	private final FlowPanel footerPanel;
 	private int page;
-	private IconButton backButton = new IconButton("previous",new Image(IconProvider.LEFT));
-	private IconButton nextButton = new IconButton("next",new Image(IconProvider.RIGHT));
-	private Button backButtonBottom = new Button("<i class='fa fa-chevron-left'></i>");
-	private Button nextButtonBottom = new Button("<i class='fa fa-chevron-right'></i>");
+	private NavButton backButton = new NavButton(IconProvider.Previous,"previous",null,null);
+	private NavButton nextButton = new NavButton(IconProvider.Next,"next",null,null);
+	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
+	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
+	
 	
 	public int getPage() {
 		return page;
 	}
 
-	public IconButton getBackButton() {
-		return backButton;
-	}
 
-	public IconButton getNextButton() {
-		return nextButton;
-	}
+
 
 	public void setPage(int page) {
 		if(page > 0 && page < getMaxPages()){
@@ -47,6 +43,7 @@ public class ResultTable extends FlexTable {
 		}else{
 			this.page = 0;
 		}
+		refresh();
 			
 	}
 
@@ -58,6 +55,10 @@ public class ResultTable extends FlexTable {
 		setPage(getPage() - 1); 
 	}
 
+
+	/**
+	 * 
+	 */
 	public int getMaxPages() {
 		return (int) Math.ceil(results.size() / (columns*maxRows));
 	}
@@ -80,55 +81,77 @@ public class ResultTable extends FlexTable {
 	this.footerPanel = footerPanel;
 	this.page = 0;
 	
-	this.backButton.addClickHandler(new ClickHandler() {
+	
+	this.backButton.setSize(0.6);
+	this.backButton.setWidth("50%");
+	this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
+	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
+	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);
+	
+	this.nextButton.setSize(0.6);
+	this.nextButton.setWidth("50%");
+	this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
+	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
+	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);
+	
+	this.backButton.setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			previousPage();
-			refresh();
 		}
 	});
-	this.nextButton.addClickHandler(new ClickHandler() {
+	this.nextButton.setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			nextPage();
-			refresh();
 		}
 	});
 	
-	this.backButtonBottom.setStyleName("backButtonBottom");
-	this.nextButtonBottom.setStyleName("nextButtonBottom");
-	this.backButtonBottom.setVisible(false);
-	this.nextButtonBottom.setVisible(false);
+	this.backButtonBottom.addStyleName("backButtonBottom");
+	this.nextButtonBottom.addStyleName("nextButtonBottom");
 	
-	this.backButtonBottom.addClickHandler(new ClickHandler() {
+	this.backButtonBottom.setSize(0.8);
+	
+	this.nextButtonBottom.setSize(0.8);
+	
+	this.backButtonBottom.setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			previousPage();
-			refresh();
 		}
 	});
-	this.nextButtonBottom.addClickHandler(new ClickHandler() {
+	this.nextButtonBottom.setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			nextPage();
-			refresh();
 		}
 	});
+	
+	
+		
+		
+		
 		
 	}
 	
-
+		
+	
+	
 	public void addResult(ResultObject result){
 		results.add(result);
 		result.setNumber(results.indexOf(result) + 1);
+//		refresh();
 	}
 	
 	public boolean removeResult(ResultObject result) {
 		boolean removed = results.remove(result);
+//		refresh();
 		return removed;
 	}
 	
@@ -138,21 +161,31 @@ public class ResultTable extends FlexTable {
 	}
 	
 	public void refresh(){
+//		Window.alert("refresh");
 		clear();
 		footerPanel.clear();
 		int count = 0;
 		for (ResultObject result : results){
 			for(Widget cell : result.getCellObjects()){
+//				Window.alert(Math.floor((count / columns))+" - "+(page*maxRows) + " >= " + maxRows);
 				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 					break;
 				}
 				if(count >= page*columns*maxRows){
+//					Window.alert(count+" -> "+Math.floor((count / columns)-(page*maxRows)) +"/"+(count % columns)+" = "+cell.toString());
+					try {
+						NavButton btn = (NavButton) cell;
+						btn.setSize(0.5);
+					} catch (Exception e) {
+					}
 				setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, cell);
 				}
 				count++;
 			}
 			if(count >= page*columns*maxRows+1){
-			footerPanel.add(result.getFooterButton());
+				NavButton fbut = result.getFooterButton();
+				fbut.setSize(0.5);
+				footerPanel.add(fbut);
 			}
 			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 				break;
@@ -160,24 +193,26 @@ public class ResultTable extends FlexTable {
 		}
 		
 		if(hasPages()){
+//			int pageNavRow = getRowCount();
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
 			
+//			int pageNavRow = getRowCount();
 			backButtonBottom.setEnabled(hasPreviousPage());
 			nextButtonBottom.setEnabled(hasNextPage());
 			
-			backButtonBottom.setVisible(hasPreviousPage());
-			nextButtonBottom.setVisible(hasNextPage());
 			
-//			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
-//			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
+			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
+			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
+			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 0,"50%");
+			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 1,"50%");
 			
 	
 		}
 	}
 	
-	public List<Button> getButtonsBottom(){
-		List<Button> buttons = new LinkedList<Button>();
+	public List<NavButton> getButtonsBottom(){
+		List<NavButton> buttons = new LinkedList<NavButton>();
 		buttons.add(backButtonBottom);
 		buttons.add(nextButtonBottom);
 		return buttons;
@@ -193,6 +228,5 @@ public class ResultTable extends FlexTable {
 	public void setColumns(int columns) {
 		this.columns = columns;
 		setPage(0);
-		refresh();
 	}
 }

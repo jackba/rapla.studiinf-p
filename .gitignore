@@ -2,3 +2,5 @@
 /eclipse-build
 /gwt-unitCache
 /.gwt
+/jetty.home_IS_UNDEFINED
+/.gwt/.gwt-log

@@ -11,7 +11,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
@@ -34,19 +34,35 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private Label appointmentLabel;
 	private Grid infos;
 	
+	private IconButton name;
+	private IconButton study;
+	private NavButton prof;
+	private NavButton room;
+	private NavButton eventsBtn;
+	private NavButton prof2;
+	private NavButton room2;
+	private NavButton events2;
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 
 	private IconButton nameButton;
 	private IconButton courseOfStudyButton;
 	private RessourceButton roomButton;
-	private NavigationIconButton raplaButton;
+	private NavButton raplaButton;
 	private RessourceButton roomButton2;
-	private NavigationIconButton raplaButton2;
+	private NavButton raplaButton2;
 	
 	private String nameButtonText;
 	private String courseOfStudyButtonText;
 	private String roomButtonText;
+
+	private String courseName;
+
+	private String studyName;
+
+	private String profName;
+
+	private String roomName;
 	
 	@Override
 	public void init(){
@@ -59,13 +75,25 @@ public class DetailPageCourse extends AbstractDetailPage {
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		
+		name = new IconButton(courseName, new Image(IconProvider.COURSE));
+		study = new IconButton(studyName, new Image(IconProvider.COURSES));
+		prof = new NavButton(IconProvider.Persons ,profName, Navigation.personDetail,null);
+		room = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
+		eventsBtn = new NavButton(IconProvider.Calendar,"Link Rapla",  Navigation.raplaCourseLink, id);
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.COURSE));
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
-		roomButton = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		roomButton2 = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
-		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
+		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		raplaButton = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,"Link Rapla",Navigation.raplaCourseLink, id);
 		
+		prof2 = new NavButton(IconProvider.Persons,profName, Navigation.personDetail,null);
+		room2 = new NavButton(IconProvider.Rooms,roomName, Navigation.roomDetail,null);
+		events2 = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
+		
+		prof2.setStyleName("courseProf");
+		room2.setStyleName("courseRoom");
+		events2.setStyleName("courseEvents");
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
@@ -81,7 +109,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos.setWidget(1, 0, courseOfStudyButton);
 		infos.setWidget(2, 0, roomButton);
 		infos.setWidget(3, 0, raplaButton);
-
+		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
@@ -128,7 +156,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	public boolean hasDefaultQrBox() {
 		return true;
 	}
-	
+
 	public void showRaplaLinks(boolean show){
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
@@ -202,7 +230,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 				lectures.setWidget(0, 0, firstLecture);
 				if(!events.get(0).getResources().isEmpty())
 				{
-				NavigationIconButton firstLectureRoom = new NavigationIconButton(events.get(0).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
+				NavButton firstLectureRoom = new NavButton(IconProvider.Rooms,events.get(0).getResources().get(0).getName(),  Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
 				lectures.setWidget(0, 1, firstLectureRoom);
 				}
 				}
@@ -212,7 +240,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 				lectures.setWidget(1, 0, secondLecture);
 				if(!events.get(1).getResources().isEmpty())
 				{
-					NavigationIconButton secondLectureRoom = new NavigationIconButton(events.get(1).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
+					NavButton secondLectureRoom = new NavButton(IconProvider.Rooms,events.get(1).getResources().get(0).getName(), Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
 					lectures.setWidget(1, 1, secondLectureRoom);
 				}
 				}
@@ -222,7 +250,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 				lectures.setWidget(2, 0, thirdLecture);
 				if(!events.get(2).getResources().isEmpty())
 				{
-					NavigationIconButton thirdLectureRoom = new NavigationIconButton(events.get(2).getResources().get(0).getName(), lectureRoomImg, Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
+					NavButton thirdLectureRoom = new NavButton(IconProvider.Rooms,events.get(2).getResources().get(0).getName(), Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
 					lectures.setWidget(2, 1, thirdLectureRoom);
 				
 				}

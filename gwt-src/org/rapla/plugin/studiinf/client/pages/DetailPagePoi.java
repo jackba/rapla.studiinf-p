@@ -14,7 +14,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
 import com.google.gwt.dom.client.Style.Display;
@@ -42,8 +42,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private RessourceButton roomButton2;
 	private IconButton rowOneButton;
 	private IconButton rowTwoButton;
-	private NavigationIconButton raplaButton;
-	private NavigationIconButton raplaButton2;
+	private NavButton raplaButton;
+	private NavButton raplaButton2;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -74,12 +74,12 @@ public class DetailPagePoi extends AbstractDetailPage {
 		}
 		
 		
-		roomButton = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		roomButton2 = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
 		rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
 		rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
-		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
-		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
+		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
 		
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");

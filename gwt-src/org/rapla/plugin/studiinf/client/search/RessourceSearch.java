@@ -6,6 +6,8 @@ import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
+import com.google.gwt.user.client.Window;
+
 public class RessourceSearch extends AbstractSearch {
 	private RessourceButton button;
 	public RessourceSearch(String searchTerm, AbstractSearchPage page, RessourceButton button) {
@@ -29,15 +31,19 @@ public class RessourceSearch extends AbstractSearch {
 		if(!resourcesMap.containsKey(page)){
 			resourcesMap.put(page, arg0);
 		}
+//		Window.alert("all: "+resourcesMap.get(page));
 		NoDuplicatesList<ResourceDescriptor> ressourcesMatched = searchRessources(resourcesMap.get(page));
 		if(ressourcesMatched.size() >= 1){
 			button.updateResults(ressourcesMatched.getFirst());
+		}else{
+			Window.alert(searchString + " not found: "+ressourcesMatched.toString());
 		}
 
 	}
 	@Override
 	public void onFailure(Throwable arg0) {
 		// TODO Auto-generated method stub
+		Window.alert(arg0.toString());
 		
 	}
 	

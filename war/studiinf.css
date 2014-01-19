@@ -218,7 +218,7 @@ nav{
 		border-top: solid 0.1vh #000000;
 		box-shadow:0 0 0.1vh #ffffff;
 	}
-
+/*
 .footer button{
 		margin: 1vh 1vh;
 		height:4vh;
@@ -231,7 +231,7 @@ nav{
 		text-align:left;
 		display:inline-block;
 		font-family: 'Open Sans', sans-serif;
-	}
+	}*/
 	
 
 .searchField{
@@ -246,7 +246,7 @@ nav{
 	line-height:4vh;
 }
 .organigramBtn{
-	position:absolute;
+	position:absolute !important;
 	bottom:37vh;
 	left:30vw;
 	rigth:25vw;
@@ -366,16 +366,18 @@ nav{
 	position:absolute;
 	bottom:7vh;
 	left:5vw;
+	line-height: 0px;
 }
 .tileContainer{
 	position:absolute;
 	top:56.5vh;
 	bottom:8vh;
-	left:5vw;
-	right:5vw;
-	width:90vw;
+	left:0vw;
+	right:0vw;
+	width:100vw;
+	text-align: center;
 	height:32vh;
-}
+}/*
 .tile{
 	display: block;
 	padding: 0;
@@ -390,7 +392,7 @@ nav{
 	opacity:1.0;
 	border:solid 0.1vh #000000;
 	box-shadow: 0 0 0.1vh #ffffff;
-}
+}*/
 .tile:nth-of-type(3n+1){
 		color:#ffffff;
 		background-color:#858f95;
@@ -733,7 +735,8 @@ nav{
 	top: 0.5vh;
 }
 .iconButton, .courseRoom, .courseEvents, .bottomButton {
-	position: absolute;
+	/*position: absolute;*/
+	position:relative;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
 	height: 5vh;
@@ -748,7 +751,16 @@ nav{
 	position: relative;
 	width: 29vw;
 }
-
+.personShowExtraInfosBtn,  .courseProf{
+	top: 0.5vh;
+	left: 50vw;
+	width: 37vw;
+}
+.personLinkbtn, .courseEvents {
+	top: 0.5vh;
+	left: 19vw;
+	width: 30vw;
+}
 
 .iconIconButton {
 	position: absolute;
@@ -807,11 +819,6 @@ nav{
 .backButtonBottom,.nextButtonBottom{
 	position:absolute;
 	bottom: 7vh;
-	width:3vw;
-	padding:0;
-	margin:0;
-	border:none;
-	background:transparent;
 }
 .backButtonBottom{
 	left: 1vw;
@@ -948,3 +955,29 @@ overflow: hidden;
 
 
 
+
+.detailsTable {
+	position: absolute;
+	top: 10vh;
+	left: 5vw;
+	width: 90vw;
+}
+
+.detailKey, .detailValue {
+	font-size: 3vh;
+	color: #ffffff;
+	display: inline-block;
+	float: left;
+	width: 30vw;
+}
+
+.detailValue {
+	width: 55vw;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}

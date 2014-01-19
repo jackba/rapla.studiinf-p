@@ -9,8 +9,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-import com.google.gwt.user.client.ui.Image;
-
 
 public class CourseSearchPage extends AbstractSearchPage {
 
@@ -39,7 +37,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor course : ressourcesMatched)
 		{
-			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), new Image(IconProvider.COURSES)));
+			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), IconProvider.Courses));
 		}
 		refresh();
 	}

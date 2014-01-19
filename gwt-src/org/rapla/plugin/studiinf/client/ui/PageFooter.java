@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.i18n.I18n;
@@ -10,27 +11,23 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.http.client.UrlBuilder;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
 
-public class PageFooter extends HorizontalPanel {
+public class PageFooter extends FlowPanel {
 	
-	private AbstractPage parent;
 	
 	public PageFooter(AbstractPage parent) {
-		
-		    this.parent = parent;
-		    
+				    
 	}
 	
 	public void init(){
 		this.setStyleName("footer");
 	    
-	    Button homeBtn = new NavigationButton("<i class='fa fa-home'></i> "+Studiinf.i18n.homeButtonText(),Navigation.homePage);
-	
+	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);
 	    
-	    Button languageButton = new Button("<i class='fa fa-globe'></i> "+Studiinf.i18n.otherLanguage());
-	    languageButton.addClickHandler(new ClickHandler() {
+	    
+	    NavButton languageButton = new NavButton(IconProvider.World ,Studiinf.i18n.otherLanguage(),null,null);
+	    languageButton.setClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				I18n i18n = GWT.create(I18n.class);
@@ -41,11 +38,12 @@ public class PageFooter extends HorizontalPanel {
 			}
 		});
 	    this.add(languageButton);
+	    this.add(homeBtn);
+	    languageButton.getElement().getStyle().setProperty("float", "left");
+	    homeBtn.getElement().getStyle().setProperty("float", "right");
+	    languageButton.addStyleName("left");
+	    homeBtn.addStyleName("right");
 	    
-	    //only add homeButton if current page is not the homepage // equals Strings should be improved 
-	    if(!parent.getTitle().equals(Studiinf.i18n.homeScreenTitle()) ){
-	    	this.add(homeBtn);
-	    }
 	}
 
 	

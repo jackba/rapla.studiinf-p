@@ -8,7 +8,7 @@ import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.IconButton;
-import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -28,11 +28,16 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
+	private IconButton nameBtn;
+	private IconButton typeBtn;
+	private IconButton studyBtn;
+	private NavButton roomBtn;
+	private NavButton bottomRoomBtn;
 	private IconButton nameButton;
 	private IconButton typeButton;
 	private IconButton courseOfStudyButton;
-	private NavigationIconButton raplaButton;
-	private NavigationIconButton raplaButton2;
+	private NavButton raplaButton;
+	private NavButton raplaButton2;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -40,6 +45,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String id;
 	
 	public LocalStorage roomLS = new LocalStorage();
+	private String roomNumber;
+	private String roomType;
+	private String courseOfStudy;
 	
 	
 
@@ -52,6 +60,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
 		
+		Image roomNameImg = new Image(IconProvider.ROOMS);
+		Image roomTypeImg = new Image(IconProvider.ROOM_TYPE);
+		Image studyImg = new Image(IconProvider.COURSE);
+		
+		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
@@ -63,11 +76,15 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 		
 		
+		nameBtn = new IconButton(roomNumber, roomNameImg);
+		typeBtn = new IconButton(roomType, roomTypeImg);
+		studyBtn = new IconButton(courseOfStudy, studyImg);
+		roomBtn = new NavButton(IconProvider.Rooms,"Raumbelegung", Navigation.raplaRoomLink, id);
 		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
 		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSE));
-		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
-		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
+		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
 		
 		raplaButton2.setStyleName("bottomButton");
 		
@@ -79,7 +96,11 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
+			
 		roomPanel.add(raplaButton2);
+		
+		bottomRoomBtn = new NavButton(IconProvider.Calendar,"Raumbelegung anzeigen", Navigation.raplaRoomLink, id);
+		roomPanel.add(bottomRoomBtn);
 		
 		this.add(infoPanel);
 		this.add(roomPanel);

@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
-import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
-import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
-import org.rapla.plugin.studiinf.client.search.CourseSearch;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
-import org.rapla.plugin.studiinf.client.search.RoomSearch;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
@@ -27,7 +23,6 @@ public class POISearchTest extends GWTTestCase {
 
 	@Override
 	public String getModuleName() {
-		// TODO Auto-generated method stub
 		return "org.rapla.plugin.studiinf.studiinf";
 	}
 
