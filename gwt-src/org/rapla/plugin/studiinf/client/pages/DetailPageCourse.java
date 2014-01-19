@@ -17,7 +17,6 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -64,13 +63,11 @@ public class DetailPageCourse extends AbstractDetailPage {
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
 		roomButton = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomButton2 = new RessourceButton(roomButtonText,  new Image(IconProvider.ROOMS), Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		//roomButton = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
-		//roomButton2 = new NavigationIconButton(roomButtonText, new Image(IconProvider.ROOMS), Navigation.roomDetail);
 		raplaButton2 = new NavigationIconButton("Link Rapla", new Image(IconProvider.CALENDAR), Navigation.raplaCourseLink, id);
 		
-		roomButton2.setStyleName("courseRoom");
-		raplaButton2.setStyleName("courseEvents");
+		roomButton2.setStyleName("bottomButton");
+		raplaButton2.setStyleName("bottomButton");
 		
 		infoPanel.setStyleName("courseInfoPanel");
 		middlePanel.setStyleName("courseMiddlePanel");

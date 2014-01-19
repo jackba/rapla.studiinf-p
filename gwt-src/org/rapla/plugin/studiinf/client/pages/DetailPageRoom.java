@@ -69,6 +69,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		raplaButton = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
 		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.CALENDAR), Navigation.raplaRoomLink, id);
 		
+		raplaButton2.setStyleName("bottomButton");
+		
 		infos.setWidget(0, 0, nameButton);
 		infos.setWidget(1, 0, typeButton);
 		infos.setWidget(2, 0, courseOfStudyButton);

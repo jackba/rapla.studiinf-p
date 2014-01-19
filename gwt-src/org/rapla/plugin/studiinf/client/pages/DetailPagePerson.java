@@ -102,10 +102,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		extraInfosButton2 = new NavigationIconButton(Studiinf.i18n.extraInfos(), new Image(IconProvider.ADDITIONAL_INFORMATION), Navigation.extraInfo, id);
 		raplaButton2 = new NavigationIconButton(Studiinf.i18n.linkRapla(), new Image(IconProvider.ROOMS),Navigation.raplaPersonLink, id);
 		
-		extraInfosButton2.setStyleName("personShowExtraInfosBtn");
-		raplaButton2.setStyleName("personLinkRaplabtn");
-		roomButton2.setStyleName("personShowRoomBtn");
-		//extraInfosButton2.setEnabled(false);
+		extraInfosButton2.setStyleName("bottomButton");
+		raplaButton2.setStyleName("bottomButton");
+		roomButton2.setStyleName("bottomButton");
 		
 		bottomPanel.add(roomButton2);
 		bottomPanel.add(extraInfosButton2);
