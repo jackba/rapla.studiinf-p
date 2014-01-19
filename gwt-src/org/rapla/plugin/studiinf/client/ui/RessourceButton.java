@@ -5,6 +5,8 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.search.RessourceSearch;
 
+import com.google.gwt.user.client.Window;
+
 public class RessourceButton extends NavButton {
 	
 	private AbstractSearchPage page;
@@ -32,13 +34,15 @@ public class RessourceButton extends NavButton {
 	}
 	
 	public void updateResults(ResourceDescriptor resourceDescriptor) {
+//		Window.alert("update: "+resourceDescriptor.toString());
 		setTargetId(resourceDescriptor.getId());	
 	}
 	
 	@Override
 	public void setText(String text) {
 		String oldText = getText();
-		if (oldText != null && !oldText.equals(text)){
+		this.getElement().setAttribute("data-ressource", text);
+		if ((oldText == null && text != null) ||(oldText != null && !oldText.equals(text))){
 			if(hideText){
 				super.setText(null);
 			}else{
@@ -47,6 +51,11 @@ public class RessourceButton extends NavButton {
 			setTargetId(null);
 			new RessourceSearch(text, page, this);
 		}
+	}
+	
+	@Override
+	public void setTargetId(String targetId) {
+		super.setTargetId(targetId);
 	}
 	
 

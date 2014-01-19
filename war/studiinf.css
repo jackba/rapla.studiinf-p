@@ -353,14 +353,16 @@ nav{
 	position:absolute;
 	bottom:7vh;
 	left:5vw;
+	line-height: 0px;
 }
 .tileContainer{
 	position:absolute;
 	top:56.5vh;
 	bottom:8vh;
-	left:4vw;
-	right:4vw;
-	width:92vw;
+	left:0vw;
+	right:0vw;
+	width:100vw;
+	text-align: center;
 	height:32vh;
 }/*
 .tile{
@@ -714,7 +716,8 @@ nav{
 	top: 0.5vh;
 }
 .iconButton, .personShowExtraInfosBtn, .personShowRoomBtn, .personLinkRaplabtn, .courseProf, .courseRoom, .courseEvents {
-	position: absolute;
+	/*position: absolute;*/
+	position:relative;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
 	height: 5vh;

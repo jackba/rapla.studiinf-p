@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.IconProvider;
 
+import com.google.gwt.dom.client.Style.Position;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -81,10 +83,18 @@ public class ResultTable extends FlexTable {
 	
 	
 	this.backButton.setSize(0.6);
-	this.backButton.setWidth("100%");
+	this.backButton.setWidth("50%");
+	this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
+	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
+	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);
 	
 	this.nextButton.setSize(0.6);
-	this.nextButton.setWidth("100%");
+	this.nextButton.setWidth("50%");
+	this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
+	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
+	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);
 	
 	this.backButton.setClickHandler(new ClickHandler() {
 		

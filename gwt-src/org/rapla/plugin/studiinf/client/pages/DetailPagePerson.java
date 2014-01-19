@@ -99,10 +99,11 @@ public class DetailPagePerson extends AbstractDetailPage {
 //		lectureRooms.setWidget(1, 0, secondLectureRoom);
 //		lectureRooms.setWidget(2, 0, thirdLectureRoom);
 		
-		new Image(IconProvider.PERSONS).setStyleName("personDetailPicture");
+		Image img =	new Image(IconProvider.PERSONS);
+		img.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
-		personInfoPanel.add(new Image(IconProvider.PERSONS));
+		personInfoPanel.add(img);
 		personInfoPanel.add(infos);
 		
 		middlePanel.add(appointmentLabel);
