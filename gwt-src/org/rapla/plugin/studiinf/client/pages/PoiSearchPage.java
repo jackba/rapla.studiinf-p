@@ -21,6 +21,9 @@ public class PoiSearchPage extends AbstractSearchPage {
 	public void init(){
 		super.init();
 		
+		qrBox.getElement().getStyle().setProperty("top", "65vh");
+
+		
 		setSearched(true);
 		handleSearch("*");
 				
