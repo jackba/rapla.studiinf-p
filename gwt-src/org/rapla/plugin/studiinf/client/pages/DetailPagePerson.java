@@ -27,7 +27,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class DetailPagePerson extends AbstractDetailPage {
 	
-	private String courseOfStudy = "Wirtschaftsinformatik";
+	private String courseOfStudy;
 	private String id;
 
 	private FlowPanel personInfoPanel = new FlowPanel();

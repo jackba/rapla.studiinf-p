@@ -158,7 +158,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 		return true;
 	}
 
-
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		PoiDescriptor pd = new PoiDescriptor(resource);		

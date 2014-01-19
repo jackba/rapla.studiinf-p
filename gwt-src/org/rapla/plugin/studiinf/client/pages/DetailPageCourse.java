@@ -142,7 +142,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 
 	}
 
-
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		CourseDescriptor cd = new CourseDescriptor(resource);
