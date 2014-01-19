@@ -59,6 +59,9 @@ public class HomePage extends AbstractPage {
 		tileContainer.add(roomBtn);
 		tileContainer.add(poiBtn);
 		
+		freeRoomsTable.getBackButton().addStyleName("backButton");
+		freeRoomsTable.getNextButton().addStyleName("nextButton");
+		
 		this.add(tileContainer);
 		this.add(qrBox);
 //		this.add(logo);
@@ -66,6 +69,8 @@ public class HomePage extends AbstractPage {
 		resultPanel.add(freeRoomsTable);
 		this.add(resultPanel);
 		this.add(resultBtns);
+		this.add(freeRoomsTable.getBackButton());
+		this.add(freeRoomsTable.getNextButton());
 		this.updateFreeRooms();
 	};
 	

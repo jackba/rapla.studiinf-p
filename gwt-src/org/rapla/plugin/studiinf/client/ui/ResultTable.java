@@ -29,8 +29,13 @@ public class ResultTable extends FlexTable {
 		return page;
 	}
 
+	public IconButton getBackButton() {
+		return backButton;
+	}
 
-
+	public IconButton getNextButton() {
+		return nextButton;
+	}
 
 	public void setPage(int page) {
 		if(page > 0 && page < getMaxPages()){
@@ -185,8 +190,8 @@ public class ResultTable extends FlexTable {
 			backButtonBottom.setVisible(hasPreviousPage());
 			nextButtonBottom.setVisible(hasNextPage());
 			
-			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
-			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
+//			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
+//			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
 			
 	
 		}

@@ -502,7 +502,7 @@ nav{
 	top: 11vh;
 	left:6vw;
 	width:88vw;
-	height:31.3vh;
+	height:26vh;
 }
 .page-poi .resultPanel{
 	height:51.3vh;
@@ -792,6 +792,17 @@ nav{
 }
 .results td{
 	width:50%;
+}
+
+.backButton, .nextButton {
+	position: absolute;
+	top: 38vh;
+	left: 10vw;
+	width: 23vw;
+}
+.nextButton {
+	left: auto;
+	right: 10vw;
 }
 .backButtonBottom,.nextButtonBottom{
 	position:absolute;

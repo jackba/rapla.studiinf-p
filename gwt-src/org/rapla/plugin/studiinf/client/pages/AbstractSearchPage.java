@@ -45,21 +45,23 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private final boolean hasOrganigramm;
 	private final boolean showInput;
 	private final boolean showQRBox;
+	private final boolean hasNavigationButtons;
 	
 	private final int resultRows;
 	private final int resultColumns;
 	
 	
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns) {
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons) {
 		this.hasOrganigramm = hasOrganigramm;
 		this.showInput = showInput;
 		this.showQRBox = showQRBox;
 		this.resultRows = resultRows;
 		this.resultColumns = resultColumns;
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
+		this.hasNavigationButtons = hasNavigationButtons;
 	}
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
-		this(hasOrganigramm,showInput,showQRBox,3,2);
+		this(hasOrganigramm,showInput,showQRBox,3,2, true);
 	}
 	
 public boolean isSearched() {
@@ -92,6 +94,8 @@ public void init() {
 	resultBtns.setStyleName("resultBtns");
 	resultPanel.setStyleName("resultPanel");
 	searchPanel.setStyleName("searchPanel");
+	results.getBackButton().addStyleName("backButton");
+	results.getNextButton().addStyleName("nextButton");
 	
 
 	inputChanger = new KeyUpHandler() {
@@ -122,8 +126,13 @@ public void init() {
 	if(this.hasOrganigramm){
 		this.add(organigramBtn);
 	}
-	this.add(resultBtns);
 	
+	if (this.hasNavigationButtons){
+		this.add(results.getBackButton());
+		this.add(results.getNextButton());
+	}
+	this.add(resultBtns);
+
 	if(this.showQRBox){
 		this.add(qrBox);
 	}
