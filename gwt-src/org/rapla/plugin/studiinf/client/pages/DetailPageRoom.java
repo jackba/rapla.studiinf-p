@@ -11,6 +11,7 @@ import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavigationIconButton;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -167,13 +168,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		roomLS.writeStorage(id);
 		roomLS.fillMap();
-//		roomLS.readStorage(id);
-		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
-//		"localStorage: " + targetID + " " + count
-		Window.alert(roomLS.readStorage(id));
-//		Window.alert(rd.getPicture());
-		
-//		Window.alert(rd.getPicture());
 		refresh();
 		
 	}

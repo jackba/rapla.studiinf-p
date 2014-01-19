@@ -31,7 +31,7 @@ public class ResourceEntry implements Entry<String, Integer> {
 	}
 	@Override
 	public String toString() {
-		return this.getKey()+"="+this.getValue().toString();//nochmal!wUUUUUUUUUUUUHUUUUUUUU!!! :D   E ndlichwas ein Müll Aber echt Moment jetzt testen wir noch ob es sortiert Nice Passt :D Super. Nur noch umgedreht :D aber des kann man mit dem res ändern oder? Im comparator sollte jetzt passenok
+		return this.getKey()+"="+this.getValue().toString();
 	}
 	
 }

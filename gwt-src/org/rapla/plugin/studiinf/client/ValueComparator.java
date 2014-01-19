@@ -1,8 +1,15 @@
 package org.rapla.plugin.studiinf.client;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -12,9 +19,11 @@ import edu.emory.mathcs.backport.java.util.TreeMap;
 
 public class ValueComparator implements Comparator<String> {
 
- 
-	    
+		
+		private Map<String, Integer> sortedMap = new HashMap<String, Integer>();
+		
 	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
+	   
 	    public ValueComparator(Map<String, String> map) {
 			
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>(
@@ -33,14 +42,22 @@ public class ValueComparator implements Comparator<String> {
 	    for(Map.Entry<String, String> entry : map.entrySet() ){
 	    	sortedEntries.add(new ResourceEntry(entry));
 	    }
-		
-		//testen !
+	    
+	    for (Entry<String, Integer> keyValuePair : sortedEntries) {
+	    	   System.out.println("key: " + keyValuePair.getKey() + " value: " + keyValuePair.getValue());
+			   sortedMap.put(keyValuePair.getKey(), keyValuePair.getValue());
+	        }
+	    
+	    System.out.println("Sorted Map:" + sortedMap);
 		
 	    }
 	    
 	    public SortedSet<Map.Entry<String,Integer>> getSortedSet(){
 	    	return sortedEntries;
 	    }
+	    
+	    	
+	    
 
 
 
