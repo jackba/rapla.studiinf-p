@@ -478,13 +478,13 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-.resultPanel,.searchPanel, .infoPanel, .roomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel, .courseMiddlePanel{
+.resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel, .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
 	right:5vw;
 	width:88vw;
-	height:28vh;
+	height:27vh;
 	border-left: solid 0.5vw #ffffff;
 	border-left-width: 0.5em;
 	font-size:1vw;
@@ -627,14 +627,14 @@ nav{
 	line-height: 3vh;
 	font-size: 1.5vh;
 }
-
+/*
 .infoPanel {
 	height:29vh;
-}
-.roomPanel, .personBottomPanel, .courseBottomPanel{
+} */
+.bottomPanel /*, .personBottomPanel, .courseBottomPanel*/{
 	top: auto;
 	bottom: 7vh;
-	height:6vh;
+	height:5vh;
 }
 
 .personMiddlePanel{

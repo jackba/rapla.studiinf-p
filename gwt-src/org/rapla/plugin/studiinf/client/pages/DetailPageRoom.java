@@ -20,7 +20,7 @@ import com.google.gwt.user.client.ui.Label;
 public class DetailPageRoom extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
-	private FlowPanel roomPanel = new FlowPanel();
+	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
 	
 	private Grid infos = new Grid(4, 1);
@@ -49,7 +49,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		super.init();
 		
 		infoPanel.setStyleName("infoPanel");
-		roomPanel.setStyleName("roomPanel");
+		//bottomPanel.setStyleName("roomPanel");
+		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");		
 		
@@ -90,10 +91,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 			
-		roomPanel.add(raplaButton2);
+		bottomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
-		this.add(roomPanel);
+		this.add(bottomPanel);
 		
 	}
 	
