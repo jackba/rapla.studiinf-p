@@ -84,6 +84,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
+		roomButton.setSize(0.8);
+		raplaButton.setSize(0.8);
+		roomButton2.setSize(0.8);
+		raplaButton2.setSize(0.8);
+		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, rowOneButton);
 		infos.setWidget(2, 0, rowTwoButton);

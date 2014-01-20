@@ -40,7 +40,7 @@ public class HomePage extends AbstractPage {
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
-		freeRoomsTable = new FreeRoomTable(resultBtns, 2, 3);
+		freeRoomsTable = new FreeRoomTable(resultBtns, 2, 6);
 		freeRoomsTable.setStyleName("freeRooms");
 		
 		resultBtns.setStyleName("resultBtns");

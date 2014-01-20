@@ -64,8 +64,13 @@ public class DetailPageCourse extends AbstractDetailPage {
 		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
 		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		raplaButton = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
-		raplaButton2 = new NavButton(IconProvider.Calendar,"Link Rapla",Navigation.raplaCourseLink, id);
+		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),Navigation.raplaCourseLink, id);
+		
+		roomButton.setSize(0.8);
+		raplaButton.setSize(0.8);
+		roomButton2.setSize(0.8);
+		raplaButton2.setSize(0.8);
 		
 		raplaButton.setStyleName("resultPanelButton");
 		roomButton.setStyleName("resultPanelButton");

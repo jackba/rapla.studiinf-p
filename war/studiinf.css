@@ -55,14 +55,14 @@ html{
 	position:absolute;
 	top: 6.25vh;
 	width:100vw;
-	height:2.5vh;
+	height:2vh;
 	background-color:#ffffff;
 	color:#000000;
 }
 
 .subheader p {
 	font-size:1.5vh;
-	line-height:2vh;
+	line-height:1.9vh;
 	text-align:center;
 	padding:0;
 	margin:0;
@@ -370,7 +370,7 @@ nav{
 }
 .tileContainer{
 	position:absolute;
-	top:56.5vh;
+	top:60vh;
 	bottom:8vh;
 	left:0vw;
 	right:0vw;
@@ -553,7 +553,7 @@ nav{
 	font-size: 2.5vh;
 	font-weight: bold;
 }
-.pictureButton .img, .poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav{
+.pictureButton .img /*.poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav*/{
 	position:absolute;
 	height: 5vh;
 	width:5vh;
@@ -588,6 +588,7 @@ nav{
 	left:0px;
 	border:none;
 }
+/*
 .poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav {
 	top: 32vh;
 	left: 30vw;
@@ -607,7 +608,7 @@ nav{
 .poiBottomRightNav, .poiBottomLeftNav {
 	top: auto;
 	bottom: 7.5vh;
-}
+} */
 .resultBtns .pictureButton{
 	height: 3vh;
 	width: 6vh;
@@ -647,6 +648,7 @@ nav{
 	top: 57vh;
 	bottom: auto;
 }
+/*
 .poiPage {
 	display:block;
 	position:absolute;
@@ -660,7 +662,7 @@ nav{
 	font-size:2vh;
 	line-height:5vh;
 	color:#ffffff;
-}
+} */
 .infoLabel, .personInfoLabel, .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
 	display:block;
 	position:absolute;
@@ -675,12 +677,13 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
+/*
 .currentPoiLabel {
 	top: 48vh;
 	left:7.5vw;
 	height: 4.5vh;
 	width:75.5vw;
-}
+} */
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
 	width: 16vw;
 }
@@ -734,14 +737,14 @@ nav{
 .personInfos .iconButton {
 	width: 56vw;
 }
-
+/*
 .personInfos .navButton {
 	width: 56vw;
 }
 
 .personInfos .ressourceButton {
 	width: 56vw;
-}
+} */
 
 .personLectureRooms .iconButton {
 	width: 27vw;

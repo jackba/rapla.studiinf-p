@@ -85,6 +85,13 @@ public class DetailPagePerson extends AbstractDetailPage {
 		extraInfosButton.setStyleName("personInfoButtons");
 		raplaButton.setStyleName("personInfoButtons");
 		
+		roomButton.setSize(0.8);
+		raplaButton.setSize(0.8);
+		roomButton2.setSize(0.8);
+		raplaButton2.setSize(0.8);
+		extraInfosButton.setSize(0.8);
+		extraInfosButton.setSize(0.6);
+		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, mailButton);
 		infos.setWidget(2, 0, telephoneButton);

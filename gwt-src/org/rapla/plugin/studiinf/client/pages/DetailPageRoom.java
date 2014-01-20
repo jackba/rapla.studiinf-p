@@ -72,6 +72,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		raplaButton.setStyleName("resultPanelButton");
 		raplaButton2.setStyleName("bottomButton");
 		
+		raplaButton.setSize(0.8);
+		raplaButton2.setSize(0.8);
+		
 		infos.setWidget(0, 0, nameButton);
 		infos.setWidget(1, 0, typeButton);
 		infos.setWidget(2, 0, courseOfStudyButton);
