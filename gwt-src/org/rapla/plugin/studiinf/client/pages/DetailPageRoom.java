@@ -29,9 +29,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
-	private IconButton nameButton;
-	private IconButton typeButton;
-	private IconButton courseOfStudyButton;
+	private NavButton nameButton;
+	private NavButton typeButton;
+	private NavButton courseOfStudyButton;
 	private NavButton raplaButton;
 	private NavButton raplaButton2;
 	
@@ -63,17 +63,24 @@ public class DetailPageRoom extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 
-		nameButton = new IconButton(nameButtonText, new Image(IconProvider.ROOMS));
-		typeButton = new IconButton(typeButtonText, new Image(IconProvider.ROOM_TYPE));
-		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSE));
+		nameButton = new NavButton(IconProvider.Rooms, nameButtonText, null, null);
+		typeButton = new NavButton(IconProvider.Rooms, typeButtonText, null, null);
+		courseOfStudyButton = new NavButton(IconProvider.Courses, courseOfStudyButtonText, null, null);
 		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
 		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
 		
 		raplaButton.setStyleName("resultPanelButton");
+		nameButton.setStyleName("resultPanelButton");
+		typeButton.setStyleName("resultPanelButton");
+		courseOfStudyButton.setStyleName("resultPanelButton");
+		
 		raplaButton2.setStyleName("bottomButton");
 		
 		raplaButton.setSize(0.8);
 		raplaButton2.setSize(0.8);
+		nameButton.setSize(0.8);
+		typeButton.setSize(0.8);
+		courseOfStudyButton.setSize(0.8);
 		
 		infos.setWidget(0, 0, nameButton);
 		infos.setWidget(1, 0, typeButton);

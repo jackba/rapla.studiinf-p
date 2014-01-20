@@ -40,8 +40,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 	
 	private RessourceButton roomButton;
 	private RessourceButton roomButton2;
-	private IconButton rowOneButton;
-	private IconButton rowTwoButton;
+	private NavButton rowOneButton;
+	private NavButton rowTwoButton;
 	private NavButton raplaButton;
 	private NavButton raplaButton2;
 	
@@ -76,8 +76,10 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
-		rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
+		//rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
+		//rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
+		rowOneButton = new NavButton(IconProvider.Additional_Information, rowOneButtonText,  null, null);
+		rowTwoButton = new NavButton(IconProvider.Additional_Information, rowTwoButtonText, null, null);
 		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
 		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
 		
@@ -88,6 +90,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 		raplaButton.setSize(0.8);
 		roomButton2.setSize(0.8);
 		raplaButton2.setSize(0.8);
+		rowOneButton.setSize(0.8);
+		rowTwoButton.setSize(0.8);
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, rowOneButton);
