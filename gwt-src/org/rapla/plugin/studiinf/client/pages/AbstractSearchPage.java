@@ -93,7 +93,7 @@ public void init() {
 //	results.getBackButton().addStyleName("backButton");
 //	results.getNextButton().addStyleName("nextButton");
 	
-	qrBox.getElement().getStyle().setProperty("top", "41vh");
+	qrBox.getElement().getStyle().setProperty("top", "43vh");
 
 	inputChanger = new KeyUpHandler() {
 		
