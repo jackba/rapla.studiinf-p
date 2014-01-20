@@ -76,11 +76,27 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectures.setStyleName("lecturesTable");
 		
 		roomButton = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		
 		mailButton = new IconButton(mailButtonText, new Image(IconProvider.E_MAIL));
 		telephoneButton = new IconButton(telephoneButtonText, new Image(IconProvider.PHONE));
 		extraInfosButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id);
-		raplaButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
+		raplaButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);		
+		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
+		extraInfosButton2 = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(),Navigation.extraInfo, id);
+		raplaButton2 = new NavButton(IconProvider.Rooms,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
+		
+		extraInfosButton2.setStyleName("bottomButton");
+		raplaButton2.setStyleName("bottomButton");
+		roomButton2.setStyleName("bottomButton");
+		roomButton.setStyleName("personInfoButtons");
+		extraInfosButton.setStyleName("personInfoButtons");
+		raplaButton.setStyleName("personInfoButtons");
+		
+		roomButton.setSize(0.8);
+		raplaButton.setSize(0.8);
+		roomButton2.setSize(0.8);
+		raplaButton2.setSize(0.8);
+		extraInfosButton.setSize(0.8);
+		extraInfosButton2.setSize(0.8);
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, mailButton);
@@ -99,14 +115,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectures);
-
-		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
-		extraInfosButton2 = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(),Navigation.extraInfo, id);
-		raplaButton2 = new NavButton(IconProvider.Rooms,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
-		
-		extraInfosButton2.setStyleName("bottomButton");
-		raplaButton2.setStyleName("bottomButton");
-		roomButton2.setStyleName("bottomButton");
 	
 		bottomPanel.add(roomButton2);
 		bottomPanel.add(extraInfosButton2);

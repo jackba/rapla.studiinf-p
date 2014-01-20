@@ -37,8 +37,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
 
-	private IconButton nameButton;
-	private IconButton courseOfStudyButton;
+	private NavButton nameButton;
+	private NavButton courseOfStudyButton;
 	private RessourceButton roomButton;
 	private RessourceButton roomButton2;
 	private NavButton raplaButton;
@@ -60,13 +60,24 @@ public class DetailPageCourse extends AbstractDetailPage {
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		
-		nameButton = new IconButton(nameButtonText, new Image(IconProvider.COURSE));
-		courseOfStudyButton = new IconButton(courseOfStudyButtonText, new Image(IconProvider.COURSES));
+		nameButton = new NavButton(IconProvider.Courses, nameButtonText, null, null);
+		courseOfStudyButton = new NavButton(IconProvider.Courses, courseOfStudyButtonText, null, null);
 		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		raplaButton = new NavButton(IconProvider.Calendar,"Link Rapla", Navigation.raplaCourseLink, id);
-		raplaButton2 = new NavButton(IconProvider.Calendar,"Link Rapla",Navigation.raplaCourseLink, id);
+		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id);
+		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),Navigation.raplaCourseLink, id);
 		
+		roomButton.setSize(0.8);
+		raplaButton.setSize(0.8);
+		roomButton2.setSize(0.8);
+		raplaButton2.setSize(0.8);
+		nameButton.setSize(0.8);
+		courseOfStudyButton.setSize(0.8);
+		
+		nameButton.setStyleName("resultPanelButton");
+		courseOfStudyButton.setStyleName("resultPanelButton");
+		raplaButton.setStyleName("resultPanelButton");
+		roomButton.setStyleName("resultPanelButton");
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
