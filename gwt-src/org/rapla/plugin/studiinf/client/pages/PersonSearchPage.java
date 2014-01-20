@@ -14,7 +14,7 @@ public class PersonSearchPage extends AbstractSearchPage {
 	private static final String PERSONS = "persons";
 	
 	public PersonSearchPage() {
-		super(true, true,true);
+		super(true, true,true, IconProvider.Persons,Navigation.personDetail);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class PersonSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor person : results)
 		{
-			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), IconProvider.Persons));
+			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), IconProvider.Persons, this));
 		}
 		refresh();
 	}
@@ -53,12 +53,6 @@ public class PersonSearchPage extends AbstractSearchPage {
 		return PERSONS;
 	}
 
-	@Override
-	protected void handleMostFrequent() {
-		clearResult();
-		
-	}
-	
 	
 
 }

@@ -15,7 +15,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 	private static final String ROOMS = "rooms";
 	
 	public RoomSearchPage() {
-		super(false, true,true);
+		super(false, true,true, IconProvider.Rooms, Navigation.roomDetail);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor room : results)
 		{
-			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), IconProvider.Rooms));
+			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), IconProvider.Rooms, this));
 			
 		}
 		refresh();
@@ -54,11 +54,6 @@ public class RoomSearchPage extends AbstractSearchPage {
 	@Override
 	public String getResourceType() {
 		return ROOMS;
-	}
-
-	@Override
-	protected void handleMostFrequent() {
-		clearResult();
 	}
 
 }

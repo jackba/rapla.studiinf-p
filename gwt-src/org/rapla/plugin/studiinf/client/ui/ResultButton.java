@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
 import com.google.gwt.user.client.ui.Widget;
 
@@ -11,8 +12,14 @@ public class ResultButton extends NavButton implements ResultObject {
 	
 	private NavButton bottomPictureButton;
 	private List<Widget> cellList;
+	private AbstractSearchPage searchPage;
 	
-
+	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, AbstractSearchPage searchPage){
+		super(0, icon, title, targetPage, targetId);
+		this.searchPage = searchPage;
+		setNumber(0);
+		this.setWidth("100%");
+	}
 
 	
 	@Override
@@ -22,10 +29,7 @@ public class ResultButton extends NavButton implements ResultObject {
 	}
 
 	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon) {
-
-		super(0, icon, title, targetPage, targetId);
-		setNumber(0);
-		this.setWidth("100%");	
+		this(title, targetPage, targetId, icon, null);
 	}
 		
 	@Override
@@ -61,6 +65,14 @@ public class ResultButton extends NavButton implements ResultObject {
 	public void setTargetPage(AbstractPage targetPage) {
 		super.setTargetPage(targetPage);
 		getFooterButton().setTargetPage(targetPage);
+	}
+	
+	@Override
+	protected void handlePressEvent() {
+		super.handlePressEvent();
+		if(searchPage != null){
+			searchPage.handleClickCount(this.getTargetId());
+		}
 	}
 
 	

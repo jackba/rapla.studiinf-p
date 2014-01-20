@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescriptor;
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -14,6 +16,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -32,6 +35,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
 	
+	public LocalStorage ls;
 	
 	private KeyUpHandler inputChanger;
 	
@@ -47,7 +51,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private final int resultColumns;
 	
 	
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons) {
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage) {
 		this.hasOrganigramm = hasOrganigramm;
 		this.showInput = showInput;
 		this.showQRBox = showQRBox;
@@ -55,9 +59,10 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		this.resultColumns = resultColumns;
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
 		this.hasNavigationButtons = hasNavigationButtons;
+		this.ls = new LocalStorage(getHistoryKey(), results, icon, targetPage, this);
 	}
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox) {
-		this(hasOrganigramm,showInput,showQRBox,6,2,true);
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
+		this(hasOrganigramm,showInput,showQRBox,6,2,true, icon, targetPage);
 	}
 	
 public boolean isSearched() {
@@ -184,9 +189,18 @@ public void init() {
 		inputChanger.onKeyUp(null);
 	}
 	
+	public void handleClickCount(String targetId){
+		ls.writeStorage(targetId);
+	}
+	
+	
+	
 	abstract protected void handleSearch(String searchTerm);
 	
-	abstract protected void handleMostFrequent();
+	protected void handleMostFrequent(){
+		ls.fillMap();
+		
+	}
 	
 
 

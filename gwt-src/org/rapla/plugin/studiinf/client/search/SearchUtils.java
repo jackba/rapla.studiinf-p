@@ -105,4 +105,18 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		return clearedString;
 		
 	}
+	
+	public static ResourceDescriptor byId(String searchString, List<ResourceDescriptor> resources)
+	{
+		
+		for(ResourceDescriptor resource : resources)
+		{
+			String s = resource.getId();
+			if(clearSearchString(s).equals(clearSearchString(searchString)))
+			{
+				return resource;
+			}
+		}
+		return null;
+	}
 }

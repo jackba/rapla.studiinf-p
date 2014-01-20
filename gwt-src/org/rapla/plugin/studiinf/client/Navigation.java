@@ -28,17 +28,21 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public final class Navigation {
 	
+	public static final AbstractPage personDetail = new DetailPagePerson();
+	public static final AbstractPage courseDetail = new DetailPageCourse();
+	public static final AbstractPage roomDetail = new DetailPageRoom();
+	public static final AbstractPage poiDetail = new DetailPagePoi();
+	
 	public static final AbstractPage homePage = new HomePage();
 	public static final AbstractPage person = new PersonSearchPage();
 	public static final AbstractPage course = new CourseSearchPage();
 	public static final AbstractPage poi = new PoiSearchPage();
 	public static final AbstractPage room = new RoomSearchPage();
-	public static final AbstractPage roomDetail = new DetailPageRoom();
-	public static final AbstractPage poiDetail = new DetailPagePoi();
+	
 	public static final AbstractPage organisationChart = new OrganisationChart();
-	public static final AbstractPage personDetail = new DetailPagePerson();
-	public static final AbstractPage courseDetail = new DetailPageCourse();
+	
 	public static final AbstractPage extraInfo = new extraInfoPage();
+	
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
 	public static final AbstractPage raplaCourseLink = new CourseRaplaPage();

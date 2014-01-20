@@ -50,7 +50,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 	
 	private String id;
 	
-	public LocalStorage roomLS = new LocalStorage();
 	
 	
 

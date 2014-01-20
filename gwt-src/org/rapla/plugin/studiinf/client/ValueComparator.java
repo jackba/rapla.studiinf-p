@@ -23,9 +23,11 @@ public class ValueComparator implements Comparator<String> {
 		private Map<String, Integer> sortedMap = new HashMap<String, Integer>();
 		
 	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
+	    
+	    private LocalStorage ls;
 	   
-	    public ValueComparator(Map<String, String> map) {
-			
+	    public ValueComparator(Map<String, String> map, LocalStorage ls) {
+			this.ls = ls;
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>(
 	    		new Comparator<Map.Entry<String,Integer>>() {
 	            @Override public int compare(Map.Entry<String,Integer> e1, Map.Entry<String,Integer> e2) {
@@ -38,20 +40,20 @@ public class ValueComparator implements Comparator<String> {
 	            }
 	        }
 	    );
+		 
 	    //System.out.println("Map:  " + map);
 	    for(Map.Entry<String, String> entry : map.entrySet() ){
-	    	sortedEntries.add(new ResourceEntry(entry));
-	    	System.out.println("simon Test: " +sortedEntries);
-	    	
-	    	
+	    	if(entry.getKey().startsWith(ls.getPrefix())){
+	    		sortedEntries.add(new ResourceEntry(entry));
+	    	}    	
 	    }
 	    
-	    System.out.println("erstes: "+sortedEntries.subSet(sortedEntries.first(), sortedEntries.last()));
-	    for (Entry<String, Integer> keyValuePair : sortedEntries) {
-	    	   System.out.println("key: " + keyValuePair.getKey() + " value: " + keyValuePair.getValue());
-			   sortedMap.put(keyValuePair.getKey(), keyValuePair.getValue());
+//	    System.out.println("erstes: "+sortedEntries.subSet(sortedEntries.first(), sortedEntries.last()));
+//	    for (Entry<String, Integer> keyValuePair : sortedEntries) {
+//	    	   System.out.println("key: " + keyValuePair.getKey() + " value: " + keyValuePair.getValue());
+//			   sortedMap.put(keyValuePair.getKey(), keyValuePair.getValue());
 //			   System.out.println("Test 1: "+sortedMap);
-	        }
+//	        }
 	    
 //	    System.out.println("Sorted Map:" + sortedMap);
 		

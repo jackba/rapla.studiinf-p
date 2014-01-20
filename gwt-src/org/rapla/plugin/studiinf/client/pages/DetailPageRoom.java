@@ -40,8 +40,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	
 	private String id;
 	
-	public LocalStorage roomLS = new LocalStorage();
-	
 	
 
 	@Override
@@ -169,17 +167,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		
-		roomLS.writeStorage(id);
-		roomLS.fillMap();
 		
-
-//		roomLS.readStorage(id);
-		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
-//		"localStorage: " + targetID + " " + count
-//		Window.alert(roomLS.readStorage(id));
-//		Window.alert(rd.getPicture());
-		
-//		Window.alert(rd.getPicture());
 
 		refresh();
 		

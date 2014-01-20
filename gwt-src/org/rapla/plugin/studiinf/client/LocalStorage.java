@@ -5,9 +5,17 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.Iterator;
 
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.search.IdSearch;
+import org.rapla.plugin.studiinf.client.search.MFRButtonHandler;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
+import org.rapla.plugin.studiinf.client.ui.ResultTable;
+
 import com.google.gwt.dev.util.collect.HashMap;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
+import com.google.gwt.user.client.Window;
 
 public class LocalStorage {
 
@@ -15,12 +23,23 @@ public class LocalStorage {
 //	private Integer count = 0;
 	int count = 0;
 	private Map<String, String> map;
-	
+	private String resourceType;
+	private ResultTable resultTable;
+	private FontIcon icon;
+	private AbstractPage targetPage;
+	private AbstractSearchPage searchPage;
 
+	public LocalStorage(String resourceType, ResultTable resultTable, FontIcon icon, AbstractPage targetPage, AbstractSearchPage searchPage){
+		this.resourceType = resourceType;
+		this.resultTable = resultTable;
+		this.icon = icon;
+		this.targetPage = targetPage;
+		this.searchPage = searchPage;
+	}
 	 
 	public void writeStorage(String targetID){
 
-		String mytargetID = "org.rapla.plugins.studiinf_" + Navigation.idForURL(targetID);
+		String mytargetID = getPrefix() + Navigation.idForURL(targetID);
 		//System.out.println("1: " + targetID);
 		
 		if (readStorage(targetID) == null){
@@ -42,14 +61,31 @@ public class LocalStorage {
 	
 	public String readStorage(String targetID){
 //		System.out.println("3: " + targetID + " " + count);
-		targetID = "org.rapla.plugins.studiinf_" + Navigation.idForURL(targetID);
+		targetID = getPrefix() + Navigation.idForURL(targetID);
 //		System.out.println("4: " + targetID + "|" +localStorage.getItem(targetID));
 		return localStorage.getItem(targetID);
 	}
 	
+	public String getPrefix(){
+		return "org.rapla.plugins.studiinf_" + resourceType + "_";
+		
+	}
+	
 	public void fillMap(){
 			map = new StorageMap(localStorage);
-			ValueComparator vc = new ValueComparator(map);
+			ValueComparator vc = new ValueComparator(map,this);
+			
+			resultTable.clearResults();
+			
+			int i = 0;
+			for (Entry<String, Integer> keyValuePair : vc.getSortedSet()){
+				if(i >= 8){
+					break;
+				}
+				i++;
+				new IdSearch(new MFRButtonHandler(resultTable, icon, targetPage, searchPage), searchPage, Navigation.idForService(keyValuePair.getKey().replace(getPrefix(), "")));
+			}
+			
 			System.out.println("");
 			System.out.println("map 1:"+ map);		
 			System.out.println("Sorted:" + vc.getSortedSet());

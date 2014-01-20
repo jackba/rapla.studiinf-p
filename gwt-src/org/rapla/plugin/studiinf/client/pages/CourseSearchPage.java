@@ -13,7 +13,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 public class CourseSearchPage extends AbstractSearchPage {
 
 	public CourseSearchPage() {
-		super(true, true,true);
+		super(true, true,true,IconProvider.Courses,Navigation.courseDetail);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescriptor course : ressourcesMatched)
 		{
-			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), IconProvider.Courses));
+			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), IconProvider.Courses, this));
 		}
 		refresh();
 	}
@@ -47,10 +47,5 @@ public class CourseSearchPage extends AbstractSearchPage {
 		return "courses";
 	}
 
-	@Override
-	protected void handleMostFrequent() {
-		clearResult();
-		
-	}
 
 }
