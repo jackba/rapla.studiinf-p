@@ -2,7 +2,6 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
-import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -46,7 +45,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	public void init(){
 		super.init();
 		infoPanel.setStyleName("infoPanel");
-		//bottomPanel.setStyleName("roomPanel");
 		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");		

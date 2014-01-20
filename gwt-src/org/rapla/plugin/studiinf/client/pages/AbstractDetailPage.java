@@ -2,9 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
-import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
-import org.rapla.plugin.studiinf.client.ui.QRBoxOLD;
 
 import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;

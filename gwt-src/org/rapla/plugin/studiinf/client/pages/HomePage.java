@@ -17,7 +17,6 @@ import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
@@ -59,20 +58,14 @@ public class HomePage extends AbstractPage {
 		
 		qrBox.getElement().getStyle().setProperty("top", "45vh");
 		
-//		freeRoomsTable.getBackButton().addStyleName("backButton");
-//		freeRoomsTable.getNextButton().addStyleName("nextButton");
 		
 		this.add(tileContainer);
 		this.add(qrBox);
-//		this.add(logo);
 		resultPanel.add(resultLabel);
 		resultPanel.add(freeRoomsTable);
 		this.add(resultPanel);
 		this.add(resultBtns);
-//		this.add(freeRoomsTable.getBackButton());
-//		this.add(freeRoomsTable.getNextButton());
 		this.updateFreeRooms();
-//		this.add(new NavButton(Navigation.homePage,null));
 	};
 	
 	@Override
@@ -117,7 +110,6 @@ public class HomePage extends AbstractPage {
 	ServiceProvider.getFreeResources(begin, end, "raum", new AsyncCallback<List<Event>>(){
 		@Override
 		public void onFailure(Throwable arg0) {
-			// TODO Auto-generated method stub
 			
 		}
 

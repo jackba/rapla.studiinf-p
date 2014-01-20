@@ -7,7 +7,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
-import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
@@ -59,7 +58,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 		super.init();
 		
 		infoPanel.setStyleName("infoPanel");
-		//bottomPanel.setStyleName("roomPanel");
 		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
@@ -77,8 +75,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		//rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
-		//rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
 		rowOneButton = new NavButton(IconProvider.Additional_Information, rowOneButtonText,  null, null);
 		rowTwoButton = new NavButton(IconProvider.Additional_Information, rowTwoButtonText, null, null);
 		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
