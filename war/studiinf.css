@@ -278,11 +278,6 @@ nav{
 .freeRooms {
 	top:7vh;
 }
-/*
-.courseInfos {
-	top: 7.5vh;
-	height:20vh;
-}*/
 
 .resultBtns {
 	left:4vw;
@@ -464,21 +459,7 @@ nav{
 	margin: 1vh;
 	font-weight: bold;
 }
-/*
-.resultLabel{
-	display:block;
-	position:absolute;
-	top: 0.6vh;
-	height: 6vh;
-	left:1vw;
-	right:1vw;
-	width:76vw;
-	padding:0px 5vw;
-	background: #5c6971;
-	font-size:3vh;
-	line-height:6vh;
-	color:#ffffff;
-}*/
+
 .resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel, */ .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, /*.courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
@@ -496,10 +477,6 @@ nav{
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
 }
-/*
-.courseInfoPanel{
-	height:29vh;
-}*/
 
 .resultPanel{
 	top: 11vh;
@@ -524,7 +501,6 @@ nav{
 
 .personInfoPanel {
 	height:31vh;
-	/*top: 10vh;*/
 }
 .searchPanel{
 	top:auto;
@@ -589,27 +565,7 @@ nav{
 	left:0px;
 	border:none;
 }
-/*
-.poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav {
-	top: 32vh;
-	left: 30vw;
-	height: 4vh;
-}
-.poiRightNav{
-	left: 60vw;
-}
-.poiBottomRightNav {
-	right: 7.5vw;
-	left: auto;
-}
-.poiBottomLeftNav {
-	left: 7.5vw;
-}
 
-.poiBottomRightNav, .poiBottomLeftNav {
-	top: auto;
-	bottom: 7.5vh;
-} */
 .resultBtns .pictureButton{
 	height: 3vh;
 	width: 6vh;
@@ -628,10 +584,7 @@ nav{
 	line-height: 3vh;
 	font-size: 1.5vh;
 }
-/*
-.infoPanel {
-	height:29vh;
-} */
+
 .bottomPanel /*, .personBottomPanel, .courseBottomPanel*/{
 	top: auto;
 	bottom: 7vh;
@@ -649,21 +602,7 @@ nav{
 	top: 57vh;
 	bottom: auto;
 }
-/*
-.poiPage {
-	display:block;
-	position:absolute;
-	top: 32vh;
-	height: 4vh;
-	left:40vw;
-	right:1vw;
-	width:11vw;
-	padding:0px 2vw;
-	background: #AEB4B8;
-	font-size:2vh;
-	line-height:5vh;
-	color:#ffffff;
-} */
+
 .infoLabel, /*.personInfoLabel,*/ .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo /*, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel*/{
 	display:block;
 	position:absolute;
@@ -678,13 +617,7 @@ nav{
 	line-height:6vh;
 	color:#ffffff;
 }
-/*
-.currentPoiLabel {
-	top: 48vh;
-	left:7.5vw;
-	height: 4.5vh;
-	width:75.5vw;
-} */
+
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
 	width: 16vw;
 }
@@ -724,40 +657,12 @@ nav{
 	width: 33vw;
 	height: 13.5vh;
 }
-/*
-.infos .iconButton {
-	width: 86vw;
-} */
 
 .resultPanelButton {
 	width: 86vw;
 }
-/*
-.courseInfos .iconButton {
-	width: 86vw;
-}
-.personInfos .iconButton {
-	width: 56vw;
-} */
-/*
-.personInfos .navButton {
-	width: 56vw;
-}
 
-.personInfos .ressourceButton {
-	width: 56vw;
-} */
-/*
-.personLectureRooms .iconButton {
-	width: 27vw;
-}*/
-/*
-.personBottomPanel .navButton, .ressourceButton{
-	width: 32vw;
-	top: 0.5vh;
-	bottom: auto;
-}*/
-/*.iconButton, .courseRoom, .courseEvents, */.bottomButton {
+.bottomButton {
 	/*position: absolute;*/
 	position:relative;
 	background: #aeb4b8;
@@ -768,34 +673,12 @@ nav{
 	line-height: 3vh;
 	overflow: hidden;
 }
-/*.courseRoom,  .courseEvents, */.bottomButton{
+.bottomButton{
 	top: 0.5vh;	
 	display: inline-block;
 	position: relative;
 	width: 29vw;
 }
-/*
-.personShowExtraInfosBtn,  .courseProf{
-	top: 0.5vh;
-	left: 50vw;
-	width: 37vw;
-}
-.personLinkbtn, .courseEvents {
-	top: 0.5vh;
-	left: 19vw;
-	width: 30vw;
-} */
-/*
-.iconIconButton {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 3vh;
-	height: 3vh;
-	background: #e2001a;
-	border:none;
-	padding: 1vh;
-}*/
 
 .personDetailPicture {
 	position:absolute !important;
@@ -920,14 +803,7 @@ overflow: hidden;
 .personCourseOfStudyLabel{
 	overflow:hidden;
 }
-/*
-.freeRooms .iconButton{
-	position: relative;
-}*/
-/*
-.iconButton[disabled] .iconIconButton{
-	background: #5C6971;
-}*/
+
 .raplaBackButton{
 	position: absolute;
 	bottom: 10vh;
@@ -975,11 +851,6 @@ overflow: hidden;
 	background: #aeb4b8;
 	float: right;
 }
-
-
-
-
-
 
 .detailsTable {
 	position: absolute;
