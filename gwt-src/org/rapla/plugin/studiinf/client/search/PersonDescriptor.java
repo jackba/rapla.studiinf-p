@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 
+import com.google.gwt.user.client.Window;
+
 public class PersonDescriptor{
 	private String name;
 	private String mail;
@@ -20,7 +22,9 @@ public class PersonDescriptor{
 	public LinkedList<ResourceDetailRow> getDetails(){
 		LinkedList<ResourceDetailRow> results= new LinkedList<ResourceDetailRow>();
 		for (String key: keys){
-			if (key != "resourceURL" && key != "bild"){
+			if (key.equals("bild") || key.equals("resourceURL")){
+
+			} else {
 				results.add(person.getRow(key));
 			}
 		}
