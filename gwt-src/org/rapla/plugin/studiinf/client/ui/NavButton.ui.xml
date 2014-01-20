@@ -84,7 +84,7 @@
 		height:100%;
 	}
 	.navigationButton:hover{
-		background:#858f95;
+		background:#aeb4b8;
 	}
 	.navigationButton:hover .icon{
 		background:	#d6dadc;
@@ -93,9 +93,9 @@
 		background:	#000000;
 	}
 	.navigationButton:hover .shadow{
-		-moz-box-shadow: inset 0 0 0.5em 0.5em #000000;
-		-webkit-box-shadow: inset 0 0 0.5em 0.5em#000000;
-		box-shadow: inset 0 0 0.5em 0.5em #000000;
+		-moz-box-shadow: inset 0 0 0.5em 0.5em #858f95;
+		-webkit-box-shadow: inset 0 0 0.5em 0.5em #858f95;
+		box-shadow: inset 0 0 0.5em 0.5em #5c6971;
 	}
 	.navigationButton[disabled]:hover{
 		background:#aeb4b8;

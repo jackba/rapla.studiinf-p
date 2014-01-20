@@ -376,7 +376,7 @@ nav{
 	right:0vw;
 	width:100vw;
 	text-align: center;
-	height:32vh;
+	height:25vh;
 }/*
 .tile{
 	display: block;
@@ -504,10 +504,10 @@ nav{
 	top: 11vh;
 	left:6vw;
 	width:88vw;
-	height:26vh;
+	height:29.5vh;
 }
 .page-poi .resultPanel{
-	height:51.3vh;
+	height:27.3vh;
 }
 .poiBottomResultPanel {
 	top: auto;

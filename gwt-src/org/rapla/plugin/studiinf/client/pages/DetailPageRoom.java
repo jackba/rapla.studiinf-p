@@ -172,6 +172,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		roomLS.writeStorage(id);
 		roomLS.fillMap();
+		
 
 //		roomLS.readStorage(id);
 		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
