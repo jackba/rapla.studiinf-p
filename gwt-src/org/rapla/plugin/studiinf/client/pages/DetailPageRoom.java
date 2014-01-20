@@ -126,7 +126,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
 		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
+		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052") || nameButtonText.equals("Bibliothek")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);
