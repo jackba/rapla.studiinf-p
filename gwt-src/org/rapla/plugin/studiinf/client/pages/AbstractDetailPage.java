@@ -14,7 +14,8 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	public String id ="";
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	abstract public boolean hasDefaultQrBox();
-	
+
+
 	public String getId() {
 		return id;
 	}

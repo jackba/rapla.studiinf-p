@@ -14,6 +14,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
+import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
 import com.google.gwt.dom.client.Style.Display;
@@ -29,6 +30,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private FlowPanel infoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
+	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	
 	private Grid infos = new Grid(4, 1);
 	
@@ -108,6 +110,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 		bottomPanel.add(raplaButton2);
 		bottomPanel.add(roomButton2);
 		
+		qrBox.getElement().getStyle().setProperty("top", "41vh");
+		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);
 		
@@ -168,7 +172,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 
 	@Override
 	public boolean hasDefaultQrBox() {
-		return true;
+		return false;
 	}
 
 	@SuppressWarnings("deprecation")

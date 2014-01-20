@@ -8,6 +8,7 @@ import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
+import org.rapla.plugin.studiinf.client.ui.QRBox;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -20,6 +21,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private FlowPanel infoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
+	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	
 	private Grid infos = new Grid(4, 1);
 	
@@ -43,7 +45,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	public void init(){
 		super.init();
-		
 		infoPanel.setStyleName("infoPanel");
 		//bottomPanel.setStyleName("roomPanel");
 		bottomPanel.setStyleName("bottomPanel");
@@ -88,7 +89,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infos);
 			
 		bottomPanel.add(raplaButton2);
-		
+		qrBox.getElement().getStyle().setProperty("top", "41vh");
+		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);
 		
@@ -137,7 +139,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 	@Override
 	public boolean hasDefaultQrBox() {
-		return true;
+		return false;
 	}
 
 
