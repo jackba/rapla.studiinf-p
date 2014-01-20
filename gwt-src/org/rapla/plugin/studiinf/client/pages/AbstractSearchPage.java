@@ -83,7 +83,7 @@ public void init() {
 	organigramBtn = new NavButton(IconProvider.Organigram, Studiinf.i18n.organigram(), Navigation.organisationChart,"1");
 	
 	searchField.setStyleName("searchField");
-	resultLabel.setStyleName("resultLabel");
+	resultLabel.setStyleName("infoLabel");
 	results.setStyleName("results");
 	organigramBtn.addStyleName("organigramBtn");
 	keyboard.setStyleName("keyboard");
@@ -93,7 +93,7 @@ public void init() {
 //	results.getBackButton().addStyleName("backButton");
 //	results.getNextButton().addStyleName("nextButton");
 	
-	qrBox.getElement().getStyle().setProperty("top", "45vh");
+	qrBox.getElement().getStyle().setProperty("top", "41vh");
 
 	inputChanger = new KeyUpHandler() {
 		

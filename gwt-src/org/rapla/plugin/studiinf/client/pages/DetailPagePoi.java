@@ -13,7 +13,6 @@ import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
@@ -28,7 +27,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 public class DetailPagePoi extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
-	private FlowPanel roomPanel = new FlowPanel();
+	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
 	
 	private Grid infos = new Grid(4, 1);
@@ -59,7 +58,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 		super.init();
 		
 		infoPanel.setStyleName("infoPanel");
-		roomPanel.setStyleName("roomPanel");
+		//bottomPanel.setStyleName("roomPanel");
+		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
 		
@@ -86,6 +86,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
+		raplaButton.setStyleName("resultPanelButton");
+		rowOneButton.setStyleName("resultPanelButton");
+		rowTwoButton.setStyleName("resultPanelButton");
+		roomButton.setStyleName("resultPanelButton");
+		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
 		roomButton2.setSize(0.8);
@@ -101,11 +106,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		roomPanel.add(raplaButton2);
-		roomPanel.add(roomButton2);
+		bottomPanel.add(raplaButton2);
+		bottomPanel.add(roomButton2);
 		
 		this.add(infoPanel);
-		this.add(roomPanel);
+		this.add(bottomPanel);
 		
 	}
 	

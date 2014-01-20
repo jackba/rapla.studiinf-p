@@ -262,7 +262,7 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
-.results, .infos, .personInfos, .personLectureRooms, .poiResults, .courseInfos, .freeRooms{
+.results, .infos/*, .personInfos, .courseInfos*/, .personLectureRooms, .poiResults, .freeRooms{
 	position:absolute;
 	top:8vh;
 	left:1.3vw;
@@ -278,11 +278,11 @@ nav{
 .freeRooms {
 	top:7vh;
 }
-
+/*
 .courseInfos {
 	top: 7.5vh;
 	height:20vh;
-}
+}*/
 
 .resultBtns {
 	left:4vw;
@@ -434,7 +434,7 @@ nav{
 	
 .qrBox{
 	position:absolute;
-	top: 45vh;
+	top: 38vh;
 	left:5vw;
 	right:5vw;
 	width:89vw;
@@ -464,6 +464,7 @@ nav{
 	margin: 1vh;
 	font-weight: bold;
 }
+/*
 .resultLabel{
 	display:block;
 	position:absolute;
@@ -477,8 +478,8 @@ nav{
 	font-size:3vh;
 	line-height:6vh;
 	color:#ffffff;
-}
-.resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel, .personBottomPanel, .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel, .courseMiddlePanel{
+}*/
+.resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel, */ .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, /*.courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -495,10 +496,10 @@ nav{
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
 }
-
+/*
 .courseInfoPanel{
 	height:29vh;
-}
+}*/
 
 .resultPanel{
 	top: 11vh;
@@ -523,7 +524,7 @@ nav{
 
 .personInfoPanel {
 	height:34vh;
-	top: 10vh;
+	/*top: 10vh;*/
 }
 .searchPanel{
 	top:auto;
@@ -663,7 +664,7 @@ nav{
 	line-height:5vh;
 	color:#ffffff;
 } */
-.infoLabel, .personInfoLabel, .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel{
+.infoLabel, /*.personInfoLabel,*/ .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo /*, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel*/{
 	display:block;
 	position:absolute;
 	top: 1vh;
@@ -705,12 +706,12 @@ nav{
 .infos td{
 	border: solid 1px transparent;
 }
-
+/*
 .personInfos {
 	top: 7.5vh;
 	left: 30vw;
 	height: 26vh;
-}
+}*/
 
 .personInfoButtons {
 	width: 56vw;
@@ -723,20 +724,21 @@ nav{
 	width: 33vw;
 	height: 13.5vh;
 }
+/*
 .infos .iconButton {
 	width: 86vw;
-}
+} */
 
 .resultPanelButton {
 	width: 86vw;
 }
-
+/*
 .courseInfos .iconButton {
 	width: 86vw;
 }
 .personInfos .iconButton {
 	width: 56vw;
-}
+} */
 /*
 .personInfos .navButton {
 	width: 56vw;
@@ -749,11 +751,12 @@ nav{
 .personLectureRooms .iconButton {
 	width: 27vw;
 }
+/*
 .personBottomPanel .navButton, .ressourceButton{
 	width: 32vw;
 	top: 0.5vh;
 	bottom: auto;
-}
+}*/
 .iconButton, /*.courseRoom, .courseEvents, */.bottomButton {
 	/*position: absolute;*/
 	position:relative;

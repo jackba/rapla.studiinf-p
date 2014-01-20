@@ -12,7 +12,6 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -66,7 +65,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		super.init();
 	
 		personInfoPanel.setStyleName("personInfoPanel");
-		personInfoLabel.setStyleName("personInfoLabel");
+		//personInfoLabel.setStyleName("personInfoLabel");
+		personInfoLabel.setStyleName("infoLabel");
 		bottomPanel.setStyleName("bottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
