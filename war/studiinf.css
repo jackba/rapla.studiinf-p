@@ -642,21 +642,21 @@ nav{
 
 .personInfos {
 	top: 7.5vh;
-	left: 30vw;
-	height: 24vh;
+	left: 32vw;
+	height: 22vh;
 }
 
 .personInfoButtons {
-	width: 56vw;
+	width: 55vw;
 }
-
+/*
 .personLectureRooms {
 	position: absoute;
 	left: 60vw;
 	top: 11vh;
 	width: 33vw;
 	height: 13.5vh;
-}
+}*/
 
 .resultPanelButton {
 	width: 86vw;
@@ -682,10 +682,10 @@ nav{
 
 .personDetailPicture {
 	position:absolute !important;
-	top: 6vh;
+	top: 7.5vh;
 	left:1vw;
 	width:30vw;
-	height:25vh;
+	height:22vh;
 	background:#858f95;
 }
 
