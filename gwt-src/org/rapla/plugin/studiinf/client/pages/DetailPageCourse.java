@@ -10,7 +10,6 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -19,7 +18,6 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
@@ -81,12 +79,15 @@ public class DetailPageCourse extends AbstractDetailPage {
 		roomButton2.setStyleName("bottomButton");
 		raplaButton2.setStyleName("bottomButton");
 		
-		infoPanel.setStyleName("courseInfoPanel");
+		//infoPanel.setStyleName("courseInfoPanel");
+		infoPanel.setStyleName("infoPanel");
 		middlePanel.setStyleName("courseMiddlePanel");
-		bottomPanel.setStyleName("courseBottomPanel");
-		infoLabel.setStyleName("courseInfoLabel");
+		bottomPanel.setStyleName("bottomPanel");
+		//infoLabel.setStyleName("courseInfoLabel");
+		infoLabel.setStyleName("infoLabel");
 		appointmentLabel.setStyleName("courseAppointmentLabel");
-		infos.setStyleName("courseInfos");
+		//infos.setStyleName("courseInfos");
+		infos.setStyleName("infos");
 		lectures.setStyleName("courseLecturesTable");
 		
 		infos.setWidget(0, 0, nameButton);

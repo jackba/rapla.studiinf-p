@@ -7,11 +7,9 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -20,7 +18,7 @@ import com.google.gwt.user.client.ui.Label;
 public class DetailPageRoom extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
-	private FlowPanel roomPanel = new FlowPanel();
+	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label("Information");
 	
 	private Grid infos = new Grid(4, 1);
@@ -47,7 +45,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		super.init();
 		
 		infoPanel.setStyleName("infoPanel");
-		roomPanel.setStyleName("roomPanel");
+		//bottomPanel.setStyleName("roomPanel");
+		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");		
 		
@@ -88,10 +87,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 			
-		roomPanel.add(raplaButton2);
+		bottomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
-		this.add(roomPanel);
+		this.add(bottomPanel);
 		
 	}
 	
@@ -123,7 +122,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
 		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
+		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052") || nameButtonText.equals("Bibliothek")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
 			wayDescriptionImg.setStyleName("navigationPicture");
 			this.add(wayDescriptionImg);

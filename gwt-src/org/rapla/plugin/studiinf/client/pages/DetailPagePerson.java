@@ -12,7 +12,6 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
-import org.rapla.plugin.studiinf.client.ui.IconButton;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -42,8 +41,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String name;
 	List<Event> events;
 	
-	private IconButton mailButton;
-	private IconButton telephoneButton;
+	private NavButton mailButton;
+	private NavButton telephoneButton;
 	private RessourceButton roomButton;
 	private RessourceButton roomButton2;
 	private NavButton raplaButton;
@@ -66,8 +65,9 @@ public class DetailPagePerson extends AbstractDetailPage {
 		super.init();
 	
 		personInfoPanel.setStyleName("personInfoPanel");
-		personInfoLabel.setStyleName("personInfoLabel");
-		bottomPanel.setStyleName("personBottomPanel");
+		//personInfoLabel.setStyleName("personInfoLabel");
+		personInfoLabel.setStyleName("infoLabel");
+		bottomPanel.setStyleName("bottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
 		appointmentLabel.setStyleName("personAppointmentLabel");
@@ -76,8 +76,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		lectures.setStyleName("lecturesTable");
 		
 		roomButton = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		mailButton = new IconButton(mailButtonText, new Image(IconProvider.E_MAIL));
-		telephoneButton = new IconButton(telephoneButtonText, new Image(IconProvider.PHONE));
+		mailButton = new NavButton(IconProvider.Email, mailButtonText, null, null);
+		telephoneButton = new NavButton(IconProvider.Phone, telephoneButtonText, null, null);
 		extraInfosButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id);
 		raplaButton = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);		
 		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
@@ -90,6 +90,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		roomButton.setStyleName("personInfoButtons");
 		extraInfosButton.setStyleName("personInfoButtons");
 		raplaButton.setStyleName("personInfoButtons");
+		mailButton.setStyleName("personInfoButtons");
+		telephoneButton.setStyleName("personInfoButtons");
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
@@ -97,6 +99,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		raplaButton2.setSize(0.8);
 		extraInfosButton.setSize(0.8);
 		extraInfosButton2.setSize(0.8);
+		mailButton.setSize(0.8);
+		telephoneButton.setSize(0.8);
 		
 		infos.setWidget(0, 0, roomButton);
 		infos.setWidget(1, 0, mailButton);
