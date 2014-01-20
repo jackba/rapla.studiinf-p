@@ -75,7 +75,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		
 		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,true);
+		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		rowOneButton = new IconButton(rowOneButtonText, new Image(IconProvider.ADDITIONAL_INFORMATION));
 		rowTwoButton = new IconButton(rowTwoButtonText,  new Image(IconProvider.ADDITIONAL_INFORMATION));
 		raplaButton = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
