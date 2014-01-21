@@ -54,7 +54,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infoPanel = new FlowPanel();
 		middlePanel = new FlowPanel();
 		bottomPanel = new FlowPanel();
-		infoLabel = new Label("Information");
+		infoLabel = new Label(Studiinf.i18n.information());
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
 		infos = new Grid(4, 1);
 		

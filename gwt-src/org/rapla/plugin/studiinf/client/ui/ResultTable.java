@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.Studiinf;
 
 import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.dom.client.Style.Unit;
@@ -20,8 +21,8 @@ public class ResultTable extends FlexTable {
 	private int maxRows;
 	private final FlowPanel footerPanel;
 	private int page;
-	private NavButton backButton = new NavButton(IconProvider.Previous,"previous",null,null);
-	private NavButton nextButton = new NavButton(IconProvider.Next,"next",null,null);
+	private NavButton backButton = new NavButton(IconProvider.Previous,Studiinf.i18n.previous(),null,null);
+	private NavButton nextButton = new NavButton(IconProvider.Next,Studiinf.i18n.next(),null,null);
 	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
 	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
 	

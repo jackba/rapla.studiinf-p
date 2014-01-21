@@ -6,6 +6,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.user.client.ui.Widget;
@@ -22,7 +23,7 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 		this.setSize(0.8);
 		setTargetPage(Navigation.roomDetail);
 		targetId = e.getResources().get(0).getId();
-		freeUntil =  new NavButton(IconProvider.Calendar,"frei bis " + e.getEnd(), null, null);
+		freeUntil =  new NavButton(IconProvider.Calendar, Studiinf.i18n.freeUntil(e.getEnd()) , null, null);
 		freeUntil.setSize(0.8);
 		freeUntil.setWidth("100%");
 	}
@@ -40,7 +41,7 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	@Override
 	public NavButton getFooterButton() {
 		if(footerButton == null){
-			footerButton = new NavButton(new FontIcon("icon-Raeume"),null, targetPage, targetId);
+			footerButton = new NavButton(IconProvider.Rooms,null, targetPage, targetId);
 		}
 		return footerButton;
 	}

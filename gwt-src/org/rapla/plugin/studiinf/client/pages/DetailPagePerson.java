@@ -32,7 +32,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
 	private FlowPanel middlePanel = new FlowPanel();
-	private Label personInfoLabel = new Label("Information");
+	private Label personInfoLabel = new Label(Studiinf.i18n.information());
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
 	private Grid infos = new Grid(5, 1);

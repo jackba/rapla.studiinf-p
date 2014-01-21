@@ -32,6 +32,9 @@ public interface I18n extends Messages {
 	String linkRapla();
 	String extraInfos();
 	String back();
-	String freeUntil();
+	String freeUntil(String time);
 	String nofreeRooms();
+	String previous();
+	String next();
+	String information();
 	}

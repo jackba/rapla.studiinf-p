@@ -19,7 +19,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private FlowPanel bottomPanel = new FlowPanel();
-	private Label infoLabel = new Label("Information");
+	private Label infoLabel = new Label(Studiinf.i18n.information());
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	
 	private Grid infos = new Grid(4, 1);

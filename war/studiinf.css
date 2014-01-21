@@ -60,16 +60,12 @@ html{
 	color:#000000;
 }
 
-.subheader p {
+.subHeader p {
 	font-size:1.5vh;
 	line-height:1.9vh;
 	text-align:center;
 	padding:0;
 	margin:0;
-	position:absolute;
-	top:0;
-	left:5vw;
-	width:90vw;
 	text-shadow:0 0 0.1vh #000000;
 }
 	.header h1{
@@ -613,7 +609,7 @@ nav{
 	width:76vw;
 	padding:0px 5vw;
 	background: #5c6971;
-	font-size:3vh;
+	font-size:2vh;
 	line-height:6vh;
 	color:#ffffff;
 }
@@ -626,6 +622,13 @@ nav{
 	left:27.5vw;
 	width: 49.5vw;
 	background: #aeb4b8;
+}
+.personCourseOfStudyLabel{
+	padding-top: 1vh;
+	height: 5vh;
+	font-size:1.5vh;
+	line-height:2vh;
+	vertical-align: middle;
 }
 
 .personAppointmentLabel {
