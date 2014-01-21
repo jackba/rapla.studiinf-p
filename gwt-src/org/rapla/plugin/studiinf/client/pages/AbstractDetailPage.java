@@ -55,7 +55,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 
 				@Override
 				public void onFailure(Throwable arg0) {
-					Window.alert("JSON fail: "+arg0.toString());
+					//Window.alert("JSON fail: "+arg0.toString());
 				}
 		});
 	};

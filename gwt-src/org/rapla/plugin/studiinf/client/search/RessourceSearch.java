@@ -43,7 +43,7 @@ public class RessourceSearch extends AbstractSearch {
 	@Override
 	public void onFailure(Throwable arg0) {
 		// TODO Auto-generated method stub
-		Window.alert(arg0.toString());
+		//Window.alert(arg0.toString());
 		
 	}
 	

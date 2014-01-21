@@ -82,7 +82,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		return resourceMatched;
 	}
 	
-	public static void alertSearchTerms(List<ResourceDescriptor> resources){
+	/*public static void alertSearchTerms(List<ResourceDescriptor> resources){
 		for(ResourceDescriptor resource : resources){
 			int id = 0;
 			for(String term : resource.getSearchTerms()){
@@ -90,7 +90,7 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 				id++;
 			}
 		}
-	}
+	}*/
 	
 	public static String clearSearchString(String searchString)
 	{
