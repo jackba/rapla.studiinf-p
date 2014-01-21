@@ -63,6 +63,7 @@
 		box-sizing: border-box;         /* Opera/IE 8+ */
 		padding:0.5em;
 		text-align:left;
+		overflow:hidden;
 		
 	}
 	.twoLines{
