@@ -5,6 +5,7 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.ParagraphElement;
 import com.google.gwt.http.client.UrlBuilder;
@@ -55,6 +56,7 @@ public class QRBox extends Composite {
 		qrCode.setInnerHTML("");
 		
 		UrlBuilder newUrl = Window.Location.createUrlBuilder();
+		newUrl.setPath("studiinf-mobile.html");
 		newUrl.setHash(hash);
 				
 		Studiinf.newQRCode(qrCode, newUrl.buildString());

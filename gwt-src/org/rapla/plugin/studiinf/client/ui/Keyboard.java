@@ -94,7 +94,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 	private Button handleSpecialKey(String key) {
 		Button button = null;
 		if(key.equals("return")){
-			button = new Button("<i class='fa fa-arrow-left'></i>");
+			button = new Button("<span class='icon-Delete'></span>");
 			button.addClickHandler(new ClickHandler() {
 				
 				@Override
@@ -110,7 +110,7 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 				}
 			});
 		}else if(key.equals("search")){
-			button = new Button("<i class='fa fa-search'></i>");
+			button = new Button("<span class='icon-Loupe'></span>");
 			button.addClickHandler(new ClickHandler() {
 				
 				@Override
