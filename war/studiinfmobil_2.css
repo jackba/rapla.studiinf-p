@@ -5,5 +5,30 @@
 }
 
 .keyboard {
-	display: n
+	display: none
+}
+
+.navigationPicture  {
+    position: absolute !important;
+    top: 40vh;
+    left: 9.75vw;
+    width: 81.5vw;
+    height: 45.5vh;
+    background: none repeat scroll 0% 0% rgb(133, 143, 149);
+}
+
+BUTTON.resultPanelButton.GJORS3IM {
+    position: relative;
+    display: inline-block;
+    background: none repeat scroll 0% 0% rgb(174, 180, 184);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0px;
+    -moz-box-sizing: border-box;
+    overflow: hidden;
+    font-size: 2vh;
+    height: 5em;
+}
+
+.resultPanelButton {
+	font-size: 2vh;
 }
