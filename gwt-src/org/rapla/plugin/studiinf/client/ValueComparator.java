@@ -1,19 +1,10 @@
 package org.rapla.plugin.studiinf.client;
 
-import java.awt.List;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
-import com.google.gwt.text.client.IntegerParser;
 
 //import edu.emory.mathcs.backport.java.util.TreeMap;
 

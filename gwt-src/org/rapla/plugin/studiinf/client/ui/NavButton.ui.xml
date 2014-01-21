@@ -34,6 +34,8 @@
 	.icon span{
 		font-size: 1.5em;
 		vertical-align:middle;
+		position: relative;
+		top: -0.05em;
 	}
 	.number{
 		position: absolute;

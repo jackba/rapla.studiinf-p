@@ -39,5 +39,9 @@ public class IconProvider {
 	public static final FontIcon Rooms = new FontIcon("icon-Rooms");
 	public static final FontIcon QR_Handy = new FontIcon("icon-QR_Handy");
 	public static final FontIcon Previous = new FontIcon("icon-Previous");
+	public static final FontIcon Delete = new FontIcon("icon-Delete");
+	public static final FontIcon Enter = new FontIcon("icon-Enter");
+	public static final FontIcon Search = new FontIcon("icon-Loupe");
+	public static final FontIcon PoI = new FontIcon("icon-PoI");
 	
 }

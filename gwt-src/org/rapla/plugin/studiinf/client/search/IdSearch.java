@@ -22,7 +22,7 @@ public class IdSearch extends AbstractSearch {
 	protected NoDuplicatesList<ResourceDescriptor> searchRessources(
 			List<ResourceDescriptor> resources) {
 		NoDuplicatesList<ResourceDescriptor> resourceMatched = new NoDuplicatesList<ResourceDescriptor>();
-		
+//		Window.alert("matched: "+resourceMatched.toString());
 		ResourceDescriptor resourceDescriptor = SearchUtils.byId(searchString, resources);
 		
 		if (resourceDescriptor!=null){
@@ -41,6 +41,7 @@ public class IdSearch extends AbstractSearch {
 		if(!resourcesMap.containsKey(page)){
 			resourcesMap.put(page, arg0);
 		}
+		searchRessources(resourcesMap.get(page));
 //
 
 	}

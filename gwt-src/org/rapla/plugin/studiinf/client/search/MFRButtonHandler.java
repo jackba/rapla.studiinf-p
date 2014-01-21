@@ -33,7 +33,7 @@ public class MFRButtonHandler implements AsyncCallback<ResourceDescriptor>{
 
 	@Override
 	public void onSuccess(ResourceDescriptor resourceDescriptor) {
-		Window.alert(resourceDescriptor.getName());
+//		Window.alert(resourceDescriptor.getName());
 		this.resultTable.addResult(new ResultButton(resourceDescriptor.getName(), targetPage, resourceDescriptor.getId(), icon, searchPage));
 		this.resultTable.refresh();
 	}

@@ -2,8 +2,6 @@ package org.rapla.plugin.studiinf.client;
 
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
-import java.util.Iterator;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
@@ -12,10 +10,8 @@ import org.rapla.plugin.studiinf.client.search.MFRButtonHandler;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
-import com.google.gwt.dev.util.collect.HashMap;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
-import com.google.gwt.user.client.Window;
 
 public class LocalStorage {
 
@@ -86,9 +82,9 @@ public class LocalStorage {
 				new IdSearch(new MFRButtonHandler(resultTable, icon, targetPage, searchPage), searchPage, Navigation.idForService(keyValuePair.getKey().replace(getPrefix(), "")));
 			}
 			
-			System.out.println("");
+			/*System.out.println("");
 			System.out.println("map 1:"+ map);		
-			System.out.println("Sorted:" + vc.getSortedSet());
+			System.out.println("Sorted:" + vc.getSortedSet());*/
 
 			
 			

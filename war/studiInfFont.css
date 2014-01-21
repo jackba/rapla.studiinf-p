@@ -26,9 +26,6 @@
 .icon-Phone:before {
 	content: "\e600";
 }
-.icon-Persons:before {
-	content: "\e601";
-}
 .icon-Organigram:before {
 	content: "\e602";
 }
@@ -47,11 +44,20 @@
 .icon-Additional_Information:before {
 	content: "\e607";
 }
+.icon-Delete:before {
+	content: "\e613";
+}
 .icon-Barrier-Free:before {
 	content: "\e608";
 }
+.icon-Enter:before {
+	content: "\e614";
+}
 .icon-Calendar:before {
 	content: "\e609";
+}
+.icon-Loupe:before {
+	content: "\e615";
 }
 .icon-Course_Of_Studies:before {
 	content: "\e60a";
@@ -79,4 +85,10 @@
 }
 .icon-Previous:before {
 	content: "\e612";
+}
+.icon-PoI:before {
+	content: "\e601";
+}
+.icon-Persons:before {
+	content: "\e616";
 }
