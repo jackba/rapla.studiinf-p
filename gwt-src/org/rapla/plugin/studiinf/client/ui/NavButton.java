@@ -6,6 +6,7 @@ import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -59,6 +60,11 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		setTargetPage(targetPage);
 		setTargetId(targetId);
 		setText(text);
+		button.addStyleName("navigationButton");
+		number.addClassName("number");
+		icon.addClassName("icon");
+		textLabel.addClassName("text");
+		shadow.addClassName("shadow");
 	}
 	
 	public NavButton(FontIcon fontIcon, String text,AbstractPage targetPage,String targetId){
@@ -84,6 +90,9 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	@UiField
 	NavButtonStyle style;
+	
+	@UiField
+	DivElement shadow;
 	
 	
 	@UiHandler("button")

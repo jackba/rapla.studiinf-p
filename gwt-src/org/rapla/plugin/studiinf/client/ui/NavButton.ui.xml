@@ -159,6 +159,6 @@
 		    <span class="{style.number}" ui:field="number"></span>
 		    <span class="{style.icon}" ui:field="icon"></span>
 		    <span class="{style.text}" ui:field="textLabel"></span>
-		    <div class="{style.shadow}"></div>
+		    <div class="{style.shadow}" ui:field="shadow"></div>
 	</g:Button>
 </ui:UiBinder> 

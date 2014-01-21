@@ -30,6 +30,13 @@ public class QRBox extends Composite {
 		qrLabel.setInnerSafeHtml(SafeHtmlUtils.fromString(Studiinf.i18n.qrInfoText()));
 		qrCode.setId(HTMLPanel.createUniqueId());
 		scanMeIcon.setSrc(IconProvider.QR_BOX);
+		
+		/*fix for quick mobile*/
+		bindQRBox.addStyleName("BindQRBox");
+		qrLabel.addClassName("qrLabel");
+		qrCode.addClassName("qrCode");
+		scanMeIcon.addClassName("scanMeIcon");
+		
 	}
 	
 	public QRBox(String hash) {
@@ -46,6 +53,9 @@ public class QRBox extends Composite {
 	
 	@UiField
 	DivElement qrCode;
+	
+	@UiField
+	HTMLPanel bindQRBox;
 
 	public String getHash() {
 		return hash;

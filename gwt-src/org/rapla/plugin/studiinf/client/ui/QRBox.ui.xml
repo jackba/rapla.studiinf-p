@@ -43,7 +43,7 @@
 		margin:0.5em;
 	}
 	</ui:style>
-	<g:HTMLPanel styleName="{style.BindQRBox}">
+	<g:HTMLPanel ui:field="bindQRBox" styleName="{style.BindQRBox}">
 		<div class="{style.qrCode}" ui:field="qrCode"></div>
 		<img class="{style.scanMeIcon}" src="" ui:field="scanMeIcon" alt=""/>
 		<p class="{style.qrLabel}" ui:field="qrLabel"></p>
