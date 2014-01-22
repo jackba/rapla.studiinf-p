@@ -782,7 +782,7 @@ overflow: hidden;
 }
 
 .raplaBackButton{
-	position: absolute;
+	position: absolute !important;
 	bottom: 10vh;
 	left:20vw;
 	right:20vw;

@@ -10,7 +10,7 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
 public abstract class AbstractDetailPage extends AbstractPage {
 
 	public String id ="";
-	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	protected QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	abstract public boolean hasDefaultQrBox();
 
 
