@@ -21,3 +21,12 @@
 .resultPanelButton {
 	font-size: 1vh !important;
 }
+
+
+.resultBtns{
+	display:none;
+}
+
+.bottomPanel{
+	display:none;
+}

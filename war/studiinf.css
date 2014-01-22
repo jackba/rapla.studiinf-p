@@ -423,38 +423,11 @@ nav{
 		box-shadow: 0 0 0.1vh #000000;
 	}
 	
-.qrBox{
-	position:absolute;
-	top: 38vh;
-	left:5vw;
-	right:5vw;
-	width:89vw;
-	height:10vh;
-	background: #ffffff;
-}
+
 .page-poi .qrBox {
 	top: 67vh;
 }
-.qrLabelImg,.qrCode{
-	float:right;
-	width:8vh;
-	height:8vh;
-	margin:1vh;
-}
-.qrCode{
-	margin:0px;
-	width: 10vh;
-	height: 10vh;
-}
-.qrCode img{
-	margin: 1vh;
-	width:8vh;
-	height: 8vh;
-}
-.qrLabel{
-	margin: 1vh;
-	font-weight: bold;
-}
+
 
 .resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel, */ .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, /*.courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
 	position: absolute;
