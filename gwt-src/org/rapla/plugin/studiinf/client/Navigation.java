@@ -26,31 +26,33 @@ import com.google.gwt.user.client.Window;
 //import com.google.gwt.user.client.Window; Window.alert("text");
 import com.google.gwt.user.client.ui.RootPanel;
 
+/**
+ * 
+ *
+ */
 public final class Navigation {
 	
 	public static final AbstractPage personDetail = new DetailPagePerson();
 	public static final AbstractPage courseDetail = new DetailPageCourse();
 	public static final AbstractPage roomDetail = new DetailPageRoom();
 	public static final AbstractPage poiDetail = new DetailPagePoi();
-	
 	public static final AbstractPage homePage = new HomePage();
 	public static final AbstractPage person = new PersonSearchPage();
 	public static final AbstractPage course = new CourseSearchPage();
 	public static final AbstractPage poi = new PoiSearchPage();
 	public static final AbstractPage room = new RoomSearchPage();
-	
 	public static final AbstractPage organisationChart = new OrganisationChart();
-	
 	public static final AbstractPage extraInfo = new extraInfoPage();
-	
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
 	public static final AbstractPage raplaCourseLink = new CourseRaplaPage();
-	
 	public static final String ID_PREFIX = "org.rapla.entities.domain.Allocatable_";
-	
 	private static List<AbstractPage> pages;
 	
+	/**
+	 * Adds page to navigation.
+	 * @param page Page, which should be added to the navigation.
+	 */
 	public static void add(AbstractPage page){
 		if(pages == null){
 			pages = new LinkedList<AbstractPage>();
@@ -58,8 +60,10 @@ public final class Navigation {
 		pages.add(page);
 	}
 	
+	/**
+	 * Initialises all pages.
+	 */
 	public static void init(){
-		
 		Iterator<AbstractPage> iterator = pages.iterator();
 		while( iterator.hasNext()){
 			AbstractPage page = iterator.next();
@@ -67,12 +71,19 @@ public final class Navigation {
 		}
 	}
 	
-	
-	
+	/**
+	 * Navigates to a specific page.
+	 * @param page Page to which the user want to navigate.
+	 */
 	public static void goToPage(AbstractPage page){
-		
 		goToPage(page,null);
 	}
+	
+	/**
+	 * 
+	 * @param page Target Page, to which the user wants to navigate.
+	 * @param id Id of the ressource of the target Page (Example: PersonId of person detail page)
+	 */
 	public static void goToPage(AbstractPage page,String id){
 		if(page != null){
 		RootPanel.get().clear();
@@ -95,6 +106,11 @@ public final class Navigation {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param key Key of the Target Page.
+	 * @param id
+	 */
 	public static void goToPage(String key, String id){
 		AbstractPage page = getPageByKey(key);
 		if(page != null){
@@ -109,6 +125,11 @@ public final class Navigation {
 		}
 	}
 	
+	/**
+	 * Searchs for a specific page by key
+	 * @param key
+	 * @return the page, to the given key
+	 */
 	private static AbstractPage getPageByKey(String key){
 		Iterator<AbstractPage> iterator = pages.iterator();
 		while( iterator.hasNext()){

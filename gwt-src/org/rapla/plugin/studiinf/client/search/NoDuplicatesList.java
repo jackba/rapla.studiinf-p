@@ -3,6 +3,11 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.Collection;
 import java.util.LinkedList;
 
+/**
+ * 
+ *
+ * @param <E>
+ */
 @SuppressWarnings("serial")
 class NoDuplicatesList<E> extends LinkedList<E> {
     @Override
@@ -15,6 +20,9 @@ class NoDuplicatesList<E> extends LinkedList<E> {
         }
     }
 
+    /**
+     * 
+     */
     @Override
     public boolean addAll(Collection<? extends E> collection) {
     	if(collection !=null){
@@ -25,7 +33,10 @@ class NoDuplicatesList<E> extends LinkedList<E> {
     		return false;
     	}
     }
-
+    
+    /**
+     * 
+     */
     @Override
     public boolean addAll(int index, Collection<? extends E> collection) {
     	if(collection !=null){
@@ -37,6 +48,9 @@ class NoDuplicatesList<E> extends LinkedList<E> {
     	}
     }
 
+    /**
+     * 
+     */
     @Override
     public void add(int index, E element) {
         if (this.contains(element)) {

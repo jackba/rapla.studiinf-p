@@ -4,6 +4,10 @@ import java.util.Collection;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
+/**
+ * Descriptor, which contains all the attributes to a specific point of interest.
+ *
+ */
 public class PoiDescriptor {
 	
 	private String roomNr;	

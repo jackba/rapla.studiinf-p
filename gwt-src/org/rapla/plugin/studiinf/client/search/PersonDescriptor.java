@@ -8,6 +8,10 @@ import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 
 import com.google.gwt.user.client.Window;
 
+/**
+ * descriptor, which contains all the attributes of a specific person.
+ *
+ */
 public class PersonDescriptor{
 	private String name;
 	private String mail;

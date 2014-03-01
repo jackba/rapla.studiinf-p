@@ -4,13 +4,16 @@ import java.util.Collection;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
+/**
+ * Descriptor, which contains all the attributes to a specific course.
+ *
+ */
 public class CourseDescriptor{
 	private String year;
 	private String roomNr;
 	private String name;
 	private String picture;
 	private String department;
-	
 	private ResourceDetail course;
 	private Collection<String> keys;
 	
@@ -27,7 +30,6 @@ public class CourseDescriptor{
 		}
 		return roomNr;
 	}
-
 
 	public String getDepartment() {
 		if(department == null){
@@ -51,9 +53,7 @@ public class CourseDescriptor{
 
 	public CourseDescriptor(ResourceDetail course) {
 		this.course = course;
-		keys = course.getKeys();
-//		Window.alert(keys.toString());
-		
+		keys = course.getKeys();		
 	}
 	
 	private String getCell(String cellName){

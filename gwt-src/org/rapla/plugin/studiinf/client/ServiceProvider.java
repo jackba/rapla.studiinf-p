@@ -13,10 +13,18 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
+/**
+ * 
+ *
+ */
 public class ServiceProvider {
 
 	private static RaplaJsonService service = null;
 
+	/**
+	 * 
+	 * @return
+	 */
 	private static RaplaJsonService getService() {
 		if(service == null){
 			service = GWT.create(RaplaJsonService.class);
@@ -26,25 +34,54 @@ public class ServiceProvider {
 		return service;
 	}
 
+	/**
+	 * 
+	 * @param resourceType
+	 * @param callback
+	 */
 	public static void getResources(String resourceType, AsyncCallback<List<ResourceDescriptor>> callback) {
 		getService().getResources(resourceType, null, SearchUtils.getServiceLocale(), callback);
 		
 	}
 
+	/**
+	 * 
+	 * @param resourceId
+	 * @param callback
+	 */
 	public static void getResource(String resourceId, AsyncCallback<ResourceDetail> callback) {
 		getService().getResource(resourceId, SearchUtils.getServiceLocale(), callback);
 	}
 
+	/**
+	 * 
+	 * @param categoryId
+	 * @param callback
+	 */
 	public static void getOrganigram(String categoryId,	AsyncCallback<List<CategoryDescription>> callback) {
 		getService().getOrganigram(categoryId, SearchUtils.getServiceLocale(), callback);
 		
 	}
 
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @param resourceType
+	 * @param callback
+	 */
 	public static void getFreeResources(String start, String end, String resourceType, AsyncCallback<List<Event>> callback) {
 		getService().getFreeResources(start, end, resourceType, SearchUtils.getServiceLocale(), callback);
 		
 	}
 
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @param resourceId
+	 * @param callback
+	 */
 	public static void getEvents(String start, String end, String resourceId, AsyncCallback<List<Event>> callback) {
 		getService().getEvents(start, end, resourceId, SearchUtils.getServiceLocale(), callback);
 		

@@ -2,6 +2,10 @@ package org.rapla.plugin.studiinf.client;
 
 import java.util.Map.Entry;
 
+/**
+ * 
+ *
+ */
 public class ResourceEntry implements Entry<String, Integer> {
 	private String key;
 	private Integer value;

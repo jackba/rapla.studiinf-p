@@ -1,0 +1,8 @@
+org.rapla.plugin.studiinf
+org.rapla.plugin.studiinf.client
+org.rapla.plugin.studiinf.client.i18n
+org.rapla.plugin.studiinf.client.pages
+org.rapla.plugin.studiinf.client.search
+org.rapla.plugin.studiinf.client.test
+org.rapla.plugin.studiinf.client.ui
+org.rapla.plugin.studiinf.server

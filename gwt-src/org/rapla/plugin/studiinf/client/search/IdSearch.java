@@ -8,6 +8,10 @@ import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
 import com.google.gwt.user.client.Window;
 
+/**
+ * 
+ *
+ */
 public class IdSearch extends AbstractSearch {
 
 	private MFRButtonHandler mfrButtonHandler;
@@ -42,7 +46,7 @@ public class IdSearch extends AbstractSearch {
 			resourcesMap.put(page, arg0);
 		}
 		searchRessources(resourcesMap.get(page));
-//
+
 
 	}
 	@Override

@@ -7,16 +7,15 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 //import edu.emory.mathcs.backport.java.util.TreeMap;
-
+/**
+ * 
+ *
+ */
 public class ValueComparator implements Comparator<String> {
 
-		
 		private Map<String, Integer> sortedMap = new HashMap<String, Integer>();
-		
 	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
-	    
 	    private LocalStorage ls;
-	   
 	    public ValueComparator(Map<String, String> map, LocalStorage ls) {
 			this.ls = ls;
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>(
@@ -53,11 +52,6 @@ public class ValueComparator implements Comparator<String> {
 	    public SortedSet<Map.Entry<String,Integer>> getSortedSet(){
 	    	return sortedEntries;
 	    }
-	    
-	    
-	    	
-	    
-
 
 
 		// Note: this comparator imposes orderings that are inconsistent with equals.    

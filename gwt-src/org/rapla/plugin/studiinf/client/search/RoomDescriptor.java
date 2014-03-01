@@ -4,6 +4,10 @@ import java.util.Collection;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
+/**
+ * Descriptor, which contains all the attributes to a specific room.
+ *
+ */
 public class RoomDescriptor {
 	
 	private String roomNr;	
@@ -11,9 +15,6 @@ public class RoomDescriptor {
 	private String name;
 	private String department;
 	private String picture;
-	
-	
-	
 	private ResourceDetail room;
 	private Collection<String> keys;
 	
@@ -21,9 +22,7 @@ public class RoomDescriptor {
 		this.room = room;
 		keys = room.getKeys();
 	}
-	
 
-	
 	public String getRoomNr() {
 		if(roomNr == null){
 			roomNr = getCell("raumnr");
@@ -37,7 +36,6 @@ public class RoomDescriptor {
 		}
 		return roomType;
 	}
-
 	
 	public String getName() {
 		if(name == null){
@@ -53,14 +51,12 @@ public class RoomDescriptor {
 		return department;
 	}
 	
-	
 	public String getPicture() {
 		if(picture == null){
 			picture = getCell("bild");
 		}
 		return picture;
 	}
-	
 
 	private String getCell(String cellName){
 		if(keys.contains(cellName)){

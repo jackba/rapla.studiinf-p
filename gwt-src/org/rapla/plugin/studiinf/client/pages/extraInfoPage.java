@@ -11,6 +11,10 @@ import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.user.client.ui.FlexTable;
 
+/**
+ * Special Detail page, which contains additional information to a person.
+ *
+ */
 public class extraInfoPage extends AbstractDetailPage {
 FlexTable detailsTable;
 private NavButton backBtn;
@@ -24,8 +28,6 @@ private NavButton backBtn;
 		this.add(detailsTable);
 		
 	}
-	
-	
 	
 	@Override
 	public String getHistoryKey() {
@@ -54,7 +56,11 @@ private NavButton backBtn;
 		}
 	}
 	
-	
+	/**
+	 * Adds one information to the table.
+	 * @param label Label of the Information, which should be added.
+	 * @param value Content to the corresponding Label.
+	 */
 	public void addDetails(String label, String value){
 		DetailEntry detail = new DetailEntry(label, value);
 		detail.setStyleName("detailEntry");

@@ -21,9 +21,13 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * Template for the Search Pages. All Search Pages have to implement this class.
+ * Template includes all the necessary widgets on the search pages.
+ *
+ */
 public abstract class AbstractSearchPage extends AbstractPage{
 	
-
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private ResultTable results ;
@@ -33,23 +37,28 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	protected QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
-	
 	public LocalStorage ls;
-	
 	private KeyUpHandler inputChanger;
-	
-	
 	private boolean searched = false;
-	
 	private final boolean hasOrganigramm;
 	private final boolean showInput;
 	private final boolean showQRBox;
 	private final boolean hasNavigationButtons;
-	
 	private final int resultRows;
 	private final int resultColumns;
 	
-	
+	/**
+	 * With the constructor you can customize your Search Pages.
+	 * 
+	 * @param hasOrganigramm Boolean, which determines if the organigram Button should be shown.
+	 * @param showInput Boolean, 
+	 * @param showQRBox Boolean, which determines if the default QR Code should be displayed.
+	 * @param resultRows Number of rows in the result Table.
+	 * @param resultColumns Number of colummns of the result Table.
+	 * @param hasNavigationButtons Can be deleted??????
+	 * @param icon Icon of the entries in the result Table.
+	 * @param targetPage The Target Page of the Search Page (Corresponding Detail Page).
+	 */
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage) {
 		this.hasOrganigramm = hasOrganigramm;
 		this.showInput = showInput;
@@ -60,86 +69,92 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		this.hasNavigationButtons = hasNavigationButtons;
 		this.ls = new LocalStorage(getHistoryKey(), results, icon, targetPage, this);
 	}
+	
+	/**
+	 * If the size of the result Table is not set, the default is 6 rows and two colummns.
+	 */
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
 		this(hasOrganigramm,showInput,showQRBox,6,2,true, icon, targetPage);
 	}
 	
-public boolean isSearched() {
-	return searched;
-}
-
-
-public void setSearched(boolean searched) {
-	this.searched = searched;
-	if (searched == true){
-		resultLabel.setText(Studiinf.i18n.resultLabel());
-	} else {
-		resultLabel.setText(Studiinf.i18n.frequentResultsLabel());
+	public boolean isSearched() {
+		return searched;
 	}
 	
-}
-
-
-
-@Override
-public void init() {
-	super.init();
-	organigramBtn = new NavButton(IconProvider.Organigram, Studiinf.i18n.organigram(), Navigation.organisationChart,"1");
-	
-	searchField.setStyleName("searchField");
-	resultLabel.setStyleName("infoLabel");
-	results.setStyleName("results");
-	organigramBtn.addStyleName("organigramBtn");
-	keyboard.setStyleName("keyboard");
-	resultBtns.setStyleName("resultBtns");
-	resultPanel.setStyleName("resultPanel");
-	searchPanel.setStyleName("searchPanel");
-//	results.getBackButton().addStyleName("backButton");
-//	results.getNextButton().addStyleName("nextButton");
-	
-	qrBox.getElement().getStyle().setProperty("top", "43vh");
-
-	inputChanger = new KeyUpHandler() {
-		
-		@Override
-		public void onKeyUp(KeyUpEvent event) {
-			handleKeyEvent();
+	/**
+	 * Sets the Label of the result Table. Before searching the table shows the most frequent results.
+	 * @param searched Boolean, if the user has types sth. into the search.
+	 */
+	public void setSearched(boolean searched) {
+		this.searched = searched;
+		if (searched == true){
+			resultLabel.setText(Studiinf.i18n.resultLabel());
+		} else {
+			resultLabel.setText(Studiinf.i18n.frequentResultsLabel());
 		}
-	};
-	
-	searchField.addKeyUpHandler(inputChanger);
-	
-	
-	
-	resultPanel.add(resultLabel);
-	resultPanel.add(results);
-	
-	for(NavButton b : results.getButtonsBottom()){
-		this.add(b);
+		
 	}
 	
-	if(showInput){
-		searchPanel.add(keyboard);
-		searchPanel.add(searchField);
-		this.add(searchPanel);
+	/**
+	 * Initialises all the elements of the page and displays them.
+	 */
+	@Override
+	public void init() {
+		super.init();
+		organigramBtn = new NavButton(IconProvider.Organigram, Studiinf.i18n.organigram(), Navigation.organisationChart,"1");
+		searchField.setStyleName("searchField");
+		resultLabel.setStyleName("infoLabel");
+		results.setStyleName("results");
+		organigramBtn.addStyleName("organigramBtn");
+		keyboard.setStyleName("keyboard");
+		resultBtns.setStyleName("resultBtns");
+		resultPanel.setStyleName("resultPanel");
+		searchPanel.setStyleName("searchPanel");
+	//	results.getBackButton().addStyleName("backButton");
+	//	results.getNextButton().addStyleName("nextButton");
+		qrBox.getElement().getStyle().setProperty("top", "43vh");
+		inputChanger = new KeyUpHandler() {
+			
+			/**
+			 * Handler, which checks if the user has typed sth. into the search field.
+			 */
+			@Override
+			public void onKeyUp(KeyUpEvent event) {
+				handleKeyEvent();
+			}
+		};
+		searchField.addKeyUpHandler(inputChanger);
+		resultPanel.add(resultLabel);
+		resultPanel.add(results);
+		
+		for(NavButton b : results.getButtonsBottom()){
+			this.add(b);
+		}
+		
+		if(showInput){
+			searchPanel.add(keyboard);
+			searchPanel.add(searchField);
+			this.add(searchPanel);
+		}
+		
+		this.add(resultPanel);
+		if(this.hasOrganigramm){
+			this.add(organigramBtn);
+		}
+		
+	//	if (this.hasNavigationButtons){
+	//		this.add(results.getBackButton());
+	//		this.add(results.getNextButton());
+	//	}
+		this.add(resultBtns);
+		if(this.showQRBox){
+			this.add(qrBox);
+		}
 	}
 	
-	this.add(resultPanel);
-	if(this.hasOrganigramm){
-		this.add(organigramBtn);
-	}
-	
-	if (this.hasNavigationButtons){
-//		this.add(results.getBackButton());
-//		this.add(results.getNextButton());
-	}
-	this.add(resultBtns);
-
-	if(this.showQRBox){
-		this.add(qrBox);
-	}
-	}
-
+	/**
+	 * Checks if the user has typed sth. into the search field.
+	 */
 	private void handleKeyEvent(){
 		searchField.setCursorPos(searchField.getText().length());
 		searchField.setFocus(true);
@@ -152,11 +167,12 @@ public void init() {
 		}
 	}
 
-	
+	/**
+	 * Adds entries to the result Table.
+	 * @param res ResultButton, which should be added to the result table.
+	 */
 	public void addResult(ResultButton res){
-		results.addResult( res);
-		
-		
+		results.addResult( res);	
 	}
 	
 	@Override
@@ -169,11 +185,12 @@ public void init() {
 	}
 
 	
-	
+	/**
+	 * Refreshs the page and updates the entries.
+	 */
 	@Override
 	protected void refresh() {
 		super.refresh();
-
 		resultBtns.clear();
 		results.refresh();
 	}
@@ -192,18 +209,15 @@ public void init() {
 		ls.writeStorage(targetId);
 	}
 	
-	
-	
 	abstract protected void handleSearch(String searchTerm);
-	
-	protected void handleMostFrequent(){
-		ls.fillMap();
-		
-	}
-	
-
-
 	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);
 	abstract public String getResourceType();
 	
+	/**
+	 * Updated the calculation of the most frequent results, after every search.
+	 */
+	protected void handleMostFrequent(){
+		ls.fillMap();
+		
+	}	
 }

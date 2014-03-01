@@ -2,6 +2,11 @@ package org.rapla.plugin.studiinf.client;
 
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 
+/**
+ * Class provides all necessary icons.
+ * Two types: as a Font or as a String.
+ *
+ */
 public class IconProvider {
 	public static final String QR_BOX ="img/QR.png";
 	public static final String ORGANIGRAMM ="img/Organigramm.png";

@@ -13,6 +13,10 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
 
+/**
+ * 
+ *
+ */
 public class LocalStorage {
 
 	private Storage localStorage = Storage.getLocalStorageIfSupported();

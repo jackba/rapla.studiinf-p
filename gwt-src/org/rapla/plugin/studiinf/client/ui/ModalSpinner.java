@@ -3,6 +3,10 @@ package org.rapla.plugin.studiinf.client.ui;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 
+/**
+ * 
+ *
+ */
 public class ModalSpinner {
 	private static final Element modalElement = Document.get().getElementById("loadingSpinner");
 	

@@ -23,20 +23,16 @@ public class Studiinf implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {	
-		
 		Navigation.init();
 		History.addValueChangeHandler(new HistoyChangeHandler());
-		
 		initToken();
-		
 		History.fireCurrentHistoryState();
-		
 		ModalSpinner.hide();
-		
-		
-	
 	}
 
+	/**
+	 * 
+	 */
 	private void initToken() {
 		// initToken
 		String initToken = History.getToken();
@@ -45,6 +41,11 @@ public class Studiinf implements EntryPoint {
 	    }
 	}
 	
+	/**
+	 * 
+	 * @param elementId
+	 * @param text
+	 */
 	public static native void newQRCode(String elementId,String text) /*-{
 		var elm =  $doc.getElementById(elementId);
 		if(elm){
@@ -57,6 +58,12 @@ public class Studiinf implements EntryPoint {
 		}
 	
 	}-*/;
+	
+	/**
+	 * 
+	 * @param element
+	 * @param text
+	 */
 	public static native void newQRCode(Element element,String text) /*-{
 	if(element){
 		var qr = new $wnd.QRCode(element, {

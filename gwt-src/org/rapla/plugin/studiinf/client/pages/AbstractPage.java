@@ -10,6 +10,10 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * Template for all pages, which adds header and footer to the pages.
+ *
+ */
 public abstract class AbstractPage extends ComplexPanel{
 	private PageHeader header;
 	private PageFooter footer;

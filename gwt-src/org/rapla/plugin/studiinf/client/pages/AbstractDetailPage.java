@@ -7,6 +7,11 @@ import org.rapla.plugin.studiinf.client.ui.QRBox;
 import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
+/**
+ * Template for all detail pages.
+ * All detail pages have to implement this class.
+ *
+ */
 public abstract class AbstractDetailPage extends AbstractPage {
 
 	public String id ="";
@@ -47,13 +52,13 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	protected void handleId(final String id){
 //		Window.alert(id+": ?");
 		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
-				@Override
+				//@Override
 				public void onSuccess(ResourceDetail arg0) {
 //					Window.alert(id+": " + arg0.toString());
 					handleRessource(id, arg0);
 				}
 
-				@Override
+				//@Override
 				public void onFailure(Throwable arg0) {
 					//Window.alert("JSON fail: "+arg0.toString());
 				}

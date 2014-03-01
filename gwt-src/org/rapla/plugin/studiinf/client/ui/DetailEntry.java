@@ -6,6 +6,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 
+/**
+ * An Detail Entry is a ressource information, which has the following structure
+ * label: value
+ *
+ */
 public class DetailEntry extends FlowPanel {
 	
 	public DetailEntry(String label, String value)
@@ -16,7 +21,6 @@ public class DetailEntry extends FlowPanel {
 		HTMLPanel info = new HTMLPanel(htmlText);
 		key.setStyleName("detailKey");
 		info.setStyleName("detailValue");
-		
 		this.add(key);
 		this.add(info);
 	}
