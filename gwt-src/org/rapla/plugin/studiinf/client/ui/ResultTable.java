@@ -15,6 +15,10 @@ import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ *
+ */
 public class ResultTable extends FlexTable {
 
 	private List<ResultObject> results = new LinkedList<ResultObject>();
@@ -26,14 +30,10 @@ public class ResultTable extends FlexTable {
 	private NavButton nextButton = new NavButton(IconProvider.Next,Studiinf.i18n.next(),null,null);
 	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
 	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
-	
-	
+
 	public int getPage() {
 		return page;
 	}
-
-
-
 
 	public void setPage(int page) {
 		if(page > 0 && page < getMaxPages()){
@@ -57,7 +57,6 @@ public class ResultTable extends FlexTable {
 		setPage(getPage() - 1); 
 	}
 
-
 	/**
 	 * 
 	 */
@@ -75,14 +74,11 @@ public class ResultTable extends FlexTable {
 		return hasPages() && getPage() > 0;
 	}
 
-
-
 	public ResultTable(FlowPanel footerPanel,int columns,int maxRows) {
 	this.columns = columns;	
 	this.maxRows = maxRows;
 	this.footerPanel = footerPanel;
 	this.page = 0;
-	
 	
 	this.backButton.setSize(0.6);
 	this.backButton.setWidth("50%");
@@ -90,14 +86,12 @@ public class ResultTable extends FlexTable {
 	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
 	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);
-	
 	this.nextButton.setSize(0.6);
 	this.nextButton.setWidth("50%");
 	this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
 	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);
-	
 	this.backButton.setClickHandler(new ClickHandler() {
 		
 		@Override
@@ -115,11 +109,8 @@ public class ResultTable extends FlexTable {
 	
 	this.backButtonBottom.addStyleName("backButtonBottom");
 	this.nextButtonBottom.addStyleName("nextButtonBottom");
-	
 	this.backButtonBottom.setSize(0.8);
-	
 	this.nextButtonBottom.setSize(0.8);
-	
 	this.backButtonBottom.setClickHandler(new ClickHandler() {
 		
 		@Override
@@ -134,26 +125,15 @@ public class ResultTable extends FlexTable {
 			nextPage();
 		}
 	});
-	
-	
-		
-		
-		
-		
 	}
-	
-		
-	
 	
 	public void addResult(ResultObject result){
 		results.add(result);
 		result.setNumber(results.indexOf(result) + 1);
-//		refresh();
 	}
 	
 	public boolean removeResult(ResultObject result) {
 		boolean removed = results.remove(result);
-//		refresh();
 		return removed;
 	}
 	
@@ -163,18 +143,15 @@ public class ResultTable extends FlexTable {
 	}
 	
 	public void refresh(){
-//		Window.alert("refresh");
 		clear();
 		footerPanel.clear();
 		int count = 0;
 		for (ResultObject result : results){
 			for(Widget cell : result.getCellObjects()){
-//				Window.alert(Math.floor((count / columns))+" - "+(page*maxRows) + " >= " + maxRows);
 				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 					break;
 				}
 				if(count >= page*columns*maxRows){
-//					Window.alert(count+" -> "+Math.floor((count / columns)-(page*maxRows)) +"/"+(count % columns)+" = "+cell.toString());
 					try {
 						NavButton btn = (NavButton) cell;
 						btn.setSize(0.5);
@@ -194,29 +171,20 @@ public class ResultTable extends FlexTable {
 			}
 		}
 		
-//			Window.alert((count % columns) + " -> "+count);
 		while(count % columns != 0){
 			
 			setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, new FlowPanel());
 			count++;
-//				Window.alert((count % columns) + " -> "+count);
 		}
 		if(hasPages()){
-//			int pageNavRow = getRowCount();
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
-			
-//			int pageNavRow = getRowCount();
 			backButtonBottom.setEnabled(hasPreviousPage());
 			nextButtonBottom.setEnabled(hasNextPage());
-			
-			
 			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
 			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
 			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 0,"50%");
 			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 1,"50%");
-			
-	
 		}
 	}
 	
@@ -227,9 +195,6 @@ public class ResultTable extends FlexTable {
 		return buttons;
 	}
 	
-	
-
-
 	public int getColumns() {
 		return columns;
 	}

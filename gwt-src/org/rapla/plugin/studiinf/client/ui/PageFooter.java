@@ -13,6 +13,10 @@ import com.google.gwt.http.client.UrlBuilder;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
+/**
+ * Footer with a home and a language button.
+ *
+ */
 public class PageFooter extends FlowPanel {
 	
 	
@@ -22,10 +26,7 @@ public class PageFooter extends FlowPanel {
 	
 	public void init(){
 		this.setStyleName("footer");
-	    
-	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);
-	    
-	    
+	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	    
 	    NavButton languageButton = new NavButton(IconProvider.World ,Studiinf.i18n.otherLanguage(),null,null);
 	    languageButton.setClickHandler(new ClickHandler() {
 			@Override
@@ -34,7 +35,6 @@ public class PageFooter extends FlowPanel {
 				UrlBuilder newUrl = Window.Location.createUrlBuilder();
 				newUrl.setParameter("locale", i18n.otherLanguageURL());
 				Window.Location.assign(newUrl.buildString());
-				
 			}
 		});
 	    this.add(languageButton);
@@ -43,12 +43,5 @@ public class PageFooter extends FlowPanel {
 	    homeBtn.getElement().getStyle().setProperty("float", "right");
 	    languageButton.addStyleName("left");
 	    homeBtn.addStyleName("right");
-	    
-	}
-
-	
-	
-	
-	
-	
+	}	
 }

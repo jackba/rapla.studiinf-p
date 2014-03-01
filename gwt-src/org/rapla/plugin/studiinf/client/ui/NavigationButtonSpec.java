@@ -2,6 +2,10 @@ package org.rapla.plugin.studiinf.client.ui;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
+/**
+ * Interface which specifies the NavigationButton
+ *
+ */
 public interface NavigationButtonSpec {
 	public String getTargetId();
 	public void setTargetId(String targetId);

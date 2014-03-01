@@ -57,6 +57,4 @@ public class RessourceButton extends NavButton {
 	public void setTargetId(String targetId) {
 		super.setTargetId(targetId);
 	}
-	
-
 }

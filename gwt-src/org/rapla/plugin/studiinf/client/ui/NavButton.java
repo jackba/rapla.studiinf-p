@@ -21,6 +21,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ *
+ */
 public class NavButton extends Composite implements NavigationButtonSpec, HasText {
 
 	private static NavButtonUiBinder uiBinder = GWT

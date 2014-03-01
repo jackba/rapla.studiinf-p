@@ -17,6 +17,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * White Box, which contains a QR Code, an image of a smartphone and a explanation.
+ *
+ */
 public class QRBox extends Composite {
 
 	private static QRBoxUiBinder uiBinder = GWT.create(QRBoxUiBinder.class);

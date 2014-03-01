@@ -5,9 +5,11 @@ import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ *
+ */
 public class FontIcon extends Widget {
-	
-	
 	
 	public FontIcon() {
 		setElement(DOM.createSpan());

@@ -2,6 +2,10 @@ package org.rapla.plugin.studiinf.client.ui;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 
+/**
+ * Table, which contains information for free rooms
+ *
+ */
 public class FreeRoomTable extends ResultTable {
 
 	public FreeRoomTable(FlowPanel footerPanel, int columns, int maxRows) {

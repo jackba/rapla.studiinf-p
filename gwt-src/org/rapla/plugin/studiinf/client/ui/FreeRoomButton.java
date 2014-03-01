@@ -11,6 +11,11 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * Button, which displays free rooms. 
+ * Consists out of two horizontal Buttons: One displays the room and the other how lon it is free.
+ *
+ */
 public class FreeRoomButton extends NavButton implements ResultObject {
 	
 	private final NavButton freeUntil;

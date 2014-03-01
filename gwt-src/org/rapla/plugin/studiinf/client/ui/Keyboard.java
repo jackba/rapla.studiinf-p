@@ -8,6 +8,10 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
+/**
+ * Keyboard Widget, which can be used on several pages.
+ *
+ */
 public class Keyboard extends FlowPanel implements ClickHandler {
 	private final TextBox inputField;
 	private final AbstractSearchPage searchpage;

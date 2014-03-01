@@ -20,7 +20,6 @@ public class ResultButton extends NavButton implements ResultObject {
 		setNumber(0);
 		this.setWidth("100%");
 	}
-
 	
 	@Override
 	public void setNumber(int number) {
@@ -74,6 +73,4 @@ public class ResultButton extends NavButton implements ResultObject {
 			searchPage.handleClickCount(this.getTargetId());
 		}
 	}
-
-	
 }
