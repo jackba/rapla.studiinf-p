@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
@@ -14,10 +14,10 @@ import com.google.gwtjsonrpc.common.AsyncCallback;
  * 
  *
  */
-public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescriptor>> {
+public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescription>> {
 	protected String searchString;
 	protected AbstractSearchPage page;
-	protected static Map<AbstractSearchPage,List<ResourceDescriptor>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescriptor>>();
+	protected static Map<AbstractSearchPage,List<ResourceDescription>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescription>>();
 	
 	public AbstractSearch(String searchTerm,AbstractSearchPage page,boolean autoinit) {
 		if(searchTerm == null){
@@ -60,15 +60,15 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 	 * @param arg0
 	 */
 	@Override
-	public void onSuccess(List<ResourceDescriptor> arg0) {
+	public void onSuccess(List<ResourceDescription> arg0) {
 		if(!resourcesMap.containsKey(page)){
 			resourcesMap.put(page, arg0);
 		}
-		NoDuplicatesList<ResourceDescriptor> ressourcesMatched = searchRessources(resourcesMap.get(page));
+		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page));
 		page.updateResults(ressourcesMatched);
 	}
 
-	protected abstract NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources);
+	protected abstract NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources);
 
 	protected final String getResourceType() {
 		return page.getResourceType();

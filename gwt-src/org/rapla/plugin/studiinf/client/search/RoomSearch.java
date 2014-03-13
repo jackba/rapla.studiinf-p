@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
 
@@ -20,9 +20,9 @@ public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 
 
 @Override
-public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
+public NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources) {
 	
-	NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
+	NoDuplicatesList<ResourceDescription> roomMatched = new NoDuplicatesList<ResourceDescription>();
 	
 	roomMatched.addAll(SearchUtils.startsWithSearchTerm(NAME, searchString, resources));
 	roomMatched.addAll(SearchUtils.startsWithSearchTerm(TYPE, searchString, resources));

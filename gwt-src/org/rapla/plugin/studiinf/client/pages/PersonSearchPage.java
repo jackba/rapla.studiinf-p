@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -33,10 +33,10 @@ public class PersonSearchPage extends AbstractSearchPage {
 
 	
 	@Override
-	public void updateResults(List<ResourceDescriptor> results)
+	public void updateResults(List<ResourceDescription> results)
 	{
 		clearResult();
-		for(ResourceDescriptor person : results)
+		for(ResourceDescription person : results)
 		{
 			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), IconProvider.Persons, this));
 		}

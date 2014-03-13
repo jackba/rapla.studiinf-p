@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
 
@@ -11,14 +11,14 @@ import com.google.gwt.junit.client.GWTTestCase;
 
 public class POISearchTest extends GWTTestCase {
 	
-	ResourceDescriptor poi1;
-	ResourceDescriptor poi2;
-	ResourceDescriptor poi3;
-	ResourceDescriptor poi4;
+	ResourceDescription poi1;
+	ResourceDescription poi2;
+	ResourceDescription poi3;
+	ResourceDescription poi4;
 	
-	List<ResourceDescriptor> pList;
-	List<ResourceDescriptor> resultList;
-	List<ResourceDescriptor> expectedList;
+	List<ResourceDescription> pList;
+	List<ResourceDescription> resultList;
+	List<ResourceDescription> expectedList;
 	PoiSearchPage psp;
 
 	@Override
@@ -32,15 +32,15 @@ public class POISearchTest extends GWTTestCase {
 		List<String> searchTerms2 = new ArrayList<String>();
 		List<String> searchTerms3 = new ArrayList<String>();
 		List<String> searchTerms4 = new ArrayList<String>();
-		pList = new ArrayList<ResourceDescriptor>();
+		pList = new ArrayList<ResourceDescription>();
 		searchTerms1.add("Casino");
 		searchTerms2.add("Audimax");
 		searchTerms3.add("Rektorat");
 		searchTerms4.add("Planspielräume");
-		poi1 = new ResourceDescriptor("01", "Casino" , "testURL", searchTerms1);
-		poi2 = new ResourceDescriptor("02", "Audimax" , "testURL", searchTerms2);
-		poi3 = new ResourceDescriptor("03", "Rektorat" , "testURL", searchTerms3);
-		poi4 = new ResourceDescriptor("04", "Planspielräume" , "testURL", searchTerms4);
+		poi1 = new ResourceDescription("01", "Casino" , "testURL", searchTerms1);
+		poi2 = new ResourceDescription("02", "Audimax" , "testURL", searchTerms2);
+		poi3 = new ResourceDescription("03", "Rektorat" , "testURL", searchTerms3);
+		poi4 = new ResourceDescription("04", "Planspielräume" , "testURL", searchTerms4);
 		
 		pList.add(poi1);
 		pList.add(poi2);
@@ -55,8 +55,8 @@ public class POISearchTest extends GWTTestCase {
 	public void testSearchResources()
 	{	
 		init();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(poi1);
 		expectedList.add(poi2);
 		expectedList.add(poi3);

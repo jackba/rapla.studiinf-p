@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
@@ -17,9 +17,9 @@ public class RessourceSearch extends AbstractSearch {
 	}
 
 	@Override
-	protected NoDuplicatesList<ResourceDescriptor> searchRessources(
-			List<ResourceDescriptor> resources) {
-		NoDuplicatesList<ResourceDescriptor> roomMatched = new NoDuplicatesList<ResourceDescriptor>();
+	protected NoDuplicatesList<ResourceDescription> searchRessources(
+			List<ResourceDescription> resources) {
+		NoDuplicatesList<ResourceDescription> roomMatched = new NoDuplicatesList<ResourceDescription>();
 		
 		roomMatched.addAll(SearchUtils.containsName(searchString, resources));
 			
@@ -27,12 +27,12 @@ public class RessourceSearch extends AbstractSearch {
 	}
 	
 	@Override
-	public void onSuccess(List<ResourceDescriptor> arg0) {
+	public void onSuccess(List<ResourceDescription> arg0) {
 		if(!resourcesMap.containsKey(page)){
 			resourcesMap.put(page, arg0);
 		}
 //		Window.alert("all: "+resourcesMap.get(page));
-		NoDuplicatesList<ResourceDescriptor> ressourcesMatched = searchRessources(resourcesMap.get(page));
+		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page));
 		if(ressourcesMatched.size() >= 1){
 			button.updateResults(ressourcesMatched.getFirst());
 		}else{

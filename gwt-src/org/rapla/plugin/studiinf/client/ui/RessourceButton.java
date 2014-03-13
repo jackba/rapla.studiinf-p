@@ -1,6 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.search.RessourceSearch;
@@ -33,7 +33,7 @@ public class RessourceButton extends NavButton {
 		setHideText(hideText);
 	}
 	
-	public void updateResults(ResourceDescriptor resourceDescriptor) {
+	public void updateResults(ResourceDescription resourceDescriptor) {
 //		Window.alert("update: "+resourceDescriptor.toString());
 		setTargetId(resourceDescriptor.getId());	
 	}

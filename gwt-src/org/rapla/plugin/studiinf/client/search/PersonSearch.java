@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 
 
@@ -19,8 +19,8 @@ public PersonSearch(String searchTerm, PersonSearchPage psPage)
 
 
 @Override
-public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
-	NoDuplicatesList<ResourceDescriptor> personMatched = new NoDuplicatesList<ResourceDescriptor>();
+public NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources) {
+	NoDuplicatesList<ResourceDescription> personMatched = new NoDuplicatesList<ResourceDescription>();
 	
 	personMatched.addAll(SearchUtils.startsWithSearchTerm(LAST_NAME, searchString, resources));
 	personMatched.addAll(SearchUtils.startsWithSearchTerm(FIRST_NAME, searchString, resources));

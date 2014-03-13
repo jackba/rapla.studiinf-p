@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 
 public class PoiSearch extends AbstractSearch {
@@ -13,8 +13,8 @@ public class PoiSearch extends AbstractSearch {
 
 
 	@Override
-	public NoDuplicatesList<ResourceDescriptor> searchRessources(List<ResourceDescriptor> resources) {
-		NoDuplicatesList<ResourceDescriptor> pOIMatched = new NoDuplicatesList<ResourceDescriptor>();
+	public NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources) {
+		NoDuplicatesList<ResourceDescription> pOIMatched = new NoDuplicatesList<ResourceDescription>();
 			pOIMatched.addAll(resources);
 		return pOIMatched;
 	}

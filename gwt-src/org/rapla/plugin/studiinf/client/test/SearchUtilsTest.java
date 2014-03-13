@@ -3,33 +3,33 @@ package org.rapla.plugin.studiinf.client.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.search.SearchUtils;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
 public class SearchUtilsTest extends GWTTestCase {
 	
-	ResourceDescriptor person1;
-	ResourceDescriptor person2;
-	ResourceDescriptor person3;
-	ResourceDescriptor person4;
-	ResourceDescriptor room1;
-	ResourceDescriptor room2;
-	ResourceDescriptor room3;
-	ResourceDescriptor room4;
-	ResourceDescriptor course1;
-	ResourceDescriptor course2;
-	ResourceDescriptor course3;
-	ResourceDescriptor course4;
-	ResourceDescriptor poi1;
-	ResourceDescriptor poi2;
-	ResourceDescriptor poi3;
-	ResourceDescriptor poi4;
+	ResourceDescription person1;
+	ResourceDescription person2;
+	ResourceDescription person3;
+	ResourceDescription person4;
+	ResourceDescription room1;
+	ResourceDescription room2;
+	ResourceDescription room3;
+	ResourceDescription room4;
+	ResourceDescription course1;
+	ResourceDescription course2;
+	ResourceDescription course3;
+	ResourceDescription course4;
+	ResourceDescription poi1;
+	ResourceDescription poi2;
+	ResourceDescription poi3;
+	ResourceDescription poi4;
 	
-	List<ResourceDescriptor> pList;
-	List<ResourceDescriptor> resultList;
-	List<ResourceDescriptor> expectedList;
+	List<ResourceDescription> pList;
+	List<ResourceDescription> resultList;
+	List<ResourceDescription> expectedList;
 
 	@Override
 	public String getModuleName() {
@@ -43,7 +43,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		List<String> searchTerms2 = new ArrayList<String>();
 		List<String> searchTerms3 = new ArrayList<String>();
 		List<String> searchTerms4 = new ArrayList<String>();
-		pList = new ArrayList<ResourceDescriptor>();
+		pList = new ArrayList<ResourceDescription>();
 		searchTerms1.add("Roland");
 		searchTerms1.add("Küstermann");
 		searchTerms2.add("Silvia");
@@ -52,10 +52,10 @@ public class SearchUtilsTest extends GWTTestCase {
 		searchTerms3.add("Müller-Meier");
 		searchTerms4.add("Jürgen");
 		searchTerms4.add("Lausen");
-		person1 = new ResourceDescriptor("01", "Prof. Dr. R. Küstermann" , "testURL", searchTerms1);
-		person2 = new ResourceDescriptor("02", "Prof. Dr. S. Lauer" , "testURL", searchTerms2);
-		person3 = new ResourceDescriptor("03", "Prof. Dr. A. Müller-Meier" , "testURL", searchTerms3);
-		person4 = new ResourceDescriptor("04", "Prof. Dr. J. Lausen" , "testURL", searchTerms4);
+		person1 = new ResourceDescription("01", "Prof. Dr. R. Küstermann" , "testURL", searchTerms1);
+		person2 = new ResourceDescription("02", "Prof. Dr. S. Lauer" , "testURL", searchTerms2);
+		person3 = new ResourceDescription("03", "Prof. Dr. A. Müller-Meier" , "testURL", searchTerms3);
+		person4 = new ResourceDescription("04", "Prof. Dr. J. Lausen" , "testURL", searchTerms4);
 		
 		pList.add(person1);
 		pList.add(person2);
@@ -70,7 +70,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		List<String> searchTerms2 = new ArrayList<String>();
 		List<String> searchTerms3 = new ArrayList<String>();
 		List<String> searchTerms4 = new ArrayList<String>();
-		pList = new ArrayList<ResourceDescriptor>();
+		pList = new ArrayList<ResourceDescription>();
 		searchTerms1.add("A51");
 		searchTerms1.add("Planspielraum");
 		searchTerms2.add("A52");
@@ -79,10 +79,10 @@ public class SearchUtilsTest extends GWTTestCase {
 		searchTerms3.add("Hörsaal");
 		searchTerms4.add("BAudimaxL");
 		searchTerms4.add("Hörsaal");
-		room1 = new ResourceDescriptor("01", "A51 Planspielraum" , "testURL", searchTerms1);
-		room2 = new ResourceDescriptor("02", "A52 Planspielraum" , "testURL", searchTerms2);
-		room3 = new ResourceDescriptor("03", "B354 WI Hörsaal" , "testURL", searchTerms3);
-		room4 = new ResourceDescriptor("04", "BAudimaxL Hörsaal" , "testURL", searchTerms4);
+		room1 = new ResourceDescription("01", "A51 Planspielraum" , "testURL", searchTerms1);
+		room2 = new ResourceDescription("02", "A52 Planspielraum" , "testURL", searchTerms2);
+		room3 = new ResourceDescription("03", "B354 WI Hörsaal" , "testURL", searchTerms3);
+		room4 = new ResourceDescription("04", "BAudimaxL Hörsaal" , "testURL", searchTerms4);
 		
 		pList.add(room1);
 		pList.add(room2);
@@ -97,15 +97,15 @@ public class SearchUtilsTest extends GWTTestCase {
 		List<String> searchTerms2 = new ArrayList<String>();
 		List<String> searchTerms3 = new ArrayList<String>();
 		List<String> searchTerms4 = new ArrayList<String>();
-		pList = new ArrayList<ResourceDescriptor>();
+		pList = new ArrayList<ResourceDescription>();
 		searchTerms1.add("WWI11B1");
 		searchTerms2.add("International Students");
 		searchTerms3.add("TWIW12ITV");
 		searchTerms4.add("WBK131");
-		course1 = new ResourceDescriptor("01", "WWI11B1" , "testURL", searchTerms1);
-		course2 = new ResourceDescriptor("02", "International Students" , "testURL", searchTerms2);
-		course3 = new ResourceDescriptor("03", "TWIW12ITV" , "testURL", searchTerms3);
-		course4 = new ResourceDescriptor("04", "WBK13B1" , "testURL", searchTerms4);
+		course1 = new ResourceDescription("01", "WWI11B1" , "testURL", searchTerms1);
+		course2 = new ResourceDescription("02", "International Students" , "testURL", searchTerms2);
+		course3 = new ResourceDescription("03", "TWIW12ITV" , "testURL", searchTerms3);
+		course4 = new ResourceDescription("04", "WBK13B1" , "testURL", searchTerms4);
 		
 		pList.add(course1);
 		pList.add(course2);
@@ -120,15 +120,15 @@ public class SearchUtilsTest extends GWTTestCase {
 		List<String> searchTerms2 = new ArrayList<String>();
 		List<String> searchTerms3 = new ArrayList<String>();
 		List<String> searchTerms4 = new ArrayList<String>();
-		pList = new ArrayList<ResourceDescriptor>();
+		pList = new ArrayList<ResourceDescription>();
 		searchTerms1.add("Casino");
 		searchTerms2.add("Audimax");
 		searchTerms3.add("Rektorat");
 		searchTerms4.add("Planspielräume");
-		poi1 = new ResourceDescriptor("01", "Casino" , "testURL", searchTerms1);
-		poi2 = new ResourceDescriptor("02", "Audimax" , "testURL", searchTerms2);
-		poi3 = new ResourceDescriptor("03", "Rektorat" , "testURL", searchTerms3);
-		poi4 = new ResourceDescriptor("04", "Planspielräume" , "testURL", searchTerms4);
+		poi1 = new ResourceDescription("01", "Casino" , "testURL", searchTerms1);
+		poi2 = new ResourceDescription("02", "Audimax" , "testURL", searchTerms2);
+		poi3 = new ResourceDescription("03", "Rektorat" , "testURL", searchTerms3);
+		poi4 = new ResourceDescription("04", "Planspielräume" , "testURL", searchTerms4);
 		
 		pList.add(poi1);
 		pList.add(poi2);
@@ -140,8 +140,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermPersonLastName()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person2);
 		expectedList.add(person4);
 		resultList = SearchUtils.startsWithSearchTerm(1, "lau", pList);
@@ -162,8 +162,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermPersonFirstName()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		resultList = SearchUtils.startsWithSearchTerm(0, "roland", pList);
 		assertEquals(expectedList, resultList);
@@ -172,8 +172,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsSearchTermPersonFirstName()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		expectedList.add(person3);
 		expectedList.add(person4);
@@ -184,8 +184,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsNamePerson()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		expectedList.add(person3);
 		resultList = SearchUtils.containsName("ü", pList);
@@ -195,8 +195,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithNamePerson()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		expectedList.add(person2);
 		expectedList.add(person3);
@@ -211,8 +211,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermRoomName()
 	{	
 		initRoomSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(room1);
 		expectedList.add(room2);
 		resultList = SearchUtils.startsWithSearchTerm(0, "A5", pList);
@@ -222,8 +222,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermRoomType()
 	{	
 		initRoomSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(room3);
 		expectedList.add(room4);
 		resultList = SearchUtils.startsWithSearchTerm(1, "Hörsaal", pList);
@@ -233,8 +233,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testcontainsSearchTermRoomName()
 	{	
 		initRoomSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(room1);
 		expectedList.add(room2);
 		expectedList.add(room3);
@@ -245,8 +245,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsNameRoom()
 	{	
 		initRoomSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(room4);
 		resultList = SearchUtils.containsName("DIMAX", pList);
 		assertEquals(expectedList, resultList);
@@ -259,8 +259,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermCourseName()
 	{	
 		initCourseSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(course1);
 		expectedList.add(course4);
 		resultList = SearchUtils.startsWithSearchTerm(0, "W", pList);
@@ -270,8 +270,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testcontainsSearchTermCourseName()
 	{	
 		initCourseSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(course3);
 		resultList = SearchUtils.containsSearchTerm(0, "12", pList);
 		assertEquals(expectedList, resultList);
@@ -280,8 +280,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsNameCourse()
 	{	
 		initCourseSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(course2);
 		resultList = SearchUtils.containsName("Students", pList);
 		assertEquals(expectedList, resultList);
@@ -292,8 +292,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermPoiName()
 	{	
 		initPoiSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(poi3);
 		resultList = SearchUtils.startsWithSearchTerm(0, "Rektorat", pList);
 		assertEquals(expectedList, resultList);
@@ -302,8 +302,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testcontainsSearchTermPoiName()
 	{	
 		initPoiSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(poi1);
 		resultList = SearchUtils.containsSearchTerm(0, "sino", pList);
 		assertEquals(expectedList, resultList);
@@ -312,8 +312,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsNamePoi()
 	{	
 		initPoiSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(poi4);
 		resultList = SearchUtils.containsName("Räume", pList);
 		assertEquals(expectedList, resultList);
@@ -329,8 +329,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testStartsWithSearchTermPersonLastNameUmlauts()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		resultList = SearchUtils.startsWithSearchTerm(1, "kue", pList);
 		assertEquals(expectedList, resultList);
@@ -339,8 +339,8 @@ public class SearchUtilsTest extends GWTTestCase {
 	public void testContainsSearchTermPersonLastNameUmlauts()
 	{	
 		initPersonSearch();
-		resultList = new ArrayList<ResourceDescriptor>();
-		expectedList = new ArrayList<ResourceDescriptor>();
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
 		expectedList.add(person2);
 		expectedList.add(person3);

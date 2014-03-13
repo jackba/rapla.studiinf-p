@@ -1,6 +1,6 @@
 package org.rapla.plugin.studiinf.client.search;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
@@ -11,7 +11,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import com.google.gwt.user.client.Window;
 import com.google.gwtjsonrpc.common.AsyncCallback;
 
-public class MFRButtonHandler implements AsyncCallback<ResourceDescriptor>{
+public class MFRButtonHandler implements AsyncCallback<ResourceDescription>{
 
 	private ResultTable resultTable;
 	private FontIcon icon;
@@ -32,7 +32,7 @@ public class MFRButtonHandler implements AsyncCallback<ResourceDescriptor>{
 	}
 
 	@Override
-	public void onSuccess(ResourceDescriptor resourceDescriptor) {
+	public void onSuccess(ResourceDescription resourceDescriptor) {
 //		Window.alert(resourceDescriptor.getName());
 		this.resultTable.addResult(new ResultButton(resourceDescriptor.getName(), targetPage, resourceDescriptor.getId(), icon, searchPage));
 		this.resultTable.refresh();

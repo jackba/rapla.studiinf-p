@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.pages;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
@@ -210,7 +210,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	}
 	
 	abstract protected void handleSearch(String searchTerm);
-	abstract public void updateResults(List<ResourceDescriptor> ressourcesMatched);
+	abstract public void updateResults(List<ResourceDescription> ressourcesMatched);
 	abstract public String getResourceType();
 	
 	/**

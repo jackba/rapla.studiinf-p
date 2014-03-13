@@ -46,7 +46,7 @@ public final class Navigation {
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
 	public static final AbstractPage raplaCourseLink = new CourseRaplaPage();
-	public static final String ID_PREFIX = "org.rapla.entities.domain.Allocatable_";
+	public static final String ID_PREFIX = "";
 	private static List<AbstractPage> pages;
 	
 	/**

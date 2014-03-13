@@ -2,7 +2,7 @@ package org.rapla.plugin.studiinf.client.search;
 
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
@@ -23,11 +23,11 @@ public class IdSearch extends AbstractSearch {
 	}
 
 	@Override
-	protected NoDuplicatesList<ResourceDescriptor> searchRessources(
-			List<ResourceDescriptor> resources) {
-		NoDuplicatesList<ResourceDescriptor> resourceMatched = new NoDuplicatesList<ResourceDescriptor>();
+	protected NoDuplicatesList<ResourceDescription> searchRessources(
+			List<ResourceDescription> resources) {
+		NoDuplicatesList<ResourceDescription> resourceMatched = new NoDuplicatesList<ResourceDescription>();
 //		Window.alert("matched: "+resourceMatched.toString());
-		ResourceDescriptor resourceDescriptor = SearchUtils.byId(searchString, resources);
+		ResourceDescription resourceDescriptor = SearchUtils.byId(searchString, resources);
 		
 		if (resourceDescriptor!=null){
 			mfrButtonHandler.onSuccess(resourceDescriptor);
@@ -41,7 +41,7 @@ public class IdSearch extends AbstractSearch {
 	}
 	
 	@Override
-	public void onSuccess(List<ResourceDescriptor> arg0) {
+	public void onSuccess(List<ResourceDescription> arg0) {
 		if(!resourcesMap.containsKey(page)){
 			resourcesMap.put(page, arg0);
 		}

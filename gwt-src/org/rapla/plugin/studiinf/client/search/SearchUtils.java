@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.rapla.plugin.freiraum.common.ResourceDescriptor;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.user.client.Window;
@@ -15,11 +15,11 @@ public class SearchUtils {
 		return  LocaleInfo.getCurrentLocale().getLocaleName();
 	}
 
-	public static List<ResourceDescriptor> startsWithSearchTerm(int searchTerm, String searchString, List<ResourceDescriptor> resources)
+	public static List<ResourceDescription> startsWithSearchTerm(int searchTerm, String searchString, List<ResourceDescription> resources)
 	{
-List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
+List<ResourceDescription> resourceMatched = new LinkedList<ResourceDescription>();
 		
-		for(ResourceDescriptor resource : resources)
+		for(ResourceDescription resource : resources)
 		{
 			
 			
@@ -34,11 +34,11 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		return resourceMatched;
 	}
 	
-	public static List<ResourceDescriptor> startsWithName(String searchString, List<ResourceDescriptor> resources)
+	public static List<ResourceDescription> startsWithName(String searchString, List<ResourceDescription> resources)
 	{
-List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
+List<ResourceDescription> resourceMatched = new LinkedList<ResourceDescription>();
 		
-		for(ResourceDescriptor resource : resources)
+		for(ResourceDescription resource : resources)
 		{
 			String s = resource.getName();
 			if(clearSearchString(s).startsWith(clearSearchString(searchString)))
@@ -49,11 +49,11 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		return resourceMatched;
 	}
 
-	public static List<ResourceDescriptor> containsSearchTerm(int searchTerm, String searchString, List<ResourceDescriptor> resources)
+	public static List<ResourceDescription> containsSearchTerm(int searchTerm, String searchString, List<ResourceDescription> resources)
 	{
-List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
+List<ResourceDescription> resourceMatched = new LinkedList<ResourceDescription>();
 		
-		for(ResourceDescriptor resource : resources)
+		for(ResourceDescription resource : resources)
 		{
 			if(resource.getSearchTerms().size() > searchTerm)
 			{
@@ -67,11 +67,11 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		return resourceMatched;
 	}
 
-	public static List<ResourceDescriptor> containsName(String searchString, List<ResourceDescriptor> resources)
+	public static List<ResourceDescription> containsName(String searchString, List<ResourceDescription> resources)
 	{
-List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
+List<ResourceDescription> resourceMatched = new LinkedList<ResourceDescription>();
 		
-		for(ResourceDescriptor resource : resources)
+		for(ResourceDescription resource : resources)
 		{
 			String s = resource.getName();
 			if(clearSearchString(s).contains(clearSearchString(searchString)))
@@ -106,10 +106,10 @@ List<ResourceDescriptor> resourceMatched = new LinkedList<ResourceDescriptor>();
 		
 	}
 	
-	public static ResourceDescriptor byId(String searchString, List<ResourceDescriptor> resources)
+	public static ResourceDescription byId(String searchString, List<ResourceDescription> resources)
 	{
 		
-		for(ResourceDescriptor resource : resources)
+		for(ResourceDescription resource : resources)
 		{
 			String s = resource.getId();
 			if(clearSearchString(s).equals(clearSearchString(searchString)))
