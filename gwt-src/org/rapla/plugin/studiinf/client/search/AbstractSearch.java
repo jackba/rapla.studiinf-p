@@ -7,8 +7,7 @@ import java.util.Map;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
-
-import com.google.gwtjsonrpc.common.AsyncCallback;
+import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 /**
  * 

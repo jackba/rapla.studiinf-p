@@ -7,9 +7,9 @@ import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
+import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.user.client.Window;
-import com.google.gwtjsonrpc.common.AsyncCallback;
 
 public class MFRButtonHandler implements AsyncCallback<ResourceDescription>{
 

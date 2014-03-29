@@ -15,11 +15,11 @@ import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.plugin.studiinf.client.ui.Tile;
 import org.rapla.plugin.studiinf.client.ui.TileContainer;
+import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwtjsonrpc.common.AsyncCallback;
 
 
 public class HomePage extends AbstractPage {

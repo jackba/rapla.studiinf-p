@@ -8,7 +8,7 @@
 <module rename-to='studiinf'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.logging.Logging'/>
-  <inherits name='com.google.gwtjsonrpc.GWTJSONRPC'/>
+  <inherits name='org.rapla.rest.gwtjsonrpc.GWTJSONRPC'/>
   <inherits name='org.rapla.plugin.freiraum.freiraum_module'/>
   
   <!-- Inherit the default GWT style sheet.  You can change       -->

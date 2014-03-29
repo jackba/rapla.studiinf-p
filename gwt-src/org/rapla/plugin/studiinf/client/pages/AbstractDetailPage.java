@@ -3,9 +3,9 @@ package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
+import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.user.client.Window;
-import com.google.gwtjsonrpc.common.AsyncCallback;
 
 /**
  * Template for all detail pages.
