@@ -6,6 +6,7 @@ import org.rapla.plugin.studiinf.client.ui.PageHeader;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -17,6 +18,7 @@ import com.google.gwt.user.client.ui.Widget;
 public abstract class AbstractPage extends ComplexPanel{
 	private PageHeader header;
 	private PageFooter footer;
+	protected static ResetTimer timer = new ResetTimer();
 	
 
 	  public  AbstractPage() {
@@ -63,6 +65,8 @@ public abstract class AbstractPage extends ComplexPanel{
 
 	   protected void refresh(){
 		   header.refresh();
+		   timer.cancel();
+		   timer.schedule(120000);
 	   }
 	   
 	   public void onShow(){

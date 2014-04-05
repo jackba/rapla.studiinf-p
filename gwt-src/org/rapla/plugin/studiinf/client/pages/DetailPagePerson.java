@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimerTask;
 
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
@@ -19,6 +20,7 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
@@ -166,9 +168,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		raplaButton2.setTargetId(id);
 		extraInfosButton.setTargetId(id);
 		extraInfosButton2.setTargetId(id);
-		
 	}
-
 
 	@SuppressWarnings("deprecation")
 	@Override
