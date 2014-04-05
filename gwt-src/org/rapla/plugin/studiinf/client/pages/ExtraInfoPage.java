@@ -15,16 +15,26 @@ import com.google.gwt.user.client.ui.FlexTable;
  * Special Detail page, which contains additional information to a person.
  *
  */
-public class extraInfoPage extends AbstractDetailPage {
+public class ExtraInfoPage extends AbstractDetailPage {
 FlexTable detailsTable;
 private NavButton backBtn;
+private String id;
+private AbstractPage target;
+	
+	public ExtraInfoPage(AbstractPage target)
+	{
+		this.target = target;
+	}
 	
 	@Override
 	public void init(){
 		super.init();
 		detailsTable = new FlexTable();
 		detailsTable.setStyleName("detailsTable");
-		backBtn = new NavButton(Studiinf.i18n.back(),null,null);
+		backBtn = new NavButton(Studiinf.i18n.back(),target,id);
+		//backBtn = new NavButton(Studiinf.i18n.back(), target, id);
+		backBtn.setStyleName("raplaBackButton");
+		this.add(backBtn);
 		this.add(detailsTable);
 		
 	}
@@ -48,6 +58,7 @@ private NavButton backBtn;
 	protected void handleRessource(String id, ResourceDetail resource) {
 
 		this.id = id;
+		backBtn.setTargetId(id);
 		PersonDescriptor person = new PersonDescriptor(resource);
 		LinkedList<ResourceDetailRow> details = person.getDetails();
 		detailsTable.removeAllRows();
