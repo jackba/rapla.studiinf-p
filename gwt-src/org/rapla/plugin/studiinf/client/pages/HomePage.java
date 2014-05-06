@@ -56,7 +56,7 @@ public class HomePage extends AbstractPage {
 		tileContainer.add(roomBtn);
 		tileContainer.add(poiBtn);
 		
-		qrBox.getElement().getStyle().setProperty("top", "45vh");
+		qrBox.getElement().getStyle().setProperty("top", "48vh");
 		
 		
 		this.add(tileContainer);

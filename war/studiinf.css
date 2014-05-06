@@ -259,11 +259,9 @@ nav{
 	font-family: 'Open Sans', sans-serif;	
 }
 .results, .infos, .personInfos /*, .courseInfos*/, .personLectureRooms, .poiResults, .freeRooms{
-	position:absolute;
-	top:8vh;
-	left:1.3vw;
-	width:86vw;
-	height:18vh;
+	position:static;
+	width:100%;
+	/*height:18vh;*/
 	
 	border-spacing: 0;
 }
@@ -271,9 +269,7 @@ nav{
 	border: solid 1px transparent;
 }
 
-.freeRooms {
-	top:7vh;
-}
+
 
 .resultBtns {
 	left:4vw;
@@ -433,9 +429,8 @@ nav{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
-	right:5vw;
-	width:88vw;
-	height:27vh;
+	right:5.5vw;
+	padding: 1vh;
 	border-left: solid 0.5vw #ffffff;
 	border-left-width: 0.5em;
 	font-size:1vw;
@@ -445,14 +440,12 @@ nav{
 	border-top-width: 0.44em;
 	border-bottom: solid 0.25vh #ffffff;
 	border-bottom-width: 0.44em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.resultPanel{
-	top: 11vh;
-	left:6vw;
-	width:88vw;
-	height:29.5vh;
-}
+
 .page-poi .resultPanel{
 	height:27.3vh;
 }
@@ -574,17 +567,17 @@ nav{
 
 .infoLabel, /*.personInfoLabel,*/ .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo /*, .poiResultsLabel, .currentPoiLabel, .courseInfoLabel*/{
 	display:block;
-	position:absolute;
-	top: 1vh;
+	position:static;
 	height: 6vh;
-	left:1vw;
-	right:1vw;
-	width:76vw;
+	width:100%;
 	padding:0px 5vw;
 	background: #5c6971;
 	font-size:2vh;
 	line-height:6vh;
 	color:#ffffff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .personCourseOfStudyLabel , .personCourseOfStudyInfo{
