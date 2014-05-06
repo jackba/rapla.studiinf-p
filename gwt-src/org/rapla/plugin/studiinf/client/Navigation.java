@@ -26,7 +26,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
- * 
+ * Navigation API for changing the active page
  *
  */
 public final class Navigation {
