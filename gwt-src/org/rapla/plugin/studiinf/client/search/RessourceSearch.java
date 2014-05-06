@@ -6,8 +6,6 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
-import com.google.gwt.user.client.Window;
-
 public class RessourceSearch extends AbstractSearch {
 	private RessourceButton button;
 	public RessourceSearch(String searchTerm, AbstractSearchPage page, RessourceButton button) {

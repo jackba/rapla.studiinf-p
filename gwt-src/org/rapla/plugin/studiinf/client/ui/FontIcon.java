@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.ui;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -12,8 +13,10 @@ import com.google.gwt.user.client.ui.Widget;
 public class FontIcon extends Widget {
 	
 	public FontIcon() {
-		setElement(DOM.createSpan());
+		Element spanElement = DOM.createSpan();
+		setElement(spanElement);
 	}
+
 	public FontIcon(String url) {
 		this();
 		setUrl(url);
@@ -37,5 +40,6 @@ public class FontIcon extends Widget {
 	public String getUrl() {
 		return getElement().getClassName();	
 	}
+	
 	
 }

@@ -5,8 +5,6 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.search.RessourceSearch;
 
-import com.google.gwt.user.client.Window;
-
 public class RessourceButton extends NavButton {
 	
 	private AbstractSearchPage page;

@@ -27,7 +27,9 @@ public class PageHeader extends VerticalPanel {
 		    
 		 		    
 			Date d = new Date();
-			subHeader.add(new HTML("<p>"+dateFormatter.format(d)+"</p>"));
+			HTML dateDisplay = new HTML(dateFormatter.format(d));
+			dateDisplay.addStyleName("timeDisplay");
+			subHeader.add(dateDisplay);
 		    this.add(subHeader);
 		    Scheduler scheduler = Scheduler.get();
 		    scheduler.scheduleFixedPeriod(new RepeatingCommand() {
@@ -37,7 +39,9 @@ public class PageHeader extends VerticalPanel {
 					Date d = new Date();
 					
 					subHeader.clear();
-					subHeader.add(new HTML("<p>"+dateFormatter.format(d)+"</p>"));
+					HTML dateDisplay = new HTML(dateFormatter.format(d));
+					dateDisplay.addStyleName("timeDisplay");
+					subHeader.add(dateDisplay);
 					return true;
 				}
 			}, 1000);

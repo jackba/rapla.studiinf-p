@@ -6,8 +6,6 @@ import java.util.LinkedList;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
 
-import com.google.gwt.user.client.Window;
-
 /**
  * descriptor, which contains all the attributes of a specific person.
  *

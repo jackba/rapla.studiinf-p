@@ -70,8 +70,8 @@ public class HomePage extends AbstractPage {
 	
 	@Override
 	public String getTitle() {
-		//return Studiinf.i18n.homeScreenTitle();
-		return "";
+		return Studiinf.i18n.homeScreenTitle();
+		//return "";
 	}
 
 	@Override

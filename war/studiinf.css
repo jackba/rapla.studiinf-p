@@ -60,13 +60,13 @@ html{
 	color:#000000;
 }
 
-.subHeader p {
+.subHeader .timeDisplay {
 	font-size:1.5vh;
 	line-height:1.9vh;
 	text-align:center;
 	padding:0;
 	margin:0;
-	text-shadow:0 0 0.1vh #000000;
+	text-shadow:0 0 0.1vh #d6dadc;
 }
 	.header h1{
 		padding:0;

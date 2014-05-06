@@ -6,7 +6,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 
 import com.google.gwt.i18n.client.LocaleInfo;
-import com.google.gwt.user.client.Window;
 
 
 public class SearchUtils {	

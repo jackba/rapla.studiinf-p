@@ -6,7 +6,6 @@ import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.user.client.ui.Frame;
-import com.sun.org.apache.xml.internal.security.utils.I18n;
 
 /**
  * Special detail page, which displays the rapla link for one ressource

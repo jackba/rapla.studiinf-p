@@ -5,7 +5,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.ParagraphElement;
 import com.google.gwt.http.client.UrlBuilder;

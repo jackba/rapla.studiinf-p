@@ -1,7 +1,6 @@
 package org.rapla.plugin.studiinf.client;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -13,11 +12,12 @@ import java.util.TreeSet;
  */
 public class ValueComparator implements Comparator<String> {
 
-		private Map<String, Integer> sortedMap = new HashMap<String, Integer>();
+		//private Map<String, Integer> sortedMap = new HashMap<String, Integer>();
 	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
-	    private LocalStorage ls;
+	    //private LocalStorage ls;
+	    
 	    public ValueComparator(Map<String, String> map, LocalStorage ls) {
-			this.ls = ls;
+			//this.ls = ls;
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>(
 	    		new Comparator<Map.Entry<String,Integer>>() {
 	            @Override public int compare(Map.Entry<String,Integer> e1, Map.Entry<String,Integer> e2) {

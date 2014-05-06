@@ -1,15 +1,12 @@
 package org.rapla.plugin.studiinf.client.search;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
-
-import com.google.gwt.user.client.Window;
 
 public class MFRButtonHandler implements AsyncCallback<ResourceDescription>{
 

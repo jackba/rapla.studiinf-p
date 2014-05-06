@@ -6,7 +6,6 @@ import org.rapla.plugin.studiinf.client.ui.PageHeader;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -56,7 +55,7 @@ public abstract class AbstractPage extends ComplexPanel{
 		
 		@Override
 		public void add(Widget child) {
-			this.add(child, this.getElement());
+			this.add(child, (Element) this.getElement());
 		};
 	
 	   abstract public String getHistoryKey();

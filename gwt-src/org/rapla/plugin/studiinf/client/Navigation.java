@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.pages.DetailPageCourse;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePerson;
 import org.rapla.plugin.studiinf.client.pages.DetailPagePoi;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
+import org.rapla.plugin.studiinf.client.pages.ExtraInfoPage;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.OrganisationChart;
 import org.rapla.plugin.studiinf.client.pages.PersonRaplaPage;
@@ -19,10 +20,8 @@ import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.pages.RoomRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
-import org.rapla.plugin.studiinf.client.pages.ExtraInfoPage;
 
 import com.google.gwt.user.client.History;
-import com.google.gwt.user.client.Window;
 //import com.google.gwt.user.client.Window; Window.alert("text");
 import com.google.gwt.user.client.ui.RootPanel;
 

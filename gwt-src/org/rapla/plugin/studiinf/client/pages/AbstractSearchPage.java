@@ -43,7 +43,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private final boolean hasOrganigramm;
 	private final boolean showInput;
 	private final boolean showQRBox;
-	private final boolean hasNavigationButtons;
+	//private final boolean hasNavigationButtons;
 	private final int resultRows;
 	private final int resultColumns;
 	
@@ -66,7 +66,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		this.resultRows = resultRows;
 		this.resultColumns = resultColumns;
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
-		this.hasNavigationButtons = hasNavigationButtons;
+		//this.hasNavigationButtons = hasNavigationButtons;
 		this.ls = new LocalStorage(getHistoryKey(), results, icon, targetPage, this);
 	}
 	
