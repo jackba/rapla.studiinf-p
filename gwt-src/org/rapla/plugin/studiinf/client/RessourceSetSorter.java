@@ -14,7 +14,7 @@ public class RessourceSetSorter implements Comparator<Map.Entry<String,Integer>>
 
 	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
 	    
-	    public RessourceSetSorter(Map<String, String> map, LocalStorage ls) {
+	    public RessourceSetSorter(Map<String, String> map, HasPrefix ls) {
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>( this );
 		 
 		    for(Map.Entry<String, String> entry : map.entrySet() ){
