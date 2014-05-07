@@ -45,10 +45,7 @@ public class HomePage extends AbstractPage {
 		
 		resultLabel.setStyleName("infoLabel");
 		resultPanel.setStyleName("resultPanel");
-		
-		for(NavButton b : freeRoomsTable.getButtonsBottom()){
-			this.add(b);
-		}
+	
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
 		tileContainer.add(courseBtn);

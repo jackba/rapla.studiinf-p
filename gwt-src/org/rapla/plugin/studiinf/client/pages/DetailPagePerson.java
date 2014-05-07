@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
@@ -22,7 +23,6 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
 public class DetailPagePerson extends AbstractDetailPage {
@@ -109,11 +109,14 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.setWidget(3, 0, extraInfosButton);
 		infos.setWidget(4, 0, raplaButton);
 		
-		Image img =	new Image(IconProvider.PERSONS);
-		img.setStyleName("personDetailPicture");
+		//Image img =	new Image(IconProvider.PERSONS);
+		FontIcon icon = new FontIcon(IconProvider.Persons.getUrl());
+		//img.setStyleName("personDetailPicture");
+		icon.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
-		personInfoPanel.add(img);
+		//personInfoPanel.add(img);
+		personInfoPanel.add(icon);
 		personInfoPanel.add(infos);
 		
 		middlePanel.add(appointmentLabel);

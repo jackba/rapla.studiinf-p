@@ -1,20 +1,32 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.rapla.plugin.studiinf.client.ui">
 	<ui:style  type="org.rapla.plugin.studiinf.client.ui.AccessibilityRow.AccessibilityRowStyle">
-	.accessibilityRow{
-		display:table;
+	.accessibilityRoot{
 		width:90vw;
 		position:absolute;
 		bottom:7vh;
 		left:5vw;
 		line-height: 0px;
 	}
+.accessibilityRoot>*{
+	float:left;
+	display:inline-block;
+	width:5%;
+}
+	.accessibilityRow{
+		display:table;
+		width:85%;
+	}
 	.cell{
 		display: table-cell;
 		text-align:center;
 	}
 	</ui:style>
-	<g:HTMLPanel ui:field="accessibilityRow" styleName="{style.accessibilityRow}">
+	<g:HTMLPanel ui:field="accessibilityRoot" styleName="{style.accessibilityRoot}">
+	    <div><b:FontIcon></b:FontIcon></div>
+	    <div><b:NavButton ui:field="backButton"></b:NavButton></div>
+	    <g:HTMLPanel ui:field="accessibilityRow" styleName="{style.accessibilityRow}"></g:HTMLPanel>
+	    <div><b:NavButton ui:field="nextButton"></b:NavButton></div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

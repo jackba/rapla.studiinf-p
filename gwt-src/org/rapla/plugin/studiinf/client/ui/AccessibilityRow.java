@@ -5,8 +5,10 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiFactory;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
@@ -15,7 +17,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AccessibilityRow extends Composite {
 	private static AccessibilityRowUiBinder uiBinder = GWT.create(AccessibilityRowUiBinder.class);
-
+	
+	private double size = 0.6;
+	
 	interface AccessibilityRowUiBinder  extends UiBinder<Widget, AccessibilityRow> {
 	}
 	interface AccessibilityRowStyle extends CssResource{
@@ -26,10 +30,14 @@ public class AccessibilityRow extends Composite {
 	
 	public AccessibilityRow(){
 		initWidget(uiBinder.createAndBindUi(this));
-		
+		backButton.setIcon(IconProvider.Previous);
+		backButton.setSize(size);
+		nextButton.setIcon(IconProvider.Next);
+		nextButton.setSize(size);
 	}
 	
-	private FontIcon accIcon;
+
+	
 
 	@UiField
 	HTMLPanel accessibilityRow;
@@ -37,21 +45,44 @@ public class AccessibilityRow extends Composite {
 	@UiField
 	AccessibilityRowStyle style;
 	
+	@UiField
+	NavButton backButton;
+	
+	@UiField
+	NavButton nextButton;
+	
+	@UiFactory
+	NavButton createNavButton(){
+		return new NavButton("", null, null);
+	}
+	
+	@UiFactory
+	FontIcon createBarrierFreeIcon(){
+		FontIcon bfIcon = new FontIcon(IconProvider.Barrier_Free.getUrl());
+		bfIcon.getElement().getStyle().setFontSize(3, Unit.EM);
+		return bfIcon;
+	}
+	
+	
 	
 	public void add(NavButton but){
-		if(accIcon == null){
-			accIcon = new FontIcon(IconProvider.Barrier_Free.getUrl());
-			accIcon.getElement().getStyle().setFontSize(2.0, Unit.EM);
-			accessibilityRow.add(accIcon);
-		}
-		
-		 SimplePanel justified = new SimplePanel(but);
-		 justified.setStyleName(style.cell());
-		 accessibilityRow.add(justified);
+		but.setSize(size);
+		SimplePanel justified = new SimplePanel(but);
+		justified.setStyleName(style.cell());
+		accessibilityRow.add(justified);
 	}
 	
 	public void clear(){
 		accessibilityRow.clear();
-		accIcon = null;
 	}
+	
+	public NavButton getBackButton(){
+		return backButton;
+	}
+	
+	public NavButton getNextButton(){
+		return nextButton;
+	}
+	
+
 }

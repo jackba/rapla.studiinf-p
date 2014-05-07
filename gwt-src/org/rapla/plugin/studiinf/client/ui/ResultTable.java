@@ -27,8 +27,8 @@ public class ResultTable extends FlexTable {
 	private int page;
 	private NavButton backButton = new NavButton(IconProvider.Up,FontIcon.Position.BOTH,Studiinf.i18n.previous(),null,null);
 	private NavButton nextButton = new NavButton(IconProvider.Down,FontIcon.Position.BOTH,Studiinf.i18n.next(),null,null);
-	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
-	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
+	//private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
+	//private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
 
 	public int getPage() {
 		return page;
@@ -106,18 +106,15 @@ public class ResultTable extends FlexTable {
 		}
 	});
 	
-	this.backButtonBottom.addStyleName("backButtonBottom");
-	this.nextButtonBottom.addStyleName("nextButtonBottom");
-	this.backButtonBottom.setSize(size);
-	this.nextButtonBottom.setSize(size);
-	this.backButtonBottom.setClickHandler(new ClickHandler() {
+
+	accessibilityRow.getBackButton().setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			previousPage();
 		}
 	});
-	this.nextButtonBottom.setClickHandler(new ClickHandler() {
+	accessibilityRow.getNextButton().setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
@@ -185,16 +182,11 @@ public class ResultTable extends FlexTable {
 		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
-			backButtonBottom.setEnabled(hasPreviousPage());
-			nextButtonBottom.setEnabled(hasNextPage());
+			accessibilityRow.getBackButton().setEnabled(hasPreviousPage());
+			accessibilityRow.getNextButton().setEnabled(hasNextPage());
 	}
 	
-	public List<NavButton> getButtonsBottom(){
-		List<NavButton> buttons = new LinkedList<NavButton>();
-		buttons.add(backButtonBottom);
-		buttons.add(nextButtonBottom);
-		return buttons;
-	}
+
 	
 	public int getColumns() {
 		return columns;

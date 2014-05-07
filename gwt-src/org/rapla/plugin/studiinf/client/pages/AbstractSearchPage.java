@@ -127,9 +127,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		resultPanel.add(resultLabel);
 		resultPanel.add(results);
 		
-		for(NavButton b : results.getButtonsBottom()){
-			this.add(b);
-		}
+
 		
 		if(showInput){
 			searchPanel.add(keyboard);

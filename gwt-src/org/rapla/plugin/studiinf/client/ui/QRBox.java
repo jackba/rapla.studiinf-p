@@ -1,6 +1,5 @@
 package org.rapla.plugin.studiinf.client.ui;
 
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
 import com.google.gwt.core.client.GWT;
@@ -32,7 +31,7 @@ public class QRBox extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		qrLabel.setInnerSafeHtml(SafeHtmlUtils.fromString(Studiinf.i18n.qrInfoText()));
 		qrCode.setId(HTMLPanel.createUniqueId());
-		scanMeIcon.setSrc(IconProvider.QR_BOX);
+		scanMeIcon.setSrc("img/QR.png");
 		
 		/*fix for quick mobile*/
 		bindQRBox.addStyleName("BindQRBox");
