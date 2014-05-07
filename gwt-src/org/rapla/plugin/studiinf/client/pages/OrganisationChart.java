@@ -1,10 +1,14 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 
+import java.util.List;
+
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.CategoryDescriptor;
+import org.rapla.plugin.studiinf.client.search.Organigram;
 
-public class OrganisationChart extends AbstractDetailPage  {
+public class OrganisationChart extends AbstractPage  {
 	
 //	private Grid bottomOrganigram = new Grid(2, 4);
 	
@@ -12,18 +16,24 @@ public class OrganisationChart extends AbstractDetailPage  {
 	public void init(){
 		super.init();
 		
+		Organigram org = new Organigram();
+		org.getOrganigram(null);
+		org.getOrganigram("2");
+		org.getOrganigram("Allgemein");
 		
 //		Button b = new Button();
 	}
-	
-	@Override
-	public boolean hasDefaultQrBox() {
-		return true;
-	}
 
-	@Override
-	protected void handleRessource(String id, ResourceDetail resource) {
-		// TODO Auto-generated method stub
+	//TODO will not be called
+	// TODO not a single resource --> list of resources
+	protected void handleRessource(String id, List <ResourceDetail> resources) {
+		
+		// über Liste iterieren
+		ResourceDetail resource = resources.get(0);
+		CategoryDescriptor cd = new CategoryDescriptor(resource);
+
+		
+		// add button labels
 		
 	}
 

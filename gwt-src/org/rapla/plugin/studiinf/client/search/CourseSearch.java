@@ -3,11 +3,13 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
 
 public class CourseSearch extends AbstractSearch {
-
-	public CourseSearch(String searchTerm, CourseSearchPage page) {
+	
+	public CourseSearch(String searchTerm, AbstractSearchPage page) {
 		super(searchTerm, page);
 	}
 

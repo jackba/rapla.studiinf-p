@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
+import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
 
@@ -19,7 +21,7 @@ public class CourseSearchTest extends GWTTestCase {
 	List<ResourceDescription> pList;
 	List<ResourceDescription> resultList;
 	List<ResourceDescription> expectedList;
-	CourseSearchPage csp;
+	static CourseSearchPage csp;
 
 	@Override
 	public String getModuleName() {
@@ -42,7 +44,6 @@ public class CourseSearchTest extends GWTTestCase {
 		course3 = new ResourceDescription("03", "TWIW12ITV" , "testURL", searchTerms3);
 		course4 = new ResourceDescription("04", "WBK12B1" , "testURL", searchTerms4);
 		
-		
 		pList.add(course2);
 		pList.add(course3);
 		pList.add(course4);
@@ -62,7 +63,7 @@ public class CourseSearchTest extends GWTTestCase {
 		expectedList.add(course1);
 		expectedList.add(course3);
 		
-		CourseSearch rs = new CourseSearch("W", csp);
+		CourseSearch rs = new CourseSearch("W", (AbstractSearchPage) Navigation.course);
 		resultList = rs.searchRessources(pList);
 		assertEquals(expectedList, resultList);
 	}
@@ -85,6 +86,20 @@ public class CourseSearchTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescription>();
 		expectedList = new ArrayList<ResourceDescription>();
 		CourseSearch rs = new CourseSearch("xüx", csp);
+		resultList = rs.searchRessources(pList);
+		assertEquals(expectedList, resultList);
+	}
+	
+	public void testDuplicates()
+	{
+		init();
+		pList.add(course2);
+		
+		resultList = new ArrayList<ResourceDescription>();
+		expectedList = new ArrayList<ResourceDescription>();
+		expectedList.add(course2);
+
+		CourseSearch rs = new CourseSearch("Inte", csp);
 		resultList = rs.searchRessources(pList);
 		assertEquals(expectedList, resultList);
 	}
