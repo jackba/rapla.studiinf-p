@@ -16,32 +16,17 @@ public class RessourceSetSorterTest extends GWTTestCase{
 		
 		@Override
 		public String getPrefix() {
-			// TODO Auto-generated method stub
 			return "test";
 		}
 	};
 
 	@Override
 	public String getModuleName() {
-		// TODO Auto-generated method stub
 		return "org.rapla.plugin.studiinf.studiinf";
 	}
 	
 	public void init()
 	{
-		map = new LinkedHashMap<String, String>();
-		map.put("test2", "2");
-		map.put("test5", "5");
-		map.put("test4", "4");
-		map.put("test1", "1");
-		map.put("test3", "3");
-		
-		sorter = new RessourceSetSorter(map, hasPrefix);
-	}
-	
-	public void testOrder()
-	{
-		init();
 		SortedMap = new LinkedHashMap<String, Integer>();
 		SortedMap.put("test5", 5);
 		SortedMap.put("test4", 4);
@@ -49,7 +34,57 @@ public class RessourceSetSorterTest extends GWTTestCase{
 		SortedMap.put("test2", 2);
 		SortedMap.put("test1", 1);
 		
-		assertEquals(SortedMap.toString(), sorter.getSortedSet().toString());
+		map = new LinkedHashMap<String, String>();		
+	}
+	
+	public void testOrder()
+	{
+		init();
+		map.put("test2", "2");
+		map.put("test5", "5");
+		map.put("test4", "4");
+		map.put("test1", "1");
+		map.put("test3", "3");
+		sorter = new RessourceSetSorter(map, hasPrefix);
+		checkResult();
+	}
+	
+	public void testPrefix () 
+	{
+		init();
+		map.put("test2", "2");
+		map.put("XXtest2", "2");
+		map.put("test5", "5");
+		map.put("test4", "4");
+		map.put("NoTest5", "5");
+		map.put("test1", "1");
+		map.put("test3", "3");
+
+		sorter = new RessourceSetSorter(map, hasPrefix);
+		checkResult();
+	}
+	
+	public void checkDuplicateEntries(){
+		init();
+		
+		map.put("test2", "2");
+		map.put("test3", "3");
+		map.put("test5", "5");
+		map.put("test4", "4");
+		map.put("test1", "1");
+		map.put("test3", "3");
+		
+		sorter = new RessourceSetSorter(map, hasPrefix);
+		checkResult();
+	}
+	
+	public void checkResult(){
+		while (SortedMap.keySet().iterator().hasNext()){
+			Object value = SortedMap.get(SortedMap.keySet().iterator().next());
+			assertEquals(value , sorter.getSortedSet().first().getValue());
+			sorter.getSortedSet().remove(sorter.getSortedSet().first());
+			SortedMap.remove(SortedMap.keySet().iterator().next());
+		}
 	}
 
 }
