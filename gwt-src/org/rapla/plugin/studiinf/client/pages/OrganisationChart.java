@@ -1,6 +1,7 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
@@ -16,10 +17,10 @@ public class OrganisationChart extends AbstractPage  {
 	public void init(){
 		super.init();
 		
-		Organigram org = new Organigram();
-		org.getOrganigram(null);
-		org.getOrganigram("2");
-		org.getOrganigram("Allgemein");
+//		Organigram org = new Organigram();
+//		org.getOrganigram(null);
+//		org.getOrganigram("2");
+//		org.getOrganigram("Allgemein");
 		
 //		Button b = new Button();
 	}
@@ -27,13 +28,20 @@ public class OrganisationChart extends AbstractPage  {
 	//TODO will not be called
 	// TODO not a single resource --> list of resources
 	protected void handleRessource(String id, List <ResourceDetail> resources) {
+		List <CategoryDescriptor> cdList = new ArrayList<CategoryDescriptor>();
 		
 		// über Liste iterieren
-		ResourceDetail resource = resources.get(0);
+		
+		for (ResourceDetail resource : resources)
+		{
+//		ResourceDetail resource = resources.get(0);
 		CategoryDescriptor cd = new CategoryDescriptor(resource);
+		cdList.add(cd);
+		
+		}
 
 		
-		// add button labels
+		// add button labels for cdList
 		
 	}
 

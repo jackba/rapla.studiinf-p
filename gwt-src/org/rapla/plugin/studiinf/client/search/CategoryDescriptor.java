@@ -13,6 +13,8 @@ public class CategoryDescriptor {
 	private Collection<String> keys;
 	
 	public CategoryDescriptor(ResourceDetail category) {
+		this.setName(category.getRow("name").getValue());
+		this.setId(category.getRow("id").getValue());
 		this.category = category;
 		keys = category.getKeys();		
 	}
