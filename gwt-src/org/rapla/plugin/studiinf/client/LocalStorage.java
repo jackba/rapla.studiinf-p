@@ -73,7 +73,7 @@ public class LocalStorage {
 	
 	public void fillMap(){
 			map = new StorageMap(localStorage);
-			ValueComparator vc = new ValueComparator(map,this);
+			RessourceSetSorter vc = new RessourceSetSorter(map,this);
 			
 			resultTable.clearResults();
 			

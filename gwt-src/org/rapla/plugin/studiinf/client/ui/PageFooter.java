@@ -19,9 +19,10 @@ import com.google.gwt.user.client.ui.FlowPanel;
  */
 public class PageFooter extends FlowPanel {
 	
+	AbstractPage parent;
 	
 	public PageFooter(AbstractPage parent) {
-				    
+		this.parent = parent;
 	}
 	
 	public void init(){
@@ -38,7 +39,10 @@ public class PageFooter extends FlowPanel {
 			}
 		});
 	    this.add(languageButton);
-	    this.add(homeBtn);
+	    if(this.parent != Navigation.homePage){
+	    	this.add(homeBtn);
+	    }
+	    
 	    languageButton.getElement().getStyle().setProperty("float", "left");
 	    homeBtn.getElement().getStyle().setProperty("float", "right");
 	    languageButton.addStyleName("left");
