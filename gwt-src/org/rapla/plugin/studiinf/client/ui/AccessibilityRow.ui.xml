@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style  type="org.rapla.plugin.studiinf.client.ui.AccessibilityRow.AccessibilityRowStyle">
+	.accessibilityRow{
+		display:table;
+		width:90vw;
+		position:absolute;
+		bottom:7vh;
+		left:5vw;
+		line-height: 0px;
+	}
+	.cell{
+		display: table-cell;
+		text-align:center;
+	}
+	</ui:style>
+	<g:HTMLPanel ui:field="accessibilityRow" styleName="{style.accessibilityRow}">
+	</g:HTMLPanel>
+</ui:UiBinder> 

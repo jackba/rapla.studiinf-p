@@ -8,6 +8,7 @@ import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
@@ -25,7 +26,7 @@ import com.google.gwt.user.client.ui.Label;
 public class HomePage extends AbstractPage {
 	
 	private ResultTable freeRoomsTable;
-	protected FlowPanel resultBtns = new FlowPanel();
+	protected  AccessibilityRow resultBtns = new  AccessibilityRow();
 	private Label resultLabel = new Label(Studiinf.i18n.freeRooms());
 	private FlowPanel resultPanel = new FlowPanel();
 	
@@ -42,7 +43,6 @@ public class HomePage extends AbstractPage {
 		freeRoomsTable = new FreeRoomTable(resultBtns, 2, 7);
 		freeRoomsTable.setStyleName("freeRooms");
 		
-		resultBtns.setStyleName("resultBtns");
 		resultLabel.setStyleName("infoLabel");
 		resultPanel.setStyleName("resultPanel");
 		

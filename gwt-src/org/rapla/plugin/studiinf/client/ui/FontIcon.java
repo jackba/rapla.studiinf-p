@@ -12,6 +12,16 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class FontIcon extends Widget {
 	
+	
+	public static class Position{
+		public static Position LEFT = new Position();
+		public static Position RIGHT = new Position();
+		public static Position BOTH = new Position();
+	}
+	
+	
+	
+	
 	public FontIcon() {
 		Element spanElement = DOM.createSpan();
 		setElement(spanElement);

@@ -7,6 +7,7 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
@@ -33,7 +34,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	private ResultTable results ;
 	private Widget organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
-	protected FlowPanel resultBtns = new FlowPanel();
+	protected AccessibilityRow resultBtns = new AccessibilityRow();
 	protected QRBox qrBox = new QRBox(getHistoryKey());
 	private FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
@@ -107,7 +108,6 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		results.setStyleName("results");
 		organigramBtn.addStyleName("organigramBtn");
 		keyboard.setStyleName("keyboard");
-		resultBtns.setStyleName("resultBtns");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
 	//	results.getBackButton().addStyleName("backButton");

@@ -4,6 +4,7 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.ui.FontIcon.Position;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
@@ -41,6 +42,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	String targetId;
 	int numberValue = 0;
 	FontIcon fontIcon;
+	FontIcon.Position fontPosition;
 	String text;
 	boolean enabled = true;
 	boolean twoLines = false;
@@ -75,6 +77,11 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		this(text,targetPage, targetId);
 		setIcon(fontIcon);
 	}
+	
+	public NavButton(FontIcon fontIcon, FontIcon.Position fontPosition, String text,AbstractPage targetPage,String targetId){
+		this(text,targetPage, targetId);
+		setIcon(fontIcon,fontPosition);
+	}
 	public NavButton(int number, FontIcon fontIcon,String text, AbstractPage targetPage,String targetId){
 		this(fontIcon,text,targetPage,targetId);
 		setNumber(number);
@@ -88,6 +95,9 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	@UiField
 	SpanElement icon;
+		
+	@UiField
+	SpanElement iconRight;
 	
 	@UiField
 	SpanElement textLabel;
@@ -158,12 +168,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 
 	@Override
 	public void setIcon(FontIcon fontIcon) {
-		this.fontIcon = fontIcon;
-		if(fontIcon != null && fontIcon.getUrl().startsWith("icon-")){
-			icon.setInnerHTML("<span class='"+fontIcon.getUrl()+"'></span>");
-		}else{
-			icon.setInnerHTML("");
-		}
+		setIcon(fontIcon, this.fontPosition);
 	}
 
 	@Override
@@ -245,6 +250,25 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	public void setStyleName(String style) {
 		super.setStyleName(style);
 		this.addStyleName(this.style.navigationButton());
+	}
+
+	@Override
+	public void setIcon(FontIcon fontIcon, Position position) {
+		this.fontIcon = fontIcon;
+		if(position == null){
+			position = FontIcon.Position.LEFT;
+		}
+		this.fontPosition = position;
+		icon.setInnerHTML("");
+		iconRight.setInnerHTML("");
+		if(fontIcon != null && fontIcon.getUrl().startsWith("icon-")){
+			if(position == FontIcon.Position.LEFT || position == FontIcon.Position.BOTH){
+				icon.setInnerHTML("<span class='"+fontIcon.getUrl()+"'></span>");
+			}
+			if(position == FontIcon.Position.RIGHT || position == FontIcon.Position.BOTH){
+				iconRight.setInnerHTML("<span class='"+fontIcon.getUrl()+"'></span>");
+			}
+		}
 	}
 	
 

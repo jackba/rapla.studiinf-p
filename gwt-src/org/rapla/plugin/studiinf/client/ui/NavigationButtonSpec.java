@@ -15,6 +15,7 @@ public interface NavigationButtonSpec {
 	public void setNumber(int number);
 	public FontIcon getIcon();
 	public void setIcon(FontIcon icon);
+	public void setIcon(FontIcon icon,FontIcon.Position position);
 	public void setSize(double viewPortSize);
 	public void setEnabled(boolean enabled);
 	public boolean getEnabled();

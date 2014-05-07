@@ -10,6 +10,7 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
+import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -33,7 +34,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private Grid infos;
 	
 	private List<Event> events;
-	private ResultTable lectures = new ResultTable(new FlowPanel(), 2, 3);
+	private ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
 
 	private NavButton nameButton;
 	private NavButton courseOfStudyButton;
