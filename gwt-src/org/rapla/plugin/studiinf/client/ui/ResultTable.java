@@ -25,8 +25,8 @@ public class ResultTable extends FlexTable {
 	private int maxRows;
 	private final FlowPanel footerPanel;
 	private int page;
-	private NavButton backButton = new NavButton(IconProvider.Previous,Studiinf.i18n.previous(),null,null);
-	private NavButton nextButton = new NavButton(IconProvider.Next,Studiinf.i18n.next(),null,null);
+	private NavButton backButton = new NavButton(IconProvider.Up,Studiinf.i18n.previous(),null,null);
+	private NavButton nextButton = new NavButton(IconProvider.Down,Studiinf.i18n.next(),null,null);
 	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
 	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
 
@@ -79,18 +79,18 @@ public class ResultTable extends FlexTable {
 	this.footerPanel = footerPanel;
 	this.page = 0;
 	
-	this.backButton.setSize(0.6);
-	this.backButton.setWidth("50%");
-	this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.backButton.setSize(0.5);
+	/*this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
-	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);
-	this.nextButton.setSize(0.6);
-	this.nextButton.setWidth("50%");
-	this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
+	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);*/
+	this.backButton.getElement().getStyle().setWidth(100, Unit.PCT);
+	this.nextButton.setSize(0.5);
+	/*this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
-	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);
+	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);*/
+	this.nextButton.getElement().getStyle().setWidth(100, Unit.PCT);
 	this.backButton.setClickHandler(new ClickHandler() {
 		
 		@Override
@@ -145,6 +145,11 @@ public class ResultTable extends FlexTable {
 		clear();
 		footerPanel.clear();
 		int count = 0;
+		backButton.setEnabled(false);
+		
+		getFlexCellFormatter().setColSpan(0, 0, 2);
+		setWidget(0, 0, backButton);
+		
 		for (ResultObject result : results){
 			for(Widget cell : result.getCellObjects()){
 				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
@@ -156,7 +161,7 @@ public class ResultTable extends FlexTable {
 						btn.setSize(0.5);
 					} catch (Exception e) {
 					}
-				setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, cell);
+				setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, cell);
 				}
 				count++;
 			}
@@ -172,19 +177,15 @@ public class ResultTable extends FlexTable {
 		
 		while(count % columns != 0){
 			
-			setWidget((int)(count / columns)-(page*maxRows), (int) count % columns, new FlowPanel());
+			setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, new FlowPanel());
 			count++;
 		}
-		if(hasPages()){
+		getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, 2);
+		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
 			backButtonBottom.setEnabled(hasPreviousPage());
 			nextButtonBottom.setEnabled(hasNextPage());
-			setWidget((int)((count / columns))-(page*maxRows), 0, backButton);
-			setWidget((int)((count / columns))-(page*maxRows), 1, nextButton);
-			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 0,"50%");
-			this.getCellFormatter().setWidth((int)((count / columns))-(page*maxRows), 1,"50%");
-		}
 	}
 	
 	public List<NavButton> getButtonsBottom(){
