@@ -4,10 +4,9 @@ import java.util.Date;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.core.client.Scheduler.RepeatingCommand;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -17,41 +16,36 @@ public class PageHeader extends VerticalPanel {
 	private HorizontalPanel subHeader = new HorizontalPanel();
 	private AbstractPage parent;
 	private static DateTimeFormat dateFormatter = DateTimeFormat.getFormat(PredefinedFormat.DATE_TIME_MEDIUM);
-	
+	private HTML dateDisplay;
+	private HTML title;
 	
 	public PageHeader(AbstractPage parent) {
 			this.parent = parent;
 		    this.addStyleName("header");
-		    this.add(new HTML("<h1>"+parent.getTitle()+"</h1>"));
+		    title = new HTML("<h1>"+parent.getTitle()+"</h1>");
+		    this.add(title);
 		    subHeader.addStyleName("subHeader");
 		    
 		 		    
 			Date d = new Date();
-			HTML dateDisplay = new HTML(dateFormatter.format(d));
+			dateDisplay = new HTML(dateFormatter.format(d));
 			dateDisplay.addStyleName("timeDisplay");
 			subHeader.add(dateDisplay);
 		    this.add(subHeader);
-		    Scheduler scheduler = Scheduler.get();
-		    scheduler.scheduleFixedPeriod(new RepeatingCommand() {
+		    Timer timer = new Timer() {
 				
 				@Override
-				public boolean execute() {
+				public void run() {
 					Date d = new Date();
-					
-					subHeader.clear();
-					HTML dateDisplay = new HTML(dateFormatter.format(d));
-					dateDisplay.addStyleName("timeDisplay");
-					subHeader.add(dateDisplay);
-					return true;
+					dateDisplay.setHTML(dateFormatter.format(d));
 				}
-			}, 1000);
+			};
+			timer.scheduleRepeating(1000);
 	}
 
 
 	public void refresh() {
-		this.clear();
-		this.add(new HTML("<h1>"+parent.getTitle()+"</h1>"));
-	    this.add(subHeader);
+		this.title.setHTML("<h1>"+parent.getTitle()+"</h1>");
 		
 	}
 	

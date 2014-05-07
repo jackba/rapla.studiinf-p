@@ -6,7 +6,6 @@ import java.util.List;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
-import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -20,15 +19,16 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class ResultTable extends FlexTable {
 
+	private double size = 0.5;
 	private List<ResultObject> results = new LinkedList<ResultObject>();
 	private int columns;
 	private int maxRows;
-	private final FlowPanel footerPanel;
+	private final AccessibilityRow accessibilityRow;
 	private int page;
-	private NavButton backButton = new NavButton(IconProvider.Up,Studiinf.i18n.previous(),null,null);
-	private NavButton nextButton = new NavButton(IconProvider.Down,Studiinf.i18n.next(),null,null);
-	private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
-	private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
+	private NavButton backButton = new NavButton(IconProvider.Up,FontIcon.Position.BOTH,Studiinf.i18n.previous(),null,null);
+	private NavButton nextButton = new NavButton(IconProvider.Down,FontIcon.Position.BOTH,Studiinf.i18n.next(),null,null);
+	//private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
+	//private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
 
 	public int getPage() {
 		return page;
@@ -73,19 +73,19 @@ public class ResultTable extends FlexTable {
 		return hasPages() && getPage() > 0;
 	}
 
-	public ResultTable(FlowPanel footerPanel,int columns,int maxRows) {
+	public ResultTable(AccessibilityRow accessibilityRow,int columns,int maxRows) {
 	this.columns = columns;	
 	this.maxRows = maxRows;
-	this.footerPanel = footerPanel;
+	this.accessibilityRow = accessibilityRow;
 	this.page = 0;
 	
-	this.backButton.setSize(0.5);
+	this.backButton.setSize(size);
 	/*this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
 	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);*/
 	this.backButton.getElement().getStyle().setWidth(100, Unit.PCT);
-	this.nextButton.setSize(0.5);
+	this.nextButton.setSize(size);
 	/*this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
 	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
@@ -106,18 +106,15 @@ public class ResultTable extends FlexTable {
 		}
 	});
 	
-	this.backButtonBottom.addStyleName("backButtonBottom");
-	this.nextButtonBottom.addStyleName("nextButtonBottom");
-	this.backButtonBottom.setSize(0.8);
-	this.nextButtonBottom.setSize(0.8);
-	this.backButtonBottom.setClickHandler(new ClickHandler() {
+
+	accessibilityRow.getBackButton().setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			previousPage();
 		}
 	});
-	this.nextButtonBottom.setClickHandler(new ClickHandler() {
+	accessibilityRow.getNextButton().setClickHandler(new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
@@ -143,7 +140,7 @@ public class ResultTable extends FlexTable {
 	
 	public void refresh(){
 		clear();
-		footerPanel.clear();
+		accessibilityRow.clear();
 		int count = 0;
 		backButton.setEnabled(false);
 		
@@ -158,17 +155,18 @@ public class ResultTable extends FlexTable {
 				if(count >= page*columns*maxRows){
 					try {
 						NavButton btn = (NavButton) cell;
-						btn.setSize(0.5);
+						btn.setSize(size);
 					} catch (Exception e) {
 					}
-				setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, cell);
+					getFlexCellFormatter().setColSpan((int)(count / columns)+1-(page*maxRows), (int) count % columns, 1);
+					setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, cell);
 				}
 				count++;
 			}
 			if(count >= page*columns*maxRows+1){
 				NavButton fbut = result.getFooterButton();
 				fbut.setSize(0.5);
-				footerPanel.add(fbut);
+				accessibilityRow.add(fbut);
 			}
 			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 				break;
@@ -184,16 +182,11 @@ public class ResultTable extends FlexTable {
 		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
-			backButtonBottom.setEnabled(hasPreviousPage());
-			nextButtonBottom.setEnabled(hasNextPage());
+			accessibilityRow.getBackButton().setEnabled(hasPreviousPage());
+			accessibilityRow.getNextButton().setEnabled(hasNextPage());
 	}
 	
-	public List<NavButton> getButtonsBottom(){
-		List<NavButton> buttons = new LinkedList<NavButton>();
-		buttons.add(backButtonBottom);
-		buttons.add(nextButtonBottom);
-		return buttons;
-	}
+
 	
 	public int getColumns() {
 		return columns;

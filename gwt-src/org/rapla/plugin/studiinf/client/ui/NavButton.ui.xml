@@ -35,7 +35,7 @@
 		cursor: default;
  	}
 
-	.icon{
+	.icon,.iconRight{
 		position: absolute;
 		height: 2em;
 		width: 2em;
@@ -51,7 +51,11 @@
 		box-sizing: border-box;         /* Opera/IE 8+ */
 		text-align:center;
 	}
-	.icon span{
+	.iconRight{
+		left: auto;
+		right: 0em;
+	}
+	.icon span,.iconRight span{
 		font-size: 1.5em;
 		vertical-align:middle;
 		position: relative;
@@ -110,7 +114,7 @@
 	.navigationButton:hover{
 		background:#aeb4b8;
 	}
-	.navigationButton:hover .icon{
+	.navigationButton:hover .icon, .navigationButton:hover .iconRight{
 		background:	#d6dadc;
 	}
 	.navigationButton:hover .number{
@@ -124,7 +128,7 @@
 	.navigationButton[disabled]:hover{
 		background:#aeb4b8;
 	}
-	.navigationButton[disabled]:hover .icon{
+	.navigationButton[disabled]:hover .icon, .navigationButton[disabled]:hover .iconRight{
 		background:	#ffffff;
 	}
 	.navigationButton[disabled]:hover .number{
@@ -138,7 +142,7 @@
 
 
 
-	.icon:empty{
+	.icon:empty,.iconRight:empty{
 		display:none;
 	}
 	.icon:empty+.text{
@@ -163,23 +167,23 @@
 		width:0;
 		
 	}
-	.navigationButton[disabled] .icon{
+	.navigationButton[disabled] .icon, .navigationButton[disabled] .iconRight{
 		color: #aeb4b8;
 	}
 	.navigationButton[disabled] .text{
 		color:	#5c6971;
 	}
 	.tile{
-		height: 10em;
+		height:10em;
 		width:44vw;
-		margin: 1vw;
+		margin:1vw;
 	}
-	
 	</ui:style>
 	<g:Button styleName="{style.navigationButton}" ui:field="button">
 		    <span class="{style.number}" ui:field="number"></span>
 		    <span class="{style.icon}" ui:field="icon"></span>
 		    <span class="{style.text}" ui:field="textLabel"></span>
+		    <span class="{style.iconRight}" ui:field="iconRight"></span>
 		    <div class="{style.shadow}" ui:field="shadow"></div>
 	</g:Button>
 </ui:UiBinder> 
