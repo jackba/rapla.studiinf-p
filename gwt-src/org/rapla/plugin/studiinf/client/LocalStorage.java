@@ -17,7 +17,7 @@ import com.google.gwt.storage.client.StorageMap;
  * 
  *
  */
-public class LocalStorage {
+public class LocalStorage implements HasPrefix{
 
 	private Storage localStorage = Storage.getLocalStorageIfSupported();
 //	private Integer count = 0;

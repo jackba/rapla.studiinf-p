@@ -12,7 +12,14 @@ public class RessourceSetSorterTest extends GWTTestCase{
 	public LinkedHashMap<String, String> map;
 	public LinkedHashMap<String, Integer> SortedMap;
 	public RessourceSetSorter sorter;
-	public HasPrefix hasPrefix;
+	public HasPrefix hasPrefix = new HasPrefix() {
+		
+		@Override
+		public String getPrefix() {
+			// TODO Auto-generated method stub
+			return "test";
+		}
+	};
 
 	@Override
 	public String getModuleName() {
@@ -23,14 +30,13 @@ public class RessourceSetSorterTest extends GWTTestCase{
 	public void init()
 	{
 		map = new LinkedHashMap<String, String>();
-		map.put("test1", "1");
 		map.put("test2", "2");
-		map.put("test3", "3");
 		map.put("test5", "5");
 		map.put("test4", "4");
+		map.put("test1", "1");
+		map.put("test3", "3");
 		
 		sorter = new RessourceSetSorter(map, hasPrefix);
-		
 	}
 	
 	public void testOrder()
@@ -42,10 +48,8 @@ public class RessourceSetSorterTest extends GWTTestCase{
 		SortedMap.put("test3", 3);
 		SortedMap.put("test2", 2);
 		SortedMap.put("test1", 1);
-
 		
-//		assertEquals(SortedMap.toString(), map.toString());
-		assertEquals(1, 1);
+		assertEquals(SortedMap.toString(), sorter.getSortedSet().toString());
 	}
 
 }
