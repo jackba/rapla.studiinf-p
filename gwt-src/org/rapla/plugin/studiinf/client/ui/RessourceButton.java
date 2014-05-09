@@ -16,6 +16,7 @@ public class RessourceButton extends NavButton implements ResultObject {
 	private boolean hideText = false;
 	
 	private NavButton footerButton;
+	boolean showFooterButton;
 	
 	public boolean isHideText() {
 		return hideText;
@@ -27,9 +28,20 @@ public class RessourceButton extends NavButton implements ResultObject {
 			super.setText(null);
 		}
 	}
+	
+	public RessourceButton(boolean showFooterButton, String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page) {
+		this(title, icon, targetPage, page,false, showFooterButton);
+	}
 
 	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page) {
 		this(title, icon, targetPage, page,false);
+	}
+	
+	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page,boolean hideText, boolean showFooterButton) {
+		super(icon, title, targetPage, null);
+		this.page = page;
+		setHideText(hideText);
+		setShowFooter(showFooterButton);
 	}
 	
 	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page,boolean hideText) {
@@ -94,5 +106,16 @@ public class RessourceButton extends NavButton implements ResultObject {
 	public void setIcon(FontIcon fontIcon) {
 		super.setIcon(fontIcon);
 		getFooterButton().setIcon(fontIcon);
+	}
+
+	@Override
+	public void setShowFooter(boolean show) {
+		showFooterButton = show;
+	}
+
+	@Override
+	public boolean getShowFooter() {
+		// TODO Auto-generated method stub
+		return showFooterButton;
 	}
 }

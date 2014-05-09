@@ -13,9 +13,20 @@ public class ResultButton extends NavButton implements ResultObject {
 	private NavButton bottomPictureButton;
 	private List<Widget> cellList;
 	private SearchPageInterface searchPage;
+	private boolean showFooterButton;
 	
+
 	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, SearchPageInterface searchPage){
+		this(title, targetPage, targetId, icon, searchPage, true);
+	}
+	
+	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon){
+		this(title, targetPage, targetId, icon, true);
+	}
+	
+	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, SearchPageInterface searchPage, boolean showFooterButton){
 		super(0, icon, title, targetPage, targetId);
+		this.showFooterButton = showFooterButton;
 		this.searchPage = searchPage;
 		setNumber(0);
 		this.setWidth("100%");
@@ -27,8 +38,8 @@ public class ResultButton extends NavButton implements ResultObject {
 		getFooterButton().setNumber(number);
 	}
 
-	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon) {
-		this(title, targetPage, targetId, icon, null);
+	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, boolean showFooterButton) {
+		this(title, targetPage, targetId, icon, null, showFooterButton);
 	}
 		
 	@Override
@@ -72,5 +83,16 @@ public class ResultButton extends NavButton implements ResultObject {
 		if(searchPage != null){
 			searchPage.handleClickCount(this.getTargetId());
 		}
+	}
+
+	@Override
+	public void setShowFooter(boolean show) {
+		showFooterButton = show;		
+	}
+
+	@Override
+	public boolean getShowFooter() {
+		// TODO Auto-generated method stub
+		return showFooterButton;
 	}
 }

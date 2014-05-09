@@ -166,7 +166,9 @@ public class ResultTable extends FlexTable {
 			if(count >= page*columns*maxRows+1){
 				NavButton fbut = result.getFooterButton();
 				fbut.setSize(0.5);
-				accessibilityRow.add(fbut);
+				if (result.getShowFooter()){
+					accessibilityRow.add(fbut);
+				}
 			}
 			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 				break;

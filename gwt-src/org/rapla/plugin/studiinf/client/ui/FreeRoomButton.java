@@ -21,6 +21,7 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	private final NavButton freeUntil;
 	private List<Widget> cellList;
 	private NavButton footerButton; 
+	private boolean showFooterButton;
 	
 	public FreeRoomButton(Event e) {
 		super(0,IconProvider.Rooms,e.getResources().get(0).getName().toString(),Navigation.roomDetail,e.getResources().get(0).getId());
@@ -73,5 +74,17 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	public void setIcon(FontIcon fontIcon) {
 		getFooterButton().setIcon(fontIcon);
 		super.setIcon(fontIcon);
+	}
+
+	@Override
+	public void setShowFooter(boolean show) {
+		showFooterButton = show;
+		
+	}
+
+	@Override
+	public boolean getShowFooter() {
+		// TODO Auto-generated method stub
+		return showFooterButton;
 	}
 }

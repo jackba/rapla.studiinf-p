@@ -1,7 +1,7 @@
 package org.rapla.plugin.studiinf.client;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
-import org.rapla.rest.RemoteLogger;
+
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.storage.client.Storage;

@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
+import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
@@ -27,9 +28,9 @@ import com.google.gwt.user.client.ui.Label;
 public class DetailPagePoi extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
-	private FlowPanel bottomPanel = new FlowPanel();
 	private Label infoLabel = new Label(Studiinf.i18n.information());
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
+	private AccessibilityRow bottomPanel = new AccessibilityRow();
 	
 	private Grid infos = new Grid(4, 1);
 	
@@ -58,7 +59,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 		super.init();
 		
 		infoPanel.setStyleName("infoPanel");
-		bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos.setStyleName("infos");
 		

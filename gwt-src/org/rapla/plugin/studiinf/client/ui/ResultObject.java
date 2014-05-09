@@ -9,4 +9,7 @@ public interface ResultObject {
 	List<Widget> getCellObjects();
 	public void setNumber(int number);
 	public NavButton getFooterButton();
+	public void setShowFooter(boolean show);
+	public boolean getShowFooter();
+	
 }

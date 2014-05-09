@@ -11,12 +11,17 @@ import com.google.gwt.user.client.ui.Widget;
 public class OrganigramButton extends NavButton implements ResultObject {
 	
 	private NavButton clone;
-
-	public OrganigramButton(String text, AbstractPage targetPage, String targetId) {
+	private boolean showFooterButton;
+	
+	public OrganigramButton(String text, AbstractPage targetPage, String targetId, boolean showFooterButton) {
 		super(IconProvider.Organigram, text, targetPage, targetId);
 		clone = new NavButton(IconProvider.Organigram, null, targetPage, targetId);
 //		this.getElement().getStyle().setWidth(100, Unit.PCT);
 		// TODO Auto-generated constructor stub
+	}
+
+	public OrganigramButton(String text, AbstractPage targetPage, String targetId) {
+		this(text, targetPage, targetId, true);
 	}
 	
 	@Override
@@ -38,6 +43,18 @@ public class OrganigramButton extends NavButton implements ResultObject {
 	public void setNumber(int numberValue) {
 		super.setNumber(numberValue);
 		clone.setNumber(numberValue);
+	}
+
+	@Override
+	public void setShowFooter(boolean show) {
+		showFooterButton = show;
+		
+	}
+
+	@Override
+	public boolean getShowFooter() {
+		// TODO Auto-generated method stub
+		return showFooterButton;
 	}
 
 }
