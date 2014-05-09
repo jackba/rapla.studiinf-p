@@ -1,0 +1,36 @@
+package org.rapla.plugin.studiinf.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.rapla.plugin.studiinf.client.IconProvider;
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
+import org.rapla.plugin.studiinf.client.ui.FontIcon.Position;
+
+import com.google.gwt.user.client.ui.Widget;
+
+public class OrganigramButton extends NavButton implements ResultObject {
+	
+	private NavButton clone;
+
+	public OrganigramButton(String text, AbstractPage targetPage, String targetId) {
+		super(IconProvider.Organigram, text, targetPage, targetId);
+		clone = new NavButton(IconProvider.Organigram, text, targetPage, targetId);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public List<Widget> getCellObjects() {
+		// TODO Auto-generated method stub
+		ArrayList<Widget> returnList = new ArrayList<Widget>();
+		returnList.add(this);
+		return returnList;
+	}
+
+	@Override
+	public NavButton getFooterButton() {
+		// TODO Auto-generated method stub
+		return clone;
+	}
+
+}

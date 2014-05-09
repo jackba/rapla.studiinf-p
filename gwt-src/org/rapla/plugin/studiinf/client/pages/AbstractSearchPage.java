@@ -11,6 +11,7 @@ import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
+import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -102,7 +103,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	@Override
 	public void init() {
 		super.init();
-		organigramBtn = new NavButton(IconProvider.Organigram, Studiinf.i18n.organigram(), Navigation.organisationChart,"1");
+		organigramBtn = new OrganigramButton(Studiinf.i18n.organigram(), Navigation.organisationChart,"null");
 		searchField.setStyleName("searchField");
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
