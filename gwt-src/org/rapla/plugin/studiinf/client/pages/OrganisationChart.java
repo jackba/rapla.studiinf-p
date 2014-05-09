@@ -9,7 +9,6 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
@@ -32,8 +31,7 @@ public class OrganisationChart extends AbstractDetailPage  {
 		FlowPanel infoPanel = new FlowPanel();
 		infoPanel.setStyleName("infoPanel");
 		
-		organigram.setStyleName("infos");			
-
+		organigram.addStyleName("infos");			
 		
 		infoPanel.add(organigram);
 		this.add(infoPanel);
@@ -72,11 +70,11 @@ public class OrganisationChart extends AbstractDetailPage  {
 	}
 	
 	public void showOrganigramLevels(List <CategoryDescription> categories){
-		int count = 0;
+		organigram.clearResults();	
 		for (CategoryDescription category : categories){
-			NavButton org = new OrganigramButton(category.getName(), Navigation.organisationChart, category.getId());
-			organigram.setWidget(count, 0, org);
-			count++;
+			OrganigramButton org = new OrganigramButton(category.getName(), Navigation.organisationChart, category.getId());
+			organigram.addResult(org);
+			organigram.refresh();
 		}
 	}
 
