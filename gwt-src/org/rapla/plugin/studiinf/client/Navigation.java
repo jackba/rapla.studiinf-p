@@ -20,6 +20,7 @@ import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.pages.RoomRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
+import org.rapla.rest.RemoteLogger;
 
 import com.google.gwt.user.client.History;
 //import com.google.gwt.user.client.Window; Window.alert("text");
@@ -45,6 +46,7 @@ public final class Navigation {
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
 	public static final AbstractPage raplaCourseLink = new CourseRaplaPage();
+	public static AbstractPage activePage = homePage;
 	public static final String ID_PREFIX = "";
 	private static List<AbstractPage> pages;
 	
@@ -87,6 +89,10 @@ public final class Navigation {
 		if(page != null){
 		RootPanel.get().clear();
 		RootPanel.get().add(page);
+		
+		/*RessourceLogger.logRessource(page, activePage, id);*/
+		
+		activePage = page;
 		page.onShow();
 		if(id != null){
 			try {
