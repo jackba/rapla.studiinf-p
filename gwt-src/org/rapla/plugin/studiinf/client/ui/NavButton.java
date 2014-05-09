@@ -238,7 +238,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 			this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 		}else{
 			this.getElement().setAttribute("disabled","disabled");
-			if(this.showWhenDisabled){
+			if(this.showWhenDisabled == false){
 				this.getElement().getStyle().setVisibility(Visibility.HIDDEN);
 			}else{
 				this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
