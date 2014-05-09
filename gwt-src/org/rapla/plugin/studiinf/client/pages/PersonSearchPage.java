@@ -11,7 +11,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 
 public class PersonSearchPage extends AbstractSearchPage {
-	private static final String PERSONS = "persons";
+	public static final String ResourceType = "persons";
 	
 	public PersonSearchPage() {
 		super(true, true,true, IconProvider.Persons,Navigation.personDetail);
@@ -50,7 +50,12 @@ public class PersonSearchPage extends AbstractSearchPage {
 
 	@Override
 	public String getResourceType() {
-		return PERSONS;
+		return ResourceType;
+	}
+
+	@Override
+	AbstractPage getOrganisationType() {
+		return Navigation.organisationChartPerson;
 	}
 
 	

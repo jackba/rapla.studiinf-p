@@ -74,6 +74,11 @@ public class PoiSearchPage extends AbstractSearchPage {
 		
 	}
 
+	@Override
+	AbstractPage getOrganisationType() {
+		return null;
+	}
+
 	
 	
 }

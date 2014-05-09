@@ -1,75 +1,25 @@
 package org.rapla.plugin.studiinf.client.search;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 /**
  * 
  *
  */
-public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescription>> {
-	protected String searchString;
-	protected AbstractSearchPage page;
-	protected static Map<AbstractSearchPage,List<ResourceDescription>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescription>>();
+public abstract class AbstractSearch extends AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	
-	public AbstractSearch(String searchTerm,AbstractSearchPage page,boolean autoinit) {
-		if(searchTerm == null){
-			searchTerm ="";
-		}
-		this.searchString = searchTerm.toLowerCase();
-		this.page = page;
-		if(autoinit){
-			init();
-		}
+	public AbstractSearch(String searchTerm,SearchPageInterface page,boolean autoinit) {
+		super(searchTerm, null, page, autoinit);
 	}
 	
 	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
-		this(searchTerm,page,true);
-	}
-	
-	public void init(){
-		if( !resourcesMap.containsKey(page))
-			{
-			ServiceProvider.getResources(getResourceType(), null, this);
-			}
-		else
-		{
-			this.onSuccess(resourcesMap.get(page));
-		}
-	}
-	
-	/**
-	 * 
-	 * @param arg0
-	 */
-	@Override
-	public void onFailure(Throwable arg0) {
-		// TODO Auto-generated method stub
-		
+		super(searchTerm, null, page);
 	}
 
-	/**
-	 * 
-	 * @param arg0
-	 */
-	@Override
-	public void onSuccess(List<ResourceDescription> arg0) {
-		if(!resourcesMap.containsKey(page)){
-			resourcesMap.put(page, arg0);
-		}
-		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page));
-		page.updateResults(ressourcesMatched);
-	}
 
-	protected abstract NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources);
-
-	protected final String getResourceType() {
-		return page.getResourceType();
-	}
 }

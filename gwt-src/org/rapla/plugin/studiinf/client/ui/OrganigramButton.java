@@ -14,7 +14,7 @@ public class OrganigramButton extends NavButton implements ResultObject {
 
 	public OrganigramButton(String text, AbstractPage targetPage, String targetId) {
 		super(IconProvider.Organigram, text, targetPage, targetId);
-		clone = new NavButton(IconProvider.Organigram, text, targetPage, targetId);
+		clone = new NavButton(IconProvider.Organigram, null, targetPage, targetId);
 //		this.getElement().getStyle().setWidth(100, Unit.PCT);
 		// TODO Auto-generated constructor stub
 	}
@@ -31,6 +31,13 @@ public class OrganigramButton extends NavButton implements ResultObject {
 	public NavButton getFooterButton() {
 		// TODO Auto-generated method stub
 		return clone;
+	}
+
+	
+	@Override
+	public void setNumber(int numberValue) {
+		super.setNumber(numberValue);
+		clone.setNumber(numberValue);
 	}
 
 }

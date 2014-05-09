@@ -25,7 +25,7 @@ import com.google.gwt.user.client.ui.TextBox;
  * Template includes all the necessary widgets on the search pages.
  *
  */
-public abstract class AbstractSearchPage extends AbstractPage{
+public abstract class AbstractSearchPage extends AbstractPage implements SearchPageInterface{
 	
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
@@ -100,7 +100,7 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	@Override
 	public void init() {
 		super.init();
-		organigramBtn = new OrganigramButton(Studiinf.i18n.organigram(), Navigation.organisationChart,"null");
+		organigramBtn = new OrganigramButton(Studiinf.i18n.organigram(), getOrganisationType(),"null");
 		searchField.setStyleName("searchField");
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
@@ -206,7 +206,15 @@ public abstract class AbstractSearchPage extends AbstractPage{
 	}
 	
 	abstract protected void handleSearch(String searchTerm);
+	/* (non-Javadoc)
+	 * @see org.rapla.plugin.studiinf.client.pages.SearchPageInterface#updateResults(java.util.List)
+	 */
+	@Override
 	abstract public void updateResults(List<ResourceDescription> ressourcesMatched);
+	/* (non-Javadoc)
+	 * @see org.rapla.plugin.studiinf.client.pages.SearchPageInterface#getResourceType()
+	 */
+	@Override
 	abstract public String getResourceType();
 	
 	/**
@@ -216,4 +224,6 @@ public abstract class AbstractSearchPage extends AbstractPage{
 		ls.fillMap();
 		
 	}	
+	
+	abstract AbstractPage getOrganisationType();
 }

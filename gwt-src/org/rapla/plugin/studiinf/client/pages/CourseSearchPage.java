@@ -11,6 +11,10 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 
 public class CourseSearchPage extends AbstractSearchPage {
+	
+	
+	
+	public static final String ResourceType = "courses";
 
 	public CourseSearchPage() {
 		super(true, true,true,IconProvider.Courses,Navigation.courseDetail);
@@ -44,7 +48,12 @@ public class CourseSearchPage extends AbstractSearchPage {
 
 	@Override
 	public String getResourceType() {
-		return "courses";
+		return ResourceType;
+	}
+
+	@Override
+	AbstractPage getOrganisationType() {
+		return Navigation.organisationChartCourse;
 	}
 
 

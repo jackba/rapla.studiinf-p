@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 /**
  * 
@@ -13,7 +13,7 @@ public class IdSearch extends AbstractSearch {
 
 	private MFRButtonHandler mfrButtonHandler;
 	
-	public IdSearch(MFRButtonHandler mfrButtonHandler, AbstractSearchPage page, String targetId) {
+	public IdSearch(MFRButtonHandler mfrButtonHandler, SearchPageInterface page, String targetId) {
 		super(targetId, page, false);
 		this.mfrButtonHandler = mfrButtonHandler;
 		init();
@@ -39,10 +39,10 @@ public class IdSearch extends AbstractSearch {
 	
 	@Override
 	public void onSuccess(List<ResourceDescription> arg0) {
-		if(!resourcesMap.containsKey(page)){
-			resourcesMap.put(page, arg0);
+		if(!resourcesMap.containsKey(cacheKey())){
+			resourcesMap.put(cacheKey(), arg0);
 		}
-		searchRessources(resourcesMap.get(page));
+		searchRessources(resourcesMap.get(cacheKey()));
 
 
 	}

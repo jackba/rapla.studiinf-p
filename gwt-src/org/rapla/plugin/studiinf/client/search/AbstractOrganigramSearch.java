@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
-import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 /**
@@ -15,12 +15,12 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
  */
 public abstract class AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	protected String searchString;
-	protected AbstractSearchPage page;
+	protected SearchPageInterface page;
 	protected static Map<String,List<ResourceDescription>> resourcesMap = new HashMap<String,List<ResourceDescription>>();
 	
 	protected String categoryId;
-	
-	public AbstractOrganigramSearch(String searchTerm, String categoryId,AbstractSearchPage page,boolean autoinit) {
+		
+	public AbstractOrganigramSearch(String searchTerm, String categoryId,SearchPageInterface page,boolean autoinit) {
 		if(searchTerm == null){
 			searchTerm ="";
 		}
@@ -32,18 +32,29 @@ public abstract class AbstractOrganigramSearch implements AsyncCallback<List<Res
 		}
 	}
 	
-	public AbstractOrganigramSearch(String searchTerm,String categoryId,AbstractSearchPage page) {
+	public AbstractOrganigramSearch(String searchTerm,String categoryId,SearchPageInterface page) {
 		this(searchTerm,categoryId,page,true);
 	}
 	
 	public void init(){
-		if( !resourcesMap.containsKey(page.getHistoryKey()+"_"+categoryId))
+		if( !resourcesMap.containsKey(cacheKey()))
 			{
 			ServiceProvider.getResources(getResourceType(), categoryId, this);
 			}
 		else
 		{
-			this.onSuccess(resourcesMap.get(page.getHistoryKey()+"_"+categoryId));
+			this.onSuccess(resourcesMap.get(cacheKey()));
+		}
+	}
+
+	/**
+	 * @return
+	 */
+	protected String cacheKey() {
+		if(categoryId == null){
+			return page.getHistoryKey()+"_null";
+		}else{
+			return page.getHistoryKey()+"_"+categoryId;
 		}
 	}
 	
@@ -63,10 +74,10 @@ public abstract class AbstractOrganigramSearch implements AsyncCallback<List<Res
 	 */
 	@Override
 	public void onSuccess(List<ResourceDescription> arg0) {
-		if(!resourcesMap.containsKey(page.getHistoryKey()+"_"+categoryId)){
-			resourcesMap.put(page.getHistoryKey()+"_"+categoryId, arg0);
+		if(!resourcesMap.containsKey(cacheKey())){
+			resourcesMap.put(cacheKey(), arg0);
 		}
-		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page.getHistoryKey()+"_"+categoryId));
+		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(cacheKey()));
 		page.updateResults(ressourcesMatched);
 	}
 

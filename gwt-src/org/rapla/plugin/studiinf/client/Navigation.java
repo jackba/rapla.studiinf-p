@@ -14,13 +14,13 @@ import org.rapla.plugin.studiinf.client.pages.DetailPagePoi;
 import org.rapla.plugin.studiinf.client.pages.DetailPageRoom;
 import org.rapla.plugin.studiinf.client.pages.ExtraInfoPage;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
-import org.rapla.plugin.studiinf.client.pages.OrganisationChart;
+import org.rapla.plugin.studiinf.client.pages.OrganisationChartCourse;
+import org.rapla.plugin.studiinf.client.pages.OrganisationChartPerson;
 import org.rapla.plugin.studiinf.client.pages.PersonRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 import org.rapla.plugin.studiinf.client.pages.RoomRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
-import org.rapla.rest.RemoteLogger;
 
 import com.google.gwt.user.client.History;
 //import com.google.gwt.user.client.Window; Window.alert("text");
@@ -41,7 +41,8 @@ public final class Navigation {
 	public static final AbstractPage course = new CourseSearchPage();
 	public static final AbstractPage poi = new PoiSearchPage();
 	public static final AbstractPage room = new RoomSearchPage();
-	public static final AbstractPage organisationChart = new OrganisationChart();
+	public static final AbstractPage organisationChartCourse = new OrganisationChartCourse();
+	public static final AbstractPage organisationChartPerson = new OrganisationChartPerson();
 	public static final AbstractPage extraInfo = new ExtraInfoPage(new DetailPagePerson());
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();

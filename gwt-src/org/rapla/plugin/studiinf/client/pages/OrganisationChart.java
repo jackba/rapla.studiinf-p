@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.CategoryDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
+import org.rapla.plugin.studiinf.client.search.CourseOrganigramSearch;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -16,14 +16,15 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
-public class OrganisationChart extends AbstractDetailPage  {
+public abstract class OrganisationChart extends AbstractDetailPage  implements SearchPageInterface {
 	
-	AccessibilityRow access = new AccessibilityRow();
+	protected AccessibilityRow access = new AccessibilityRow();
 	
-	ResultTable organigram = new ResultTable(access, 1, 8);
-	List <CategoryDescription> testCategoryList;
+	protected ResultTable organigram = new ResultTable(access, 1, 8);
+	protected List <CategoryDescription> testCategoryList;
 	public String helpId;
 	
+	private String categoryId;
 		
 	@Override
 	public void init(){
@@ -47,9 +48,11 @@ public class OrganisationChart extends AbstractDetailPage  {
 	@Override
 	protected void handleId(final String id){
 		String newId = id;
+		
 		if (id.equals("null")){
 			newId = null;
 		}
+		categoryId = newId;
 		ServiceProvider.getOrganigram(newId, new AsyncCallback<List<CategoryDescription>>(){
 
 			@Override
@@ -70,17 +73,17 @@ public class OrganisationChart extends AbstractDetailPage  {
 	}
 	
 	public void showOrganigramLevels(List <CategoryDescription> categories){
-		organigram.clearResults();	
-		for (CategoryDescription category : categories){
-			OrganigramButton org = new OrganigramButton(category.getName(), Navigation.organisationChart, category.getId());
-			organigram.addResult(org);
+		if(categories.size() <= 0){
+			new CourseOrganigramSearch(categoryId, this);
+		}else{
+			organigram.clearResults();	
+			for (CategoryDescription category : categories){
+				OrganigramButton org = new OrganigramButton(category.getName(), this, category.getId());
+				organigram.addResult(org);
+			}
 			organigram.refresh();
 		}
-	}
-
-	@Override
-	public String getHistoryKey() {
-		return "org";
+		
 	}
 
 	@Override
@@ -95,13 +98,19 @@ public class OrganisationChart extends AbstractDetailPage  {
 
 	@Override
 	public boolean hasDefaultQrBox() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void handleClickCount(String targetId) {
 		
 	}
 

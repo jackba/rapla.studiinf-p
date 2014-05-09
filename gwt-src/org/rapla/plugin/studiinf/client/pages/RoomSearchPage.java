@@ -56,4 +56,9 @@ public class RoomSearchPage extends AbstractSearchPage {
 		return ROOMS;
 	}
 
+	@Override
+	AbstractPage getOrganisationType() {
+		return null;
+	}
+
 }
