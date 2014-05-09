@@ -9,6 +9,7 @@ import org.rapla.plugin.studiinf.client.ui.FontIcon.Position;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.SpanElement;
+import com.google.gwt.dom.client.Style.Visibility;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
@@ -44,6 +45,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	FontIcon fontIcon;
 	FontIcon.Position fontPosition;
 	String text;
+	boolean showWhenDisabled = true;
 	boolean enabled = true;
 	boolean twoLines = false;
 	public boolean isTwoLines() {
@@ -233,8 +235,14 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	private void updateEnabledState(){
 		if(getEnabled()){
 			this.getElement().removeAttribute("disabled");
+			this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 		}else{
 			this.getElement().setAttribute("disabled","disabled");
+			if(this.showWhenDisabled){
+				this.getElement().getStyle().setVisibility(Visibility.HIDDEN);
+			}else{
+				this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
+			}
 		}
 	}
 
@@ -269,6 +277,17 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 				iconRight.setInnerHTML("<span class='"+fontIcon.getUrl()+"'></span>");
 			}
 		}
+	}
+
+	@Override
+	public void setShowWhenDisabled(boolean enabled) {
+		this.showWhenDisabled = enabled;
+		updateEnabledState();
+	}
+
+	@Override
+	public boolean getShowWhenDisabled() {
+		return this.showWhenDisabled;
 	}
 	
 

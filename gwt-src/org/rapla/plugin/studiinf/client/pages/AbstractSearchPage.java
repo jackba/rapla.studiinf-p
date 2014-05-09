@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.LocalStorage;
-import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;

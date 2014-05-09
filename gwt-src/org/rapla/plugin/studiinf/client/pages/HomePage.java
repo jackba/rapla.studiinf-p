@@ -11,7 +11,6 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.plugin.studiinf.client.ui.Tile;

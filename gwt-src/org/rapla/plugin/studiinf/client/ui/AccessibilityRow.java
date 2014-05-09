@@ -5,7 +5,6 @@ import org.rapla.plugin.studiinf.client.IconProvider;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiFactory;
@@ -32,8 +31,10 @@ public class AccessibilityRow extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		backButton.setIcon(IconProvider.Previous);
 		backButton.setSize(size);
+		backButton.setShowWhenDisabled(false);
 		nextButton.setIcon(IconProvider.Next);
 		nextButton.setSize(size);
+		nextButton.setShowWhenDisabled(false);
 	}
 	
 
@@ -59,7 +60,7 @@ public class AccessibilityRow extends Composite {
 	@UiFactory
 	FontIcon createBarrierFreeIcon(){
 		FontIcon bfIcon = new FontIcon(IconProvider.Barrier_Free.getUrl());
-		bfIcon.getElement().getStyle().setFontSize(3, Unit.EM);
+		bfIcon.getElement().getStyle().setFontSize(size*5, Unit.EM);
 		return bfIcon;
 	}
 	

@@ -1,14 +1,21 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.search.RessourceSearch;
 
-public class RessourceButton extends NavButton {
+import com.google.gwt.user.client.ui.Widget;
+
+public class RessourceButton extends NavButton implements ResultObject {
 	
 	private AbstractSearchPage page;
 	private boolean hideText = false;
+	
+	private NavButton footerButton;
 	
 	public boolean isHideText() {
 		return hideText;
@@ -54,5 +61,38 @@ public class RessourceButton extends NavButton {
 	@Override
 	public void setTargetId(String targetId) {
 		super.setTargetId(targetId);
+		getFooterButton().setTargetId(targetId);
+	}
+
+	@Override
+	public void setTargetPage(AbstractPage targetPage) {
+		super.setTargetPage(targetPage);
+		getFooterButton().setTargetPage(targetPage);
+	}
+	
+	@Override
+	public List<Widget> getCellObjects() {
+		ArrayList<Widget> returnList = new ArrayList<Widget>();
+		returnList.add(this);
+		return returnList;
+	}
+
+	@Override
+	public NavButton getFooterButton() {
+		if(footerButton == null){
+			footerButton = new NavButton(getIcon(), "", getTargetPage(), getTargetId());
+		}
+		return footerButton;
+	}
+	
+	@Override
+	public void setNumber(int numberValue) {
+		super.setNumber(numberValue);
+		getFooterButton().setNumber(numberValue);
+	}
+	@Override
+	public void setIcon(FontIcon fontIcon) {
+		super.setIcon(fontIcon);
+		getFooterButton().setIcon(fontIcon);
 	}
 }
