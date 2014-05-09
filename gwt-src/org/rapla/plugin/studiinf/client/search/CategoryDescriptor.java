@@ -19,6 +19,15 @@ public class CategoryDescriptor {
 		keys = category.getKeys();		
 	}
 	
+	
+	
+	public CategoryDescriptor(String name, String id) {
+		this.name = name;
+		this.id = id;
+	}
+
+
+
 	public String getName() {
 		if(name == null){
 			name = getCell("name");

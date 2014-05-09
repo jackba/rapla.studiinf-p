@@ -29,14 +29,11 @@ public class Organigram implements AsyncCallback<List<CategoryDescription>>{
 	public void onSuccess(List<CategoryDescription> result) {
 		List<CategoryDescription> resultOrganigram = result;
 		Window.alert(resultOrganigram.toString());
-		String id = resultOrganigram.get(0).getId();
-		
-		if (id != null)
-		{
-			this.getOrganigram(id);
-		}
-		
-		
+//		String id = resultOrganigram.get(0).getId();
+//		
+//		if (id != null)
+//		{
+//			this.getOrganigram(id);
+//		}
 	}
-	
 }
