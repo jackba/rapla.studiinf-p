@@ -31,7 +31,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private String id;
 
 	private FlowPanel personInfoPanel = new FlowPanel();
-	private FlowPanel bottomPanel = new FlowPanel();
+	private AccessibilityRow bottomPanel = new AccessibilityRow();
 	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label(Studiinf.i18n.information());
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
@@ -68,7 +68,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 		personInfoPanel.setStyleName("personInfoPanel");
 		//personInfoLabel.setStyleName("personInfoLabel");
 		personInfoLabel.setStyleName("infoLabel");
-		bottomPanel.setStyleName("bottomPanel");
+		//bottomPanel.setStyleName("bottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos.setStyleName("personInfos");
 		appointmentLabel.setStyleName("personAppointmentLabel");
