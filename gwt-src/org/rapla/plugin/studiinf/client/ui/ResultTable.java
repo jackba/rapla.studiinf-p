@@ -80,17 +80,11 @@ public class ResultTable extends FlexTable {
 	this.page = 0;
 	
 	this.backButton.setSize(size);
-	/*this.backButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
-	this.backButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
-	this.backButton.getElement().getStyle().setLeft(0.0, Unit.EM);
-	this.backButton.getElement().getStyle().setMarginRight(0.5,Unit.EM);*/
 	this.backButton.getElement().getStyle().setWidth(100, Unit.PCT);
+	this.backButton.setShowWhenDisabled(false);
 	this.nextButton.setSize(size);
-	/*this.nextButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
-	this.nextButton.getElement().getStyle().setBottom(-5.0, Unit.EM);
-	this.nextButton.getElement().getStyle().setLeft(50, Unit.PCT);
-	this.nextButton.getElement().getStyle().setMarginLeft(0.5,Unit.EM);*/
 	this.nextButton.getElement().getStyle().setWidth(100, Unit.PCT);
+	this.nextButton.setShowWhenDisabled(false);
 	this.backButton.setClickHandler(new ClickHandler() {
 		
 		@Override
@@ -144,7 +138,7 @@ public class ResultTable extends FlexTable {
 		int count = 0;
 		backButton.setEnabled(false);
 		
-		getFlexCellFormatter().setColSpan(0, 0, 2);
+		getFlexCellFormatter().setColSpan(0, 0, columns);
 		setWidget(0, 0, backButton);
 		
 		for (ResultObject result : results){
@@ -164,9 +158,9 @@ public class ResultTable extends FlexTable {
 				count++;
 			}
 			if(count >= page*columns*maxRows+1){
-				NavButton fbut = result.getFooterButton();
-				fbut.setSize(0.5);
 				if (result.getShowFooter()){
+					NavButton fbut = result.getFooterButton();
+					fbut.setSize(0.5);
 					accessibilityRow.add(fbut);
 				}
 			}
@@ -180,7 +174,7 @@ public class ResultTable extends FlexTable {
 			setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, new FlowPanel());
 			count++;
 		}
-		getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, 2);
+		getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, columns);
 		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());

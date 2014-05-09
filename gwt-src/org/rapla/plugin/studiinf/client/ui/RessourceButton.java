@@ -11,65 +11,68 @@ import org.rapla.plugin.studiinf.client.search.RessourceSearch;
 import com.google.gwt.user.client.ui.Widget;
 
 public class RessourceButton extends NavButton implements ResultObject {
-	
+
 	private AbstractSearchPage page;
 	private boolean hideText = false;
-	
+
 	private NavButton footerButton;
 	boolean showFooterButton;
-	
+
 	public boolean isHideText() {
 		return hideText;
 	}
 
 	public void setHideText(boolean hideText) {
 		this.hideText = hideText;
-		if(hideText){
+		if (hideText) {
 			super.setText(null);
 		}
 	}
-	
-	public RessourceButton(boolean showFooterButton, String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page) {
-		this(title, icon, targetPage, page,false, showFooterButton);
-	}
 
-	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page) {
-		this(title, icon, targetPage, page,false);
-	}
-	
-	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page,boolean hideText, boolean showFooterButton) {
+	public RessourceButton(String title, FontIcon icon,
+			AbstractPage targetPage, AbstractSearchPage page, boolean hideText,
+			boolean showFooterButton) {
 		super(icon, title, targetPage, null);
 		this.page = page;
 		setHideText(hideText);
 		setShowFooter(showFooterButton);
+		this.setWidth("100%");
 	}
-	
-	public RessourceButton(String title, FontIcon icon, AbstractPage targetPage, AbstractSearchPage page,boolean hideText) {
-		super(icon, title, targetPage, null);
-		this.page = page;
-		setHideText(hideText);
+
+	public RessourceButton(String title, FontIcon icon,
+			AbstractPage targetPage, AbstractSearchPage page) {
+		this(title, icon, targetPage, page, false);
 	}
-	
+
+	public RessourceButton(String title, FontIcon icon,
+			AbstractPage targetPage, AbstractSearchPage page, boolean hideText) {
+		this(title, icon, targetPage, page, hideText, true);
+	}
+
 	public void updateResults(ResourceDescription resourceDescriptor) {
-//		Window.alert("update: "+resourceDescriptor.toString());
-		setTargetId(resourceDescriptor.getId());	
+		setTargetId(resourceDescriptor.getId());
+		this.getElement().setAttribute("data-ressource",resourceDescriptor.getId());
+		getFooterButton().setTargetId(resourceDescriptor.getId());
+		super.setText(resourceDescriptor.getName());
 	}
+
 	
 	@Override
 	public void setText(String text) {
 		String oldText = getText();
 		this.getElement().setAttribute("data-ressource", text);
-		if ((oldText == null && text != null) ||(oldText != null && !oldText.equals(text))){
-			if(hideText){
+		if ((oldText == null && text != null)|| (oldText != null && !oldText.equals(text))) {
+			if (hideText) {
 				super.setText(null);
-			}else{
+			} else {
 				super.setText(text);
-			}			
+			}
 			setTargetId(null);
 			new RessourceSearch(text, page, this);
 		}
 	}
-	
+
+
 	@Override
 	public void setTargetId(String targetId) {
 		super.setTargetId(targetId);
@@ -81,7 +84,7 @@ public class RessourceButton extends NavButton implements ResultObject {
 		super.setTargetPage(targetPage);
 		getFooterButton().setTargetPage(targetPage);
 	}
-	
+
 	@Override
 	public List<Widget> getCellObjects() {
 		ArrayList<Widget> returnList = new ArrayList<Widget>();
@@ -91,17 +94,19 @@ public class RessourceButton extends NavButton implements ResultObject {
 
 	@Override
 	public NavButton getFooterButton() {
-		if(footerButton == null){
-			footerButton = new NavButton(getIcon(), "", getTargetPage(), getTargetId());
+		if (footerButton == null) {
+			footerButton = new NavButton(getIcon(), "", getTargetPage(),
+					getTargetId());
 		}
 		return footerButton;
 	}
-	
+
 	@Override
 	public void setNumber(int numberValue) {
 		super.setNumber(numberValue);
 		getFooterButton().setNumber(numberValue);
 	}
+
 	@Override
 	public void setIcon(FontIcon fontIcon) {
 		super.setIcon(fontIcon);

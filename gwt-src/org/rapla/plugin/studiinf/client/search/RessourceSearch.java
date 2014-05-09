@@ -6,6 +6,8 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 
+import com.google.gwt.user.client.Window;
+
 public class RessourceSearch extends AbstractSearch {
 	private RessourceButton button;
 	public RessourceSearch(String searchTerm, SearchPageInterface page, RessourceButton button) {
@@ -34,7 +36,7 @@ public class RessourceSearch extends AbstractSearch {
 		if(ressourcesMatched.size() >= 1){
 			button.updateResults(ressourcesMatched.getFirst());
 		}else{
-			//Window.alert(searchString + " not found: "+ressourcesMatched.toString());
+			Window.alert(searchString + " not found: "+ressourcesMatched.toString());
 		}
 
 	}

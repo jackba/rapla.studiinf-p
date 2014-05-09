@@ -19,6 +19,8 @@ public interface NavigationButtonSpec {
 	public void setSize(double viewPortSize);
 	public void setEnabled(boolean enabled);
 	public boolean getEnabled();
+	public void setText(String text);
+	public String getText();
 
 	public void setShowWhenDisabled(boolean enabled);
 	public boolean getShowWhenDisabled();

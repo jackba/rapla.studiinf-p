@@ -95,4 +95,5 @@ public class ResultButton extends NavButton implements ResultObject {
 		// TODO Auto-generated method stub
 		return showFooterButton;
 	}
+	
 }
