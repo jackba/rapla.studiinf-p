@@ -39,9 +39,9 @@ public class ServiceProvider {
 	 * @param resourceType
 	 * @param callback
 	 */
-	public static void getResources(String resourceType, final AsyncCallback<List<ResourceDescription>> callback) {
+	public static void getResources(String resourceType, String categoryId, final AsyncCallback<List<ResourceDescription>> callback) {
 		String serviceLocale = SearchUtils.getServiceLocale();
-		getService().getResources(resourceType, null, serviceLocale).get(callback);
+		getService().getResources(resourceType, categoryId, serviceLocale).get(callback);
 		
 	}
 

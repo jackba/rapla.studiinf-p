@@ -13,15 +13,18 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
  * 
  *
  */
-public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescription>> {
+public abstract class AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	protected String searchString;
 	protected AbstractSearchPage page;
-	protected static Map<AbstractSearchPage,List<ResourceDescription>> resourcesMap = new HashMap<AbstractSearchPage,List<ResourceDescription>>();
+	protected static Map<String,List<ResourceDescription>> resourcesMap = new HashMap<String,List<ResourceDescription>>();
 	
-	public AbstractSearch(String searchTerm,AbstractSearchPage page,boolean autoinit) {
+	protected String categoryId;
+	
+	public AbstractOrganigramSearch(String searchTerm, String categoryId,AbstractSearchPage page,boolean autoinit) {
 		if(searchTerm == null){
 			searchTerm ="";
 		}
+		this.categoryId = categoryId;
 		this.searchString = searchTerm.toLowerCase();
 		this.page = page;
 		if(autoinit){
@@ -29,18 +32,18 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 		}
 	}
 	
-	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
-		this(searchTerm,page,true);
+	public AbstractOrganigramSearch(String searchTerm,String categoryId,AbstractSearchPage page) {
+		this(searchTerm,categoryId,page,true);
 	}
 	
 	public void init(){
-		if( !resourcesMap.containsKey(page))
+		if( !resourcesMap.containsKey(page.getHistoryKey()+"_"+categoryId))
 			{
-			ServiceProvider.getResources(getResourceType(), null, this);
+			ServiceProvider.getResources(getResourceType(), categoryId, this);
 			}
 		else
 		{
-			this.onSuccess(resourcesMap.get(page));
+			this.onSuccess(resourcesMap.get(page.getHistoryKey()+"_"+categoryId));
 		}
 	}
 	
@@ -60,10 +63,10 @@ public abstract class AbstractSearch implements AsyncCallback<List<ResourceDescr
 	 */
 	@Override
 	public void onSuccess(List<ResourceDescription> arg0) {
-		if(!resourcesMap.containsKey(page)){
-			resourcesMap.put(page, arg0);
+		if(!resourcesMap.containsKey(page.getHistoryKey()+"_"+categoryId)){
+			resourcesMap.put(page.getHistoryKey()+"_"+categoryId, arg0);
 		}
-		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page));
+		NoDuplicatesList<ResourceDescription> ressourcesMatched = searchRessources(resourcesMap.get(page.getHistoryKey()+"_"+categoryId));
 		page.updateResults(ressourcesMatched);
 	}
 
