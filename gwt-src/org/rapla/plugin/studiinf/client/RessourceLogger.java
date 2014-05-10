@@ -1,7 +1,7 @@
 package org.rapla.plugin.studiinf.client;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
-
+import org.rapla.rest.RemoteLogger;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.storage.client.Storage;
@@ -11,7 +11,6 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 
 public class RessourceLogger {
-	/*
 	private static RemoteLogger service = null;
 	
 	private static final String localeStorageClientId = "org.rapla.plugin.studiinf.clientId";
@@ -64,6 +63,5 @@ public class RessourceLogger {
 		}
 	}
 	
-	*/
 	
 }
