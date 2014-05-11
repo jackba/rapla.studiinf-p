@@ -39,15 +39,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private ResultButton nameButton;
 	private ResultButton courseOfStudyButton;
 	private RessourceButton roomButton;
-//	private RessourceButton roomButton2;
 	private ResultButton raplaButton;
-//	private NavButton raplaButton2;
 	
 	private String nameButtonText;
 	private String courseOfStudyButtonText;
 	private String roomButtonText;
 
-	
 	@Override
 	public void init(){
 		super.init();
@@ -64,20 +61,10 @@ public class DetailPageCourse extends AbstractDetailPage {
 		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,false, true);
 		raplaButton = new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, IconProvider.Calendar, true);
 
-		
-
-
-		
-		
-		
-		//infoPanel.setStyleName("courseInfoPanel");
 		infoPanel.setStyleName("infoPanel");
 		middlePanel.setStyleName("courseMiddlePanel");
-		//infoLabel.setStyleName("courseInfoLabel");
 		infoLabel.setStyleName("infoLabel");
 		appointmentLabel.setStyleName("courseAppointmentLabel");
-		//infos.setStyleName("courseInfos");
-//		infos.setStyleName("infos");
 		lectures.setStyleName("courseLecturesTable");
 		
 		infos.clearResults();
@@ -93,9 +80,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		middlePanel.add(lectures);
 		middlePanel.add(appointmentLabel);
-
-//		bottomPanel.add(roomButton2);
-//		bottomPanel.add(raplaButton2);
 		
 		this.add(infoPanel);
 		this.add(bottomPanel);
@@ -122,10 +106,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		super.refresh();
 		nameButton.setText(nameButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
-//		roomButton.setText(roomButtonText);
-//		roomButton2.setText(roomButtonText);
 		raplaButton.setTargetId(id);
-//		raplaButton2.setTargetId(id);
 	}
 
 
@@ -154,31 +135,23 @@ public class DetailPageCourse extends AbstractDetailPage {
 		this.id = id;
 		nameButtonText = cd.getName();
 		cd.getPicture();
-		
 		cd.getYear();
-		
 		courseOfStudyButtonText = cd.getDepartment();
-
-		
 		courseOfStudyButton.setText(cd.getDepartment());
 		roomButton.setText(cd.getRoomNr());
 		
-		
-		
-//		if(!cd.getDepartment().equals("")){
-//			courseOfStudyButtonText = cd.getDepartment();
-//			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-//			}else{
-//				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
-//			}
-//		if(!cd.getRoomNr().equals("")){
-//			roomButtonText = cd.getRoomNr();
-//			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-////			roomButton2.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-//			}else{
-//				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-////				roomButton2.getElement().getStyle().setDisplay(Display.NONE);
-//			}
+		if(!cd.getDepartment().equals("")){
+			courseOfStudyButtonText = cd.getDepartment();
+			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
+			}
+		if(!cd.getRoomNr().equals("")){
+			roomButtonText = cd.getRoomNr();
+			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			}else{
+				roomButton.getElement().getStyle().setDisplay(Display.NONE);
+			}
 		
 		refresh();
 		

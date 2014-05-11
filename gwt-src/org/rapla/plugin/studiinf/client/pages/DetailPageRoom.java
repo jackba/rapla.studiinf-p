@@ -19,10 +19,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
-	
 	private Label infoLabel = new Label(Studiinf.i18n.information());
-//	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
-	
 	private ResultTable infos;
 	
 	private String nameButtonText;
@@ -33,24 +30,18 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private ResultButton typeButton;
 	private ResultButton courseOfStudyButton;
 	private ResultButton raplaButton;
-//	private NavButton raplaButton2;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
-	
 	private String id;
 	
-	
-
 	@Override
 	public void init(){
 		super.init();
 		infoPanel.setStyleName("infoPanel");
-		//bottomPanel.setStyleName("bottomPanel");
 		infoLabel.setStyleName("infoLabel");
 		infos = new ResultTable(bottomPanel, 1, 4);
-		infos.setWidth("100%");
-//		infos.setStyleName("infos");		
+		infos.setWidth("100%");		
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
@@ -66,17 +57,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		typeButton = new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false);
 		courseOfStudyButton = new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false);
 		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true);
-//		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id);
-		
-		raplaButton.setStyleName("resultPanelButton");
-		nameButton.setStyleName("resultPanelButton");
-		typeButton.setStyleName("resultPanelButton");
-		courseOfStudyButton.setStyleName("resultPanelButton");
-		
-//		raplaButton2.setStyleName("bottomButton");
 		
 		raplaButton.setSize(0.8);
-//		raplaButton2.setSize(0.8);
 		nameButton.setSize(0.8);
 		typeButton.setSize(0.8);
 		courseOfStudyButton.setSize(0.8);
@@ -90,15 +72,12 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
-			
-//		bottomPanel.add(raplaButton2);
+
 		qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);
-		
 	}
-	
 	
 	@Override
 	public String getHistoryKey() {
@@ -113,8 +92,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		return nameButtonText;
 	}
 
-
-	
 	@Override
 	protected void refresh() {
 		super.refresh();
@@ -122,7 +99,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 		typeButton.setText(typeButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
-//		raplaButton2.setTargetId(id);
 		
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
@@ -136,7 +112,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 			noNavigationImg.setStyleName("navigationPicture");
 			this.add(noNavigationImg);
 		}
-		
 	}
 
 
@@ -149,9 +124,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		RoomDescriptor rd = new RoomDescriptor(resource);
-		
 		this.id = id;
-//		qrBox.setHash(getHistoryKey()+"/"+getId());
 		
 		if (!rd.getRoomNr().equals("")){
 			nameButtonText = rd.getRoomNr();
@@ -171,11 +144,6 @@ public class DetailPageRoom extends AbstractDetailPage {
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
-		
-		
-
 		refresh();
-		
 	}
-
 }

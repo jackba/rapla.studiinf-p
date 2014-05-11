@@ -23,7 +23,6 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Label;
 
 public class DetailPagePerson extends AbstractDetailPage {
@@ -46,11 +45,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	private ResultButton mailButton;
 	private ResultButton telephoneButton;
 	private RessourceButton roomButton;
-//	private RessourceButton roomButton2;
 	private ResultButton raplaButton;
-//	private NavButton raplaButton2;
 	private ResultButton extraInfosButton;
-//	private NavButton extraInfosButton2;
 	
 	private String roomButtonText;
 	private String mailButtonText;
@@ -67,11 +63,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		super.init();
 	
 		personInfoPanel.setStyleName("personInfoPanel");
-		//personInfoLabel.setStyleName("personInfoLabel");
 		personInfoLabel.setStyleName("infoLabel");
-		//bottomPanel.setStyleName("bottomPanel");
 		middlePanel.setStyleName("personMiddlePanel");
-//		infos.setStyleName("personInfos");
 		infos = new ResultTable(bottomPanel, 1, 4);
 		infos.setWidth("75%");
 		
@@ -85,25 +78,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 		telephoneButton = new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false);
 		extraInfosButton = new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true);
 		raplaButton = new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true);		
-//		roomButton2 = new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-//		extraInfosButton2 = new NavButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(),Navigation.extraInfo, id);
-//		raplaButton2 = new NavButton(IconProvider.Rooms,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id);
-		
-//		extraInfosButton2.setStyleName("bottomButton");
-//		raplaButton2.setStyleName("bottomButton");
-//		roomButton2.setStyleName("bottomButton");
-		roomButton.setStyleName("personInfoButtons");
-		extraInfosButton.setStyleName("personInfoButtons");
-		raplaButton.setStyleName("personInfoButtons");
-		mailButton.setStyleName("personInfoButtons");
-		telephoneButton.setStyleName("personInfoButtons");
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
-//		roomButton2.setSize(0.8);
-//		raplaButton2.setSize(0.8);
 		extraInfosButton.setSize(0.8);
-//		extraInfosButton2.setSize(0.8);
 		mailButton.setSize(0.8);
 		telephoneButton.setSize(0.8);
 		
@@ -115,13 +93,10 @@ public class DetailPagePerson extends AbstractDetailPage {
 		infos.addResult(raplaButton);
 		infos.refresh();
 		
-		//Image img =	new Image(IconProvider.PERSONS);
 		FontIcon icon = new FontIcon(IconProvider.Persons.getUrl());
-		//img.setStyleName("personDetailPicture");
 		icon.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
-		//personInfoPanel.add(img);
 		personInfoPanel.add(icon);
 		personInfoPanel.add(infos);
 		
@@ -129,10 +104,6 @@ public class DetailPagePerson extends AbstractDetailPage {
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(lectures);
-	
-//		bottomPanel.add(roomButton2);
-//		bottomPanel.add(extraInfosButton2);
-//		bottomPanel.add(raplaButton2);
 		
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
@@ -155,10 +126,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 	public void showRaplaLinks(boolean show){
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			raplaButton2.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}
@@ -171,11 +140,8 @@ public class DetailPagePerson extends AbstractDetailPage {
 		telephoneButton.setText(telephoneButtonText);
 		mailButton.setText(mailButtonText); 
 		roomButton.setText(roomButtonText);
-//		roomButton2.setText(roomButtonText);
 		raplaButton.setTargetId(id);
-//		raplaButton2.setTargetId(id);
 		extraInfosButton.setTargetId(id);
-//		extraInfosButton2.setTargetId(id);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -199,9 +165,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 			}else{
 				telephoneButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
-		
 		courseOfStudyInfo.setText(person.getDepartment());
-		
 		refresh();
 		
 		Date dateBegin = new Date();
@@ -210,15 +174,12 @@ public class DetailPagePerson extends AbstractDetailPage {
 		Date dateEnd = new Date();
 		dateEnd.setHours(23);
 		dateEnd.setMinutes(59);
-
 		String end = f.format(dateEnd);
-		
 		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
 
 			@Override
 			public void onFailure(Throwable arg0) {
-				
-				
+					
 			}
 
 			@Override
@@ -263,10 +224,7 @@ public class DetailPagePerson extends AbstractDetailPage {
 				}
 				}
 				middlePanel.add(lectures);			
-				
 				}
-		});
-		
+		});	
 	}
-
 }

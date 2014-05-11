@@ -13,7 +13,6 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
@@ -23,7 +22,6 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
@@ -33,7 +31,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private Label infoLabel = new Label(Studiinf.i18n.information());
 	private QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
-	
 	private ResultTable infos;
 	
 	private String nameButtonText;
@@ -42,19 +39,14 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private String roomButtonText;
 	
 	private RessourceButton roomButton;
-//	private RessourceButton roomButton2;
 	private ResultButton rowOneButton;
 	private ResultButton rowTwoButton;
 	private ResultButton raplaButton;
-//	private NavButton raplaButton2;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
 	
 	private String id;
-	
-	
-	
 
 	@Override
 	public void init(){
@@ -64,7 +56,6 @@ public class DetailPagePoi extends AbstractDetailPage {
 		infoLabel.setStyleName("infoLabel");
 		infos = new ResultTable(bottomPanel, 1, 4);
 		infos.setWidth("100%");
-//		infos.setStyleName("infos");
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
 			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
@@ -76,30 +67,16 @@ public class DetailPagePoi extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 		
-		
 		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-//		roomButton2 = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
 		rowOneButton = new ResultButton(IconProvider.Additional_Information, rowOneButtonText,  null, null, false);
 		rowTwoButton = new ResultButton(IconProvider.Additional_Information, rowTwoButtonText, null, null, false);
 		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true);
-//		raplaButton2 = new NavButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id);
-		
-//		roomButton2.setStyleName("bottomButton");
-//		raplaButton2.setStyleName("bottomButton");
-		
-//		raplaButton.setStyleName("resultPanelButton");
-//		rowOneButton.setStyleName("resultPanelButton");
-//		rowTwoButton.setStyleName("resultPanelButton");
-//		roomButton.setStyleName("resultPanelButton");
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
-//		roomButton2.setSize(0.8);
-//		raplaButton2.setSize(0.8);
 		rowOneButton.setSize(0.8);
 		rowTwoButton.setSize(0.8);
-		
-		
+
 		infos.clearResults();
 		infos.addResult(roomButton);
 		infos.addResult(rowOneButton);
@@ -110,16 +87,12 @@ public class DetailPagePoi extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-//		bottomPanel.add(raplaButton2);
-//		bottomPanel.add(roomButton2);
-		
 		qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);
 		
 	}
-	
 	
 	@Override
 	public String getHistoryKey() {
@@ -134,17 +107,13 @@ public class DetailPagePoi extends AbstractDetailPage {
 		return nameButtonText;
 	}
 
-
-	
 	@Override
 	protected void refresh() {
 		super.refresh();
 		roomButton.setText(roomButtonText);
-//		roomButton2.setText(roomButtonText);
 		rowOneButton.setText(rowOneButtonText);
 		rowTwoButton.setText(rowTwoButtonText);
 		raplaButton.setTargetId(id);
-//		raplaButton2.setTargetId(id);
 		
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
@@ -164,12 +133,9 @@ public class DetailPagePoi extends AbstractDetailPage {
 	public void showRaplaLinks(boolean show){
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			raplaButton2.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
 		}
-
 	}
 
 
@@ -190,10 +156,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 		if (!pd.getRoomNr().equals("")){
 			roomButtonText = pd.getRoomNr();
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-//			roomButton2.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-//				roomButton2.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!pd.getRowOne().equals("")){
 			rowOneButtonText = pd.getRowOne();
@@ -226,9 +190,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 		Date dateEnd = new Date();
 		dateEnd.setHours(23);
 		dateEnd.setMinutes(59);
-
 		String end = f.format(dateEnd);
-		
 		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
 
 			@Override
