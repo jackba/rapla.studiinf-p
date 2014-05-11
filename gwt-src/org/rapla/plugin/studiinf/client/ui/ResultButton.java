@@ -41,7 +41,11 @@ public class ResultButton extends NavButton implements ResultObject {
 	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, boolean showFooterButton) {
 		this(title, targetPage, targetId, icon, null, showFooterButton);
 	}
-		
+	
+	public ResultButton(FontIcon icon, String title, AbstractPage targetPaget, String targetId, boolean showFooterButton) {
+		this(title, targetPaget, targetId, icon, null, showFooterButton);
+	}
+
 	@Override
 	public void setIcon(FontIcon fontIcon) {
 		super.setIcon(fontIcon);
