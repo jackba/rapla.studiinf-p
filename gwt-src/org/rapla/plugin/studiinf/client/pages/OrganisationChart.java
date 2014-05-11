@@ -13,7 +13,7 @@ import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
-import com.google.gwt.user.client.Window;
+//import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 public abstract class OrganisationChart extends AbstractDetailPage  implements SearchPageInterface {
@@ -58,13 +58,12 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-				Window.alert("fail :("+ caught.toString());
+//				Window.alert("fail :("+ caught.toString());
 			}
 
 			@Override
 			public void onSuccess(List<CategoryDescription> result) {
 				// TODO Auto-generated method stub
-				Window.alert(":)");
 				handleRessource(id, result);
 				
 			}
@@ -78,8 +77,8 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		}else{
 			organigram.clearResults();	
 			for (CategoryDescription category : categories){
-				OrganigramButton org = new OrganigramButton(category.getName(), this, category.getId());
-				organigram.addResult(org);
+				OrganigramButton orgButton = new OrganigramButton(category.getName(), this, category.getId());
+				organigram.addResult(orgButton);
 			}
 			organigram.refresh();
 		}
@@ -106,8 +105,6 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public void handleClickCount(String targetId) {

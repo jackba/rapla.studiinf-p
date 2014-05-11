@@ -38,4 +38,5 @@ public interface I18n extends Messages {
 	String previous();
 	String next();
 	String information();
+	String languageButtonText();
 	}

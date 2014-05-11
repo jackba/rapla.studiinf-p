@@ -214,6 +214,8 @@ nav{
 		border-top: solid 0.1vh #000000;
 		box-shadow:0 0 0.1vh #ffffff;
 	}
+	
+	
 /*
 .footer button{
 		margin: 1vh 1vh;
@@ -234,7 +236,7 @@ nav{
 	position:absolute;
 	bottom:17vh;
 	left:1vw;
-	rigth:1vw;
+	right:1vw;
 	width:86vw;
 	height:4vh;
 	padding:0px;
@@ -847,3 +849,10 @@ overflow: hidden;
 .right{
 	float: right;
 }
+
+.languageBox{
+	border: 0;
+	position:absolute;
+	bottom: 6vh;
+	left: 0vw;
+}	
