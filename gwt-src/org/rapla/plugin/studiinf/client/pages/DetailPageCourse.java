@@ -119,15 +119,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 	}
 
 	public void showRaplaLinks(boolean show){
-//		if (show == true){
+		if (show == true){
 //			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-////			raplaButton2.getElement().getStyle().setDisplay(Display.INLINE);
-//		} else {
+		} else {
 //			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-////			raplaButton2.getElement().getStyle().setDisplay(Display.NONE);
-//			appointmentLabel.setText(Studiinf.i18n.noAppointments());
-//		}
-
+			appointmentLabel.setText(Studiinf.i18n.noAppointments());
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -209,9 +206,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		roomsShowButton.setSize(0.87);
 		lectures.setWidget(row, 1, roomsShowButton);
 		
-		
-		
-		
 		List<ResourceDescription> resources = event.getResources();
 		FlowPanel panel = new FlowPanel();
 		PopupPanel rooms = new PopupPanel();
@@ -221,10 +215,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 
 		roomsShowButton.setClickHandler(new DetailPagePersonClickHandler(roomsShowButton,rooms));
 		new FilterRooms(panel,resources,roomsShowButton,true);
-		
-		
-		
-		
 		
 	}
 
