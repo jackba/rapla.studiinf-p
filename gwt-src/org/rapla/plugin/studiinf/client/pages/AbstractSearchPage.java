@@ -225,4 +225,6 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	}	
 	
 	abstract AbstractPage getOrganisationType();
+	
+
 }

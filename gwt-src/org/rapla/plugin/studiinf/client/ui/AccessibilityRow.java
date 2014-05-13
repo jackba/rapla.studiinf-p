@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class AccessibilityRow extends Composite {
 	private static AccessibilityRowUiBinder uiBinder = GWT.create(AccessibilityRowUiBinder.class);
 	
-	private double size = 0.6;
+	private double size = 0.4;
 	
 	interface AccessibilityRowUiBinder  extends UiBinder<Widget, AccessibilityRow> {
 	}

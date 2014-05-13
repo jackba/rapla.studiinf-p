@@ -15,8 +15,8 @@ import com.google.gwt.user.client.ui.Widget;
  *
  */
 public abstract class AbstractPage extends ComplexPanel{
-	private PageHeader header;
-	private PageFooter footer;
+	protected PageHeader header;
+	protected PageFooter footer;
 	protected static ResetTimer timer = new ResetTimer();
 	
 
@@ -71,5 +71,8 @@ public abstract class AbstractPage extends ComplexPanel{
 	   public void onShow(){
 	   }
 	   
+
+	   
+
 	   
 }

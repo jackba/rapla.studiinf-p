@@ -126,4 +126,6 @@ public class HomePage extends AbstractPage {
 		freeRoomsTable.setPage(0);
 		super.onShow();
 	}
+
+
 }

@@ -15,12 +15,13 @@
 	width:5%;
 }
 	.accessibilityRow{
-		display:table;
 		width:85%;
 	}
 	.cell{
-		display: table-cell;
+		float:left;
+		display:inline-block;
 		text-align:center;
+		width:14.28%;
 	}
 	</ui:style>
 	<g:HTMLPanel ui:field="accessibilityRoot" styleName="{style.accessibilityRoot}">

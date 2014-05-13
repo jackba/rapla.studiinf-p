@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.FlexTable;
  */
 public class ExtraInfoPage extends AbstractDetailPage {
 FlexTable detailsTable;
-private NavButton backBtn;
+//private NavButton backBtn;
 private String id;
 private AbstractPage target;
 	
@@ -31,10 +31,11 @@ private AbstractPage target;
 		super.init();
 		detailsTable = new FlexTable();
 		detailsTable.setStyleName("detailsTable");
-		backBtn = new NavButton(Studiinf.i18n.back(),target,id);
+		//backBtn = new NavButton(Studiinf.i18n.back(),target,id);
+		footer.setTargetPage(target);
 		//backBtn = new NavButton(Studiinf.i18n.back(), target, id);
-		backBtn.setStyleName("raplaBackButton");
-		this.add(backBtn);
+		//backBtn.setStyleName("raplaBackButton");
+		//this.add(backBtn);
 		this.add(detailsTable);
 		
 	}
@@ -58,7 +59,8 @@ private AbstractPage target;
 	protected void handleRessource(String id, ResourceDetail resource) {
 
 		this.id = id;
-		backBtn.setTargetId(id);
+		//backBtn.setTargetId(id);
+		footer.setTargetId(id);
 		PersonDescriptor person = new PersonDescriptor(resource);
 		LinkedList<ResourceDetailRow> details = person.getDetails();
 		detailsTable.removeAllRows();
@@ -77,5 +79,7 @@ private AbstractPage target;
 		detail.setStyleName("detailEntry");
 		detailsTable.setWidget(detailsTable.getRowCount(), 0, detail);
 	}
+	
+	
 
 }

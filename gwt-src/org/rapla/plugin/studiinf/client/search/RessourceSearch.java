@@ -36,7 +36,7 @@ public class RessourceSearch extends AbstractSearch {
 		if(ressourcesMatched.size() >= 1){
 			button.updateResults(ressourcesMatched.getFirst());
 		}else{
-			Window.alert(searchString + " not found: "+ressourcesMatched.toString());
+			//Window.alert(searchString + " not found: "+ressourcesMatched.toString());
 		}
 
 	}
