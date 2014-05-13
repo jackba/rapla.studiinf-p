@@ -237,7 +237,7 @@ private void addEvent(Event event) {
 				rooms.setVisible(false);
 
 				roomsShowButton.setClickHandler(new DetailPagePersonClickHandler(roomsShowButton,rooms));
-				new FilterRooms(panel,resources,true);
+				new FilterRooms(panel,resources,roomsShowButton,true);
 				
 				
 				

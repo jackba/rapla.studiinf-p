@@ -5,6 +5,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 
@@ -14,10 +15,13 @@ import com.google.gwt.user.client.ui.FlowPanel;
 public class FilterRooms extends AbstractSearch {
 	private List<ResourceDescription> ressources;
 	private FlowPanel panel;
-	public FilterRooms(FlowPanel panel,List<ResourceDescription> ressources, boolean autoinit) {
+	NavButton roomsShowButton;
+	
+	public FilterRooms(FlowPanel panel,List<ResourceDescription> ressources,NavButton roomsShowButton,  boolean autoinit) {
 		super("", (SearchPageInterface) Navigation.room, false);
 		this.ressources = ressources;
 		this.panel = panel;
+		this.roomsShowButton = roomsShowButton;
 		if(autoinit){
 			init();
 		}
@@ -40,6 +44,14 @@ public class FilterRooms extends AbstractSearch {
 				}
 			}
 		
+		}
+		if(found.size() == 1){
+			roomsShowButton.setClickHandler(null);
+			roomsShowButton.setTargetPage(Navigation.roomDetail);
+			roomsShowButton.setTargetId(found.get(0).getId());
+			roomsShowButton.setText(found.get(0).getName());
+		}else if(found.size() <= 0){
+			roomsShowButton.setVisible(false);
 		}
 		return found;
 	}
