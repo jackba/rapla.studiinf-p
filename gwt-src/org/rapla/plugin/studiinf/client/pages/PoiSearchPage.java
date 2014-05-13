@@ -22,7 +22,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 		super.init();
 		
 		qrBox.getElement().getStyle().setProperty("top", "65vh");
-
+		resultPanel.getElement().getStyle().setProperty("height", "35vh");
 		
 		setSearched(true);
 		handleSearch("*");

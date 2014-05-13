@@ -33,7 +33,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected AccessibilityRow resultBtns = new AccessibilityRow();
 	protected QRBox qrBox = new QRBox(getHistoryKey());
-	private FlowPanel resultPanel = new FlowPanel();
+	protected FlowPanel resultPanel = new FlowPanel();
 	private FlowPanel searchPanel = new FlowPanel();
 	public LocalStorage ls;
 	private KeyUpHandler inputChanger;
