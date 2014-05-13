@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
+import org.rapla.plugin.studiinf.client.search.FilterRooms;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
@@ -21,6 +23,7 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.PopupPanel;
 
 public class DetailPageCourse extends AbstractDetailPage {
 	
@@ -183,39 +186,44 @@ public class DetailPageCourse extends AbstractDetailPage {
 				if(events.size()>=1)
 				{
 				showRaplaLinks(true);
-				Label firstLecture = new Label(events.get(0).toString());
-				lectures.setWidget(0, 0, firstLecture);
-				if(!events.get(0).getResources().isEmpty())
-				{
-				NavButton firstLectureRoom = new NavButton(IconProvider.Rooms,events.get(0).getResources().get(0).getName(),  Navigation.roomDetail, events.get(0).getResources().get(0).getId() );
-				lectures.setWidget(0, 1, firstLectureRoom);
-				}
-				}
-				if(events.size()>=2)
-				{
-				Label secondLecture = new Label(events.get(1).toString());
-				lectures.setWidget(1, 0, secondLecture);
-				if(!events.get(1).getResources().isEmpty())
-				{
-					NavButton secondLectureRoom = new NavButton(IconProvider.Rooms,events.get(1).getResources().get(0).getName(), Navigation.roomDetail, events.get(1).getResources().get(0).getId() );
-					lectures.setWidget(1, 1, secondLectureRoom);
-				}
-				}
-				if(events.size()>=3)
-				{
-				Label thirdLecture = new Label(events.get(2).toString());	
-				lectures.setWidget(2, 0, thirdLecture);
-				if(!events.get(2).getResources().isEmpty())
-				{
-					NavButton thirdLectureRoom = new NavButton(IconProvider.Rooms,events.get(2).getResources().get(0).getName(), Navigation.roomDetail, events.get(2).getResources().get(0).getId() );
-					lectures.setWidget(2, 1, thirdLectureRoom);
 				
+				for(int i = 0;i<3 && i < events.size(); i++){
+					addEvent(events.get(i));
 				}
-				}
+				
 				middlePanel.add(lectures);			
 				
 				}
+			}
 		});
+		
+		
+	}
+	private void addEvent(Event event) {
+		showRaplaLinks(true);
+		int row = events.indexOf(event);
+		Label firstLecture = new Label(event.toString());
+		lectures.setWidget(row, 0, firstLecture);
+		
+		NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
+		roomsShowButton.setSize(0.87);
+		lectures.setWidget(row, 1, roomsShowButton);
+		
+		
+		
+		
+		List<ResourceDescription> resources = event.getResources();
+		FlowPanel panel = new FlowPanel();
+		PopupPanel rooms = new PopupPanel();
+		rooms.add(panel);
+
+		rooms.setVisible(false);
+
+		roomsShowButton.setClickHandler(new DetailPagePersonClickHandler(roomsShowButton,rooms));
+		new FilterRooms(panel,resources,roomsShowButton,true);
+		
+		
+		
 		
 		
 	}

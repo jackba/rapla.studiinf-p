@@ -724,7 +724,7 @@ nav{
 .lecturesTable td:first-of-type{
 	width:70%;
 }
-.lecturesTable td .gwt-Label{
+.lecturesTable td .gwt-Label,.courseLecturesTable td .gwt-Label{
 position: relative;
 font-size: 1vh;
 height:4.5vh;
@@ -741,7 +741,6 @@ overflow: hidden;
 }
 .courseLecturesTable {
 	width: 100%;
-	margin-top:7vh;
 }
 
 .courseLecturesTable td{
@@ -751,18 +750,7 @@ overflow: hidden;
 .courseLecturesTable td:first-of-type{
 	width:70%;
 }
-.courseLecturesTable td .gwt-Label, .courseLecturesTable td .iconButton{
-position: relative;
-font-size: 2vh;
-height:4.5vh;
--moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-padding: 1vh 0px;
-line-height: 3vh;
-background: #AEB4B8;
-padding: 1vh 0px;
-border: 1px solid #FFF;
-overflow: hidden;
-}
+
 .courseLecturesTable td .gwt-Label{
 	padding-left: 1vh;
 }
