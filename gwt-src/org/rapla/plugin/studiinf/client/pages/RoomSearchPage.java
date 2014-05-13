@@ -12,7 +12,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 public class RoomSearchPage extends AbstractSearchPage {
 	
-	private static final String ROOMS = "rooms";
+	public static final String ResourceType = "rooms";
 	
 	public RoomSearchPage() {
 		super(false, true,true, IconProvider.Rooms, Navigation.roomDetail);
@@ -53,7 +53,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 
 	@Override
 	public String getResourceType() {
-		return ROOMS;
+		return ResourceType;
 	}
 
 	@Override

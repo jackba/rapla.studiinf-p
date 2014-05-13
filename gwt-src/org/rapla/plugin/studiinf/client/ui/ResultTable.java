@@ -11,6 +11,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -150,6 +151,7 @@ public class ResultTable extends FlexTable {
 					try {
 						NavButton btn = (NavButton) cell;
 						btn.setSize(size);
+						btn.setWidth("100%");
 					} catch (Exception e) {
 					}
 					getFlexCellFormatter().setColSpan((int)(count / columns)+1-(page*maxRows), (int) count % columns, 1);
@@ -169,10 +171,26 @@ public class ResultTable extends FlexTable {
 			}
 		}
 		
+		
+		
 		while(count % columns != 0){
 			
 			setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, new FlowPanel());
 			count++;
+		}
+		if(results.size() <= 0){
+			Label noData = new Label(Studiinf.i18n.noData());
+			/*font-size: 1.5vh;
+			line-height: 1.9vh;
+			text-align: center;*/
+			
+			noData.getElement().getStyle().setProperty("fontSize", "1.5vh");
+			noData.getElement().getStyle().setProperty("lineHeight", "1.9vh");
+			noData.getElement().getStyle().setProperty("textAlign", "center");
+			
+			getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, columns);
+			setWidget((int)((count / columns))+1-(page*maxRows), 0, noData);
+			count = count + columns;
 		}
 		getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, columns);
 		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);

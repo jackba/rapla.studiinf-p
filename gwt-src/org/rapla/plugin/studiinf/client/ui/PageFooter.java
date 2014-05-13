@@ -117,6 +117,12 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 		backBtn.setVisible(backBtn.getEnabled());
 	}
 	
+	public void setBackClickHandler(ClickHandler clickHandler){
+		backBtn.setClickHandler(clickHandler);
+		updateBackButton();
+	}
+	
+	
 
 	@Override
 	public void onClick(ClickEvent event) {

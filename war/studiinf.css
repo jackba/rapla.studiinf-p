@@ -546,7 +546,7 @@ nav{
 }
 
 .personMiddlePanel{
-	top: 57vh;
+	top: 60vh;
 	bottom: auto;
 	height:28vh;
 }
@@ -572,14 +572,18 @@ nav{
 	box-sizing: border-box;
 }
 
-.personCourseOfStudyLabel , .personCourseOfStudyInfo{
-	width: 16vw;
+.personCourseOfStudyLabel{
+	width: 30%;
+	text-align: center;
 }
 
 .personCourseOfStudyInfo {
-	left:27.5vw;
-	width: 49.5vw;
+	width:70%;
 	background: #aeb4b8;
+	float:left;
+	height:5vh;
+	line-height: 5vh;
+	text-align: center;
 }
 .personCourseOfStudyLabel{
 	padding-top: 1vh;
@@ -590,7 +594,8 @@ nav{
 }
 
 .personAppointmentLabel {
-	top: 7.5vh;
+	float:left;
+	margin-top:1vh;
 	height: 5vh;
 }
 
@@ -711,7 +716,6 @@ nav{
 
 .lecturesTable{
 	width: 100%;
-	margin-top:13vh;
 }
 .lecturesTable td{
 	width:30%;
@@ -720,9 +724,9 @@ nav{
 .lecturesTable td:first-of-type{
 	width:70%;
 }
-.lecturesTable td .gwt-Label,.lecturesTable td .iconButton{
+.lecturesTable td .gwt-Label{
 position: relative;
-font-size: 2vh;
+font-size: 1vh;
 height:4.5vh;
 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 padding: 1vh 0px;
@@ -764,6 +768,8 @@ overflow: hidden;
 }
 .personCourseOfStudyLabel{
 	overflow:hidden;
+	float:left;
+	display:inline-block;
 }
 
 .raplaBackButton{

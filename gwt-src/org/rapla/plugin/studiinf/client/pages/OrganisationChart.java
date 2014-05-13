@@ -38,6 +38,9 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		this.add(infoPanel);
 		this.add(access);
 		
+		
+		footer.setTargetPage(this);
+		
 	}
 
 	//TODO will not be called
@@ -47,9 +50,11 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	
 	@Override
 	protected void handleId(final String id){
-		String newId = id;
+		this.id = id;
+		footer.setTargetId(backInHistory());
+		String newId = resolveHistory();
 		
-		if (id.equals("null")){
+		if (newId.equals("null")){
 			newId = null;
 		}
 		categoryId = newId;
@@ -71,13 +76,29 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		});
 	}
 	
+	public String resolveHistory(){
+		String last = this.id +"";
+		return last.substring(last.lastIndexOf(">")+1);
+	}
+	public String backInHistory(){
+		String last = this.id +"";
+		last = last.substring(0, last.lastIndexOf(">"));
+		if(last.length() <= 0 || this.id.equals("null")){
+			last = null;
+		}
+		return last;
+	}
+	public String addHistory(String addon){
+		return this.id + ">" + addon;
+	}
+	
 	public void showOrganigramLevels(List <CategoryDescription> categories){
 		if(categories.size() <= 0){
 			new CourseOrganigramSearch(categoryId, this);
 		}else{
 			organigram.clearResults();	
 			for (CategoryDescription category : categories){
-				OrganigramButton orgButton = new OrganigramButton(category.getName(), this, category.getId());
+				OrganigramButton orgButton = new OrganigramButton(category.getName(), this,  addHistory(category.getId()));
 				organigram.addResult(orgButton);
 			}
 			organigram.refresh();

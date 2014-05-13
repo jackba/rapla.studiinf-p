@@ -65,7 +65,7 @@ public abstract class AbstractPage extends ComplexPanel{
 	   protected void refresh(){
 		   header.refresh();
 		   timer.cancel();
-		   timer.schedule(120000);
+		   timer.schedule(300000);
 	   }
 	   
 	   public void onShow(){
