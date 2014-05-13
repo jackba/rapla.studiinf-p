@@ -54,7 +54,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		infoPanel.setStyleName("infoPanel");
 		infoLabel.setStyleName("infoLabel");
-		infos = new ResultTable(bottomPanel, 1, 4);
+		infos = new ResultTable(bottomPanel, 1, 5);
 		infos.setWidth("100%");
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
@@ -131,11 +131,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 	}
 	
 	public void showRaplaLinks(boolean show){
-		if (show == true){
-			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-		} else {
-			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-		}
+//		if (show == true){
+//			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+//		} else {
+//			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+//		}
 	}
 
 
