@@ -73,8 +73,12 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		personInfoPanel.setStyleName("personInfoPanel");
 		personInfoLabel.setStyleName("infoLabel");
 		middlePanel.setStyleName("personMiddlePanel");
-		infos = new ResultTable(bottomPanel, 1, 4);
-		infos.setWidth("75%");
+		infos = new ResultTable(bottomPanel, 1, 5);
+		infos.setWidth("65%");
+		infos.getElement().getStyle().setProperty("left", "30vw");
+		infos.getElement().getStyle().setProperty("right", "auto");
+		infos.getElement().getStyle().setProperty("position", "relative");
+		
 		
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
@@ -133,9 +137,9 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 
 	public void showRaplaLinks(boolean show){
 		if (show == true){
-			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+//			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
-			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+//			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}
