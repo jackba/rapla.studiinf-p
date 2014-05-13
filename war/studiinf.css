@@ -417,7 +417,7 @@ nav{
 }
 
 
-.resultPanel,.searchPanel, .infoPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel, */ .personMiddlePanel, .poiResultsPanel, .poiBottomResultPanel, /*.courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
+.infoPanel, .resultPanel,.searchPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel,  */.personMiddlePanel, /*.poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
