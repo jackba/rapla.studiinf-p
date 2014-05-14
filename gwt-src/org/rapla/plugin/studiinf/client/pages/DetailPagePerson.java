@@ -89,7 +89,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		mailButton = new ResultButton(IconProvider.Email, mailButtonText, null, null, false);
 		telephoneButton = new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false);
 		extraInfosButton = new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true);
-		raplaButton = new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true);		
+		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true);		
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
