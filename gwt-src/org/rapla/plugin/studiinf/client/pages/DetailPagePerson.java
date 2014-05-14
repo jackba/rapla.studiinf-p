@@ -74,11 +74,10 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		personInfoLabel.setStyleName("infoLabel");
 		middlePanel.setStyleName("personMiddlePanel");
 		infos = new ResultTable(bottomPanel, 1, 5);
-		infos.setWidth("65%");
-		infos.getElement().getStyle().setProperty("left", "30vw");
+		infos.setWidth("78%");
+		infos.getElement().getStyle().setProperty("left", "19vw");
 		infos.getElement().getStyle().setProperty("right", "auto");
-		infos.getElement().getStyle().setProperty("position", "relative");
-		
+		infos.getElement().getStyle().setProperty("position", "relative");		
 		
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
