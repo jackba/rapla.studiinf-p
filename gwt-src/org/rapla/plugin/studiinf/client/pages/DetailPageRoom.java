@@ -128,9 +128,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		if (!rd.getRoomNr().equals("")){
 			nameButtonText = rd.getRoomNr();
-			raplaButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+			nameButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+				nameButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!rd.getRoomType().equals("")){
 			typeButtonText = rd.getRoomType();

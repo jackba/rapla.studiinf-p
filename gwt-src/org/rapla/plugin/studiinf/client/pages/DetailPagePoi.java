@@ -13,6 +13,7 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
@@ -131,11 +132,16 @@ public class DetailPagePoi extends AbstractDetailPage {
 	}
 	
 	public void showRaplaLinks(boolean show){
-//		if (show == true){
-//			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//		} else {
-//			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//		}
+		NavButton f = raplaButton.getFooterButton();
+		if (show == true){
+			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+//			raplaButton.setShowFooter(true);
+			f.getElement().getStyle().setDisplay(Display.INLINE);
+		} else {
+			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+//			raplaButton.setShowFooter(false);
+			f.getElement().getStyle().setDisplay(Display.NONE);
+		}
 	}
 
 

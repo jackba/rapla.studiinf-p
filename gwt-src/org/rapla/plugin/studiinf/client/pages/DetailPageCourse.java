@@ -119,10 +119,15 @@ public class DetailPageCourse extends AbstractDetailPage {
 	}
 
 	public void showRaplaLinks(boolean show){
+		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
-//			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
+//			raplaButton.setShowFooter(true);
+			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
-//			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
+//			raplaButton.setShowFooter(false);
+			f.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}
