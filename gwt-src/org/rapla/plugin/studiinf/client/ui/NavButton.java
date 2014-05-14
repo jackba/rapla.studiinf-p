@@ -39,6 +39,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		String navigationButton();	
 		String tile();
 		String twoLines();
+		String disabled();
 	}
 	AbstractPage targetPage;
 	String targetId;
@@ -243,10 +244,12 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	private void updateEnabledState(){
 		if(getEnabled()){
-			this.getElement().removeAttribute("disabled");
+			//this.getElement().removeAttribute("disabled");
+			button.removeStyleName(style.disabled());
 			this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 		}else{
-			this.getElement().setAttribute("disabled","disabled");
+			//this.getElement().setAttribute("disabled","disabled");
+			button.addStyleName(style.disabled());
 			if(this.showWhenDisabled){
 				this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 			}else{

@@ -30,7 +30,7 @@
 		box-sizing: border-box;
 		box-shadow: 1px 1px 1px #000,-1px -1px 1px #000,-1px 1px 1px #000,1px -1px 1px #000;
 	}
-	.navigationButton[disabled]{
+	.navigationButton[disabled],.navigationButton.disabled{
 		cursor: default;
  	}
 
@@ -124,16 +124,16 @@
 		-webkit-box-shadow: inset 0 0 0.5em 0.5em #858f95;
 		box-shadow: inset 0 0 0.5em 0.5em #5c6971;
 	}
-	.navigationButton[disabled]:hover{
+	.navigationButton[disabled]:hover,.navigationButton.disabled:hover{
 		background:#aeb4b8;
 	}
-	.navigationButton[disabled]:hover .icon, .navigationButton[disabled]:hover .iconRight{
+	.navigationButton[disabled]:hover .icon, .navigationButton[disabled]:hover .iconRight,.navigationButton.disabled:hover .icon, .navigationButton.disabled:hover .iconRight{
 		background:	#ffffff;
 	}
-	.navigationButton[disabled]:hover .number{
+	.navigationButton[disabled]:hover .number,.navigationButton.disabled:hover .number{
 		background:	#5c6971;
 	}
-	.navigationButton[disabled]:hover .shadow{
+	.navigationButton[disabled]:hover .shadow,.navigationButton.disabled:hover .shadow{
 		-moz-box-shadow: inset 0 0 1px 1px #000000;
 		-webkit-box-shadow: inset 0 0 1px 1px#000000;
 		box-shadow: inset 0 0 1px 1px #000000;
@@ -166,11 +166,11 @@
 		width:0;
 		
 	}
-	.navigationButton[disabled] .icon, .navigationButton[disabled] .iconRight{
+	.navigationButton[disabled] .icon, .navigationButton[disabled] .iconRight,.navigationButton.disabled .icon, .navigationButton.disabled .iconRight{
 		color: #aeb4b8;
 	}
-	.navigationButton[disabled] .text{
-		color:	#5c6971;
+	.navigationButton[disabled] .text, .navigationButton.disabled .text{
+		color:	#000000;
 	}
 	.tile{
 		height:10em;
