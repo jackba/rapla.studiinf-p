@@ -54,7 +54,7 @@ public class OrganigramButton extends NavButton implements ResultObject {
 	@Override
 	public boolean getShowFooter() {
 		// TODO Auto-generated method stub
-		return showFooterButton;
+		return true; //showFooterButton;
 	}
 
 }
