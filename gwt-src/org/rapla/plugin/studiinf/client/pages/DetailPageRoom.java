@@ -9,6 +9,8 @@ import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
+import org.rapla.plugin.studiinf.client.ui.ResultObject;
+import org.rapla.plugin.studiinf.client.ui.ResultObjectWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
@@ -29,9 +31,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String courseOfStudyButtonText;
 	
 //	private ResultButton nameButton;
-	private ResultButton typeButton;
-	private ResultButton courseOfStudyButton;
-	private ResultButton raplaButton;
+	private ResultObjectWithLabel typeButton;
+	private ResultObjectWithLabel courseOfStudyButton;
+	private ResultObjectWithLabel raplaButton;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -42,7 +44,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		super.init();
 		infoPanel.setStyleName("infoPanel");
 		infoLabel.setStyleName("infoLabel");
-		infos = new ResultTable(bottomPanel, 1, 4);
+		infos = new ResultTable(bottomPanel, 2, 4);
+		infos.getColumnFormatter().setWidth(0, "25%");
+		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");	
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
@@ -56,9 +60,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 
 //		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
-		typeButton = new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false);
-		courseOfStudyButton = new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false);
-		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true);
+		typeButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false), new Label("Type")); 
+		courseOfStudyButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false), new Label("Course of Study"));
+		raplaButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label("Rapla Link"));
 		
 		raplaButton.setSize(0.8);
 //		nameButton.setSize(0.8);
