@@ -16,6 +16,7 @@ public class RoomDescriptor {
 	private String department;
 	private String picture;
 	private ResourceDetail room;
+	private String raplaLink;
 	private Collection<String> keys;
 	
 	public RoomDescriptor(ResourceDetail room) {
@@ -58,6 +59,14 @@ public class RoomDescriptor {
 		return picture;
 	}
 
+	public String getRaplaLink() {
+		if(raplaLink == null)
+		{
+			raplaLink = getCell("resourceURL");
+			}
+		return raplaLink;
+		}
+	
 	private String getCell(String cellName){
 		if(keys.contains(cellName)){
 			return room.getRow(cellName).getValue();
