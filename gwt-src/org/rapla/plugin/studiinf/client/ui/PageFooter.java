@@ -23,6 +23,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class PageFooter extends FlowPanel implements ClickHandler {
 	
 	double buttonSize = 0.7;
+	double buttonWidth = 25;
+	double buttonTop = 1.25;
 	
 	AbstractPage parent;
 	PopupPanel languages;
@@ -42,7 +44,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    
 	    homeBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    homeBtn.getElement().getStyle().setRight(5, Unit.PCT);
-	    homeBtn.getElement().getStyle().setTop(1.25, Unit.EM);
+	    homeBtn.getElement().getStyle().setTop(buttonTop, Unit.EM);
+	    homeBtn.getElement().getStyle().setWidth(buttonWidth, Unit.PCT);
 	    homeBtn.setSize(buttonSize);
 	    
 	    
@@ -82,7 +85,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    languageChangeButton.setClickHandler(this);
 	    languageChangeButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    languageChangeButton.getElement().getStyle().setLeft(5, Unit.PCT);
-	    languageChangeButton.getElement().getStyle().setTop(1.25, Unit.EM);
+	    languageChangeButton.getElement().getStyle().setTop(buttonTop, Unit.EM);
+	    languageChangeButton.getElement().getStyle().setWidth(buttonWidth, Unit.PCT);
 	    languageChangeButton.setSize(buttonSize);
 	    
 	    this.add(languageChangeButton);
@@ -93,9 +97,9 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    backBtn.setSize(buttonSize);
 	    backBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    backBtn.getElement().getStyle().setLeft(50, Unit.PCT);
-	    backBtn.getElement().getStyle().setMarginLeft(-10, Unit.PCT);
-	    backBtn.getElement().getStyle().setWidth(20, Unit.PCT);
-	    backBtn.getElement().getStyle().setTop(1.25, Unit.EM);
+	    backBtn.getElement().getStyle().setMarginLeft(-(buttonWidth*0.5), Unit.PCT);
+	    backBtn.getElement().getStyle().setWidth(buttonWidth, Unit.PCT);
+	    backBtn.getElement().getStyle().setTop(buttonTop, Unit.EM);
 	    
 	    this.add(backBtn);
 	    if(this.parent != Navigation.homePage){
