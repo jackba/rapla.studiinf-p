@@ -39,7 +39,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
 
-	private ResultButton nameButton;
+//	private ResultButton nameButton;
 	private ResultButton courseOfStudyButton;
 	private RessourceButton roomButton;
 	private ResultButton raplaButton;
@@ -59,7 +59,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos = new ResultTable(bottomPanel, 1, 4);
 		infos.setWidth("100%");
 		
-		nameButton = new ResultButton(nameButtonText, null, null, IconProvider.Courses, false);
+//		nameButton = new ResultButton(nameButtonText, null, null, IconProvider.Courses, false);
 		courseOfStudyButton = new ResultButton(courseOfStudyButtonText, null, null, IconProvider.Courses, false);
 		roomButton = new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,false, true);
 		raplaButton = new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, IconProvider.Calendar, true);
@@ -71,7 +71,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		lectures.setStyleName("courseLecturesTable");
 		
 		infos.clearResults();
-		infos.addResult(nameButton);
+//		infos.addResult(nameButton);
 		infos.addResult(courseOfStudyButton);
 		infos.addResult(roomButton);
 		infos.addResult(raplaButton);
@@ -107,7 +107,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		nameButton.setText(nameButtonText);
+//		nameButton.setText(nameButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
 	}
