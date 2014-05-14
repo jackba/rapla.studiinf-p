@@ -789,7 +789,7 @@ overflow: hidden;
 	color: #ffffff;
 	display: inline-block;
 	float: left;
-	width: 30vw;
+	width: 20vw;
 	top: auto;
 	height: auto;
 	padding: 0.5vh;
@@ -805,7 +805,7 @@ overflow: hidden;
 }
 
 .detailValue {
-	width: 55vw;
+	width: 60vw;
 	background: #aeb4b8;
 	float: right;
 }
