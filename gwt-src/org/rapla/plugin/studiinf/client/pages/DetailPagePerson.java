@@ -227,15 +227,13 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 private void addEvent(Event event) {
 				showRaplaLinks(true);
 				int row = events.indexOf(event);
-				Label firstLecture = new Label(event.toString());
+				NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaPersonLink, id);
+//				Label firstLecture = new Label(event.toString());
 				lectures.setWidget(row, 0, firstLecture);
 				
 				NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
 				roomsShowButton.setSize(0.87);
 				lectures.setWidget(row, 1, roomsShowButton);
-				
-				
-				
 				
 				List<ResourceDescription> resources = event.getResources();
 				FlowPanel panel = new FlowPanel();
@@ -246,11 +244,6 @@ private void addEvent(Event event) {
 
 				roomsShowButton.setClickHandler(new DetailPagePersonClickHandler(roomsShowButton,rooms));
 				new FilterRooms(panel,resources,roomsShowButton,true);
-				
-				
-				
-				
-				
 			}
 
 	@Override
