@@ -99,7 +99,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		if(nameButtonText == null){
 			nameButtonText = "";
 		}
-		return nameButtonText;
+		return Studiinf.i18n.course() + "" + nameButtonText;
 	}
 
 

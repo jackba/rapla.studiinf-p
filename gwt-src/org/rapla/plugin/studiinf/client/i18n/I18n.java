@@ -40,4 +40,6 @@ public interface I18n extends Messages {
 	String information();
 	String languageButtonText();
 	String noData();
+	String room();
+	String course();
 	}
