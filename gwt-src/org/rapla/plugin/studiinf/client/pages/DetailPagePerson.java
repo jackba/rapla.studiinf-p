@@ -227,11 +227,12 @@ private void addEvent(Event event) {
 				showRaplaLinks(true);
 				int row = events.indexOf(event);
 				NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaPersonLink, id);
+				firstLecture.setSize(0.8);
 //				Label firstLecture = new Label(event.toString());
 				lectures.setWidget(row, 0, firstLecture);
 				
 				NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
-				roomsShowButton.setSize(0.87);
+				roomsShowButton.setSize(0.8);
 				lectures.setWidget(row, 1, roomsShowButton);
 				
 				List<ResourceDescription> resources = event.getResources();
