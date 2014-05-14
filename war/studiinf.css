@@ -785,13 +785,14 @@ overflow: hidden;
 }
 
 .detailKey, .detailValue {
-	font-size: 2vh;
+	font-size: 1.5vh;
 	color: #ffffff;
 	display: inline-block;
 	float: left;
-	width: 33vw;
+	width: 30vw;
 	top: auto;
 	height: auto;
+	padding: 0.5vh;
 	background: #5c6971;
 	border-left: solid 0.125vw #ffffff;
 	border-left-width: 0.125em;
@@ -804,8 +805,7 @@ overflow: hidden;
 }
 
 .detailValue {
-	width: 53vw;
-	padding: 0.5vh;
+	width: 55vw;
 	background: #aeb4b8;
 	float: right;
 }
@@ -815,18 +815,6 @@ overflow: hidden;
 	top: 10vh;
 	left: 5vw;
 	width: 90vw;
-}
-
-.detailKey, .detailValue {
-	font-size: 2vh;
-	color: #ffffff;
-	display: inline-block;
-	float: left;
-	width: 30vw;
-}
-
-.detailValue {
-	width: 55vw;
 }
 
 .left{
