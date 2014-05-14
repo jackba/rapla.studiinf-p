@@ -11,6 +11,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.http.client.UrlBuilder;
 import com.google.gwt.i18n.client.LocaleInfo;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
@@ -101,20 +102,30 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    backBtn.getElement().getStyle().setWidth(buttonWidth, Unit.PCT);
 	    backBtn.getElement().getStyle().setTop(buttonTop, Unit.EM);
 	    
-	    this.add(backBtn);
+	    backBtn.setClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				History.back();
+				
+			}
+		});
+	    
+	    
 	    if(this.parent != Navigation.homePage){
 	    	this.add(homeBtn);
+	    	this.add(backBtn);
 	    }
 	    updateBackButton();
 	}
 	
 	public void setTargetPage(AbstractPage page){
-		backBtn.setTargetPage(page);
-		updateBackButton();
+		//backBtn.setTargetPage(page);
+		//updateBackButton();
 	}
 	public void setTargetId(String id){
-		backBtn.setTargetId(id);
-		updateBackButton();
+		//backBtn.setTargetId(id);
+		//updateBackButton();
 	}
 	
 	private void updateBackButton(){
