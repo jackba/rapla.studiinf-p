@@ -12,6 +12,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.dom.client.Style.Visibility;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.TouchEndEvent;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
@@ -38,6 +39,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		String navigationButton();	
 		String tile();
 		String twoLines();
+		String disabled();
 	}
 	AbstractPage targetPage;
 	String targetId;
@@ -120,6 +122,12 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	@UiHandler("button")
 	void onTouchStart( TouchStartEvent e){
 		handlePressEvent();
+		button.setFocus(false);
+	}
+	
+	@UiHandler("button")
+	void onTouchEnd( TouchEndEvent e)
+	{
 		button.setFocus(false);
 	}
 	
@@ -236,10 +244,12 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	
 	private void updateEnabledState(){
 		if(getEnabled()){
-			this.getElement().removeAttribute("disabled");
+			//this.getElement().removeAttribute("disabled");
+			button.removeStyleName(style.disabled());
 			this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 		}else{
-			this.getElement().setAttribute("disabled","disabled");
+			//this.getElement().setAttribute("disabled","disabled");
+			button.addStyleName(style.disabled());
 			if(this.showWhenDisabled){
 				this.getElement().getStyle().setVisibility(Visibility.VISIBLE);
 			}else{
