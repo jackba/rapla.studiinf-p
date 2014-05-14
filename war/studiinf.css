@@ -573,31 +573,25 @@ nav{
 	box-sizing: border-box;
 }
 
-.personCourseOfStudyLabel{
-	width: 30%;
-	text-align: center;
-}
-
-.personCourseOfStudyInfo {
-	width:70%;
-	background: #aeb4b8;
-	float:left;
-	height:5vh;
-	line-height: 5vh;
-	text-align: center;
-}
-.personCourseOfStudyLabel{
+.personCourseOfStudyLabel, .personCourseOfStudyInfo, .personAppointmentLabel{
 	padding-top: 1vh;
 	height: 5vh;
 	font-size:1.5vh;
 	line-height:2vh;
 	vertical-align: middle;
+	width: 30%;
+	text-align: center;
+	float: left;
+}
+
+.personCourseOfStudyInfo {
+	width:70%;
+	background: #aeb4b8;
 }
 
 .personAppointmentLabel {
-	float:left;
 	margin-top:1vh;
-	height: 5vh;
+	width: 100%;
 }
 
 .infos{
