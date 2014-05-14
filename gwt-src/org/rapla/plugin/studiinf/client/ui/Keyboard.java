@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -18,14 +19,21 @@ public class Keyboard extends FlowPanel implements ClickHandler {
 	
 	public Keyboard(TextBox inputField, AbstractSearchPage searchpage) {
 		super();
+		
 		this.inputField = inputField;
 		this.searchpage = searchpage;
-					
+		if(DisplayMode.isMobile()){
+			this.setVisible(false);
+			
+		}else{
+			
 		addStringAsRow("1|2|3|4|5|6|7|8|9|0|return");
 		addStringAsRow("Q|W|E|R|T|Z|U|I|O|P|Ü");
 		addStringAsRow("A|S|D|F|G|H|J|K|L|Ö|Ä");
 		addStringAsRow("Y|X|C|V|B|N|M|.|-|search");
 		addStringAsRow(" ");
+		
+		}
 		
 	}
 

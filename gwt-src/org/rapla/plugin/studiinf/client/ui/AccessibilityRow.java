@@ -1,6 +1,7 @@
 package org.rapla.plugin.studiinf.client.ui;
 
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.IconProvider;
 
 import com.google.gwt.core.client.GWT;
@@ -35,6 +36,9 @@ public class AccessibilityRow extends Composite {
 		nextButton.setIcon(IconProvider.Next);
 		nextButton.setSize(size);
 		nextButton.setShowWhenDisabled(false);
+		if(DisplayMode.isMobile()){
+			this.setVisible(false);
+		}
 	}
 	
 
