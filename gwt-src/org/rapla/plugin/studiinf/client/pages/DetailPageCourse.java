@@ -156,6 +156,8 @@ public class DetailPageCourse extends AbstractDetailPage {
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
+				NavButton footerButton = roomButton.getFooterButton();
+				footerButton.getElement().getStyle().setDisplay(Display.NONE);				
 			}
 		
 		refresh();
