@@ -16,6 +16,7 @@ import org.rapla.plugin.studiinf.client.pages.ExtraInfoPage;
 import org.rapla.plugin.studiinf.client.pages.HomePage;
 import org.rapla.plugin.studiinf.client.pages.OrganisationChartCourse;
 import org.rapla.plugin.studiinf.client.pages.OrganisationChartPerson;
+import org.rapla.plugin.studiinf.client.pages.OrganisationChartRoom;
 import org.rapla.plugin.studiinf.client.pages.PersonRaplaPage;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
@@ -43,6 +44,7 @@ public final class Navigation {
 	public static final AbstractPage room = new RoomSearchPage();
 	public static final AbstractPage organisationChartCourse = new OrganisationChartCourse();
 	public static final AbstractPage organisationChartPerson = new OrganisationChartPerson();
+	public static final AbstractPage organisationChartRoom = new OrganisationChartRoom();
 	public static final AbstractPage extraInfo = new ExtraInfoPage(new DetailPagePerson());
 	public static final AbstractPage raplaPersonLink = new PersonRaplaPage();
 	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();

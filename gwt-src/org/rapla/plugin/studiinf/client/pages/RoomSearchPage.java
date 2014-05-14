@@ -15,7 +15,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "rooms";
 	
 	public RoomSearchPage() {
-		super(false, true,true, IconProvider.Rooms, Navigation.roomDetail);
+		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 
 	@Override
 	AbstractPage getOrganisationType() {
-		return null;
+		return Navigation.organisationChartRoom;
 	}
 
 }
