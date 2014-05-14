@@ -201,12 +201,11 @@ public class DetailPageCourse extends AbstractDetailPage {
 			}
 		});
 		
-		
 	}
 	private void addEvent(Event event) {
 		showRaplaLinks(true);
 		int row = events.indexOf(event);
-		Label firstLecture = new Label(event.toString());
+		NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaCourseLink, id);
 		lectures.setWidget(row, 0, firstLecture);
 		
 		NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
