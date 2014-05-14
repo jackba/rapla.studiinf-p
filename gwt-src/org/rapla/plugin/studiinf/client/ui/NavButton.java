@@ -12,6 +12,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.dom.client.Style.Visibility;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.TouchEndEvent;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
@@ -120,6 +121,12 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	@UiHandler("button")
 	void onTouchStart( TouchStartEvent e){
 		handlePressEvent();
+		button.setFocus(false);
+	}
+	
+	@UiHandler("button")
+	void onTouchEnd( TouchEndEvent e)
+	{
 		button.setFocus(false);
 	}
 	
