@@ -26,7 +26,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
-	private ResultButton nameButton;
+//	private ResultButton nameButton;
 	private ResultButton typeButton;
 	private ResultButton courseOfStudyButton;
 	private ResultButton raplaButton;
@@ -53,18 +53,18 @@ public class DetailPageRoom extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 
-		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
+//		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
 		typeButton = new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false);
 		courseOfStudyButton = new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false);
 		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true);
 		
 		raplaButton.setSize(0.8);
-		nameButton.setSize(0.8);
+//		nameButton.setSize(0.8);
 		typeButton.setSize(0.8);
 		courseOfStudyButton.setSize(0.8);
 		
 		infos.clearResults();
-		infos.addResult(nameButton);
+//		infos.addResult(nameButton);
 		infos.addResult(typeButton);
 		infos.addResult(courseOfStudyButton);
 		infos.addResult(raplaButton);
@@ -95,7 +95,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-		nameButton.setText(nameButtonText);
+//		nameButton.setText(nameButtonText);
 		typeButton.setText(typeButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
@@ -128,9 +128,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		
 		if (!rd.getRoomNr().equals("")){
 			nameButtonText = rd.getRoomNr();
-			nameButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//			nameButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
-				nameButton.getElement().getStyle().setDisplay(Display.NONE);
+//				nameButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
 		if (!rd.getRoomType().equals("")){
 			typeButtonText = rd.getRoomType();
