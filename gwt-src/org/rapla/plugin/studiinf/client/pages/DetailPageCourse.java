@@ -41,7 +41,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private List<Event> events;
 	private ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
 
-//	private ResultButton nameButton;
 	private ResultButtonWithLabel courseOfStudyButton;
 	private RessourceButtonWithLabel roomButton;
 	private ResultButtonWithLabel raplaButton;
@@ -63,7 +62,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");
 		
-//		nameButton = new ResultButton(nameButtonText, null, null, IconProvider.Courses, false);
 		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(courseOfStudyButtonText, null, null, IconProvider.Courses, false), new Label(Studiinf.i18n.courseOfStudy()));
 		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,false, true), new Label(Studiinf.i18n.room()));
 		raplaButton = new ResultButtonWithLabel(new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, IconProvider.Calendar, true), new Label(Studiinf.i18n.linkRapla()));
@@ -75,7 +73,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		lectures.setStyleName("courseLecturesTable");
 		
 		infos.clearResults();
-//		infos.addResult(nameButton);
 		infos.addResult(courseOfStudyButton);
 		infos.addResult(roomButton);
 		infos.addResult(raplaButton);
@@ -111,7 +108,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
-//		nameButton.setText(nameButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
 	}
@@ -126,11 +122,9 @@ public class DetailPageCourse extends AbstractDetailPage {
 		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			raplaButton.setShowFooter(true);
 			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 			raplaButton.hideLabel();

@@ -139,11 +139,9 @@ public class DetailPagePoi extends AbstractDetailPage {
 		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			raplaButton.setShowFooter(true);
 			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
 			raplaButton.hideLabel();
 		}

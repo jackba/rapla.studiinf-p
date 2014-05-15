@@ -90,7 +90,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		
 		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label(Studiinf.i18n.room()));
 		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
-		telephoneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false), new Label("gh"));
+		telephoneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false), new Label(Studiinf.i18n.telephone()));
 		extraInfosButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
 		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRapla()));		
 		
@@ -142,11 +142,9 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			raplaButton.setShowFooter(true);
 			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
 			raplaButton.hideLabel();
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
@@ -235,7 +233,6 @@ private void addEvent(Event event) {
 				int row = events.indexOf(event);
 				NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaPersonLink, id);
 				firstLecture.setSize(0.8);
-//				Label firstLecture = new Label(event.toString());
 				lectures.setWidget(row, 0, firstLecture);
 				
 				NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
