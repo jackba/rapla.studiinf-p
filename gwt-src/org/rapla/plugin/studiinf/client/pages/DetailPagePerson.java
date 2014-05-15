@@ -148,6 +148,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 //			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
+			raplaButton.hideLabel();
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}	

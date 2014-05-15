@@ -133,6 +133,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 //			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
+			raplaButton.hideLabel();
 		}
 	}
 

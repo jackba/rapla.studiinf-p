@@ -145,6 +145,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 //			raplaButton.setShowFooter(false);
 			f.getElement().getStyle().setDisplay(Display.NONE);
+			raplaButton.hideLabel();
 		}
 	}
 
