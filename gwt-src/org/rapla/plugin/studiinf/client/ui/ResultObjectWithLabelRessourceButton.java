@@ -7,12 +7,12 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ResultObjectWithLabel implements ResultObject{
+public class ResultObjectWithLabelRessourceButton implements ResultObject{
 	
-	private ResultButton resultObject;
+	private RessourceButton resultObject;
 	private Label label;
-	
-	public ResultObjectWithLabel(ResultButton resultObject, Label label) {
+
+	public ResultObjectWithLabelRessourceButton(RessourceButton resultObject, Label label) {
 		this.resultObject = resultObject;
 		this.label = label;	
 		label.setStyleName("labelResultTable");
