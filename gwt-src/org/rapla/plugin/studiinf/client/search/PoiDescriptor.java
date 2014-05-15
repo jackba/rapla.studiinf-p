@@ -11,6 +11,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 public class PoiDescriptor {
 	
 	private String roomNr;	
+	private String roomId;
 	private String rowTwo;
 	private String name;
 	private String rowOne;
@@ -30,7 +31,7 @@ public class PoiDescriptor {
 	
 	public String getRoomNr() {
 		if(roomNr == null){
-			roomNr = getCell("raumnr");
+			roomNr = poi.getResourceLinks().get("raum").getName();;
 		}
 		return roomNr;
 	}
@@ -70,6 +71,13 @@ public class PoiDescriptor {
 		}else{
 			return "";
 		}
+	}
+
+	public String getRoomId() {
+		if(roomId == null){
+			roomId = poi.getResourceLinks().get("raum").getId();
+		}
+		return roomId;
 	}
 	
 }

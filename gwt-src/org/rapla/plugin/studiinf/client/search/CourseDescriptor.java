@@ -11,6 +11,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 public class CourseDescriptor{
 	private String year;
 	private String roomNr;
+	private String roomId;
 	private String name;
 	private String picture;
 	private String department;
@@ -26,7 +27,7 @@ public class CourseDescriptor{
 
 	public String getRoomNr() {
 		if(roomNr == null){
-			roomNr = getCell("raumnr");
+			roomNr = course.getResourceLinks().get("raum").getName();
 		}
 		return roomNr;
 	}
@@ -62,6 +63,13 @@ public class CourseDescriptor{
 		}else{
 			return "";
 		}
+	}
+	
+	public String getRoomId() {
+		if(roomId == null){
+			roomId = course.getResourceLinks().get("raum").getId();
+		}
+		return roomId;
 	}
 	
 }

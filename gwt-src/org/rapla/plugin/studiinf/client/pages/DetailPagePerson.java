@@ -17,18 +17,14 @@ import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
-import org.rapla.plugin.studiinf.client.ui.RessourceButton;
+import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
-import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
@@ -57,6 +53,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 	private ResultButtonWithLabel extraInfosButton;
 	
 	private String roomButtonText;
+	private String roomButtonId;
 	private String mailButtonText;
 	private String telephoneButtonText;
 	
@@ -88,7 +85,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		lectures.setStyleName("lecturesTable");
 		
-		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label(Studiinf.i18n.room()));
+		roomButton = new RessourceButtonWithLabel(new ResultButton(IconProvider.Rooms,roomButtonText, Navigation.roomDetail,null,true), new Label(Studiinf.i18n.room()));
 		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
 		telephoneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false), new Label(Studiinf.i18n.telephone()));
 		extraInfosButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
@@ -156,6 +153,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		super.refresh();
 		telephoneButton.setText(telephoneButtonText);
 		mailButton.setText(mailButtonText); 
+		roomButton.setTargetId(roomButtonId);
 		roomButton.setText(roomButtonText);
 		raplaButton.setTargetId(id);
 		extraInfosButton.setTargetId(id);
@@ -169,6 +167,8 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		
 		name = person.getName();
 		roomButtonText = person.getRoomNr();
+		roomButtonId = person.getRoomId();
+		
 		if(!person.getMail().equals("")){
 		mailButtonText = person.getMail();
 		mailButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);

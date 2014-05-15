@@ -15,10 +15,9 @@ import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
-import org.rapla.plugin.studiinf.client.ui.RessourceButton;
+import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
-import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
@@ -50,6 +49,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
 	
 	private String id;
+	private String roomButtonId;
 
 	@Override
 	public void init(){
@@ -72,7 +72,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 		
-		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label("hj"));
+		roomButton = new RessourceButtonWithLabel(new ResultButton( IconProvider.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label("hj"));
 		rowOneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
 		rowTwoButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
 		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
@@ -115,6 +115,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 	@Override
 	protected void refresh() {
 		super.refresh();
+		roomButton.setTargetId(roomButtonId);
 		roomButton.setText(roomButtonText);
 		rowOneButton.setText(rowOneButtonText);
 		rowTwoButton.setText(rowTwoButtonText);
@@ -162,8 +163,11 @@ public class DetailPagePoi extends AbstractDetailPage {
 		if (!pd.getName().equals("")){
 			nameButtonText = pd.getName();
 			}
+		
+		roomButtonId = pd.getRoomId();
+		roomButtonText = pd.getRoomNr();
 		if (!pd.getRoomNr().equals("")){
-			roomButtonText = pd.getRoomNr();
+			
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);

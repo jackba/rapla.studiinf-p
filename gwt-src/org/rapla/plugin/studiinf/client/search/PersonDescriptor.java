@@ -14,6 +14,9 @@ public class PersonDescriptor{
 	private String name;
 	private String mail;
 	private String roomNr;
+	private String roomId;
+	
+
 	private String department;
 	private String phoneNr;
 	private String raplaLink;
@@ -49,7 +52,7 @@ public class PersonDescriptor{
 
 	public String getRoomNr() {
 		if(roomNr == null){
-			roomNr = getCell("raumnr");
+			roomNr = person.getResourceLinks().get("raum").getName();
 		}
 		return roomNr;
 	}
@@ -89,6 +92,13 @@ public class PersonDescriptor{
 		}else{
 			return "";
 		}
+	}
+	
+	public String getRoomId() {
+		if(roomId == null){
+			roomId = person.getResourceLinks().get("raum").getId();
+		}
+		return roomId;
 	}
 	
 }

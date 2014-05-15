@@ -10,10 +10,15 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class RessourceButtonWithLabel implements ResultObjectWithLabel{
 	
-	private RessourceButton resultObject;
+	private ResultObject resultObject;
 	private Label label;
 
-	public RessourceButtonWithLabel(RessourceButton resultObject, Label label) {
+	/*public RessourceButtonWithLabel(RessourceButton resultObject, Label label) {
+		//this.resultObject = resultObject;
+		this.label = label;	
+		label.setStyleName("labelResultTable");
+	}*/
+	public RessourceButtonWithLabel(ResultButton resultObject, Label label) {
 		this.resultObject = resultObject;
 		this.label = label;	
 		label.setStyleName("labelResultTable");
