@@ -88,11 +88,11 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		lectures.setStyleName("lecturesTable");
 		
-		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label("gh"));
-		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label("gh"));
+		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label(Studiinf.i18n.room()));
+		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
 		telephoneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false), new Label("gh"));
-		extraInfosButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label("gh"));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label("gh"));		
+		extraInfosButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRapla()));		
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);

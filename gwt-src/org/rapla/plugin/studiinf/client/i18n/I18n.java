@@ -42,4 +42,6 @@ public interface I18n extends Messages {
 	String noData();
 	String room();
 	String course();
+	String type();
+	String mail();
 	}
