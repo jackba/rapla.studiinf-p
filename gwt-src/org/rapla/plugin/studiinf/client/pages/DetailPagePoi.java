@@ -17,6 +17,8 @@ import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
+import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
+import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
@@ -39,10 +41,10 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private String rowTwoButtonText;
 	private String roomButtonText;
 	
-	private RessourceButton roomButton;
-	private ResultButton rowOneButton;
-	private ResultButton rowTwoButton;
-	private ResultButton raplaButton;
+	private RessourceButtonWithLabel roomButton;
+	private ResultButtonWithLabel rowOneButton;
+	private ResultButtonWithLabel rowTwoButton;
+	private ResultButtonWithLabel raplaButton;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -55,7 +57,9 @@ public class DetailPagePoi extends AbstractDetailPage {
 		
 		infoPanel.setStyleName("infoPanel");
 		infoLabel.setStyleName("infoLabel");
-		infos = new ResultTable(bottomPanel, 1, 5);
+		infos = new ResultTable(bottomPanel, 2, 5);
+		infos.getColumnFormatter().setWidth(0, "25%");
+		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");
 		
 		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
@@ -68,10 +72,10 @@ public class DetailPagePoi extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 		
-		roomButton = new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room);
-		rowOneButton = new ResultButton(IconProvider.Additional_Information, rowOneButtonText,  null, null, false);
-		rowTwoButton = new ResultButton(IconProvider.Additional_Information, rowTwoButtonText, null, null, false);
-		raplaButton = new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true);
+		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText, IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room), new Label("hj"));
+		rowOneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
+		rowTwoButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
@@ -164,18 +168,21 @@ public class DetailPagePoi extends AbstractDetailPage {
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
+				roomButton.hideLabel();
 			}
 		if (!pd.getRowOne().equals("")){
 			rowOneButtonText = pd.getRowOne();
 			rowOneButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowOneButton.getElement().getStyle().setDisplay(Display.NONE);
+				rowOneButton.hideLabel();
 			}
 		if (!pd.getRowTwo().equals("")){
 			rowTwoButtonText = pd.getRowTwo();
 			rowTwoButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowTwoButton.getElement().getStyle().setDisplay(Display.NONE);
+				rowTwoButton.hideLabel();
 			}
 //		
 //		roomLS.writeStorage(id);

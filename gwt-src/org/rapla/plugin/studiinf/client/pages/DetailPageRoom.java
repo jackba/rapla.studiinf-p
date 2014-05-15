@@ -10,7 +10,7 @@ import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultObject;
-import org.rapla.plugin.studiinf.client.ui.ResultObjectWithLabel;
+import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
@@ -31,9 +31,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private String courseOfStudyButtonText;
 	
 //	private ResultButton nameButton;
-	private ResultObjectWithLabel typeButton;
-	private ResultObjectWithLabel courseOfStudyButton;
-	private ResultObjectWithLabel raplaButton;
+	private ResultButtonWithLabel typeButton;
+	private ResultButtonWithLabel courseOfStudyButton;
+	private ResultButtonWithLabel raplaButton;
 	
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
@@ -60,9 +60,9 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 
 //		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
-		typeButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false), new Label("Type")); 
-		courseOfStudyButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false), new Label("Course of Study"));
-		raplaButton = new ResultObjectWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label("Rapla Link"));
+		typeButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false), new Label("Type")); 
+		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false), new Label("Course of Study"));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label("Rapla Link"));
 		
 		raplaButton.setSize(0.8);
 //		nameButton.setSize(0.8);
@@ -134,12 +134,10 @@ public class DetailPageRoom extends AbstractDetailPage {
 		}
 	}
 
-
 	@Override
 	public boolean hasDefaultQrBox() {
 		return true;
 	}
-
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
@@ -157,12 +155,14 @@ public class DetailPageRoom extends AbstractDetailPage {
 			typeButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				typeButton.getElement().getStyle().setDisplay(Display.NONE);
+				typeButton.hideLabel();
 			}
 		if (!rd.getDepartment().equals("")){
 			courseOfStudyButtonText = rd.getDepartment();
 			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
+				courseOfStudyButton.hideLabel();
 			}
 		if(rd.getRoomType().equals("Extern"))
 		{

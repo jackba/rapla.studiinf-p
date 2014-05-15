@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ResultObjectWithLabelRessourceButton implements ResultObject{
+public class RessourceButtonWithLabel implements ResultObjectWithLabel{
 	
 	private RessourceButton resultObject;
 	private Label label;
 
-	public ResultObjectWithLabelRessourceButton(RessourceButton resultObject, Label label) {
+	public RessourceButtonWithLabel(RessourceButton resultObject, Label label) {
 		this.resultObject = resultObject;
 		this.label = label;	
 		label.setStyleName("labelResultTable");
+	}
+	
+	public void hideLabel(){
+		label.getElement().getStyle().setDisplay(Display.NONE);
 	}
 
 	public Element getElement(){

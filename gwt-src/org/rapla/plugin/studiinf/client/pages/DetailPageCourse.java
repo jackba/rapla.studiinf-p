@@ -16,8 +16,8 @@ import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
-import org.rapla.plugin.studiinf.client.ui.ResultObjectWithLabel;
-import org.rapla.plugin.studiinf.client.ui.ResultObjectWithLabelRessourceButton;
+import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
+import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
@@ -42,9 +42,9 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
 
 //	private ResultButton nameButton;
-	private ResultObjectWithLabel courseOfStudyButton;
-	private ResultObjectWithLabelRessourceButton roomButton;
-	private ResultObjectWithLabel raplaButton;
+	private ResultButtonWithLabel courseOfStudyButton;
+	private RessourceButtonWithLabel roomButton;
+	private ResultButtonWithLabel raplaButton;
 	
 	private String nameButtonText;
 	private String courseOfStudyButtonText;
@@ -58,13 +58,15 @@ public class DetailPageCourse extends AbstractDetailPage {
 		middlePanel = new FlowPanel();
 		infoLabel = new Label(Studiinf.i18n.information());
 		appointmentLabel = new Label(Studiinf.i18n.nextAppointments());
-		infos = new ResultTable(bottomPanel, 1, 4);
+		infos = new ResultTable(bottomPanel, 2, 4);
+		infos.getColumnFormatter().setWidth(0, "25%");
+		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");
 		
 //		nameButton = new ResultButton(nameButtonText, null, null, IconProvider.Courses, false);
-		courseOfStudyButton = new ResultObjectWithLabel(new ResultButton(courseOfStudyButtonText, null, null, IconProvider.Courses, false), new Label("Course of Study"));
-		roomButton = new ResultObjectWithLabelRessourceButton(new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,false, true), new Label("Room"));
-		raplaButton = new ResultObjectWithLabel(new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, IconProvider.Calendar, true), new Label("Rapla"));
+		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(courseOfStudyButtonText, null, null, IconProvider.Courses, false), new Label("Course of Study"));
+		roomButton = new RessourceButtonWithLabel(new RessourceButton(roomButtonText,  IconProvider.Rooms, Navigation.roomDetail,(AbstractSearchPage) Navigation.room,false, true), new Label("Room"));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, IconProvider.Calendar, true), new Label("Rapla"));
 
 		infoPanel.setStyleName("infoPanel");
 		middlePanel.setStyleName("courseMiddlePanel");
