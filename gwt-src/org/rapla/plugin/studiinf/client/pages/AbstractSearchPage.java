@@ -117,6 +117,12 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
+		if(DisplayMode.isMobile()){
+			searchPanel.addStyleName("mobile");
+		}else {
+//			searchPanel.setStyleName("searchPanel");	
+		}
+		
 	//	results.getBackButton().addStyleName("backButton");
 	//	results.getNextButton().addStyleName("nextButton");
 		qrBox.getElement().getStyle().setProperty("top", "43vh");

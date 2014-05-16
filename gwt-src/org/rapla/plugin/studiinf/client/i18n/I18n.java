@@ -34,6 +34,7 @@ public interface I18n extends Messages {
 	String extraInfos();
 	String back();
 	String freeUntil(String time);
+	String freeUntilMobile(String time);
 	String nofreeRooms();
 	String previous();
 	String next();

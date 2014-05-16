@@ -36,11 +36,12 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	AbstractPage backTarget;
 	String backId;
 	
-	public void setButtonDimension(){
+	public void setMobileDimension(){
 		if(DisplayMode.isMobile()){
 			buttonSize = 1.0;
 			buttonWidth = 35;
 			buttonTop = 1.25;
+			this.addStyleName("mobile");
 		}else{
 			buttonSize = 0.7;
 			buttonWidth = 25;
@@ -55,7 +56,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	public void init(){
 		this.setStyleName("footer");
 	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	
-	    setButtonDimension();
+	    setMobileDimension();
 	    homeBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    homeBtn.getElement().getStyle().setRight(5, Unit.PCT);
 	    homeBtn.getElement().getStyle().setTop(buttonTop, Unit.EM);

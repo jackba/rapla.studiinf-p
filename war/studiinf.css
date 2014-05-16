@@ -219,9 +219,10 @@ nav{
 		box-sizing: border-box;
 	}
 	
+.footer.mobile{
+		height:8vh;
+	}
 	
-
-
 .searchField{
 	width:100%;
 	height:1.5em;
@@ -435,7 +436,9 @@ nav{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+.searchPanel.mobile{
+	border-style: none;
+}
 
 .page-poi .resultPanel{
 	height:27.3vh;
