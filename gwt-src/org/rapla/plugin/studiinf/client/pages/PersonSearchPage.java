@@ -15,7 +15,7 @@ public class PersonSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "persons";
 	
 	public PersonSearchPage() {
-		super(true, true,true, IconProvider.Persons,Navigation.personDetail, DisplayMode.isMobile());
+		super(true, true,true, IconProvider.Persons,Navigation.personDetail);
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "rooms";
 	
 	public RoomSearchPage() {
-		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail, DisplayMode.isMobile());
+		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail);
 	}
 
 	@Override

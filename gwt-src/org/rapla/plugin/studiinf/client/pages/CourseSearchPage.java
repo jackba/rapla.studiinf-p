@@ -18,7 +18,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "courses";
 
 	public CourseSearchPage() {
-		super(true, true,true,IconProvider.Courses,Navigation.courseDetail, DisplayMode.isMobile());
+		super(true, true,true,IconProvider.Courses,Navigation.courseDetail);
 	}
 
 	@Override

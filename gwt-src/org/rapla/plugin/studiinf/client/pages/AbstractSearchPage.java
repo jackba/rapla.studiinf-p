@@ -45,6 +45,11 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	//private final boolean hasNavigationButtons;
 	private final int resultRows;
 	private final int resultColumns;
+	private final static int defaultRowsMobil = 4;
+	private final static int defaultColumnsMobil = 1;
+	private final static int defaultRowsStele = 6;
+	private final static int defaultColumnsStele = 2;
+	
 	
 	/**
 	 * With the constructor you can customize your Search Pages.
@@ -58,10 +63,10 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	 * @param icon Icon of the entries in the result Table.
 	 * @param targetPage The Target Page of the Search Page (Corresponding Detail Page).
 	 */
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage, boolean mobile) {
-		if(mobile == true && resultColumns == 2 && resultRows == 6){
-			this.resultColumns = 1;
-			this.resultRows = 4;
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage) {
+		if(DisplayMode.isMobile() == true && resultColumns == defaultColumnsStele && resultRows == defaultRowsStele){
+			this.resultColumns = defaultColumnsMobil;
+			this.resultRows = defaultRowsMobil;
 		}else {
 			this.resultRows = resultRows;
 			this.resultColumns = resultColumns;			
@@ -78,8 +83,8 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	/**
 	 * If the size of the result Table is not set, the default is 6 rows and two colummns.
 	 */
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage,  boolean mobile) {
-		this(hasOrganigramm,showInput,showQRBox,6,2,true, icon, targetPage, mobile);
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
+		this(hasOrganigramm,showInput,showQRBox,defaultRowsStele, defaultColumnsStele,true, icon, targetPage);
 	}
 	
 	public boolean isSearched() {

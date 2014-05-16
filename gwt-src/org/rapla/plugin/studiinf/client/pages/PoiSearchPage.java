@@ -15,7 +15,7 @@ public class PoiSearchPage extends AbstractSearchPage {
 	
 	
 	public PoiSearchPage() {
-		super(false, false,true,8,2, false, IconProvider.PoI,Navigation.roomDetail, DisplayMode.isMobile());
+		super(false, false,true,8,2, false, IconProvider.PoI,Navigation.roomDetail);
 	}
 
 	@Override
