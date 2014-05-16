@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -15,7 +16,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "rooms";
 	
 	public RoomSearchPage() {
-		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail);
+		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail, DisplayMode.isMobile());
 	}
 
 	@Override

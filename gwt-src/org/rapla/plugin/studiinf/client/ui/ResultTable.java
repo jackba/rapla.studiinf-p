@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.ui;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 
@@ -20,7 +21,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class ResultTable extends FlexTable {
 
-	private double size = 0.5;
+	private double size;
 	private List<ResultObject> results = new LinkedList<ResultObject>();
 	private int columns;
 	private int maxRows;
@@ -47,6 +48,14 @@ public class ResultTable extends FlexTable {
 		}
 		refresh();
 			
+	}
+	public void setSize(){
+		if(DisplayMode.isMobile()){
+			size = 1;
+		}else{
+			size= 0.8;
+		}
+		
 	}
 
 	public void nextPage(){
@@ -79,7 +88,7 @@ public class ResultTable extends FlexTable {
 	this.maxRows = maxRows;
 	this.accessibilityRow = accessibilityRow;
 	this.page = 0;
-	
+	setSize();
 	this.backButton.setSize(size);
 	this.backButton.getElement().getStyle().setWidth(100, Unit.PCT);
 	this.backButton.setShowWhenDisabled(false);

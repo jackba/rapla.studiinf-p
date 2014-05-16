@@ -3,6 +3,7 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
@@ -57,22 +58,28 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	 * @param icon Icon of the entries in the result Table.
 	 * @param targetPage The Target Page of the Search Page (Corresponding Detail Page).
 	 */
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage) {
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput, boolean showQRBox, int resultRows, int resultColumns, boolean hasNavigationButtons, FontIcon icon, AbstractPage targetPage, boolean mobile) {
+		if(mobile == true && resultColumns == 2 && resultRows == 6){
+			this.resultColumns = 1;
+			this.resultRows = 4;
+		}else {
+			this.resultRows = resultRows;
+			this.resultColumns = resultColumns;			
+		}
 		this.hasOrganigramm = hasOrganigramm;
 		this.showInput = showInput;
 		this.showQRBox = showQRBox;
-		this.resultRows = resultRows;
-		this.resultColumns = resultColumns;
 		this.results = new ResultTable(this.resultBtns,this.resultColumns,this.resultRows);
 		//this.hasNavigationButtons = hasNavigationButtons;
 		this.ls = new LocalStorage(getHistoryKey(), results, icon, targetPage, this);
 	}
-	
+
+
 	/**
 	 * If the size of the result Table is not set, the default is 6 rows and two colummns.
 	 */
-	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
-		this(hasOrganigramm,showInput,showQRBox,6,2,true, icon, targetPage);
+	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage,  boolean mobile) {
+		this(hasOrganigramm,showInput,showQRBox,6,2,true, icon, targetPage, mobile);
 	}
 	
 	public boolean isSearched() {
@@ -104,6 +111,9 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
 		organigramBtn.addStyleName("organigramBtn");
+		if(DisplayMode.isMobile()){
+			organigramBtn.addStyleName("mobile");
+		}
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
@@ -228,3 +238,4 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	
 
 }
+

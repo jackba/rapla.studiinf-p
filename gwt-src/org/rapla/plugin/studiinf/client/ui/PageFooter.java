@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -23,9 +24,9 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class PageFooter extends FlowPanel implements ClickHandler {
 	
-	double buttonSize = 0.7;
-	double buttonWidth = 25;
-	double buttonTop = 1.25;
+	double buttonSize;
+	double buttonWidth;
+	double buttonTop;
 	
 	AbstractPage parent;
 	PopupPanel languages;
@@ -35,6 +36,18 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	AbstractPage backTarget;
 	String backId;
 	
+	public void setButtonDimension(){
+		if(DisplayMode.isMobile()){
+			buttonSize = 1.0;
+			buttonWidth = 35;
+			buttonTop = 1.25;
+		}else{
+			buttonSize = 0.7;
+			buttonWidth = 25;
+			buttonTop = 1.25;
+		}
+			
+	}
 	public PageFooter(AbstractPage parent) {
 		this.parent = parent;
 	}
@@ -42,7 +55,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	public void init(){
 		this.setStyleName("footer");
 	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	
-	    
+	    setButtonDimension();
 	    homeBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    homeBtn.getElement().getStyle().setRight(5, Unit.PCT);
 	    homeBtn.getElement().getStyle().setTop(buttonTop, Unit.EM);
@@ -114,7 +127,11 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    
 	    if(this.parent != Navigation.homePage){
 	    	this.add(homeBtn);
-	    	this.add(backBtn);
+	    	if(DisplayMode.isMobile()){
+	    		
+	    	}else{
+	    		this.add(backBtn);	
+	    	}
 	    }
 	    updateBackButton();
 	}

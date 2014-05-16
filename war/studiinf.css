@@ -244,6 +244,11 @@ nav{
 	display:inline-block;
 	font-family: 'Open Sans', sans-serif;	
 }
+.organigramBtn.mobile{
+	left:20vw;
+	width:60vw;
+	rigth:auto;
+}
 .results, .infos, .personInfos /*, .courseInfos*/, .personLectureRooms, .poiResults, .freeRooms{
 	position:static;
 	width:100%;

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -39,7 +40,11 @@ public class HomePage extends AbstractPage {
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room);
 		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi);
+		if(DisplayMode.isMobile()){
+			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 4);
+		} else {
 		freeRoomsTable = new FreeRoomTable(resultBtns, 2, 7);
+		}
 		freeRoomsTable.setStyleName("freeRooms");
 		
 		resultLabel.setStyleName("infoLabel");
