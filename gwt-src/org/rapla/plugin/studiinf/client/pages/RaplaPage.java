@@ -68,7 +68,10 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		this.add(frame);
 	}
 	
-
+	@Override
+	protected void showRaplaLinks(boolean b) {
+		// do nothing always true;
+	}
 
 
 }

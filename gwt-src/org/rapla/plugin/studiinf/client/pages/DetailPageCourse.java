@@ -1,30 +1,18 @@
 package org.rapla.plugin.studiinf.client.pages;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.rapla.plugin.freiraum.common.Event;
-import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
-import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
-import org.rapla.plugin.studiinf.client.search.FilterRooms;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
-import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.dom.client.Style.Display;
-import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.PopupPanel;
 
 public class DetailPageCourse extends AbstractDetailPage {
 	
@@ -32,13 +20,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 	
 	private FlowPanel infoPanel;
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
-	private FlowPanel middlePanel;
 	private Label infoLabel;
 	private Label appointmentLabel;
 	private ResultTable infos;
 	
-	private List<Event> events;
-	private ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
+	
+	
 
 	private ResultButtonWithLabel courseOfStudyButton;
 	private RessourceButtonWithLabel roomButton;
@@ -131,7 +118,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		CourseDescriptor cd = new CourseDescriptor(resource);
@@ -163,66 +149,12 @@ public class DetailPageCourse extends AbstractDetailPage {
 		
 		refresh();
 		
-		Date dateBegin = new Date();
-		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
-		String begin = f.format(dateBegin);
-		Date dateEnd = new Date();
-		dateEnd.setHours(23);
-		dateEnd.setMinutes(59);
-
-		String end = f.format(dateEnd);
-		
-		ServiceProvider.getEvents(begin, end, id, new AsyncCallback<List<Event>>() {
-
-			@Override
-			public void onFailure(Throwable arg0) {
-					
-			}
-
-			@Override
-			public void onSuccess(List<Event> arg0) {
-
-				events = new ArrayList<Event>(arg0);
-				if (events.size()<1) {
-					showRaplaLinks(false);
-				}
-				lectures.clear();
-
-				if(events.size()>=1)
-				{
-				showRaplaLinks(true);
-				
-				for(int i = 0;i<3 && i < events.size(); i++){
-					addEvent(events.get(i));
-				}
-				
-				middlePanel.add(lectures);			
-				
-				}
-			}
-		});
+		loadEvents();
 		
 	}
-	private void addEvent(Event event) {
-		showRaplaLinks(true);
-		int row = events.indexOf(event);
-		NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaCourseLink, id);
-		lectures.setWidget(row, 0, firstLecture);
-		
-		NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
-		roomsShowButton.setSize(0.87);
-		lectures.setWidget(row, 1, roomsShowButton);
-		
-		List<ResourceDescription> resources = event.getResources();
-		FlowPanel panel = new FlowPanel();
-		PopupPanel rooms = new PopupPanel();
-		rooms.add(panel);
+	
 
-		rooms.setVisible(false);
 
-		roomsShowButton.setClickHandler(new DetailPagePersonClickHandler(roomsShowButton,rooms));
-		new FilterRooms(panel,resources,roomsShowButton,true);
-		
-	}
+	
 
 }

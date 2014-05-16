@@ -116,12 +116,16 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
 		organigramBtn.addStyleName("organigramBtn");
-		if(DisplayMode.isMobile()){
-			organigramBtn.addStyleName("mobile");
-		}
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
+		if(DisplayMode.isMobile()){
+			searchPanel.addStyleName("mobile");
+			organigramBtn.addStyleName("mobile");
+			resultLabel.addStyleName("mobile");
+		}else {
+		}
+		
 	//	results.getBackButton().addStyleName("backButton");
 	//	results.getNextButton().addStyleName("nextButton");
 		qrBox.getElement().getStyle().setProperty("top", "43vh");
