@@ -27,6 +27,11 @@ public class RessourceButtonWithLabel implements ResultObjectWithLabel{
 	public void hideLabel(){
 		label.getElement().getStyle().setDisplay(Display.NONE);
 	}
+	
+	public void hideFooterButton(){
+		NavButton f = resultObject.getFooterButton();
+		f.getElement().getStyle().setDisplay(Display.NONE);
+	}
 
 	public Element getElement(){
 		return resultObject.getElement();

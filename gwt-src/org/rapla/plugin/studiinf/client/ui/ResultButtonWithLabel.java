@@ -19,6 +19,10 @@ public class ResultButtonWithLabel implements ResultObjectWithLabel{
 		label.setStyleName("labelResultTable");
 	}
 	
+	public void hideFooterButton(){
+		resultObject.hideFooterButton();
+	}
+	
 	public void hideLabel(){
 		label.getElement().getStyle().setDisplay(Display.NONE);
 	}

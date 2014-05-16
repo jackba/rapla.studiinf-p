@@ -6,6 +6,7 @@ import java.util.List;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ResultButton extends NavButton implements ResultObject {
@@ -30,6 +31,10 @@ public class ResultButton extends NavButton implements ResultObject {
 		this.searchPage = searchPage;
 		setNumber(0);
 		this.setWidth("100%");
+	}
+	
+	public void hideFooterButton(){
+		bottomPictureButton.getElement().getStyle().setDisplay(Display.NONE);
 	}
 	
 	@Override
