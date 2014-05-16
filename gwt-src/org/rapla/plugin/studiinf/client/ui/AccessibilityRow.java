@@ -91,9 +91,12 @@ public class AccessibilityRow extends Composite {
 	public NavButton getNextButton(){
 		return nextButton;
 	}
-
-	public int getNextNumber() {
-		return count;
+	
+	public int getNextNumber(){
+		return getNextNumber(0);
+	}
+	public int getNextNumber(int offset) {
+		return offset+count;
 	}
 	
 
