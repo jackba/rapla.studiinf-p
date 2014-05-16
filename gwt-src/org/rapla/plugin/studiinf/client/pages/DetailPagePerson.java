@@ -78,7 +78,10 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		infos.setWidth("78%");
 		infos.getElement().getStyle().setProperty("left", "19vw");
 		infos.getElement().getStyle().setProperty("right", "auto");
-		infos.getElement().getStyle().setProperty("position", "relative");		
+		infos.getElement().getStyle().setProperty("position", "relative");	
+		
+//		lectures.getColumnFormatter().setWidth(0, "75%");
+//		lectures.getColumnFormatter().setWidth(1, "25%");
 		
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
@@ -234,10 +237,12 @@ private void addEvent(Event event) {
 				int row = events.indexOf(event);
 				NavButton firstLecture = new NavButton(event.toString(), Navigation.raplaPersonLink, id);
 				firstLecture.setSize(0.8);
+				firstLecture.setWidth("100%");
 				lectures.setWidget(row, 0, firstLecture);
 				
 				NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
 				roomsShowButton.setSize(0.8);
+				roomsShowButton.setWidth("100%");
 				lectures.setWidget(row, 1, roomsShowButton);
 				
 				List<ResourceDescription> resources = event.getResources();
