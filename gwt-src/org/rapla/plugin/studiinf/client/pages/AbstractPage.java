@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ui.PageFooter;
 import org.rapla.plugin.studiinf.client.ui.PageHeader;
@@ -64,8 +65,10 @@ public abstract class AbstractPage extends ComplexPanel{
 
 	   protected void refresh(){
 		   header.refresh();
-		   timer.cancel();
-		   timer.schedule(300000);
+		   if (DisplayMode.isStele()){
+			   timer.cancel();
+			   timer.schedule(300000);
+		   }
 	   }
 	   
 	   public void onShow(){
