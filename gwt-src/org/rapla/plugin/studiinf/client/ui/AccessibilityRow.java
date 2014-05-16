@@ -19,6 +19,7 @@ public class AccessibilityRow extends Composite {
 	private static AccessibilityRowUiBinder uiBinder = GWT.create(AccessibilityRowUiBinder.class);
 	
 	private double size = 0.4;
+	private int count = 0;
 	
 	interface AccessibilityRowUiBinder  extends UiBinder<Widget, AccessibilityRow> {
 	}
@@ -72,6 +73,7 @@ public class AccessibilityRow extends Composite {
 	
 	public void add(NavButton but){
 		but.setSize(size);
+		count++;
 		SimplePanel justified = new SimplePanel(but);
 		justified.setStyleName(style.cell());
 		accessibilityRow.add(justified);
@@ -79,6 +81,7 @@ public class AccessibilityRow extends Composite {
 	
 	public void clear(){
 		accessibilityRow.clear();
+		count = 0;
 	}
 	
 	public NavButton getBackButton(){
@@ -87,6 +90,10 @@ public class AccessibilityRow extends Composite {
 	
 	public NavButton getNextButton(){
 		return nextButton;
+	}
+
+	public int getNextNumber() {
+		return count;
 	}
 	
 
