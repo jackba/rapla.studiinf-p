@@ -120,7 +120,7 @@ public class ResultTable extends FlexTable {
 	
 	public void addResult(ResultObject result){
 		results.add(result);
-		result.setNumber(results.indexOf(result) + 1);
+		//result.setNumber(results.indexOf(result) + 1);
 	}
 	
 	public boolean removeResult(ResultObject result) {
@@ -143,6 +143,7 @@ public class ResultTable extends FlexTable {
 		setWidget(0, 0, backButton);
 		
 		for (ResultObject result : results){
+			result.setNumber(-1);
 			for(Widget cell : result.getCellObjects()){
 				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
 					break;
@@ -164,6 +165,7 @@ public class ResultTable extends FlexTable {
 					NavButton fbut = result.getFooterButton();
 					fbut.setSize(0.5);
 					accessibilityRow.add(fbut);
+					result.setNumber(accessibilityRow.getNextNumber());
 				}
 			}
 			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){

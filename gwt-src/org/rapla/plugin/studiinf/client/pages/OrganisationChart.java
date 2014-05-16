@@ -20,7 +20,7 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	
 	protected AccessibilityRow access = new AccessibilityRow();
 	
-	protected ResultTable organigram = new ResultTable(access, 1, 8);
+	protected ResultTable organigram = new ResultTable(access, 1, 7);
 	protected List <CategoryDescription> testCategoryList;
 	public String helpId;
 	
