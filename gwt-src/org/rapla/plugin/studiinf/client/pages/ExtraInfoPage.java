@@ -79,6 +79,11 @@ private AbstractPage target;
 		detail.setStyleName("detailEntry");
 		detailsTable.setWidget(detailsTable.getRowCount(), 0, detail);
 	}
+
+	@Override
+	protected void showRaplaLinks(boolean b) {
+		// do nothing always true;
+	}
 	
 	
 
