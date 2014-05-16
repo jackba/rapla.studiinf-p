@@ -646,8 +646,9 @@ nav{
 .navigationPicture, .poiNavigationImg {
 	position:absolute !important;
 	top: 56vh;
-	left: 9.75vw;
-	width: 80.5vw;
+	left: 5vw;
+	right: 5vw;
+	width: 90vw;
 	height:29.5vh;
 	background:#858f95;
 }
