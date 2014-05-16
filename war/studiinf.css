@@ -574,6 +574,9 @@ nav{
 	box-sizing: border-box;
 }
 
+.infoLabel.mobile{
+	font-size:3vh;
+}
 .personCourseOfStudyLabel, .personCourseOfStudyInfo{
 	padding-top: 1vh;
 	height: 5vh;

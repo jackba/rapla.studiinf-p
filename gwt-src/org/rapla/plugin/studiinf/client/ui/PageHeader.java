@@ -2,6 +2,7 @@ package org.rapla.plugin.studiinf.client.ui;
 
 import java.util.Date;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -31,7 +32,10 @@ public class PageHeader extends VerticalPanel {
 			dateDisplay = new HTML(dateFormatter.format(d));
 			dateDisplay.addStyleName("timeDisplay");
 			subHeader.add(dateDisplay);
-		    this.add(subHeader);
+			if(DisplayMode.isStele()){
+				this.add(subHeader);
+			}
+			
 		    Timer timer = new Timer() {
 				
 				@Override
