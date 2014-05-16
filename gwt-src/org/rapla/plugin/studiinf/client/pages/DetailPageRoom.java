@@ -38,6 +38,7 @@ public class DetailPageRoom extends AbstractDetailPage {
 	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
 	private String id;
+	private String locationPictureURL = IconProvider.MISSING_MAP;
 	
 	@Override
 	public void init(){
@@ -49,15 +50,19 @@ public class DetailPageRoom extends AbstractDetailPage {
 		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");	
 		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
-			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
-			wayDescriptionImg.setStyleName("navigationPicture");
-			this.add(wayDescriptionImg);
-		}
-		else{
-			noNavigationImg.setStyleName("navigationPicture");
-			this.add(noNavigationImg);
-		}
+		wayDescriptionImg = new Image(locationPictureURL);
+		wayDescriptionImg.setStyleName("navigationPicture");
+		this.add(wayDescriptionImg);
+		
+//		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
+//			wayDescriptionImg = new Image(locationPictureURL);
+//			wayDescriptionImg.setStyleName("navigationPicture");
+//			this.add(wayDescriptionImg);
+//		}
+//		else{
+//			noNavigationImg.setStyleName("navigationPicture");
+//			this.add(noNavigationImg);
+//		}
 
 //		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
 		typeButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
@@ -119,19 +124,22 @@ public class DetailPageRoom extends AbstractDetailPage {
 		typeButton.setText(typeButtonText);
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
-		
 		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
 		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052") || nameButtonText.equals("Bibliothek")){
-			wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
-			wayDescriptionImg.setStyleName("navigationPicture");
-			this.add(wayDescriptionImg);
-		}
-		else{
-			noNavigationImg.setStyleName("navigationPicture");
-			this.add(noNavigationImg);
-		}
+		wayDescriptionImg = new Image(locationPictureURL);
+		wayDescriptionImg.setStyleName("navigationPicture");
+		this.add(wayDescriptionImg);
+		
+//		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052") || nameButtonText.equals("Bibliothek")){
+//			wayDescriptionImg = new Image(locationPictureURL); //Picture.getImageURL(nameButtonText));
+//			wayDescriptionImg.setStyleName("navigationPicture");
+//			this.add(wayDescriptionImg);
+//		}
+//		else{
+//			noNavigationImg.setStyleName("navigationPicture");
+//			this.add(noNavigationImg);
+//		}
 	}
 
 	@Override
@@ -164,6 +172,18 @@ public class DetailPageRoom extends AbstractDetailPage {
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 				courseOfStudyButton.hideLabel();
 			}
+		if(!rd.getLocation().equals(""))
+		{
+			locationPictureURL = rd.getLocation();
+//			wayDescriptionImg = new Image(rd.getLocation());
+//			wayDescriptionImg.setStyleName("navigationPicture");
+//			this.add(wayDescriptionImg);
+			Window.alert(rd.getLocation());
+		}
+		else{
+			locationPictureURL = IconProvider.MISSING_MAP;
+			Window.alert("else");
+		}
 		if(rd.getRoomType().equals("Extern"))
 		{
 			showRaplaLinks(false);

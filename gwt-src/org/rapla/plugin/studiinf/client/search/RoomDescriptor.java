@@ -17,6 +17,7 @@ public class RoomDescriptor {
 	private String picture;
 	private ResourceDetail room;
 	private String raplaLink;
+	private String location;
 	private Collection<String> keys;
 	
 	public RoomDescriptor(ResourceDetail room) {
@@ -66,6 +67,15 @@ public class RoomDescriptor {
 			}
 		return raplaLink;
 		}
+	
+	public String getLocation()
+	{
+		if(location == null)
+		{
+			location = getCell("location");
+		}
+		return location;
+	}
 	
 	private String getCell(String cellName){
 		if(keys.contains(cellName)){
