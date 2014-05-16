@@ -58,7 +58,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	 * @param showInput Boolean, 
 	 * @param showQRBox Boolean, which determines if the default QR Code should be displayed.
 	 * @param resultRows Number of rows in the result Table.
-	 * @param resultColumns Number of colummns of the result Table.
+	 * @param resultColumns Number of columns of the result Table.
 	 * @param hasNavigationButtons Can be deleted??????
 	 * @param icon Icon of the entries in the result Table.
 	 * @param targetPage The Target Page of the Search Page (Corresponding Detail Page).
