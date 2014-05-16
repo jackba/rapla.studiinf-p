@@ -200,6 +200,9 @@
 		font-size: 0.775em;
 		top: 6em;
 	} 
+	.tile:hover .icon{
+		background: transparent;
+	}
 	.tile .icon span{
 		top: 0px;
 		font-size: 6em;
