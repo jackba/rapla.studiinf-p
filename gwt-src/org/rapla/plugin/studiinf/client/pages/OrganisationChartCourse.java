@@ -26,5 +26,5 @@ public class OrganisationChartCourse extends OrganisationChart {
 	public String getResourceType() {
 		return CourseSearchPage.ResourceType;
 	}
-
+	
 }

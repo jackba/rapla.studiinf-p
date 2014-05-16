@@ -16,7 +16,7 @@ public class PageHeader extends VerticalPanel {
 	
 	private HorizontalPanel subHeader = new HorizontalPanel();
 	private AbstractPage parent;
-	private static DateTimeFormat dateFormatter = DateTimeFormat.getFormat(PredefinedFormat.DATE_TIME_MEDIUM);
+	private static final DateTimeFormat dateFormatter = DateTimeFormat.getFormat(PredefinedFormat.DATE_TIME_MEDIUM);
 	private HTML dateDisplay;
 	private HTML title;
 	
@@ -41,7 +41,7 @@ public class PageHeader extends VerticalPanel {
 				@Override
 				public void run() {
 					Date d = new Date();
-					dateDisplay.setHTML(dateFormatter.format(d));
+					dateDisplay.setHTML(PageHeader.dateFormatter.format(d));
 				}
 			};
 			timer.scheduleRepeating(1000);

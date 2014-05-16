@@ -13,6 +13,8 @@ import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
+
+
 //import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
@@ -129,7 +131,11 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 
 	@Override
 	public void handleClickCount(String targetId) {
-		
+		// TODO Auto-generated method stub
+	}
+	@Override
+	protected void showRaplaLinks(boolean b) {
+		// do nothing always true;
 	}
 
 }
