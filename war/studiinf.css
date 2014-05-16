@@ -571,7 +571,7 @@ nav{
 	box-sizing: border-box;
 }
 
-.personCourseOfStudyLabel, .personCourseOfStudyInfo, .personAppointmentLabel{
+.personCourseOfStudyLabel, .personCourseOfStudyInfo{
 	padding-top: 1vh;
 	height: 5vh;
 	font-size:1.5vh;
@@ -587,9 +587,18 @@ nav{
 	background: #aeb4b8;
 }
 
-.personAppointmentLabel {
-	margin-top:1vh;
+.personAppointmentLabel, .courseAppointmentLabel{
 	width: 100%;
+	padding-top: 1vh;
+	height: 5vh;
+	font-size:1.5vh;
+	line-height:2vh;
+	vertical-align: middle;
+	float: left;
+}
+
+.personAppointmentLabel {
+		margin-top: 0.5vh;
 }
 
 .infos{

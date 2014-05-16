@@ -14,12 +14,15 @@ import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ErrorEvent;
+import com.google.gwt.event.dom.client.ErrorHandler;
+import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
-public class DetailPageRoom extends AbstractDetailPage {
+public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
@@ -130,6 +133,8 @@ public class DetailPageRoom extends AbstractDetailPage {
 		this.remove(noNavigationImg);
 		
 		wayDescriptionImg = new Image(locationPictureURL);
+		wayDescriptionImg.addErrorHandler(this);
+		wayDescriptionImg.setVisible(true);
 		wayDescriptionImg.setStyleName("navigationPicture");
 		this.add(wayDescriptionImg);
 		
@@ -195,5 +200,13 @@ public class DetailPageRoom extends AbstractDetailPage {
 			showRaplaLinks(true);
 		}
 		refresh();
+	}
+
+	@Override
+	public void onError(ErrorEvent event) {
+		if(!wayDescriptionImg.getUrl().endsWith(IconProvider.MISSING_MAP)){
+		wayDescriptionImg.setUrl(IconProvider.MISSING_MAP);
+		}
+		
 	}
 }

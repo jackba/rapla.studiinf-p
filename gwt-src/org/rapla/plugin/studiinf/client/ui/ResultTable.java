@@ -146,6 +146,7 @@ public class ResultTable extends FlexTable {
 		clear();
 		accessibilityRow.clear();
 		int count = 0;
+		int footerOffset = 0;
 		backButton.setEnabled(false);
 		
 		getFlexCellFormatter().setColSpan(0, 0, columns);
@@ -174,7 +175,11 @@ public class ResultTable extends FlexTable {
 					NavButton fbut = result.getFooterButton();
 					fbut.setSize(0.5);
 					accessibilityRow.add(fbut);
-					result.setNumber(accessibilityRow.getNextNumber());
+					result.setNumber(accessibilityRow.getNextNumber(footerOffset));
+				}
+			}else{
+				if(result.getShowFooter()){
+					footerOffset++;
 				}
 			}
 			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
