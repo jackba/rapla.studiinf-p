@@ -53,7 +53,7 @@ public class ResultTable extends FlexTable {
 		if(DisplayMode.isMobile()){
 			size = 1;
 		}else{
-			size= 0.8;
+			size= 0.5;
 		}
 		
 	}
