@@ -15,6 +15,7 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 
 
+
 //import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
@@ -22,7 +23,7 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	
 	protected AccessibilityRow access = new AccessibilityRow();
 	
-	protected ResultTable organigram = new ResultTable(access, 1, 7);
+	protected ResultTable organigram = new ResultTable(access, 1, 14);
 	protected List <CategoryDescription> testCategoryList;
 	public String helpId;
 	

@@ -70,14 +70,18 @@ public class ResultTable extends FlexTable {
 	 * 
 	 */
 	public int getMaxPages() {
-		return (int) Math.ceil(results.size() / (columns*maxRows));
+		int cells = 0;
+		for(ResultObject result : results){
+			cells = cells + result.getCellObjects().size();
+		}
+		return (int) Math.ceil(((double)cells) / (double)(maxRows*columns));
 	}
 
 	public boolean hasPages(){
 		return getMaxPages() > 1;
 	}
 	public boolean hasNextPage(){
-		return hasPages() && getPage() < getMaxPages();
+		return hasPages() && (getPage()+1) < getMaxPages();
 	}
 	public boolean hasPreviousPage(){
 		return hasPages() && getPage() > 0;
@@ -129,7 +133,6 @@ public class ResultTable extends FlexTable {
 	
 	public void addResult(ResultObject result){
 		results.add(result);
-		//result.setNumber(results.indexOf(result) + 1);
 	}
 	
 	public boolean removeResult(ResultObject result) {
@@ -138,6 +141,7 @@ public class ResultTable extends FlexTable {
 	}
 	
 	public void clearResults() {
+		setPage(0);
 		results.clear();
 		refresh();
 	}
@@ -155,18 +159,19 @@ public class ResultTable extends FlexTable {
 		for (ResultObject result : results){
 			result.setNumber(-1);
 			for(Widget cell : result.getCellObjects()){
-				if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
+				if(getRowNumber(count)> maxRows){
 					break;
 				}
 				if(count >= page*columns*maxRows){
+					
 					try {
 						NavButton btn = (NavButton) cell;
 						btn.setSize(size);
 						btn.setWidth("100%");
 					} catch (Exception e) {
 					}
-					getFlexCellFormatter().setColSpan((int)(count / columns)+1-(page*maxRows), (int) count % columns, 1);
-					setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, cell);
+					getFlexCellFormatter().setColSpan(getRowNumber(count), getCellInRow(count), 1);
+					setWidget(getRowNumber(count), getCellInRow(count), cell);
 				}
 				count++;
 			}
@@ -182,41 +187,44 @@ public class ResultTable extends FlexTable {
 					footerOffset++;
 				}
 			}
-			if(Math.floor((count / columns))-(page*maxRows)>= maxRows){
+			if(getRowNumber(count)> maxRows){
 				break;
 			}
 		}
 		
 		
 		
-		while(count % columns != 0){
+		while(getCellInRow(count) != 0){
 			
-			setWidget((int)(count / columns)+1-(page*maxRows), (int) count % columns, new FlowPanel());
+			setWidget(getRowNumber(count), getCellInRow(count), new FlowPanel());
 			count++;
 		}
 		if(results.size() <= 0){
 			Label noData = new Label(Studiinf.i18n.noData());
-			/*font-size: 1.5vh;
-			line-height: 1.9vh;
-			text-align: center;*/
 			
 			noData.getElement().getStyle().setProperty("fontSize", "1.5vh");
 			noData.getElement().getStyle().setProperty("lineHeight", "1.9vh");
 			noData.getElement().getStyle().setProperty("textAlign", "center");
 			
-			getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, columns);
-			setWidget((int)((count / columns))+1-(page*maxRows), 0, noData);
+			getFlexCellFormatter().setColSpan(getRowNumber(count), 0, columns);
+			setWidget(getRowNumber(count), 0, noData);
 			count = count + columns;
 		}
-		getFlexCellFormatter().setColSpan((int)((count / columns))+1-(page*maxRows), 0, columns);
-		setWidget((int)((count / columns))+1-(page*maxRows), 0, nextButton);
+		getFlexCellFormatter().setColSpan(getRowNumber(count), 0, columns);
+		setWidget(getRowNumber(count), 0, nextButton);
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
 			accessibilityRow.getBackButton().setEnabled(hasPreviousPage());
 			accessibilityRow.getNextButton().setEnabled(hasNextPage());
 	}
 	
-
+	private int getRowNumber(int cellCount){
+		return (int)((cellCount / columns))+1-(page*maxRows);
+	}
+	
+	private int getCellInRow(int cellCount){
+		return (cellCount % columns);
+	}
 	
 	public int getColumns() {
 		return columns;
