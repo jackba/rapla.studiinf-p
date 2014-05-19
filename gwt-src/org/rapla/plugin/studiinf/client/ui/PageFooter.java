@@ -1,7 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
@@ -55,7 +54,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	
 	public void init(){
 		this.setStyleName("footer");
-	    NavButton homeBtn = new NavButton(IconProvider.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	
+	    NavButton homeBtn = new NavButton(FontIcon.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	
 	    setMobileDimension();
 	    homeBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    homeBtn.getElement().getStyle().setRight(5, Unit.PCT);
@@ -75,7 +74,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    			
 	    	if(!localeName.equals("default"))
 	    	{
-	    	NavButton languageButton = new NavButton(IconProvider.World ,displayName,null,null);
+	    	NavButton languageButton = new NavButton(FontIcon.World ,displayName,null,null);
 	    	languagesPanel.add(languageButton);
 	    	languageButton.setWidth("100%");
 	    	languageButton.setSize(buttonSize);
@@ -96,7 +95,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    languages.add(languagesPanel);
 	    
 	    	    
-	    languageChangeButton = new NavButton(IconProvider.World, Studiinf.i18n.languageButtonText(), null, null);/*todo always load english file*/
+	    languageChangeButton = new NavButton(FontIcon.World, Studiinf.i18n.languageButtonText(), null, null);/*todo always load english file*/
 	    languageChangeButton.setClickHandler(this);
 	    languageChangeButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    languageChangeButton.getElement().getStyle().setLeft(5, Unit.PCT);
@@ -107,7 +106,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    this.add(languageChangeButton);
 	    	    
 	    
-	    backBtn = new NavButton(IconProvider.Previous,Studiinf.i18n.back(), null, null);
+	    backBtn = new NavButton(FontIcon.Previous,Studiinf.i18n.back(), null, null);
 	    
 	    backBtn.setSize(buttonSize);
 	    backBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);

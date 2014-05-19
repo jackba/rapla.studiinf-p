@@ -2,7 +2,6 @@ package org.rapla.plugin.studiinf.client.ui;
 
 
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
@@ -31,10 +30,10 @@ public class AccessibilityRow extends Composite {
 	
 	public AccessibilityRow(){
 		initWidget(uiBinder.createAndBindUi(this));
-		backButton.setIcon(IconProvider.Previous);
+		backButton.setIcon(FontIcon.Previous);
 		backButton.setSize(size);
 		backButton.setShowWhenDisabled(false);
-		nextButton.setIcon(IconProvider.Next);
+		nextButton.setIcon(FontIcon.Next);
 		nextButton.setSize(size);
 		nextButton.setShowWhenDisabled(false);
 		if(DisplayMode.isMobile()){
@@ -64,7 +63,7 @@ public class AccessibilityRow extends Composite {
 	
 	@UiFactory
 	FontIcon createBarrierFreeIcon(){
-		FontIcon bfIcon = new FontIcon(IconProvider.Barrier_Free.getUrl());
+		FontIcon bfIcon = new FontIcon(FontIcon.Barrier_Free.getUrl());
 		bfIcon.getElement().getStyle().setFontSize(size*5, Unit.EM);
 		return bfIcon;
 	}

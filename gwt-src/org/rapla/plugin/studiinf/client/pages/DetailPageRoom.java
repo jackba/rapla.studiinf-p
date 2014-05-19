@@ -1,11 +1,11 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -32,10 +32,10 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 	private ResultButtonWithLabel courseOfStudyButton;
 	private ResultButtonWithLabel raplaButton;
 	
-	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
-	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
+	private Image noNavigationImg = new Image(FontIcon.MISSING_MAP);
+	private Image wayDescriptionImg = new Image(FontIcon.MISSING_MAP);
 	private String id;
-	private String locationPictureURL = IconProvider.MISSING_MAP;
+	private String locationPictureURL = FontIcon.MISSING_MAP;
 	
 	@Override
 	public void init(){
@@ -62,9 +62,9 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 //		}
 
 //		nameButton = new ResultButton(IconProvider.Rooms, nameButtonText, null, null, false);
-		typeButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
-		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Courses, courseOfStudyButtonText, null, null, false), new Label(Studiinf.i18n.courseOfStudy()));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label(Studiinf.i18n.linkRapla()));
+		typeButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
+		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Courses, courseOfStudyButtonText, null, null, false), new Label(Studiinf.i18n.courseOfStudy()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label(Studiinf.i18n.linkRapla()));
 		
 		raplaButton.setSize(0.8);
 //		nameButton.setSize(0.8);
@@ -178,7 +178,7 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 			locationPictureURL = rd.getLocation();
 		}
 		else{
-			locationPictureURL = IconProvider.MISSING_MAP;
+			locationPictureURL = FontIcon.MISSING_MAP;
 		}
 		
 		if(rd.getRoomType().equals("Extern"))
@@ -194,8 +194,8 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 
 	@Override
 	public void onError(ErrorEvent event) {
-		if(!wayDescriptionImg.getUrl().endsWith(IconProvider.MISSING_MAP)){
-		wayDescriptionImg.setUrl(IconProvider.MISSING_MAP);
+		if(!wayDescriptionImg.getUrl().endsWith(FontIcon.MISSING_MAP)){
+		wayDescriptionImg.setUrl(FontIcon.MISSING_MAP);
 		}
 		
 	}

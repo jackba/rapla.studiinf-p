@@ -5,7 +5,6 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
@@ -78,11 +77,11 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
 		eventPanel.setStyleName("lecturesTable");
 		
-		roomButton = new RessourceButtonWithLabel(new ResultButton(IconProvider.Rooms,roomButtonText, Navigation.roomDetail,null,true), new Label(Studiinf.i18n.room()));
-		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
-		telephoneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Phone, telephoneButtonText, null, null, false), new Label(Studiinf.i18n.telephone()));
-		extraInfosButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRapla()));		
+		roomButton = new RessourceButtonWithLabel(new ResultButton(FontIcon.Rooms,roomButtonText, Navigation.roomDetail,null,true), new Label(Studiinf.i18n.room()));
+		mailButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
+		telephoneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Phone, telephoneButtonText, null, null, false), new Label(Studiinf.i18n.telephone()));
+		extraInfosButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRapla()));		
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
@@ -98,7 +97,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		infos.addResult(raplaButton);
 		infos.refresh();
 		
-		FontIcon icon = new FontIcon(IconProvider.Persons.getUrl());
+		FontIcon icon = new FontIcon(FontIcon.Persons.getUrl());
 		icon.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);

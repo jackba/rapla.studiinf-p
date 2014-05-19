@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomButton;
 import org.rapla.plugin.studiinf.client.ui.FreeRoomTable;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -37,10 +37,10 @@ public class HomePage extends AbstractPage {
 		super.init();
 		TileContainer tileContainer = new TileContainer();
 		
-		Tile courseBtn = new Tile(Studiinf.i18n.courses(),Navigation.course, IconProvider.Courses);
-		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person, IconProvider.Persons);
-		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room, IconProvider.Rooms);
-		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi, IconProvider.PoI);
+		Tile courseBtn = new Tile(Studiinf.i18n.courses(),Navigation.course, FontIcon.Courses);
+		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person, FontIcon.Persons);
+		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room, FontIcon.Rooms);
+		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi, FontIcon.PoI);
 		
 		if(DisplayMode.isMobile()){
 			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 4);

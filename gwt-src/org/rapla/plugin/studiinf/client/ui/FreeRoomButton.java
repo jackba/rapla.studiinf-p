@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
@@ -25,15 +24,15 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	private boolean showFooterButton = true;
 	
 	public FreeRoomButton(Event e) {
-		super(0,IconProvider.Rooms,e.getResources().get(0).getName().toString(),Navigation.roomDetail,e.getResources().get(0).getId());
+		super(0,FontIcon.Rooms,e.getResources().get(0).getName().toString(),Navigation.roomDetail,e.getResources().get(0).getId());
 		this.setWidth("100%");
 		this.setSize(0.8);
 		setTargetPage(Navigation.roomDetail);
 		targetId = e.getResources().get(0).getId();
 		if(DisplayMode.isMobile()){
-			freeUntil =  new NavButton(IconProvider.Calendar, Studiinf.i18n.freeUntilMobile(e.getEnd()) , null, null);			
+			freeUntil =  new NavButton(FontIcon.Calendar, Studiinf.i18n.freeUntilMobile(e.getEnd()) , null, null);			
 		}else{
-			freeUntil =  new NavButton(IconProvider.Calendar, Studiinf.i18n.freeUntil(e.getEnd()) , null, null);
+			freeUntil =  new NavButton(FontIcon.Calendar, Studiinf.i18n.freeUntil(e.getEnd()) , null, null);
 		}
 		freeUntil.setSize(0.8);
 		freeUntil.setWidth("100%");
@@ -52,7 +51,7 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 	@Override
 	public NavButton getFooterButton() {
 		if(footerButton == null){
-			footerButton = new NavButton(IconProvider.Rooms,null, targetPage, targetId);
+			footerButton = new NavButton(FontIcon.Rooms,null, targetPage, targetId);
 		}
 		return footerButton;
 	}

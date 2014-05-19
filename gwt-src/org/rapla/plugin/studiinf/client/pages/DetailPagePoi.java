@@ -6,13 +6,13 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
@@ -44,8 +44,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 	private ResultButtonWithLabel rowTwoButton;
 	private ResultButtonWithLabel raplaButton;
 	
-	private Image noNavigationImg = new Image(IconProvider.MISSING_MAP);
-	private Image wayDescriptionImg = new Image(IconProvider.MISSING_MAP);
+	private Image noNavigationImg = new Image(FontIcon.MISSING_MAP);
+	private Image wayDescriptionImg = new Image(FontIcon.MISSING_MAP);
 	
 	private String id;
 	private String roomButtonId;
@@ -71,10 +71,10 @@ public class DetailPagePoi extends AbstractDetailPage {
 			this.add(noNavigationImg);
 		}
 		
-		roomButton = new RessourceButtonWithLabel(new ResultButton( IconProvider.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label("hj"));
-		rowOneButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
-		rowTwoButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
+		roomButton = new RessourceButtonWithLabel(new ResultButton( FontIcon.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label("hj"));
+		rowOneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
+		rowTwoButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 
@@ -18,7 +18,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "courses";
 
 	public CourseSearchPage() {
-		super(true, true,true,IconProvider.Courses,Navigation.courseDetail);
+		super(true, true,true,FontIcon.Courses,Navigation.courseDetail);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class CourseSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescription course : ressourcesMatched)
 		{
-			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), IconProvider.Courses, this));
+			addResult(new ResultButton(course.getName(), Navigation.courseDetail, course.getId(), FontIcon.Courses, this));
 		}
 		refresh();
 	}

@@ -3,8 +3,8 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 public class OrganisationChartRoom extends OrganisationChart {
@@ -18,7 +18,7 @@ public class OrganisationChartRoom extends OrganisationChart {
 		organigram.clearResults();	
 		for(ResourceDescription room : ressourcesMatched)
 		{
-			organigram.addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), IconProvider.Rooms, this));
+			organigram.addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), FontIcon.Rooms, this));
 		}
 		organigram.refresh();
 	}

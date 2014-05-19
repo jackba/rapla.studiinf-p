@@ -7,12 +7,12 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.FilterRooms;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -154,7 +154,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		firstLecture.setSize(0.87);
 		eventPanel.setWidget(row, 0, firstLecture);
 		
-		NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
+		NavButton roomsShowButton = new NavButton(FontIcon.Rooms, Studiinf.i18n.rooms(), null, null);
 		roomsShowButton.setSize(0.87);
 		eventPanel.setWidget(row, 1, roomsShowButton);
 		

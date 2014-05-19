@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.DisplayMode;
-import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 
@@ -16,7 +16,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "rooms";
 	
 	public RoomSearchPage() {
-		super(true, true,true, IconProvider.Rooms, Navigation.roomDetail);
+		super(true, true,true, FontIcon.Rooms, Navigation.roomDetail);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class RoomSearchPage extends AbstractSearchPage {
 		clearResult();
 		for(ResourceDescription room : results)
 		{
-			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), IconProvider.Rooms, this));
+			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), FontIcon.Rooms, this));
 			
 		}
 		refresh();
