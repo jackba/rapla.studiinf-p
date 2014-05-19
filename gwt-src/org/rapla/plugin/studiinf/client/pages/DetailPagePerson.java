@@ -76,7 +76,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
-		lectures.setStyleName("lecturesTable");
+		eventPanel.setStyleName("lecturesTable");
 		
 		roomButton = new RessourceButtonWithLabel(new ResultButton(IconProvider.Rooms,roomButtonText, Navigation.roomDetail,null,true), new Label(Studiinf.i18n.room()));
 		mailButton = new ResultButtonWithLabel(new ResultButton(IconProvider.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
@@ -108,7 +108,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		middlePanel.add(courseOfStudyLabel);
 		middlePanel.add(courseOfStudyInfo);
 		middlePanel.add(appointmentLabel);
-		middlePanel.add(lectures);
+		middlePanel.add(eventPanel);
 		
 		this.add(personInfoPanel);
 		this.add(bottomPanel);

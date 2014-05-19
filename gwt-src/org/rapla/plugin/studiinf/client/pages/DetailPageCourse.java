@@ -56,7 +56,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		middlePanel.setStyleName("courseMiddlePanel");
 		infoLabel.setStyleName("infoLabel");
 		appointmentLabel.setStyleName("courseAppointmentLabel");
-		lectures.setStyleName("courseLecturesTable");
+		eventPanel.setStyleName("courseLecturesTable");
 		
 		infos.clearResults();
 		infos.addResult(courseOfStudyButton);
@@ -68,7 +68,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		middlePanel.add(lectures);
+		middlePanel.add(eventPanel);
 		middlePanel.add(appointmentLabel);
 		
 		this.add(infoPanel);
