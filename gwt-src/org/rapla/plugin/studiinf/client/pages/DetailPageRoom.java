@@ -3,21 +3,16 @@ package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.IconProvider;
 import org.rapla.plugin.studiinf.client.Navigation;
-import org.rapla.plugin.studiinf.client.Picture;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
-import org.rapla.plugin.studiinf.client.ui.ResultObject;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ErrorEvent;
 import com.google.gwt.event.dom.client.ErrorHandler;
-import com.google.gwt.safehtml.shared.UriUtils;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -33,7 +28,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 	private String typeButtonText;
 	private String courseOfStudyButtonText;
 	
-//	private ResultButton nameButton;
 	private ResultButtonWithLabel typeButton;
 	private ResultButtonWithLabel courseOfStudyButton;
 	private ResultButtonWithLabel raplaButton;
@@ -182,15 +176,11 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 		if(!rd.getLocation().equals(""))
 		{
 			locationPictureURL = rd.getLocation();
-//			wayDescriptionImg = new Image(rd.getLocation());
-//			wayDescriptionImg.setStyleName("navigationPicture");
-//			this.add(wayDescriptionImg);
-			Window.alert(rd.getLocation());
 		}
 		else{
 			locationPictureURL = IconProvider.MISSING_MAP;
-			Window.alert("else");
 		}
+		
 		if(rd.getRoomType().equals("Extern"))
 		{
 			showRaplaLinks(false);

@@ -1,37 +1,22 @@
 package org.rapla.plugin.studiinf.client.search;
 
-import java.util.Collection;
-
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
 /**
  * Descriptor, which contains all the attributes to a specific course.
  *
  */
-public class CourseDescriptor{
+public class CourseDescriptor extends AbstractDescriptor{
+	
+	public CourseDescriptor(ResourceDetail resource) {
+		super(resource);
+	}
+
 	private String year;
-	private String roomNr;
-	private String roomId;
-	private String name;
 	private String picture;
 	private String department;
-	private ResourceDetail course;
-	private Collection<String> keys;
+
 	
-	public String getName() {
-		if(name == null){
-			name = getCell("name");
-		}
-		return name;
-	}
-
-	public String getRoomNr() {
-		if(roomNr == null){
-			roomNr = course.getResourceLinks().get("raum").getName();
-		}
-		return roomNr;
-	}
-
 	public String getDepartment() {
 		if(department == null){
 			department = getCell("abteilung");
@@ -52,24 +37,6 @@ public class CourseDescriptor{
 		return year;
 	}
 
-	public CourseDescriptor(ResourceDetail course) {
-		this.course = course;
-		keys = course.getKeys();		
-	}
 	
-	private String getCell(String cellName){
-		if(keys.contains(cellName)){
-			return course.getRow(cellName).getValue();
-		}else{
-			return "";
-		}
-	}
-	
-	public String getRoomId() {
-		if(roomId == null){
-			roomId = course.getResourceLinks().get("raum").getId();
-		}
-		return roomId;
-	}
 	
 }

@@ -1,30 +1,25 @@
 package org.rapla.plugin.studiinf.client.search;
 
-import java.util.Collection;
-
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
 /**
  * Descriptor, which contains all the attributes to a specific room.
  *
  */
-public class RoomDescriptor {
+public class RoomDescriptor extends AbstractDescriptor {
 	
 	private String roomNr;	
 	private String roomType;
-	private String name;
 	private String department;
 	private String picture;
-	private ResourceDetail room;
 	private String raplaLink;
 	private String location;
-	private Collection<String> keys;
 	
 	public RoomDescriptor(ResourceDetail room) {
-		this.room = room;
-		keys = room.getKeys();
+		super(room);
 	}
-
+	
+	@Override
 	public String getRoomNr() {
 		if(roomNr == null){
 			roomNr = getCell("raumnr");
@@ -38,13 +33,7 @@ public class RoomDescriptor {
 		}
 		return roomType;
 	}
-	
-	public String getName() {
-		if(name == null){
-			name = getCell("name");
-		}
-		return name;
-	}
+
 
 	public String getDepartment() {
 		if(department == null){
@@ -77,12 +66,6 @@ public class RoomDescriptor {
 		return location;
 	}
 	
-	private String getCell(String cellName){
-		if(keys.contains(cellName)){
-			return room.getRow(cellName).getValue();
-		}else{
-			return "";
-		}
-	}
+	
 	
 }

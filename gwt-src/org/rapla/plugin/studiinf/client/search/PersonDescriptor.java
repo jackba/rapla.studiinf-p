@@ -1,6 +1,6 @@
 package org.rapla.plugin.studiinf.client.search;
 
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
@@ -10,38 +10,26 @@ import org.rapla.plugin.freiraum.common.ResourceDetailRow;
  * descriptor, which contains all the attributes of a specific person.
  *
  */
-public class PersonDescriptor{
-	private String name;
-	private String mail;
-	private String roomNr;
-	private String roomId;
-	
+public class PersonDescriptor extends AbstractDescriptor{
 
+	private static final String[] hideOnDetails ={"bild","resourceURL"};
+	private String mail;
 	private String department;
 	private String phoneNr;
 	private String raplaLink;
 
-	private ResourceDetail person;
-	private Collection<String> keys;
+
 	
 	public LinkedList<ResourceDetailRow> getDetails(){
 		LinkedList<ResourceDetailRow> results= new LinkedList<ResourceDetailRow>();
 		for (String key: keys){
-			if (key.equals("bild") || key.equals("resourceURL")){
-
-			} else {
-				results.add(person.getRow(key));
+			if (!Arrays.asList(hideOnDetails).contains(key)){
+				results.add(resource.getRow(key));
 			}
 		}
 		return results;
 	}
-	
-	public String getName() {
-		if(name == null){
-			name = getCell("name");
-		}
-		return name;
-	}
+
 
 	public String getMail() {
 		if(mail == null){
@@ -49,14 +37,6 @@ public class PersonDescriptor{
 		}
 		return mail;
 	}
-
-	public String getRoomNr() {
-		if(roomNr == null){
-			roomNr = person.getResourceLinks().get("raum").getName();
-		}
-		return roomNr;
-	}
-
 
 	public String getDepartment() {
 		if(department == null){
@@ -72,9 +52,7 @@ public class PersonDescriptor{
 	}
 
 	public PersonDescriptor(ResourceDetail person) {
-		this.person = person;
-		keys = person.getKeys();		
-		
+		super(person);	
 	}
 	
 	
@@ -85,20 +63,5 @@ public class PersonDescriptor{
 			}
 		return raplaLink;
 		}
-	
-	private String getCell(String cellName){
-		if(keys.contains(cellName)){
-			return person.getRow(cellName).getValue();
-		}else{
-			return "";
-		}
-	}
-	
-	public String getRoomId() {
-		if(roomId == null){
-			roomId = person.getResourceLinks().get("raum").getId();
-		}
-		return roomId;
-	}
 	
 }

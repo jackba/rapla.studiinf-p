@@ -137,7 +137,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
 			}
-		if(!cd.getRoomNr().equals("")){
+		if(cd.getRoomNr()!=null && !cd.getRoomNr().equals("")){
 			roomButtonText = cd.getRoomNr();
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{

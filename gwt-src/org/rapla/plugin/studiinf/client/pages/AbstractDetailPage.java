@@ -20,10 +20,8 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
-import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Template for all detail pages.
@@ -68,17 +66,15 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	}
 
 	protected void handleId(final String id){
-//		Window.alert(id+": ?");
 		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
-				//@Override
+				@Override
 				public void onSuccess(ResourceDetail arg0) {
-//					Window.alert(id+": " + arg0.toString());
 					handleRessource(id, arg0);
 				}
 
-				//@Override
+				@Override
 				public void onFailure(Throwable arg0) {
-					Window.alert("JSON fail: "+arg0.toString());
+					handleRessource(id, null);
 				}
 		});
 	};
