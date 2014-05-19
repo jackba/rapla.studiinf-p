@@ -17,7 +17,9 @@ public class AbstractDescriptor {
 
 	public AbstractDescriptor(ResourceDetail resource) {
 			this.resource = resource;
-			keys = resource.getKeys();		
+			if(resource != null){
+				keys = resource.getKeys();		
+			}
 	}
 
 	public String getName() {
@@ -42,7 +44,7 @@ public class AbstractDescriptor {
 	}
 
 	protected String getCell(String cellName) {
-		if(keys.contains(cellName)){
+		if(resource != null && keys.contains(cellName)){
 			return resource.getRow(cellName).getValue();
 		}else{
 			return "";
@@ -50,7 +52,7 @@ public class AbstractDescriptor {
 	}
 	
 	private ResourceDescription getRoom(){
-		if(room == null && resource.getResourceLinks() != null && resource.getResourceLinks().containsKey("raum")){
+		if(room == null && resource != null &&  resource.getResourceLinks() != null && resource.getResourceLinks().containsKey("raum")){
 			room = resource.getResourceLinks().get("raum");
 		}
 		return room;
