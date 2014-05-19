@@ -63,6 +63,9 @@ public abstract class AbstractPage extends ComplexPanel{
 	   
 	   abstract public String getTitle();
 
+	   /**
+	    * Refreshs the elements of the page and resets the timer to go back to homepage
+	    */
 	   protected void refresh(){
 		   header.refresh();
 		   if (DisplayMode.isStele()){

@@ -59,7 +59,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	 * @param showQRBox Boolean, which determines if the default QR Code should be displayed.
 	 * @param resultRows Number of rows in the result Table.
 	 * @param resultColumns Number of columns of the result Table.
-	 * @param hasNavigationButtons Can be deleted??????
+	 * @param hasNavigationButtons
 	 * @param icon Icon of the entries in the result Table.
 	 * @param targetPage The Target Page of the Search Page (Corresponding Detail Page).
 	 */
@@ -81,7 +81,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 
 
 	/**
-	 * If the size of the result Table is not set, the default is 6 rows and two colummns.
+	 * If the size of the result Table is not set, the default is 6 rows and two columns.
 	 */
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
 		this(hasOrganigramm,showInput,showQRBox,defaultRowsStele, defaultColumnsStele,true, icon, targetPage);

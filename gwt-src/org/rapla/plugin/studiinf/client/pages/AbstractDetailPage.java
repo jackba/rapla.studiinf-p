@@ -22,6 +22,7 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * Template for all detail pages.
@@ -34,7 +35,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	protected QRBox qrBox = new QRBox(getHistoryKey()+"/"+getId());
 	abstract public boolean hasDefaultQrBox();
 	protected List<Event> events;
-	protected ResultTable lectures = new ResultTable(new AccessibilityRow(), 2, 3);
+	protected ResultTable eventPanel = new ResultTable(new AccessibilityRow(), 2, 3);
 	protected FlowPanel middlePanel;
 
 	public String getId() {
@@ -65,6 +66,11 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		
 	}
 
+	/**
+	   * Loads and displays resource details from the rapla server based on the given navigation ID
+	   * 
+	   * @param id ID of the resource to display information about
+	   */
 	protected void handleId(final String id){
 		ServiceProvider.getResource(id, new AsyncCallback<ResourceDetail>() {
 				@Override
@@ -81,7 +87,9 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	
 	abstract protected void handleRessource(String id, ResourceDetail resource);
 	
-	
+/**
+ * Loads all events for the current resource on the current day
+ */
 	protected void loadEvents(){
 
 		Date dateBegin = new Date();
@@ -99,8 +107,8 @@ public abstract class AbstractDetailPage extends AbstractPage {
 			public void onFailure(Throwable arg0) {
 				events = new ArrayList<Event>();
 				showRaplaLinks(false);
-				lectures.clear();
-				middlePanel.add(lectures);
+				eventPanel.clear();
+				middlePanel.add(eventPanel);
 			}
 
 			@Override
@@ -110,7 +118,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 				if (events.size()<1) {
 					showRaplaLinks(false);
 				}
-				lectures.clear();
+				eventPanel.clear();
 
 				if(events.size()>=1)
 				{
@@ -120,26 +128,35 @@ public abstract class AbstractDetailPage extends AbstractPage {
 					addEvent(events.get(i));
 				}
 				
-				middlePanel.add(lectures);			
+				middlePanel.add(eventPanel);			
 				
 				}
 			}
 		});
 	}
-
+/**
+ * Shows or hides Rapla links
+ * @param b Set true or false, depending on the visibility the rapla links should have
+ */
 	abstract protected void showRaplaLinks(boolean b) ;
-	
+
+	/**
+	 * Adds an event as a lecture to the lecturePanel and sets {@link showRaplaLinks()} true.
+	 * For every event a {@link NavButton} with the title and time of the event is created which links to the rapla timetable
+	 * and a {@link NavButton} which refers to the room and links to the {@link RoomDetailPage}.
+	 * @param event Event you want to add to the lecture panel
+	 */
 	protected void addEvent(Event event) {
 		showRaplaLinks(true);
 		int row = events.indexOf(event);
 		NavButton firstLecture = new NavButton(event2niceString(event), Navigation.raplaCourseLink, id);
 		firstLecture.setWidth("100%");
 		firstLecture.setSize(0.87);
-		lectures.setWidget(row, 0, firstLecture);
+		eventPanel.setWidget(row, 0, firstLecture);
 		
 		NavButton roomsShowButton = new NavButton(IconProvider.Rooms, Studiinf.i18n.rooms(), null, null);
 		roomsShowButton.setSize(0.87);
-		lectures.setWidget(row, 1, roomsShowButton);
+		eventPanel.setWidget(row, 1, roomsShowButton);
 		
 		List<ResourceDescription> resources = event.getResources();
 		FlowPanel panel = new FlowPanel();
@@ -152,6 +169,12 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		new FilterRooms(panel,resources,roomsShowButton,true);
 		
 	}
+	
+	/**
+	 * Formats the event.toString to support different localizations
+	 * @param event Event that should be formatted
+	 * @return Formatted String for display containing a title and localized time
+	 */
 	private String event2niceString(Event event){
 		DateTimeFormat parser = DateTimeFormat.getFormat("HH:mm");
 		DateTimeFormat formatter = DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT);
