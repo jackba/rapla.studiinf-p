@@ -14,6 +14,11 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
+/**
+ * 
+ * @author Team StudiInf
+ *Page for displaying course details
+ */
 public class DetailPageCourse extends AbstractDetailPage {
 	
 	private String id;
@@ -118,6 +123,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		}
 	}
 
+	
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		CourseDescriptor cd = new CourseDescriptor(resource);

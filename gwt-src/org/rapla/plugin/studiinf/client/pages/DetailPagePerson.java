@@ -19,6 +19,11 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
+/**
+ * 
+ * @author Team StudiInf
+ *Page for displaying person details
+ */
 public class DetailPagePerson extends AbstractDetailPage implements SearchPageInterface {
 	
 	private String courseOfStudy;

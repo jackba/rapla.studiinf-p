@@ -1,13 +1,11 @@
 package org.rapla.plugin.studiinf.client.pages;
 
 import java.util.LinkedList;
-
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.freiraum.common.ResourceDetailRow;
-import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.DetailEntry;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
+
 
 import com.google.gwt.user.client.ui.FlexTable;
 
@@ -18,7 +16,6 @@ import com.google.gwt.user.client.ui.FlexTable;
 public class ExtraInfoPage extends AbstractDetailPage {
 FlexTable detailsTable;
 //private NavButton backBtn;
-private String id;
 private AbstractPage target;
 	
 	public ExtraInfoPage(AbstractPage target)

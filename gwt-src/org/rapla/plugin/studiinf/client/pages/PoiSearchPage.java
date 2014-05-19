@@ -10,7 +10,11 @@ import org.rapla.plugin.studiinf.client.search.PoiSearch;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ *Page for searching POIs
+ */
 public class PoiSearchPage extends AbstractSearchPage {
 	
 	

@@ -26,6 +26,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
+/**
+ * 
+ * @author Team StudiInf
+ *Page for displaying POI details
+ */
 public class DetailPagePoi extends AbstractDetailPage {
 
 	private FlowPanel infoPanel = new FlowPanel();

@@ -23,7 +23,12 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ * Homepage of StudiInf application
+ *
+ */
 public class HomePage extends AbstractPage {
 	
 	private ResultTable freeRoomsTable;
@@ -83,6 +88,10 @@ public class HomePage extends AbstractPage {
 		return "";
 	}
 	
+	/**
+	 * Creates a table of free rooms, containing name and time and refreshes the table
+	 * @param freeResources List of free rooms
+	 */
 	public void setFreeRooms(List<Event> freeResources)
 	{
 		if(freeResources.size()< 1){
@@ -99,6 +108,9 @@ public class HomePage extends AbstractPage {
 		freeRoomsTable.refresh();
 	}
 	
+	/**
+	 * Gets freeRooms of today from rapla server and fires {@link setFreeRooms()}
+	 */
 	@SuppressWarnings("deprecation")
 	public void updateFreeRooms()
 	{

@@ -84,7 +84,11 @@ public abstract class AbstractDetailPage extends AbstractPage {
 				}
 		});
 	};
-	
+	/**
+	 * Sets Texts and information for the detailpage based on the given resource
+	 * @param id resource id
+	 * @param resource ResourceDetail of the resource that should be displayed on DetailPage
+	 */
 	abstract protected void handleRessource(String id, ResourceDetail resource);
 	
 /**

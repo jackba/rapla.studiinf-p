@@ -19,6 +19,11 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 //import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
+/**
+ * 
+ * @author Team StudiInf
+ * Page to display organigramm
+ */
 public abstract class OrganisationChart extends AbstractDetailPage  implements SearchPageInterface {
 	
 	protected AccessibilityRow access = new AccessibilityRow();
@@ -46,7 +51,6 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		
 	}
 
-	//TODO will not be called
 	protected void handleRessource(String id, List <CategoryDescription> resources) {
 		showOrganigramLevels(resources);
 	}
@@ -66,7 +70,6 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-//				Window.alert("fail :("+ caught.toString());
 			}
 
 			@Override
@@ -95,6 +98,10 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		return this.id + ">" + addon;
 	}
 	
+	/**
+	 * Shows categories as an organigram consisting of buttons
+	 * @param categories List of resource categories
+	 */
 	public void showOrganigramLevels(List <CategoryDescription> categories){
 		if(categories.size() <= 0){
 			new CourseOrganigramSearch(categoryId, this);

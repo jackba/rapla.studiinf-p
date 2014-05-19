@@ -10,7 +10,11 @@ import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ *Page for searching persons
+ */
 public class PersonSearchPage extends AbstractSearchPage {
 	public static final String ResourceType = "persons";
 	

@@ -17,6 +17,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
+/**
+ * 
+ * @author Team StudiInf
+ *Page for displaying room details
+ */
 public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 
 	private FlowPanel infoPanel = new FlowPanel();
