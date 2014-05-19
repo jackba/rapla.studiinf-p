@@ -83,6 +83,14 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	/**
 	 * If the size of the result Table is not set, the default is 6 rows and two columns.
 	 */
+	/**
+	 * With the constructor you can customize your Search Pages.
+	 * @param hasOrganigramm Boolean, which determines if the organigram Button should be shown.
+	 * @param showInput Boolean,
+	 * @param showQRBox Boolean, which determines if the default QR Code should be displayed.
+	 * @param icon Icon of the entries in the result Table.
+	 * @param targetPage The target page of the Search Page (Corresponding Detail Page).
+	 */
 	public AbstractSearchPage(boolean hasOrganigramm, boolean showInput,boolean showQRBox, FontIcon icon, AbstractPage targetPage) {
 		this(hasOrganigramm,showInput,showQRBox,defaultRowsStele, defaultColumnsStele,true, icon, targetPage);
 	}
