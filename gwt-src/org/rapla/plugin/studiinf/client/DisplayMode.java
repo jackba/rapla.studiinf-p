@@ -2,6 +2,12 @@ package org.rapla.plugin.studiinf.client;
 
 import com.google.gwt.user.client.Window;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * The Displaymode defines if the application runs on a "Stele" or on a mobile device
+ */
 public class DisplayMode {
 	
 	private static boolean mobile = false;

@@ -1,7 +1,7 @@
 package org.rapla.plugin.studiinf.client;
 
 /**
- * 
+ * Picture which contains a ImageURL
  *
  */
 public class Picture {
