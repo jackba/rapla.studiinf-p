@@ -7,6 +7,12 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ * @author Team StudiInf
+ * 
+ * Button with text and navigation function to use in organigram
+ */
 public class OrganigramButton extends NavButton implements ResultObject {
 	
 	private NavButton clone;

@@ -7,7 +7,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * 
+ * Icon to display on buttons or on pages in general
  *
  */
 public class FontIcon extends Widget {

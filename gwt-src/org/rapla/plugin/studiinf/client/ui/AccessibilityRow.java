@@ -14,6 +14,12 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * Row of buttons for the page footer which duplicates the functions of all the buttons of the page on the lower part of the page.
+ */
 public class AccessibilityRow extends Composite {
 	private static AccessibilityRowUiBinder uiBinder = GWT.create(AccessibilityRowUiBinder.class);
 	
@@ -61,6 +67,10 @@ public class AccessibilityRow extends Composite {
 		return new NavButton("", null, null);
 	}
 	
+	/**
+	 * Create a barrierfree icon for the footer
+	 * @return created icon
+	 */
 	@UiFactory
 	FontIcon createBarrierFreeIcon(){
 		FontIcon bfIcon = new FontIcon(FontIcon.Barrier_Free.getUrl());
@@ -69,7 +79,10 @@ public class AccessibilityRow extends Composite {
 	}
 	
 	
-	
+	/**
+	 * Adds a NavButton to the row
+	 * @param but NavButton that should be added
+	 */
 	public void add(NavButton but){
 		but.setSize(size);
 		count++;

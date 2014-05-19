@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client.ui;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 /**
- * 
+ * A Tile is a big button on the homepage of the StudiInf application
  *
  */
 public class Tile extends NavButton {

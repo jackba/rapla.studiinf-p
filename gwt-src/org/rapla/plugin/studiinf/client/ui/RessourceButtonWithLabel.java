@@ -8,6 +8,13 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
+
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * Button with Label in a result table
+ */
 public class RessourceButtonWithLabel implements ResultObjectWithLabel{
 	
 	private ResultObject resultObject;

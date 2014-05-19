@@ -12,6 +12,12 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * Pageheader with title and date/time display
+ */
 public class PageHeader extends VerticalPanel {
 	
 	private HorizontalPanel subHeader = new HorizontalPanel();

@@ -25,7 +25,7 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * 
+ * Button to navigate between different pages
  *
  */
 public class NavButton extends Composite implements NavigationButtonSpec, HasText {
