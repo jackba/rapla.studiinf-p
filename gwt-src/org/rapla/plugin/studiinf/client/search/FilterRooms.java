@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.Navigation;
-import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ *Class for filtering rooms out of a list of resources and creating NavButtons for the rooms on a given panel
+ */
 public class FilterRooms extends AbstractSearch {
 	private List<ResourceDescription> ressources;
 	private FlowPanel panel;

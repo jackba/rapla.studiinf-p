@@ -5,7 +5,12 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * Search to find persons
+ */
 public class PersonSearch extends AbstractSearch{
 
 private static final int FIRST_NAME = 1;

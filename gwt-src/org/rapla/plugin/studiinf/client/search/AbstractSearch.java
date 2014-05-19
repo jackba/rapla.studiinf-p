@@ -9,7 +9,7 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 /**
  * 
- *
+ *Template for search
  */
 public abstract class AbstractSearch extends AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	

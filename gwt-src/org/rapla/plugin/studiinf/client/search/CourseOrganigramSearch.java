@@ -5,6 +5,12 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ *OrganigramSearch for courses
+ */
 public class CourseOrganigramSearch extends AbstractOrganigramSearch {
 
 	public CourseOrganigramSearch(String categoryId, SearchPageInterface page) {

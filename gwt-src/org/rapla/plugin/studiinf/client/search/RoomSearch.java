@@ -11,7 +11,12 @@ public class RoomSearch extends AbstractSearch{
 private static final int NAME = 0;
 private static final int TYPE = 1;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ *
+ * Search to find rooms
+ */
 public RoomSearch(String searchTerm, RoomSearchPage rsPage)
 {
 	super(searchTerm,rsPage);

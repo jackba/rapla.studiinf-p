@@ -6,7 +6,7 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 /**
- * 
+ * Search class to find a resource to a given ID
  *
  */
 public class IdSearch extends AbstractSearch {

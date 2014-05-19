@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 /**
- * 
+ * List which does not contain any duplicates
  *
- * @param <E>
+ * @param <E> any kind of element
  */
 @SuppressWarnings("serial")
 class NoDuplicatesList<E> extends LinkedList<E> {

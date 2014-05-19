@@ -7,6 +7,12 @@ import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
 
 public class PoiSearch extends AbstractSearch {
 
+	/**
+	 * 
+	 * @author Team StudiInf
+	 *
+	 * Search to find POIs
+	 */
 	public PoiSearch(String searchTerm, PoiSearchPage page) {
 		super(searchTerm, page);
 	}

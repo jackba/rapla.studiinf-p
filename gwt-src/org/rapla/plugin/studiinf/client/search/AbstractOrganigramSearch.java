@@ -11,7 +11,8 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 /**
  * 
- *
+ * @author Team StudiInf
+ *Template for organigramm search
  */
 public abstract class AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	protected String searchString;
@@ -36,6 +37,9 @@ public abstract class AbstractOrganigramSearch implements AsyncCallback<List<Res
 		this(searchTerm,categoryId,page,true);
 	}
 	
+	/**
+	 * loads needed resources for given category
+	 */
 	public void init(){
 		if( !resourcesMap.containsKey(cacheKey()))
 			{
@@ -81,6 +85,11 @@ public abstract class AbstractOrganigramSearch implements AsyncCallback<List<Res
 		page.updateResults(ressourcesMatched);
 	}
 
+	/**
+	 * Searches in a list resources and returns the resources that match the search conditions
+	 * @param resources List of resources you want to search in
+	 * @return resources that match the search conditions
+	 */
 	protected abstract NoDuplicatesList<ResourceDescription> searchRessources(List<ResourceDescription> resources);
 
 	protected final String getResourceType() {

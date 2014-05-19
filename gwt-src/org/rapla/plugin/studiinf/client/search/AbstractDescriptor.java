@@ -5,6 +5,12 @@ import java.util.Collection;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 
+/**
+ * 
+ * @author Team StudiInf
+ * Template for the descriptors. All descriptors have to implement this class.
+ * Template contains the basic methods and attributes for all descriptors.
+ */
 public class AbstractDescriptor {
 
 	protected ResourceDetail resource;
@@ -15,6 +21,10 @@ public class AbstractDescriptor {
 	private String roomNr;
 	private String roomId;
 
+	/**
+	 * Creates a Descriptor with details for the given resource
+	 * @param resource resourceDetail for usage in studiInf application
+	 */
 	public AbstractDescriptor(ResourceDetail resource) {
 			this.resource = resource;
 			if(resource != null){
@@ -43,6 +53,11 @@ public class AbstractDescriptor {
 		return roomId;
 	}
 
+	/**
+	 * Returns the value of a given cell
+	 * @param cellName
+	 * @return value of cell
+	 */
 	protected String getCell(String cellName) {
 		if(resource != null && keys.contains(cellName)){
 			return resource.getRow(cellName).getValue();

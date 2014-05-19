@@ -5,6 +5,12 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 
+/**
+ * 
+ * @author Team StudiInf
+ *
+ *Search to find all courses for a given searchTerm
+ */
 public class CourseSearch extends AbstractSearch {
 	
 	public CourseSearch(String searchTerm, AbstractSearchPage page) {
