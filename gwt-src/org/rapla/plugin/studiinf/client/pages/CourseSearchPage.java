@@ -3,20 +3,24 @@ package org.rapla.plugin.studiinf.client.pages;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
-
+/**
+ * 
+ * @author Team StudiInf
+ *Page for searching courses
+ */
 public class CourseSearchPage extends AbstractSearchPage {
 	
 	
 	
 	public static final String ResourceType = "courses";
 
+	
 	public CourseSearchPage() {
 		super(true, true,true,FontIcon.Courses,Navigation.courseDetail);
 	}

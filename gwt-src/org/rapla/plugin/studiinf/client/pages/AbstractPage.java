@@ -47,6 +47,9 @@ public abstract class AbstractPage extends ComplexPanel{
 	    setElement(elem);
 	  }
 	  
+	  /**
+	   * Initializes page and adds needed components
+	   */
 	   public void init(){
 		    add(header);
 		    add(footer);

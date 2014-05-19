@@ -230,11 +230,17 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	public void handleClickCount(String targetId){
 		ls.writeStorage(targetId);
 	}
-	
+
+	/**
+	 * Lookup for searchTerm and display result
+	 * @param searchTerm Term that should be searched for
+	 */
 	abstract protected void handleSearch(String searchTerm);
 	/* (non-Javadoc)
 	 * @see org.rapla.plugin.studiinf.client.pages.SearchPageInterface#updateResults(java.util.List)
 	 */
+
+	
 	@Override
 	abstract public void updateResults(List<ResourceDescription> ressourcesMatched);
 	/* (non-Javadoc)
