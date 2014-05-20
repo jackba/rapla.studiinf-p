@@ -13,8 +13,17 @@ public class DisplayMode {
 	private static boolean mobile = false;
 	
 	public static final String DisplayParameterName = "display";
+	
+	public static final String SteleParameterName = "stele";
+	public static final String SteleLeft = "L";
+	public static final String SteleMiddle = "";
+	public static final String SteleRight = "R";
+	
 	public static final String SteleMode = "stele";
 	public static final String MobileMode = "mobile";
+	
+	private static String stelePosition;
+	
 	
 	static{
 		String displayMode = Window.Location.getParameter(DisplayMode.DisplayParameterName);
@@ -22,6 +31,12 @@ public class DisplayMode {
 			DisplayMode.mobile = false;
 		}else{
 			DisplayMode.mobile = true;
+		}
+		String stelePositionParam = Window.Location.getParameter(DisplayMode.SteleParameterName);
+		if(stelePositionParam != null && (stelePositionParam.equals(SteleLeft)||stelePositionParam.equals(SteleMiddle)||stelePositionParam.equals(SteleRight))){
+			stelePosition = stelePositionParam;
+		}else{
+			stelePosition = SteleMiddle;
 		}
 		
 	}
@@ -31,5 +46,9 @@ public class DisplayMode {
 	}
 	public static boolean isStele(){
 		return !mobile;
+	}
+	
+	public static String getStelePosition(){
+		return stelePosition;
 	}
 }
