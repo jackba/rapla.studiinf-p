@@ -28,6 +28,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying POI details
  */
 public class DetailPagePoi extends AbstractDetailPage {
@@ -187,19 +188,8 @@ public class DetailPagePoi extends AbstractDetailPage {
 				rowTwoButton.getElement().getStyle().setDisplay(Display.NONE);
 				rowTwoButton.hideLabelAndFooterButton();
 			}
-//		
-//		roomLS.writeStorage(id);
-//		roomLS.fillMap();
-//		roomLS.readStorage(id);
-		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
-//		"localStorage: " + targetID + " " + count
-//		Window.alert(roomLS.readStorage(id));
-//		Window.alert(rd.getPicture());
-		
-//		Window.alert(rd.getPicture());
 		refresh();
-		
-		
+
 		Date dateBegin = new Date();
 		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
 		String begin = f.format(dateBegin);

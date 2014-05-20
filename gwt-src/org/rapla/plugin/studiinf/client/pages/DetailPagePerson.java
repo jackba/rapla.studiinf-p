@@ -22,6 +22,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying person details
  */
 public class DetailPagePerson extends AbstractDetailPage implements SearchPageInterface {

@@ -20,6 +20,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying room details
  */
 public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {

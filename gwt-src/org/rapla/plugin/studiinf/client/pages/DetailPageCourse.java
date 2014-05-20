@@ -17,6 +17,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying course details
  */
 public class DetailPageCourse extends AbstractDetailPage {
@@ -29,9 +30,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 	private Label appointmentLabel;
 	private ResultTable infos;
 	
-	
-	
-
 	private ResultButtonWithLabel courseOfStudyButton;
 	private RessourceButtonWithLabel roomButton;
 	private ResultButtonWithLabel raplaButton;
@@ -94,8 +92,6 @@ public class DetailPageCourse extends AbstractDetailPage {
 		return Studiinf.i18n.course() + "" + nameButtonText;
 	}
 
-
-	
 	@Override
 	protected void refresh() {
 		super.refresh();
@@ -148,14 +144,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 				roomButton.hideLabelAndFooterButton();	
 			}
 		
-		refresh();
-		
-		loadEvents();
-		
+		refresh();	
+		loadEvents();	
 	}
-	
-
-
-	
-
 }
