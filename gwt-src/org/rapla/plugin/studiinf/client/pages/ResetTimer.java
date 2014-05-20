@@ -8,7 +8,6 @@ public class ResetTimer extends Timer{
 
 	@Override
 	public void run() {
-		System.out.println("Reset Page");
         Navigation.goToPage(Navigation.homePage);
 		
 	}

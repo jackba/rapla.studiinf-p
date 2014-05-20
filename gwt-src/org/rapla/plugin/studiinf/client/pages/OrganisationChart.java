@@ -22,6 +22,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page to display organigramm
  */
 public abstract class OrganisationChart extends AbstractDetailPage  implements SearchPageInterface {
