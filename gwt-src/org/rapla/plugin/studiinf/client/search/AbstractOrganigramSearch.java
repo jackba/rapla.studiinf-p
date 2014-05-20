@@ -12,7 +12,7 @@ import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 /**
  * 
  * @author Team StudiInf
- *Template for organigramm search
+ * Template for organigramm search
  */
 public abstract class AbstractOrganigramSearch implements AsyncCallback<List<ResourceDescription>> {
 	protected String searchString;

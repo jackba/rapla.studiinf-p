@@ -14,13 +14,13 @@ import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
 
 /**
- * 
+ * Class to handle access to the LocalStorage of the Browser to read the most frequent results
  *
  */
 public class LocalStorage implements HasPrefix{
 
+	private static final int MAX_ITEMS_IN_MOST_FREQUENT_RESULTS = 8;
 	private Storage localStorage = Storage.getLocalStorageIfSupported();
-//	private Integer count = 0;
 	int count = 0;
 	private Map<String, String> map;
 	private String resourceType;
@@ -36,41 +36,45 @@ public class LocalStorage implements HasPrefix{
 		this.targetPage = targetPage;
 		this.searchPage = searchPage;
 	}
-	 
-	public void writeStorage(String targetID){
+	
+	 /**
+	  * Increases the numbers of accesses for a resource by one
+	  * 
+	  * @param targetID The Id of the resource to increase
+	  */
+	public void increaseInStorage(String targetID){
 
 		String mytargetID = getPrefix() + Navigation.idForURL(targetID);
-		//System.out.println("1: " + targetID);
-		
-		if (readStorage(targetID) == null){
+				
+		if (readFromStorage(targetID) == null){
 			count = 0;
-		}
-		
-		else if (count < 0) {
+		}else if (count < 0) {
 			count = 0;
-		}
-		
-		else {
-			count = Integer.parseInt(readStorage(targetID));
-		}
-		
+		}else {
+			count = Integer.parseInt(readFromStorage(targetID));
+		}	
 		count++;
 		localStorage.setItem(mytargetID, String.valueOf(count));
-//		System.out.println("2: "+ targetID +"|"+ readStorage(targetID));
 	}
 	
-	public String readStorage(String targetID){
-//		System.out.println("3: " + targetID + " " + count);
+	/**
+	 * reads the current number of page visits for a resource by given id
+	 * @param targetID the id of the resource
+	 * @return how often the resource was accessed
+	 */
+	public String readFromStorage(String targetID){
 		targetID = getPrefix() + Navigation.idForURL(targetID);
-//		System.out.println("4: " + targetID + "|" +localStorage.getItem(targetID));
 		return localStorage.getItem(targetID);
 	}
 	
+	@Override
 	public String getPrefix(){
 		return "org.rapla.plugins.studiinf_" + resourceType + "_";
-		
 	}
 	
+	/**
+	 * fills the ResultTable with the most frequent results
+	 */
 	public void fillMap(){
 			map = new StorageMap(localStorage);
 			RessourceSetSorter vc = new RessourceSetSorter(map,this);
@@ -79,18 +83,12 @@ public class LocalStorage implements HasPrefix{
 			
 			int i = 0;
 			for (Entry<String, Integer> keyValuePair : vc.getSortedSet()){
-				if(i >= 8){
+				if(i >= MAX_ITEMS_IN_MOST_FREQUENT_RESULTS){
 					break;
 				}
 				i++;
 				new IdSearch(new MFRButtonHandler(resultTable, icon, targetPage, searchPage), searchPage, Navigation.idForService(keyValuePair.getKey().replace(getPrefix(), "")));
 			}
-			
-			/*System.out.println("");
-			System.out.println("map 1:"+ map);		
-			System.out.println("Sorted:" + vc.getSortedSet());*/
-
-			
 			
 	}
 	

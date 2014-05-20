@@ -10,7 +10,7 @@ import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
  * 
  * @author Team StudiInf
  *
- *Search to find all courses for a given searchTerm
+ * Search to find all courses for a given searchTerm
  */
 public class CourseSearch extends AbstractSearch {
 	

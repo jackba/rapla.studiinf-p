@@ -13,7 +13,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 /**
  * 
  * @author Team StudiInf
- *Page for searching POIs
+ * Page for searching POIs
  */
 public class PoiSearchPage extends AbstractSearchPage {
 	

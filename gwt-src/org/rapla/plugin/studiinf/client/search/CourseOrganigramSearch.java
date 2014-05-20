@@ -9,7 +9,7 @@ import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
  * 
  * @author Team StudiInf
  *
- *OrganigramSearch for courses
+ * OrganigramSearch for courses
  */
 public class CourseOrganigramSearch extends AbstractOrganigramSearch {
 

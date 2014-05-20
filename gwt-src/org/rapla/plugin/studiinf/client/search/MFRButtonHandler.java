@@ -24,13 +24,11 @@ public class MFRButtonHandler implements AsyncCallback<ResourceDescription>{
 	
 	@Override
 	public void onFailure(Throwable arg0) {
-		// TODO Auto-generated method stub
-		
+		//do nothing
 	}
 
 	@Override
 	public void onSuccess(ResourceDescription resourceDescriptor) {
-//		Window.alert(resourceDescriptor.getName());
 		this.resultTable.addResult(new ResultButton(resourceDescriptor.getName(), targetPage, resourceDescriptor.getId(), icon, searchPage));
 		this.resultTable.refresh();
 	}

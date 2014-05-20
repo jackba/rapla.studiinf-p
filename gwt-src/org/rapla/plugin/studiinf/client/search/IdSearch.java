@@ -6,8 +6,8 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 /**
- * Search class to find a resource to a given ID
- *
+ * Search class to find a resource by a given ID
+ * 
  */
 public class IdSearch extends AbstractSearch {
 
@@ -23,7 +23,6 @@ public class IdSearch extends AbstractSearch {
 	protected NoDuplicatesList<ResourceDescription> searchRessources(
 			List<ResourceDescription> resources) {
 		NoDuplicatesList<ResourceDescription> resourceMatched = new NoDuplicatesList<ResourceDescription>();
-//		Window.alert("matched: "+resourceMatched.toString());
 		ResourceDescription resourceDescriptor = SearchUtils.byId(searchString, resources);
 		
 		if (resourceDescriptor!=null){
@@ -48,9 +47,7 @@ public class IdSearch extends AbstractSearch {
 	}
 	@Override
 	public void onFailure(Throwable arg0) {
-		// TODO Auto-generated method stub
-		//Window.alert(arg0.toString());
-		
+		// nothing to do		
 	}
 	
 	
