@@ -228,7 +228,7 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 
 	@Override
 	public String getResourceType() {
-		return RoomSearchPage.ResourceType ;
+		return SearchPageRoom.ResourceType ;
 	}
 
 

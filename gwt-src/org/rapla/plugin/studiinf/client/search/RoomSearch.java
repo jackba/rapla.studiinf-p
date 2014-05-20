@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client.search;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageRoom;
 
 
 public class RoomSearch extends AbstractSearch{
@@ -17,7 +17,7 @@ private static final int TYPE = 1;
  *
  * Search to find rooms
  */
-public RoomSearch(String searchTerm, RoomSearchPage rsPage)
+public RoomSearch(String searchTerm, SearchPageRoom rsPage)
 {
 	super(searchTerm,rsPage);
 }

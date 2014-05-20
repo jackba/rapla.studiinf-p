@@ -15,14 +15,14 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
  * 
  * Page for searching courses
  */
-public class CourseSearchPage extends AbstractSearchPage {
+public class SearchPageCourse extends AbstractSearchPage {
 	
 	
 	
 	public static final String ResourceType = "courses";
 
 	
-	public CourseSearchPage() {
+	public SearchPageCourse() {
 		super(true, true,true,FontIcon.Courses,Navigation.courseDetail);
 	}
 

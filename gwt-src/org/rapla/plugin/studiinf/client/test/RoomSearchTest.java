@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageRoom;
 import org.rapla.plugin.studiinf.client.search.RoomSearch;
 
 import com.google.gwt.junit.client.GWTTestCase;
@@ -19,7 +19,7 @@ public class RoomSearchTest extends GWTTestCase {
 	List<ResourceDescription> pList;
 	List<ResourceDescription> resultList;
 	List<ResourceDescription> expectedList;
-	RoomSearchPage rsp;
+	SearchPageRoom rsp;
 
 	@Override
 	public String getModuleName() {
@@ -51,7 +51,7 @@ public class RoomSearchTest extends GWTTestCase {
 		pList.add(room2);
 		pList.add(room3);
 		pList.add(room4);
-		rsp = new RoomSearchPage();
+		rsp = new SearchPageRoom();
 			
 	}
 	

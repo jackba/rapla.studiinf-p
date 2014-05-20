@@ -24,7 +24,7 @@ public class OrganisationChartCourse extends OrganisationChart {
 	}
 	@Override
 	public String getResourceType() {
-		return CourseSearchPage.ResourceType;
+		return SearchPageCourse.ResourceType;
 	}
 	
 }

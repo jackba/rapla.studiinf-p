@@ -6,55 +6,52 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
-import org.rapla.plugin.studiinf.client.search.RoomSearch;
+import org.rapla.plugin.studiinf.client.search.PersonSearch;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 
 /**
  * 
  * @author Team StudiInf
- * Page for searching rooms
+ * Page for searching persons
  */
-public class RoomSearchPage extends AbstractSearchPage {
+public class SearchPagePerson extends AbstractSearchPage {
+	public static final String ResourceType = "persons";
 	
-	public static final String ResourceType = "rooms";
-	
-	public RoomSearchPage() {
-		super(true, true,true, FontIcon.Rooms, Navigation.roomDetail);
+	public SearchPagePerson() {
+		super(true, true,true, FontIcon.Persons,Navigation.personDetail);
 	}
 
 	@Override
 	public String getTitle() {
-		return Studiinf.i18n.roomSearchPage();
+		return Studiinf.i18n.personSearchPage();
 	}
 
 	@Override
 	public String getHistoryKey() {
-		return "room";
+		return "person";
 	}
-	
 	@Override
 	public void init() {
 		super.init();
 	}
+
 	
 	@Override
 	public void updateResults(List<ResourceDescription> results)
 	{
 		clearResult();
-		for(ResourceDescription room : results)
+		for(ResourceDescription person : results)
 		{
-			addResult(new ResultButton(room.getName(), Navigation.roomDetail, room.getId(), FontIcon.Rooms, this));
-			
+			addResult(new ResultButton(person.getName(), Navigation.personDetail, person.getId(), FontIcon.Persons, this));
 		}
 		refresh();
 	}
-	
+
 	@Override
 	protected void handleSearch(String searchTerm) {
-		new RoomSearch(searchTerm, this);
-		
-	}
+		 new PersonSearch(searchTerm, this);
+		}
 
 	@Override
 	public String getResourceType() {
@@ -63,7 +60,9 @@ public class RoomSearchPage extends AbstractSearchPage {
 
 	@Override
 	AbstractPage getOrganisationType() {
-		return Navigation.organisationChartRoom;
+		return Navigation.organisationChartPerson;
 	}
+
+	
 
 }

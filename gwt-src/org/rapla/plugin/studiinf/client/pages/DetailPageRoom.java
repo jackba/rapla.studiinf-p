@@ -186,7 +186,7 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 
 	@Override
 	public String getResourceType() {
-		return RoomSearchPage.ResourceType ;
+		return SearchPageRoom.ResourceType ;
 	}
 
 

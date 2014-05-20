@@ -15,10 +15,10 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
  * @author Team StudiInf
  * Page for searching POIs
  */
-public class PoiSearchPage extends AbstractSearchPage {
+public class SearchPagePoI extends AbstractSearchPage {
 	
 	
-	public PoiSearchPage() {
+	public SearchPagePoI() {
 		super(false, false,true,8,2, false, FontIcon.PoI,Navigation.roomDetail);
 	}
 

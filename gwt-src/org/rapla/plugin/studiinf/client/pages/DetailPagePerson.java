@@ -190,7 +190,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 
 	@Override
 	public String getResourceType() {
-		return RoomSearchPage.ResourceType ;
+		return SearchPageRoom.ResourceType ;
 	}
 
 

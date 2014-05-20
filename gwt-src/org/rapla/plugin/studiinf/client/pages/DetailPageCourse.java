@@ -160,7 +160,7 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 
 	@Override
 	public String getResourceType() {
-		return RoomSearchPage.ResourceType ;
+		return SearchPageRoom.ResourceType ;
 	}
 
 
