@@ -251,7 +251,7 @@ nav{
 	width:60vw;
 	rigth:auto;
 }
-.results, .infos, .personInfos /*, .courseInfos*/, .personLectureRooms, .poiResults, .freeRooms{
+.results, .infos, .personInfos, /*, .courseInfos, .personLectureRooms,  .poiResults,*/ .freeRooms{
 	position:static;
 	width:100%;
 	/*height:18vh;*/
@@ -264,10 +264,7 @@ nav{
 
 
 
-.resultBtns {
-	left:4vw;
-	width:92vw;
-}
+
 
 .keyboard {
 	position:absolute !important;
@@ -347,7 +344,15 @@ nav{
 	bottom:7vh;
 	left:5vw;
 	line-height: 0px;
+	width:92vw;
 }
+
+/*
+.resultBtns {
+	left:4vw;
+	width:92vw;
+}
+*/
 .tileContainer{
 	position:absolute;
 	top:auto;
@@ -418,7 +423,7 @@ nav{
 }
 
 
-.infoPanel, .resultPanel,.searchPanel, .bottomPanel, .personInfoPanel,/* .personBottomPanel,  */.personMiddlePanel, /*.poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
+.infoPanel, .resultPanel, .searchPanel, /*.bottomPanel, */ .personInfoPanel,/* .personBottomPanel,  */.personMiddlePanel, /*.poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -453,9 +458,10 @@ nav{
 	height:5vh;
 }*/
 
+/*
 .poiResultsPanel {
 	height:19.5vh;
-}
+}*/
 
 .personInfoPanel {
 	height:31vh;
@@ -543,11 +549,12 @@ nav{
 	font-size: 1.5vh;
 }
 
-.bottomPanel /*, .personBottomPanel, .courseBottomPanel*/{
+/*
+.bottomPanel /*, .personBottomPanel, .courseBottomPanel{
 	top: auto;
 	bottom: 7vh;
 	height:5vh;
-}
+}*/
 
 .personMiddlePanel{
 	top: 45vh;
