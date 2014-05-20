@@ -504,14 +504,6 @@ nav{
 	height: 22vh;
 }
 
-.personInfoButtons {
-	width: 55vw;
-}
-
-.resultPanelButton {
-	width: 86vw;
-}
-
 .personDetailPicture {
 	position:absolute !important;
 	top: 10.5vh;
@@ -621,13 +613,6 @@ nav{
 .detailValue {
 	width: 60vw;
 	background: #aeb4b8;
-	float: right;
-}
-
-.left{
-	float: left;
-}
-.right{
 	float: right;
 }
 
