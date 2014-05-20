@@ -33,7 +33,7 @@ public class DisplayMode {
 			DisplayMode.mobile = true;
 		}
 		String stelePositionParam = Window.Location.getParameter(DisplayMode.SteleParameterName);
-		if(stelePositionParam != null && (stelePositionParam.equals(SteleLeft)||stelePositionParam.equals(SteleMiddle)||stelePositionParam.equals(SteleRight))){
+		if(stelePositionParam != null){
 			stelePosition = stelePositionParam;
 		}else{
 			stelePosition = SteleMiddle;

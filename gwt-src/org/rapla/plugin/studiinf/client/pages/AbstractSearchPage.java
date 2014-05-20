@@ -5,6 +5,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.LocalStorage;
+import org.rapla.plugin.studiinf.client.RessourceLogger;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
@@ -196,6 +197,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	private void handleKeyEvent(){
 		searchField.setCursorPos(searchField.getText().length());
 		searchField.setFocus(true);
+		RessourceLogger.setSearchString(searchField.getText());
 		if (searchField.getText().equals("")){
 			setSearched(false);
 			handleMostFrequent();

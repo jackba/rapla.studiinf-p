@@ -22,7 +22,6 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * Template for all detail pages.
@@ -180,13 +179,25 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	 * @return Formatted String for display containing a title and localized time
 	 */
 	private String event2niceString(Event event){
-		DateTimeFormat parser = DateTimeFormat.getFormat("HH:mm");
-		DateTimeFormat formatter = DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT);
-		Date start = parser.parse(event.getStart());
-		Date end = parser.parse(event.getEnd());
-		String res = event.toString();
-		res = res.substring(0,res.lastIndexOf(" "));
-		return res + " " +formatter.format(start)+ "-" +formatter.format(end);
+		
+		if(event.getStart().length() <=5){
+				DateTimeFormat parser = DateTimeFormat.getFormat("HH:mm");
+				DateTimeFormat formatter = DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT);
+				if(formatter != null && parser != null){
+					Date start = parser.parse(event.getStart());
+					Date end = parser.parse(event.getEnd());
+					String res = event.getName();
+					if(start != null && end != null && res != null){
+						return res + " " +formatter.format(start)+ "-" +formatter.format(end);
+					}
+					
+				}
+		}
+		return event.toString();
+		
+		
+		
+		
 		
 	}
 

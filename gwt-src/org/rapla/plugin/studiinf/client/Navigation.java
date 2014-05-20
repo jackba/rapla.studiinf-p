@@ -93,8 +93,7 @@ public final class Navigation {
 		RootPanel.get().clear();
 		RootPanel.get().add(page);
 		
-		/* TODO solve Resource Logger*/
-		RessourceLogger.logRessource(page, activePage, id);
+		RessourceLogger.logRessource(page, activePage);
 		
 		activePage = page;
 		page.onShow();

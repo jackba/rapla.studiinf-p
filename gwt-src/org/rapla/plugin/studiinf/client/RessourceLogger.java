@@ -4,16 +4,20 @@ import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 //import org.rapla.rest.RemoteLogger;
 
 import org.rapla.rest.RemoteLogger;
+import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
+import org.rapla.rest.gwtjsonrpc.common.VoidResult;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.Random;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 
 
 public class RessourceLogger {
 	private static RemoteLogger service = null;
+	private static String searchString = "";
 	
 	private static final String localeStorageClientId = "org.rapla.plugin.studiinf.clientId";
 		
@@ -56,12 +60,33 @@ public class RessourceLogger {
 		return clientId;
 	}
 	
-	public static void logRessource(AbstractPage targetPage, AbstractPage sourcePage, String searchString) {
+	public static void setSearchString(String search){
+		searchString = search;
+	}
+	
+	public static void logRessource(AbstractPage targetPage, AbstractPage sourcePage) {
 		if(DisplayMode.isStele()){
 			String clientId = getClientId();
 			String currentPage = targetPage.getHistoryKey();
 			String previousPage = sourcePage.getHistoryKey();
-			getService().info("csvaccesslog",clientId+';'+currentPage+';'+searchString+';'+previousPage);
+			try {
+				getService().info("csvaccesslog",clientId+';'+currentPage+';'+searchString+';'+previousPage).get(new AsyncCallback<VoidResult>() {
+					
+					@Override
+					public void onSuccess(VoidResult result) {
+						
+					}
+					
+					@Override
+					public void onFailure(Throwable caught) {
+						
+					}
+				});
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			
 		}
 	}
 	
