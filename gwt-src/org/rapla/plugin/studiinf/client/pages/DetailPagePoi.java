@@ -144,8 +144,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 		}
 	}
 
@@ -172,21 +171,21 @@ public class DetailPagePoi extends AbstractDetailPage {
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-				roomButton.hideLabel();
+				roomButton.hideLabelAndFooterButton();
 			}
 		if (!pd.getRowOne().equals("")){
 			rowOneButtonText = pd.getRowOne();
 			rowOneButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowOneButton.getElement().getStyle().setDisplay(Display.NONE);
-				rowOneButton.hideLabel();
+				rowOneButton.hideLabelAndFooterButton();
 			}
 		if (!pd.getRowTwo().equals("")){
 			rowTwoButtonText = pd.getRowTwo();
 			rowTwoButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowTwoButton.getElement().getStyle().setDisplay(Display.NONE);
-				rowTwoButton.hideLabel();
+				rowTwoButton.hideLabelAndFooterButton();
 			}
 //		
 //		roomLS.writeStorage(id);

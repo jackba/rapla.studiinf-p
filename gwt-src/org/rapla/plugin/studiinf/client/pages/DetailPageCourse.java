@@ -115,8 +115,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 		}
 	}
 
@@ -139,13 +138,14 @@ public class DetailPageCourse extends AbstractDetailPage {
 			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
+				courseOfStudyButton.hideLabelAndFooterButton();
 			}
 		if(cd.getRoomNr()!=null && !cd.getRoomNr().equals("")){
 			roomButtonText = cd.getRoomNr();
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-				roomButton.hideFooterButton();	
+				roomButton.hideLabelAndFooterButton();	
 			}
 		
 		refresh();

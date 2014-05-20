@@ -87,4 +87,10 @@ public class RessourceButtonWithLabel implements ResultObjectWithLabel{
 		return resultObject.getShowFooter();
 	}
 
+	@Override
+	public void hideLabelAndFooterButton() {
+		hideFooterButton();
+		hideLabel();
+	}
+
 }

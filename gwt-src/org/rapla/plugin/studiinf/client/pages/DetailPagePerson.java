@@ -134,8 +134,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 		}
 	}	
@@ -165,7 +164,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		mailButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		}else{
 			mailButton.getElement().getStyle().setDisplay(Display.NONE);
-			mailButton.hideLabel();
+			mailButton.hideLabelAndFooterButton();
 		}
 		
 		if(!person.getPhoneNr().equals("")){
@@ -173,7 +172,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 			telephoneButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				telephoneButton.getElement().getStyle().setDisplay(Display.NONE);
-				telephoneButton.hideLabel();
+				telephoneButton.hideLabelAndFooterButton();
 			}
 		courseOfStudyInfo.setText(person.getDepartment());
 		refresh();

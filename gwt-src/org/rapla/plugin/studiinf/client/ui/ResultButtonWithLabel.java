@@ -83,4 +83,10 @@ public class ResultButtonWithLabel implements ResultObjectWithLabel{
 		return resultObject.getShowFooter();
 	}
 
+	@Override
+	public void hideLabelAndFooterButton() {
+		hideFooterButton();
+		hideLabel();
+	}
+
 }
