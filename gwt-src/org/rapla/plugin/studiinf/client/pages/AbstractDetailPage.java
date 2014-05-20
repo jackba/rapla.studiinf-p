@@ -54,7 +54,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	public void init() {
 		super.init();
 		if (this.hasDefaultQrBox() == true){
-			qrBox.getElement().getStyle().setProperty("bottom", "12vh");
+//			qrBox.getElement().getStyle().setProperty("bottom", "12vh");
 			this.add(qrBox);
 		}
 		

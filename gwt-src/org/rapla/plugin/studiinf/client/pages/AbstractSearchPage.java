@@ -9,6 +9,7 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
+import org.rapla.plugin.studiinf.client.ui.NavButton;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
@@ -30,7 +31,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	private TextBox searchField = new TextBox();
 	private Label resultLabel = new Label(Studiinf.i18n.frequentResultsLabel());
 	private ResultTable results ;
-	private OrganigramButton organigramBtn;
+	private NavButton organigramBtn;
 	private FlowPanel keyboard = new Keyboard(searchField,this);
 	protected AccessibilityRow resultBtns = new AccessibilityRow();
 	protected QRBox qrBox = new QRBox(getHistoryKey());
@@ -119,11 +120,12 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	@Override
 	public void init() {
 		super.init();
-		organigramBtn = new OrganigramButton(Studiinf.i18n.organigram(), getOrganisationType(),"null");
+		organigramBtn = new NavButton(FontIcon.Organigram, Studiinf.i18n.organigram(), getOrganisationType(),"null");
 		searchField.setStyleName("searchField");
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
 		organigramBtn.addStyleName("organigramBtn");
+		organigramBtn.setWidth("0.5");
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
@@ -136,7 +138,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		
 	//	results.getBackButton().addStyleName("backButton");
 	//	results.getNextButton().addStyleName("nextButton");
-		qrBox.getElement().getStyle().setProperty("bottom", "12vh");
+//		qrBox.getElement().getStyle().setProperty("bottom", "12vh");
 		inputChanger = new KeyUpHandler() {
 			
 			/**
