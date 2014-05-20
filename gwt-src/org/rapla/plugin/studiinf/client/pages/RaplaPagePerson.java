@@ -8,9 +8,9 @@ import org.rapla.plugin.studiinf.client.Navigation;
  * Page that shows rapla timetable for a person
  *
  */
-public class PersonRaplaPage extends RaplaPage {
+public class RaplaPagePerson extends RaplaPage {
 
-	public PersonRaplaPage() {
+	public RaplaPagePerson() {
 		super(Navigation.personDetail);
 	}
 	

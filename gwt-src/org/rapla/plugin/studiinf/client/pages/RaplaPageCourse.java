@@ -8,9 +8,9 @@ import org.rapla.plugin.studiinf.client.Navigation;
  * Page that shows rapla timetable for a course
  *
  */
-public class CourseRaplaPage extends RaplaPage {
+public class RaplaPageCourse extends RaplaPage {
 
-	public CourseRaplaPage() {
+	public RaplaPageCourse() {
 		super(Navigation.courseDetail);
 	}
 	
