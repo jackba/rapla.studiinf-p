@@ -1,5 +1,8 @@
 package org.rapla.plugin.studiinf.client.pages;
 
+import java.util.List;
+
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -22,7 +25,7 @@ import com.google.gwt.user.client.ui.Label;
  * @author Team StudiInf
  * Page for displaying room details
  */
-public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
+public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, SearchPageInterface {
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
@@ -173,4 +176,23 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 		}
 		
 	}
+
+	@Override
+	public void updateResults(List<ResourceDescription> ressourcesMatched) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String getResourceType() {
+		return RoomSearchPage.ResourceType ;
+	}
+
+
+	@Override
+	public void handleClickCount(String targetId) {
+		//Do nothing
+	}
+
 }

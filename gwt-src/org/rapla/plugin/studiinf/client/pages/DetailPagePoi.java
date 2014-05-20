@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.Event;
+import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
@@ -30,7 +31,7 @@ import com.google.gwt.user.client.ui.Label;
  * @author Team StudiInf
  * Page for displaying POI details
  */
-public class DetailPagePoi extends AbstractDetailPage {
+public class DetailPagePoi extends AbstractDetailPage implements SearchPageInterface{
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private Label infoLabel = new Label(Studiinf.i18n.information());
@@ -228,5 +229,24 @@ public class DetailPagePoi extends AbstractDetailPage {
 		});
 		
 	}
+
+	@Override
+	public void updateResults(List<ResourceDescription> ressourcesMatched) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String getResourceType() {
+		return RoomSearchPage.ResourceType ;
+	}
+
+
+	@Override
+	public void handleClickCount(String targetId) {
+		//Do nothing
+	}
+
 
 }
