@@ -73,7 +73,7 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 
-		qrBox.getElement().getStyle().setProperty("top", "41vh");
+	//	qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);

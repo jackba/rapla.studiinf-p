@@ -96,7 +96,7 @@ public class DetailPagePoi extends AbstractDetailPage {
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-		qrBox.getElement().getStyle().setProperty("top", "41vh");
+	//	qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
 		this.add(infoPanel);
 		this.add(bottomPanel);

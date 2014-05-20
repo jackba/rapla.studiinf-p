@@ -549,7 +549,7 @@ nav{
 }
 
 .personMiddlePanel{
-	top: 60vh;
+	top: 45vh;
 	bottom: auto;
 	height:28vh;
 }
@@ -666,7 +666,7 @@ nav{
 
 .navigationPicture, .poiNavigationImg {
 	position:absolute !important;
-	top: 56vh;
+	top: 41vh;
 	left: 5vw;
 	right: 5vw;
 	width: 90vw;
@@ -674,9 +674,10 @@ nav{
 	background:#858f95;
 }
 
+/*
 .poiNavigationImg {
 	top: 53vh;
-}
+}*/
 
 .logo {
 	position:absolute !important;
