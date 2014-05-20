@@ -247,4 +247,9 @@ public class ResultTable extends FlexTable {
 		this.columns = columns;
 		setPage(0);
 	}
+
+	public void setSize(double d) {
+		this.size= d;
+		this.refresh();
+	}
 }
