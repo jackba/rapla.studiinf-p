@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -16,13 +17,10 @@ import com.google.gwt.user.client.ui.Widget;
 public class OrganigramButton extends NavButton implements ResultObject {
 	
 	private NavButton clone;
-	private boolean showFooterButton;
 	
 	public OrganigramButton(String text, AbstractPage targetPage, String targetId, boolean showFooterButton) {
 		super(FontIcon.Organigram, text, targetPage, targetId);
 		clone = new NavButton(FontIcon.Organigram, null, targetPage, targetId);
-//		this.getElement().getStyle().setWidth(100, Unit.PCT);
-		// TODO Auto-generated constructor stub
 	}
 
 	public OrganigramButton(String text, AbstractPage targetPage, String targetId) {
@@ -31,7 +29,6 @@ public class OrganigramButton extends NavButton implements ResultObject {
 	
 	@Override
 	public List<Widget> getCellObjects() {
-		// TODO Auto-generated method stub
 		ArrayList<Widget> returnList = new ArrayList<Widget>();
 		returnList.add(this);
 		return returnList;
@@ -39,7 +36,6 @@ public class OrganigramButton extends NavButton implements ResultObject {
 
 	@Override
 	public NavButton getFooterButton() {
-		// TODO Auto-generated method stub
 		return clone;
 	}
 
@@ -52,14 +48,16 @@ public class OrganigramButton extends NavButton implements ResultObject {
 
 	@Override
 	public void setShowFooter(boolean show) {
-		showFooterButton = show;
-		
+		//ignore FooterButton is always visible
 	}
 
 	@Override
 	public boolean getShowFooter() {
-		// TODO Auto-generated method stub
-		return true; //showFooterButton;
+		return true; //always show footerButton
+	}
+	@Override
+	public void hideFooterButton() {
+		this.clone.getElement().getStyle().setDisplay(Display.NONE);		
 	}
 
 }

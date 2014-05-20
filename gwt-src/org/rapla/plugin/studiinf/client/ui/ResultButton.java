@@ -37,7 +37,17 @@ public class ResultButton extends NavButton implements ResultObject {
 		setNumber(0);
 		this.setWidth("100%");
 	}
+	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, boolean showFooterButton) {
+		this(title, targetPage, targetId, icon, null, showFooterButton);
+	}
 	
+	public ResultButton(FontIcon icon, String title, AbstractPage targetPaget, String targetId, boolean showFooterButton) {
+		this(title, targetPaget, targetId, icon, null, showFooterButton);
+	}
+	
+	/**
+	 * force footerButton to be hidden
+	 */
 	public void hideFooterButton(){
 		bottomPictureButton.getElement().getStyle().setDisplay(Display.NONE);
 	}
@@ -48,13 +58,6 @@ public class ResultButton extends NavButton implements ResultObject {
 		getFooterButton().setNumber(number);
 	}
 
-	public ResultButton(String title, AbstractPage targetPage, String targetId, FontIcon icon, boolean showFooterButton) {
-		this(title, targetPage, targetId, icon, null, showFooterButton);
-	}
-	
-	public ResultButton(FontIcon icon, String title, AbstractPage targetPaget, String targetId, boolean showFooterButton) {
-		this(title, targetPaget, targetId, icon, null, showFooterButton);
-	}
 
 	@Override
 	public void setIcon(FontIcon fontIcon) {

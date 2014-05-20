@@ -9,6 +9,7 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -88,7 +89,11 @@ public class FreeRoomButton extends NavButton implements ResultObject {
 
 	@Override
 	public boolean getShowFooter() {
-		// TODO Auto-generated method stub
 		return showFooterButton;
+	}
+
+	@Override
+	public void hideFooterButton() {
+		this.footerButton.getElement().getStyle().setDisplay(Display.NONE);		
 	}
 }

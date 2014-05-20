@@ -8,6 +8,11 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ * ResultButton with additional Label
+ *
+ */
 public class ResultButtonWithLabel implements ResultObjectWithLabel{
 	
 	private ResultButton resultObject;
@@ -19,26 +24,31 @@ public class ResultButtonWithLabel implements ResultObjectWithLabel{
 		label.setStyleName("labelResultTable");
 	}
 	
+	@Override
 	public void hideFooterButton(){
 		resultObject.hideFooterButton();
 	}
 	
+	@Override
 	public void hideLabel(){
 		label.getElement().getStyle().setDisplay(Display.NONE);
 	}
-
+	@Override
 	public Element getElement(){
 		return resultObject.getElement();
 	}
-
+	
+	@Override
 	public void setSize(double size){
 		resultObject.setSize(size);
 	}
 	
+	@Override
 	public void setTargetId(String targetId){
 		resultObject.setTargetId(targetId);
 	}
 	
+	@Override
 	public void setText(String text){
 		resultObject.setText(text);
 	}

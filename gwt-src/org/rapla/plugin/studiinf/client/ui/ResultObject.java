@@ -16,5 +16,6 @@ public interface ResultObject {
 	void setSize(double size);
 	void setTargetId(String targetId);
 	void setText(String text);
+	void hideFooterButton();
 	
 }

@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * 
+ * Table containing the results. Automatically adds elements to the AccessabilityRow
  *
  */
 public class ResultTable extends FlexTable {
@@ -28,13 +28,19 @@ public class ResultTable extends FlexTable {
 	private int page;
 	private NavButton backButton = new NavButton(FontIcon.Up,FontIcon.Position.BOTH,Studiinf.i18n.previous(),null,null);
 	private NavButton nextButton = new NavButton(FontIcon.Down,FontIcon.Position.BOTH,Studiinf.i18n.next(),null,null);
-	//private NavButton backButtonBottom = new NavButton(IconProvider.Previous,null,null,null);
-	//private NavButton nextButtonBottom = new NavButton(IconProvider.Next,null,null,null);
-
+	
+	/**
+	 * Returns the id of the active Page
+	 * @return id of the active Page
+	 */
 	public int getPage() {
 		return page;
 	}
-
+	
+	/**
+	 * Sets the active Page and displays it
+	 * @param page Id of the Page to display
+	 */
 	public void setPage(int page) {
 		if(page > 0 && page < getMaxPages()){
 			this.page = page;
@@ -48,25 +54,24 @@ public class ResultTable extends FlexTable {
 		refresh();
 			
 	}
-	public void setSize(){
-		if(DisplayMode.isMobile()){
-			size = 1;
-		}else{
-			size= 0.5;
-		}
-		
-	}
-
+	
+	/**
+	 * Displays the next page
+	 */
 	public void nextPage(){
 		setPage(getPage() + 1); 
 	}
 
+	/**
+	 * Displays the previous page
+	 */
 	public void previousPage(){
 		setPage(getPage() - 1); 
 	}
 
 	/**
-	 * 
+	 * Returns the total number of pages
+	 * @return number of pages
 	 */
 	public int getMaxPages() {
 		int cells = 0;
@@ -76,9 +81,14 @@ public class ResultTable extends FlexTable {
 		return (int) Math.ceil(((double)cells) / (double)(maxRows*columns));
 	}
 
+	/**
+	 * Returns whether the Table has more than one Page
+	 * @return true if more than one Page
+	 */
 	public boolean hasPages(){
 		return getMaxPages() > 1;
 	}
+
 	public boolean hasNextPage(){
 		return hasPages() && (getPage()+1) < getMaxPages();
 	}
@@ -91,7 +101,11 @@ public class ResultTable extends FlexTable {
 	this.maxRows = maxRows;
 	this.accessibilityRow = accessibilityRow;
 	this.page = 0;
-	setSize();
+	if(DisplayMode.isMobile()){
+		size = 1;
+	}else{
+		size= 0.5;
+	}
 	this.backButton.setSize(size);
 	this.backButton.getElement().getStyle().setWidth(100, Unit.PCT);
 	this.backButton.setShowWhenDisabled(false);
