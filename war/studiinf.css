@@ -231,7 +231,7 @@ nav{
 .organigramBtn{
 	position:absolute !important;
 	bottom:auto;
-	top: 38vh;
+	top: 48.3vh;
 	left:30vw;
 	rigth:25vw;
 	width:40vw;
@@ -444,13 +444,14 @@ nav{
 .page-poi .resultPanel{
 	height:27.3vh;
 }
+/*
 .poiBottomResultPanel {
 	top: auto;
 	bottom: 7vh;
 	left:16.5vw;
 	width:66vw;
 	height:5vh;
-}
+}*/
 
 .poiResultsPanel {
 	height:19.5vh;
@@ -461,7 +462,7 @@ nav{
 }
 .searchPanel{
 	top:auto;
-	bottom:28vh;
+	bottom:22vh;
 	height:21.7vh;
 	width:88.2vw;
 	left:5,9vw;
