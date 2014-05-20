@@ -1,6 +1,5 @@
 package org.rapla.plugin.studiinf.client;
 
-import com.google.gwt.aria.client.ImgRole;
 import com.google.gwt.user.client.Window;
 
 /**
@@ -54,9 +53,9 @@ public class DisplayMode {
 	}
 	
 	public static String enhanceImageURL(String imageURL){
-		String result = imageURL.substring(0, imageURL.lastIndexOf("/"));
-		
-		return imageURL;
+		String prefix = imageURL.substring(0, imageURL.lastIndexOf("/")+1);
+		String suffix = imageURL.substring(imageURL.lastIndexOf("/")+1);
+		return prefix + getStelePosition() + suffix;
 		
 	}
 	

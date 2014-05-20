@@ -1,6 +1,7 @@
 package org.rapla.plugin.studiinf.client.search;
 
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 
 /**
  * Descriptor, which contains all the attributes to a specific room.
@@ -52,7 +53,7 @@ public class RoomDescriptor extends AbstractDescriptor {
 	public String getRaplaLink() {
 		if(raplaLink == null)
 		{
-			raplaLink = getCell("resourceURL");
+			raplaLink = DisplayMode.enhanceImageURL(getCell("resourceURL"));
 			}
 		return raplaLink;
 		}
