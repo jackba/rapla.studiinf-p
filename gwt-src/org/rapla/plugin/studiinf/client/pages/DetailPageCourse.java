@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
- *Page for displaying course details
+ * Page for displaying course details
  */
 public class DetailPageCourse extends AbstractDetailPage {
 	

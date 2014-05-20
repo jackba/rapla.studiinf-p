@@ -29,7 +29,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
- *Page for displaying POI details
+ * Page for displaying POI details
  */
 public class DetailPagePoi extends AbstractDetailPage {
 

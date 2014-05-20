@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * 
  * @author Team StudiInf
  *
- *Class for filtering rooms out of a list of resources and creating NavButtons for the rooms on a given panel
+ * Class for filtering rooms out of a list of resources and creating NavButtons for the rooms on a given panel
  */
 public class FilterRooms extends AbstractSearch {
 	private List<ResourceDescription> ressources;
