@@ -15,6 +15,8 @@ import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
+import com.google.gwt.event.dom.client.FocusEvent;
+import com.google.gwt.event.dom.client.FocusHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -133,6 +135,14 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 			searchPanel.addStyleName("mobile");
 			organigramBtn.addStyleName("mobile");
 			resultLabel.addStyleName("mobile");
+			searchField.addFocusHandler(new FocusHandler() {
+				
+				@Override
+				public void onFocus(FocusEvent event) {
+					results.setSize(1.0);
+				}
+			});
+			
 		}else {
 		}
 		
