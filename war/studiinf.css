@@ -682,7 +682,7 @@ nav{
 .results td{
 	width:50%;
 }
-
+/*
 .backButton, .nextButton {
 	position: absolute;
 	top: 38vh;
@@ -706,7 +706,7 @@ nav{
 .backButtonBottom[disabled],.nextButtonBottom[disabled]{
 	display:none;	
 }
-
+*/
 .raplaFrame{
 	position:absolute;
 	width: 100vw;
@@ -729,16 +729,16 @@ nav{
 	width:70%;
 }
 .lecturesTable td .gwt-Label,.courseLecturesTable td .gwt-Label{
-position: relative;
-font-size: 1vh;
-height:4.5vh;
--moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-padding: 1vh 0px;
-line-height: 3vh;
-background: #AEB4B8;
-padding: 1vh 0px;
-border: 1px solid #FFF;
-overflow: hidden;
+	position: relative;
+	font-size: 1vh;
+	height:4.5vh;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	padding: 1vh 0px;
+	line-height: 3vh;
+	background: #AEB4B8;
+	padding: 1vh 0px;
+	border: 1px solid #FFF;
+	overflow: hidden;
 }
 .lecturesTable td .gwt-Label{
 	padding-left: 1vh;
@@ -764,6 +764,7 @@ overflow: hidden;
 	display:inline-block;
 }
 
+/*
 .raplaBackButton{
 	position: absolute !important;
 	bottom: 10vh;
@@ -778,7 +779,7 @@ overflow: hidden;
 	line-height: 3vh;
 	overflow: hidden;
 	
-}
+}*/
 
 .detailsTable {
 	position: absolute;
@@ -813,12 +814,6 @@ overflow: hidden;
 	float: right;
 }
 
-.detailsTable {
-	position: absolute;
-	top: 10vh;
-	left: 5vw;
-	width: 90vw;
-}
 
 .left{
 	float: left;
@@ -833,6 +828,7 @@ overflow: hidden;
 	bottom: 6vh;
 	left: 0vw;
 }	
+
 
 .labelResultTable {
 	font-size: 1.5vh;
