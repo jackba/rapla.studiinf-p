@@ -423,7 +423,7 @@ nav{
 }
 
 
-.infoPanel, .resultPanel, .searchPanel, /*.bottomPanel, */ .personInfoPanel,/* .personBottomPanel,  */.personMiddlePanel, /*.poiResultsPanel, .poiBottomResultPanel, .courseInfoPanel, .courseBottomPanel,*/ .courseMiddlePanel{
+.infoPanel, .resultPanel, .searchPanel, .personInfoPanel, .personMiddlePanel, .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
 	left:5.5vw;
@@ -449,19 +449,6 @@ nav{
 .page-poi .resultPanel{
 	height:27.3vh;
 }
-/*
-.poiBottomResultPanel {
-	top: auto;
-	bottom: 7vh;
-	left:16.5vw;
-	width:66vw;
-	height:5vh;
-}*/
-
-/*
-.poiResultsPanel {
-	height:19.5vh;
-}*/
 
 .personInfoPanel {
 	height:31vh;
@@ -473,7 +460,7 @@ nav{
 	width:88.2vw;
 	left:5,9vw;
 }
-
+/*
 .pictureButton{
 	height: 5vh;
 	width: 10vh;
@@ -494,7 +481,7 @@ nav{
 	font-size: 2.5vh;
 	font-weight: bold;
 }
-.pictureButton .img /*.poiRightNav, .poiLeftNav, .poiBottomRightNav, .poiBottomLeftNav*/{
+.pictureButton .img {
 	position:absolute;
 	height: 5vh;
 	width:5vh;
@@ -502,6 +489,7 @@ nav{
 	left:5vh;
 	background: #e2001a;
 }
+*/
 .resultButton{
 	height: 5vh;
 	width: 42vw;
@@ -523,6 +511,7 @@ nav{
 	color:#ffffff;
 	
 }
+/*
 .resultButton .pictureButton{
 	position:absolute;
 	top:0px;
@@ -549,12 +538,7 @@ nav{
 	font-size: 1.5vh;
 }
 
-/*
-.bottomPanel /*, .personBottomPanel, .courseBottomPanel{
-	top: auto;
-	bottom: 7vh;
-	height:5vh;
-}*/
+*/
 
 .personMiddlePanel{
 	top: 45vh;
@@ -644,9 +628,9 @@ nav{
 .resultPanelButton {
 	width: 86vw;
 }
-
+/*
 .bottomButton {
-	/*position: absolute;*/
+
 	position:relative;
 	background: #aeb4b8;
 	border: solid 1px #ffffff;
@@ -662,6 +646,7 @@ nav{
 	position: relative;
 	width: 29vw;
 }
+*/
 
 .personDetailPicture {
 	position:absolute !important;
