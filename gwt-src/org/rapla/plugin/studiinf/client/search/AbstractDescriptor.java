@@ -8,6 +8,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetail;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Template for the descriptors. All descriptors have to implement this class.
  * Template contains the basic methods and attributes for all descriptors.
  */
