@@ -136,7 +136,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		
 	//	results.getBackButton().addStyleName("backButton");
 	//	results.getNextButton().addStyleName("nextButton");
-		qrBox.getElement().getStyle().setProperty("top", "43vh");
+		qrBox.getElement().getStyle().setProperty("bottom", "12vh");
 		inputChanger = new KeyUpHandler() {
 			
 			/**

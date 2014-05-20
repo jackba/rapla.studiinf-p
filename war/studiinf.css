@@ -230,7 +230,8 @@ nav{
 }
 .organigramBtn{
 	position:absolute !important;
-	bottom:37vh;
+	bottom:auto;
+	top: 38vh;
 	left:30vw;
 	rigth:25vw;
 	width:40vw;
@@ -349,8 +350,8 @@ nav{
 }
 .tileContainer{
 	position:absolute;
-	top:60vh;
-	bottom:8vh;
+	top:auto;
+	bottom:23vh;
 	left:0vw;
 	right:0vw;
 	width:100vw;
@@ -460,7 +461,7 @@ nav{
 }
 .searchPanel{
 	top:auto;
-	bottom:12vh;
+	bottom:28vh;
 	height:21.7vh;
 	width:88.2vw;
 	left:5,9vw;

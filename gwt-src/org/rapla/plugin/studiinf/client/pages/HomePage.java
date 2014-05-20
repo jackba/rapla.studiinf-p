@@ -26,6 +26,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Homepage of StudiInf application
  *
  */
@@ -54,10 +55,8 @@ public class HomePage extends AbstractPage {
 		}
 		
 		freeRoomsTable.setStyleName("freeRooms");
-		
 		resultLabel.setStyleName("infoLabel");
 		resultPanel.setStyleName("resultPanel");
-	
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
 		tileContainer.add(courseBtn);
@@ -65,8 +64,7 @@ public class HomePage extends AbstractPage {
 		tileContainer.add(roomBtn);
 		tileContainer.add(poiBtn);
 		
-		qrBox.getElement().getStyle().setProperty("top", "48vh");
-		
+		qrBox.getElement().getStyle().setProperty("bottom", "12vh");
 		
 		this.add(tileContainer);
 		this.add(qrBox);
