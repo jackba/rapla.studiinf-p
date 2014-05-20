@@ -132,6 +132,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");
+
 		if(DisplayMode.isMobile()){
 			searchPanel.addStyleName("mobile");
 			organigramBtn.addStyleName("mobile");
