@@ -9,6 +9,11 @@ import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * 
+ * Button for use in the ResultTable
+ *
+ */
 public class ResultButton extends NavButton implements ResultObject {
 	
 	private NavButton bottomPictureButton;
@@ -101,7 +106,6 @@ public class ResultButton extends NavButton implements ResultObject {
 
 	@Override
 	public boolean getShowFooter() {
-		// TODO Auto-generated method stub
 		return showFooterButton;
 	}
 	

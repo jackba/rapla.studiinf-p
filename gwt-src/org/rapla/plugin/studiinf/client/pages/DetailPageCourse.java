@@ -110,13 +110,10 @@ public class DetailPageCourse extends AbstractDetailPage {
 	}
 
 	public void showRaplaLinks(boolean show){
-//		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			f.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
 			raplaButton.hideFooterButton();
 			raplaButton.hideLabel();
@@ -148,9 +145,7 @@ public class DetailPageCourse extends AbstractDetailPage {
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-				roomButton.hideFooterButton();
-//				NavButton footerButton = roomButton.getFooterButton();
-//				footerButton.getElement().getStyle().setDisplay(Display.NONE);				
+				roomButton.hideFooterButton();	
 			}
 		
 		refresh();

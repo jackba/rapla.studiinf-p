@@ -74,9 +74,6 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		infos.getElement().getStyle().setProperty("right", "auto");
 		infos.getElement().getStyle().setProperty("position", "relative");	
 		
-//		lectures.getColumnFormatter().setWidth(0, "75%");
-//		lectures.getColumnFormatter().setWidth(1, "25%");
-		
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
@@ -133,13 +130,10 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 	}
 
 	public void showRaplaLinks(boolean show){
-//		NavButton f = raplaButton.getFooterButton();
 		if (show == true){
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
-//			f.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-//			f.getElement().getStyle().setDisplay(Display.NONE);
 			raplaButton.hideFooterButton();
 			raplaButton.hideLabel();
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
@@ -189,7 +183,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 
 	@Override
 	public void updateResults(List<ResourceDescription> ressourcesMatched) {
-		// TODO Auto-generated method stub
+		//nothing to do
 		
 	}
 

@@ -228,7 +228,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	}
 	
 	public void handleClickCount(String targetId){
-		ls.writeStorage(targetId);
+		ls.increaseInStorage(targetId);
 	}
 
 	/**
