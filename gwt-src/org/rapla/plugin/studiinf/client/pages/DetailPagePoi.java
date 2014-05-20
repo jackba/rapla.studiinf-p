@@ -29,6 +29,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying POI details
  */
 public class DetailPagePoi extends AbstractDetailPage implements SearchPageInterface{
@@ -145,8 +146,7 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 		}
 	}
 
@@ -173,35 +173,24 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-				roomButton.hideLabel();
+				roomButton.hideLabelAndFooterButton();
 			}
 		if (!pd.getRowOne().equals("")){
 			rowOneButtonText = pd.getRowOne();
 			rowOneButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowOneButton.getElement().getStyle().setDisplay(Display.NONE);
-				rowOneButton.hideLabel();
+				rowOneButton.hideLabelAndFooterButton();
 			}
 		if (!pd.getRowTwo().equals("")){
 			rowTwoButtonText = pd.getRowTwo();
 			rowTwoButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				rowTwoButton.getElement().getStyle().setDisplay(Display.NONE);
-				rowTwoButton.hideLabel();
+				rowTwoButton.hideLabelAndFooterButton();
 			}
-//		
-//		roomLS.writeStorage(id);
-//		roomLS.fillMap();
-//		roomLS.readStorage(id);
-		//System.out.println("Rooms: "+roomNumber+" "+roomLS.readStorage(roomNumber)+" "+id);
-//		"localStorage: " + targetID + " " + count
-//		Window.alert(roomLS.readStorage(id));
-//		Window.alert(rd.getPicture());
-		
-//		Window.alert(rd.getPicture());
 		refresh();
-		
-		
+
 		Date dateBegin = new Date();
 		DateTimeFormat f = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm");
 		String begin = f.format(dateBegin);

@@ -20,6 +20,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying course details
  */
 public class DetailPageCourse extends AbstractDetailPage implements SearchPageInterface{
@@ -32,9 +33,6 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 	private Label appointmentLabel;
 	private ResultTable infos;
 	
-	
-	
-
 	private ResultButtonWithLabel courseOfStudyButton;
 	private RessourceButtonWithLabel roomButton;
 	private ResultButtonWithLabel raplaButton;
@@ -97,8 +95,6 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 		return Studiinf.i18n.course() + "" + nameButtonText;
 	}
 
-
-	
 	@Override
 	protected void refresh() {
 		super.refresh();
@@ -118,8 +114,7 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
 			appointmentLabel.setText(Studiinf.i18n.noAppointments());
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 		}
 	}
 
@@ -142,19 +137,18 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
+				courseOfStudyButton.hideLabelAndFooterButton();
 			}
 		if(cd.getRoomNr()!=null && !cd.getRoomNr().equals("")){
 			roomButtonText = cd.getRoomNr();
 			roomButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				roomButton.getElement().getStyle().setDisplay(Display.NONE);
-				roomButton.hideFooterButton();	
+				roomButton.hideLabelAndFooterButton();	
 			}
 		
-		refresh();
-		
-		loadEvents();
-		
+		refresh();	
+		loadEvents();	
 	}
 
 	@Override
@@ -175,8 +169,4 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 		//Do nothing
 	}
 	
-
-
-	
-
 }

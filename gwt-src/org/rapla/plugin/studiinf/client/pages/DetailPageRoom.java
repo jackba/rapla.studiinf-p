@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.Label;
 /**
  * 
  * @author Team StudiInf
+ * 
  * Page for displaying room details
  */
 public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, SearchPageInterface {
@@ -100,8 +101,7 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 			raplaButton.getElement().getStyle().setDisplay(Display.INLINE);
 		} else {
 			raplaButton.getElement().getStyle().setDisplay(Display.NONE);
-			raplaButton.hideFooterButton();
-			raplaButton.hideLabel();
+			raplaButton.hideLabelAndFooterButton();
 		}
 	}	
 	
@@ -141,14 +141,14 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 			typeButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				typeButton.getElement().getStyle().setDisplay(Display.NONE);
-				typeButton.hideLabel();
+				typeButton.hideLabelAndFooterButton();
 			}
 		if (!rd.getDepartment().equals("")){
 			courseOfStudyButtonText = rd.getDepartment();
 			courseOfStudyButton.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 			}else{
 				courseOfStudyButton.getElement().getStyle().setDisplay(Display.NONE);
-				courseOfStudyButton.hideLabel();
+				courseOfStudyButton.hideLabelAndFooterButton();
 			}
 		if(!rd.getLocation().equals(""))
 		{

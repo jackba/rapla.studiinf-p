@@ -170,5 +170,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 			languages.hide();
 			languages.setVisible(false);		
 		}		
+	}
+	public void setSize(double d) {
+		this.buttonSize= d;	
 	}	
 }
