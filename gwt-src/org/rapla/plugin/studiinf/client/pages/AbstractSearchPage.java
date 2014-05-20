@@ -140,9 +140,9 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 				
 				@Override
 				public void onFocus(FocusEvent event) {
-					results.setSize(1.0);
-					footer.setSize(1.0);
-					organigramBtn.setVisible(false);
+					results.setSize(3.0);
+					footer.setSize(3.0);
+					//organigramBtn.setVisible(false);
 				}
 			});
 			
