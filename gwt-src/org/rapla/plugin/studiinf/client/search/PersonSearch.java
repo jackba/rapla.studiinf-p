@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 /**
  * 
@@ -17,7 +18,7 @@ private static final int FIRST_NAME = 1;
 private static final int LAST_NAME = 0;
 
 
-public PersonSearch(String searchTerm, PersonSearchPage psPage)
+public PersonSearch(String searchTerm, SearchPageInterface psPage)
 {
 	super(searchTerm,psPage);
 }

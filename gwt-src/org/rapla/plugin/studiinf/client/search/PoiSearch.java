@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 public class PoiSearch extends AbstractSearch {
 
@@ -13,7 +14,7 @@ public class PoiSearch extends AbstractSearch {
 	 *
 	 * Search to find POIs
 	 */
-	public PoiSearch(String searchTerm, PoiSearchPage page) {
+	public PoiSearch(String searchTerm, SearchPageInterface page) {
 		super(searchTerm, page);
 	}
 

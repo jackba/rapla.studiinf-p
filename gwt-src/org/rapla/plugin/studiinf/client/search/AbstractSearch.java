@@ -17,7 +17,7 @@ public abstract class AbstractSearch extends AbstractOrganigramSearch implements
 		super(searchTerm, null, page, autoinit);
 	}
 	
-	public AbstractSearch(String searchTerm,AbstractSearchPage page) {
+	public AbstractSearch(String searchTerm, SearchPageInterface page) {
 		super(searchTerm, null, page);
 	}
 

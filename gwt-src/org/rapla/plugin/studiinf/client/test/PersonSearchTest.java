@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
+import org.rapla.plugin.studiinf.client.pages.TestSearchPage;
 import org.rapla.plugin.studiinf.client.search.PersonSearch;
 
 import com.google.gwt.junit.client.GWTTestCase;
@@ -19,7 +21,7 @@ public class PersonSearchTest extends GWTTestCase{
 	List<ResourceDescription> pList;
 	List<ResourceDescription> resultList;
 	List<ResourceDescription> expectedList;
-	PersonSearchPage psp;
+	SearchPageInterface psp;
 	
 	@Override
 	public String getModuleName() {
@@ -51,7 +53,7 @@ public class PersonSearchTest extends GWTTestCase{
 		pList.add(person2);
 		pList.add(person3);
 		pList.add(person4);
-		psp = new PersonSearchPage();
+		psp = new TestSearchPage();
 	}
 		
 		public void testSearchResourcesMixedNames()
@@ -73,9 +75,7 @@ public class PersonSearchTest extends GWTTestCase{
 			resultList = new ArrayList<ResourceDescription>();
 			expectedList = new ArrayList<ResourceDescription>();
 			expectedList.add(person1);
-			expectedList.add(person3);
-			expectedList.add(person4);
-			PersonSearch ps = new PersonSearch("ü", psp);
+			PersonSearch ps = new PersonSearch("rm", psp);
 			resultList = ps.searchRessources(pList);
 			assertEquals(expectedList, resultList);
 		}

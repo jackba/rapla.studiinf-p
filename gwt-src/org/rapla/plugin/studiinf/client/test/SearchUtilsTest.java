@@ -187,6 +187,7 @@ public class SearchUtilsTest extends GWTTestCase {
 		resultList = new ArrayList<ResourceDescription>();
 		expectedList = new ArrayList<ResourceDescription>();
 		expectedList.add(person1);
+		expectedList.add(person2);
 		expectedList.add(person3);
 		resultList = SearchUtils.containsName("ü", pList);
 		assertEquals(expectedList, resultList);

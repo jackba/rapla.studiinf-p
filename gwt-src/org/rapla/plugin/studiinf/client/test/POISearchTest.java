@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
+import org.rapla.plugin.studiinf.client.pages.TestSearchPage;
 import org.rapla.plugin.studiinf.client.search.PoiSearch;
 
 import com.google.gwt.junit.client.GWTTestCase;
@@ -19,7 +21,7 @@ public class POISearchTest extends GWTTestCase {
 	List<ResourceDescription> pList;
 	List<ResourceDescription> resultList;
 	List<ResourceDescription> expectedList;
-	PoiSearchPage psp;
+	SearchPageInterface psp;
 
 	@Override
 	public String getModuleName() {
@@ -47,7 +49,7 @@ public class POISearchTest extends GWTTestCase {
 		pList.add(poi3);
 		pList.add(poi4);
 		
-		psp = new PoiSearchPage();
+		psp = new TestSearchPage();
 			
 	}
 	

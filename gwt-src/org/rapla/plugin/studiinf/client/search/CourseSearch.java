@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 
 /**
  * 
@@ -13,7 +14,7 @@ import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
  */
 public class CourseSearch extends AbstractSearch {
 	
-	public CourseSearch(String searchTerm, AbstractSearchPage page) {
+	public CourseSearch(String searchTerm, SearchPageInterface page) {
 		super(searchTerm, page);
 	}
 

@@ -12,6 +12,7 @@ import org.rapla.plugin.studiinf.client.ui.ResultButton;
 /**
  * 
  * @author Team StudiInf
+ * 
  *Page for searching courses
  */
 public class CourseSearchPage extends AbstractSearchPage {

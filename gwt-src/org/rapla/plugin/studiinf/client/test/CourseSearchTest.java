@@ -7,6 +7,7 @@ import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
 import org.rapla.plugin.studiinf.client.pages.CourseSearchPage;
+import org.rapla.plugin.studiinf.client.pages.TestSearchPage;
 import org.rapla.plugin.studiinf.client.search.CourseSearch;
 
 import com.google.gwt.junit.client.GWTTestCase;
@@ -21,7 +22,7 @@ public class CourseSearchTest extends GWTTestCase {
 	List<ResourceDescription> pList;
 	List<ResourceDescription> resultList;
 	List<ResourceDescription> expectedList;
-	static CourseSearchPage csp;
+	static TestSearchPage csp;
 
 	@Override
 	public String getModuleName() {
@@ -49,7 +50,7 @@ public class CourseSearchTest extends GWTTestCase {
 		pList.add(course4);
 		pList.add(course1);
 		
-		csp = new CourseSearchPage();
+		csp = new TestSearchPage();
 			
 	}
 	
@@ -63,7 +64,7 @@ public class CourseSearchTest extends GWTTestCase {
 		expectedList.add(course1);
 		expectedList.add(course3);
 		
-		CourseSearch rs = new CourseSearch("W", (AbstractSearchPage) Navigation.course);
+		CourseSearch rs = new CourseSearch("W", csp);
 		resultList = rs.searchRessources(pList);
 		assertEquals(expectedList, resultList);
 	}
