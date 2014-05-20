@@ -20,7 +20,7 @@ import org.rapla.plugin.studiinf.client.pages.OrganisationChartRoom;
 import org.rapla.plugin.studiinf.client.pages.RaplaPagePerson;
 import org.rapla.plugin.studiinf.client.pages.PersonSearchPage;
 import org.rapla.plugin.studiinf.client.pages.PoiSearchPage;
-import org.rapla.plugin.studiinf.client.pages.RoomRaplaPage;
+import org.rapla.plugin.studiinf.client.pages.RaplaPageRoom;
 import org.rapla.plugin.studiinf.client.pages.RoomSearchPage;
 
 import com.google.gwt.user.client.History;
@@ -47,7 +47,7 @@ public final class Navigation {
 	public static final AbstractPage organisationChartRoom = new OrganisationChartRoom();
 	public static final AbstractPage extraInfo = new ExtraInfoPage(new DetailPagePerson());
 	public static final AbstractPage raplaPersonLink = new RaplaPagePerson();
-	public static final AbstractPage raplaRoomLink = new RoomRaplaPage();
+	public static final AbstractPage raplaRoomLink = new RaplaPageRoom();
 	public static final AbstractPage raplaCourseLink = new RaplaPageCourse();
 	public static AbstractPage activePage = homePage;
 	public static final String ID_PREFIX = "";

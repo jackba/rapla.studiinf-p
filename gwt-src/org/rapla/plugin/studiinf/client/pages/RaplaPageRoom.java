@@ -7,9 +7,9 @@ import org.rapla.plugin.studiinf.client.Navigation;
  * Page that shows rapla timetable for a room
  *
  */
-public class RoomRaplaPage extends RaplaPage {
+public class RaplaPageRoom extends RaplaPage {
 
-	public RoomRaplaPage() {
+	public RaplaPageRoom() {
 		super(Navigation.roomDetail);
 	}
 	
