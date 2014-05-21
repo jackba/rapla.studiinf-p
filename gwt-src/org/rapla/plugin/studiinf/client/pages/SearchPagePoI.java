@@ -27,7 +27,7 @@ public class SearchPagePoI extends AbstractSearchPage {
 		super.init();
 		
 		qrBox.getElement().getStyle().setProperty("top", "65vh");
-		resultPanel.getElement().getStyle().setProperty("height", "35vh");
+		resultPanel.getElement().getStyle().setProperty("height", "auto");
 		
 		setSearched(true);
 		handleSearch("*");
