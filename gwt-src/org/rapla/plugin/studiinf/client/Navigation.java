@@ -110,7 +110,7 @@ public final class Navigation {
 		}
 		
 		}else{
-			//Window.alert("Nav to NULL !");
+			goToPage(homePage);
 		}
 	}
 	
