@@ -19,6 +19,7 @@ public class FontIcon extends Widget {
 		public static Position BOTH = new Position();
 	}
 	public static final String MISSING_MAP ="img/KeineKarte.png";
+	public static final String MISSING_PERSON_PNG = "img/Personen.png";
 	public static final FontIcon Persons = new FontIcon("icon-Persons");
 	public static final FontIcon Phone = new FontIcon("icon-Phone");
 	public static final FontIcon Organigram = new FontIcon("icon-Organigram");

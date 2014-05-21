@@ -48,7 +48,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 	private ResultButtonWithLabel courseOfStudyButton;
 	private ResultButtonWithLabel raplaButton;
 	
-	private Image noNavigationImg = new Image(FontIcon.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(FontIcon.MISSING_MAP);
 	private String id;
 	private String locationPictureURL = FontIcon.MISSING_MAP;
@@ -65,20 +64,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.setStyleName("navigationPicture");
-		
-		
-		if(DisplayMode.isMobile()){
-			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
-				
-				@Override
-				public void onMouseDown(MouseDownEvent event) {
-					// TODO Auto-generated method stub
-					Window.alert("Click");
-					new PopUpImagePanel(locationPictureURL).show();
-				}
-			});	
-		}
-
 		this.add(wayDescriptionImg);
 		
 		typeButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
@@ -134,7 +119,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
 		this.remove(wayDescriptionImg);
-		this.remove(noNavigationImg);
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.addErrorHandler(this);
@@ -142,12 +126,13 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		wayDescriptionImg.setStyleName("navigationPicture");
 		
 		if(DisplayMode.isMobile()){
-			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
+			wayDescriptionImg.addStyleName("mobile");
+			wayDescriptionImg.addClickHandler(new ClickHandler() {
 				
 				@Override
-				public void onMouseDown(MouseDownEvent event) {
+				public void onClick(ClickEvent event) {
 					// TODO Auto-generated method stub
-					new PopUpImagePanel(locationPictureURL).show();
+					new PopUpImagePanel(wayDescriptionImg.getUrl()).show();
 				}
 			});	
 		}
