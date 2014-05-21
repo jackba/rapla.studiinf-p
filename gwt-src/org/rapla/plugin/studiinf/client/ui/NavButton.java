@@ -120,18 +120,6 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		button.setFocus(false);
 	}
 	
-	@UiHandler("button")
-	void onTouchStart( TouchStartEvent e){
-		handlePressEvent();
-		button.setFocus(false);
-	}
-	
-	@UiHandler("button")
-	void onTouchEnd( TouchEndEvent e)
-	{
-		button.setFocus(false);
-	}
-	
 	protected void handlePressEvent(){
 		if(getEnabled()){
 			if(getClickHandler() == null){
