@@ -5,13 +5,17 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.CategoryDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseOrganigramSearch;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
+import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
+
+
 
 
 
@@ -34,6 +38,11 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	public String helpId;
 	
 	private String categoryId;
+	private LocalStorage ls;
+	public OrganisationChart() {
+		ls = new LocalStorage(getHistoryKey(), organigram, null, null, null);
+	}
+	
 		
 	@Override
 	public void init(){
@@ -134,13 +143,12 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void handleClickCount(String targetId) {
-		// TODO Auto-generated method stub
+		ls.increaseInStorage(targetId);
 	}
 	@Override
 	protected void showRaplaLinks(boolean b) {

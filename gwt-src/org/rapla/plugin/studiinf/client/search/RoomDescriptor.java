@@ -53,7 +53,7 @@ public class RoomDescriptor extends AbstractDescriptor {
 	public String getRaplaLink() {
 		if(raplaLink == null)
 		{
-			raplaLink = DisplayMode.enhanceImageURL(getCell("resourceURL"));
+			raplaLink = getCell("resourceURL");
 			}
 		return raplaLink;
 		}
@@ -62,7 +62,7 @@ public class RoomDescriptor extends AbstractDescriptor {
 	{
 		if(location == null)
 		{
-			location = getCell("location");
+			location = DisplayMode.enhanceImageURL(getCell("location"));
 		}
 		return location;
 	}

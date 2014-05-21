@@ -5,12 +5,12 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.LocalStorage;
+import org.rapla.plugin.studiinf.client.RessourceLogger;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.Keyboard;
 import org.rapla.plugin.studiinf.client.ui.NavButton;
-import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
@@ -19,7 +19,6 @@ import com.google.gwt.event.dom.client.FocusEvent;
 import com.google.gwt.event.dom.client.FocusHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -196,6 +195,7 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 	private void handleKeyEvent(){
 		searchField.setCursorPos(searchField.getText().length());
 		searchField.setFocus(true);
+		RessourceLogger.setSearchString(searchField.getText());
 		if (searchField.getText().equals("")){
 			setSearched(false);
 			handleMostFrequent();
