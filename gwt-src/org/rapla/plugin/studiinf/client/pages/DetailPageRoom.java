@@ -65,19 +65,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.setStyleName("navigationPicture");
-		
-		
-		if(DisplayMode.isMobile()){
-			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
-				
-				@Override
-				public void onMouseDown(MouseDownEvent event) {
-					// TODO Auto-generated method stub
-					Window.alert("Click");
-					new PopUpImagePanel(locationPictureURL).show();
-				}
-			});	
-		}
 
 		this.add(wayDescriptionImg);
 		

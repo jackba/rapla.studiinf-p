@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.pages.AbstractDetailPage;
@@ -151,8 +152,9 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	}
 
 	@Override
-	public void setNumber(int numberValue) {
-		this.numberValue = numberValue;
+	public void setNumber(int numberValue) {		
+			this.numberValue = numberValue;					
+				
 		if(numberValue > 0){
 			number.setInnerHTML(Studiinf.i18n.numberFormat(numberValue));
 		}else{
@@ -288,6 +290,5 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	public boolean getShowWhenDisabled() {
 		return this.showWhenDisabled;
 	}
-	
 
 }
