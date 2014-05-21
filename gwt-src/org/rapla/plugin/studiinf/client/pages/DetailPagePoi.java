@@ -103,6 +103,10 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
+//		if(DisplayMode.isMobile()){
+//			
+//		}
+		
 	//	qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
 		this.add(infoPanel);
@@ -143,7 +147,7 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		if(DisplayMode.isMobile()){
 			wayDescriptionImg.addStyleName("mobile");
 			wayDescriptionImg.addClickHandler(new ClickHandler() {
-				
+			
 				@Override
 				public void onClick(ClickEvent event) {
 					// TODO Auto-generated method stub
