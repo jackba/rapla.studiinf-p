@@ -5,18 +5,23 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
+import org.rapla.plugin.studiinf.client.ui.PopUpImagePanel;
 import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
 /**
@@ -51,6 +56,8 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 	private String roomButtonId;
 	private String mailButtonText;
 	private String telephoneButtonText;
+	private Image personImg = new Image(FontIcon.MISSING_PERSON_PNG);
+	private String personPictureURL = FontIcon.MISSING_PERSON_PNG;
 	
 
 	
@@ -100,11 +107,11 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		infos.addResult(raplaButton);
 		infos.refresh();
 		
-		FontIcon icon = new FontIcon(FontIcon.Persons.getUrl());
-		icon.setStyleName("personDetailPicture");
+		personImg = new Image(personPictureURL);
+		personImg.setStyleName("personDetailPicture");
 		
 		personInfoPanel.add(personInfoLabel);
-		personInfoPanel.add(icon);
+		personInfoPanel.add(personImg);
 		personInfoPanel.add(infos);
 		
 		middlePanel.add(courseOfStudyLabel);
@@ -114,7 +121,7 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
-		this.add(middlePanel);
+		this.add(middlePanel);	
 	}
 	
 	@Override
@@ -149,6 +156,20 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		roomButton.setText(roomButtonText);
 		raplaButton.setTargetId(id);
 		extraInfosButton.setTargetId(id);
+		
+		if(DisplayMode.isMobile()){
+			personImg.addClickHandler(new ClickHandler() {
+				
+				@Override
+				public void onClick(ClickEvent event) {
+					// TODO Auto-generated method stub
+					new PopUpImagePanel(personPictureURL).show();
+				}
+			});	
+		}
+		
+		this.add(personImg);
+		
 	}
 
 	@Override
@@ -178,6 +199,14 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		courseOfStudyInfo.setText(person.getDepartment());
 		refresh();
 		loadEvents();
+//		if(!person.getPicture().equals(""))
+//			{
+//				personPictureURL = person.getPicture();
+//			}
+//			else{
+//				personPictureURL = FontIcon.MISSING_PERSON_PNG;
+//			}
+//		}
 	}
 
 

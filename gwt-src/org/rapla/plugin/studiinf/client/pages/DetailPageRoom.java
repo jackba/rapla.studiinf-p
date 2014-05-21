@@ -65,7 +65,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.setStyleName("navigationPicture");
-
 		this.add(wayDescriptionImg);
 		
 		typeButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
@@ -129,10 +128,10 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		wayDescriptionImg.setStyleName("navigationPicture");
 		
 		if(DisplayMode.isMobile()){
-			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
+			wayDescriptionImg.addClickHandler(new ClickHandler() {
 				
 				@Override
-				public void onMouseDown(MouseDownEvent event) {
+				public void onClick(ClickEvent event) {
 					// TODO Auto-generated method stub
 					new PopUpImagePanel(locationPictureURL).show();
 				}

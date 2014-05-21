@@ -7,6 +7,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -14,6 +15,7 @@ import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
+import org.rapla.plugin.studiinf.client.ui.PopUpImagePanel;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
 import org.rapla.plugin.studiinf.client.ui.RessourceButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
@@ -22,6 +24,8 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ErrorEvent;
 import com.google.gwt.event.dom.client.ErrorHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -77,16 +81,6 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		infos.getColumnFormatter().setWidth(0, "25%");
 		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");
-		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052")){
-			//wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
-			wayDescriptionImg.setStyleName("navigationPicture");
-			this.add(wayDescriptionImg);
-		}
-		else{
-			noNavigationImg.setStyleName("navigationPicture");
-			this.add(noNavigationImg);
-		}
 		
 		roomButton = new RessourceButtonWithLabel(new ResultButton( FontIcon.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label("hj"));
 		rowOneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
@@ -144,6 +138,18 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		wayDescriptionImg.addErrorHandler(this);
 		wayDescriptionImg.setVisible(true);
 		wayDescriptionImg.setStyleName("navigationPicture");
+		
+		if(DisplayMode.isMobile()){
+			wayDescriptionImg.addClickHandler(new ClickHandler() {
+				
+				@Override
+				public void onClick(ClickEvent event) {
+					// TODO Auto-generated method stub
+					new PopUpImagePanel(locationPictureURL).show();
+				}
+			});	
+		}
+		
 		this.add(wayDescriptionImg);
 		
 
