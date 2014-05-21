@@ -102,7 +102,7 @@ public class ResultTable extends FlexTable {
 	this.accessibilityRow = accessibilityRow;
 	this.page = 0;
 	if(DisplayMode.isMobile()){
-		size = 1;
+		size = 1.2;
 	}else{
 		size= 0.5;
 	}

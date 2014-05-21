@@ -46,17 +46,24 @@ public class HomePage extends AbstractPage {
 		Tile courseBtn = new Tile(Studiinf.i18n.courses(),Navigation.course, FontIcon.Courses);
 		Tile personBtn = new Tile(Studiinf.i18n.people(),Navigation.person, FontIcon.Persons);
 		Tile roomBtn = new Tile(Studiinf.i18n.rooms(),Navigation.room, FontIcon.Rooms);
-		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi, FontIcon.PoI);
+		Tile poiBtn = new Tile(Studiinf.i18n.pointsOfInterest(),Navigation.poi, FontIcon.PoI);	
+	
 		
-		if(DisplayMode.isMobile()){
-			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 4);
-		} else {
-			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 7);
-		}
 		
-		freeRoomsTable.setStyleName("freeRooms");
+		
 		resultLabel.setStyleName("infoLabel");
 		resultPanel.setStyleName("resultPanel");
+
+		if(DisplayMode.isMobile()){
+			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 4);
+			resultLabel.addStyleName("mobile");
+			
+		} else {
+			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 7);	
+		}
+	
+		freeRoomsTable.setStyleName("freeRooms");
+	
 		
 		QRBox qrBox = new QRBox(getHistoryKey());
 		tileContainer.add(courseBtn);

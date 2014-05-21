@@ -40,6 +40,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		String tile();
 		String twoLines();
 		String disabled();
+		String mobile();
 	}
 	AbstractPage targetPage;
 	String targetId;

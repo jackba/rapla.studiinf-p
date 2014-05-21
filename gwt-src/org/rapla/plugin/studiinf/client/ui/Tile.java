@@ -1,5 +1,6 @@
 package org.rapla.plugin.studiinf.client.ui;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
 
 /**
@@ -12,6 +13,10 @@ public class Tile extends NavButton {
 		//TODO: layouting der Bilder
 		super(icon, title,targetPage,null);
 		this.addStyleName(this.style.tile());
+
+		if (DisplayMode.isMobile()){
+			this.addStyleName(this.style.mobile());
+		}
 		
 	}
 

@@ -218,7 +218,7 @@ nav{
 	}
 	
 .footer.mobile{
-		height:8vh;
+		height:11vh;
 	}
 	
 .searchField{
@@ -351,6 +351,10 @@ nav{
 	width:100vw;
 	text-align: center;
 	height:25vh;
+}
+
+.tileContainer.mobile{
+	bottom:13vh;
 }
 
 .tile:nth-of-type(3n+1){

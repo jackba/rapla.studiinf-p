@@ -37,8 +37,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	
 	public void setMobileDimension(){
 		if(DisplayMode.isMobile()){
-			buttonSize = 1.0;
-			buttonWidth = 35;
+			buttonSize = 1.5;
+			buttonWidth = 42;
 			buttonTop = 1.25;
 			this.addStyleName("mobile");
 		}else{

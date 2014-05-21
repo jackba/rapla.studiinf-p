@@ -177,6 +177,9 @@
 		width:44vw;
 		margin:1vw;
 	}
+	.tile.mobile{
+		height:12em;
+	}
 	.tile .text{
 		margin-top: -2em;
 	}
@@ -199,7 +202,7 @@
 		color: #d6dadc;
 		font-size: 0.775em;
 		top: 6em;
-	} 
+	}
 	.tile:hover .icon{
 		background: transparent;
 	}
@@ -207,6 +210,13 @@
 		top: 0px;
 		font-size: 6em;
 	} 
+	.tile.mobile .icon span{
+		top: 1px;
+		font-size: 8em;
+	} 
+	.tile.mobile .text{
+		font-size: 3em;
+	}
 
 	</ui:style>
 	<g:Button styleName="{style.navigationButton}" ui:field="button">
