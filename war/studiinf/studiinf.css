@@ -280,11 +280,12 @@ html{
 }
 
 .searchPanel.focus{
-	bottom: 0vh;
+	bottom: 20vh;
+	height: 0.7vh;
 }
 
 .resultPanel.mobile{
-	top: 9vh;
+	top: 7vh;
 }
 
 .page-poi .resultPanel{
