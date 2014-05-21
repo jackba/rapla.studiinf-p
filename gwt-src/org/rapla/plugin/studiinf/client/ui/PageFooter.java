@@ -54,7 +54,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	
 	public void init(){
 		this.setStyleName("footer");
-	    NavButton homeBtn = new NavButton(FontIcon.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);	
+	    NavButton homeBtn = new NavButton(FontIcon.Home,Studiinf.i18n.homeButtonText(),Navigation.homePage,null);
+	    homeBtn.setCentered(true);
 	    setMobileDimension();
 	    homeBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    homeBtn.getElement().getStyle().setRight(5, Unit.PCT);
@@ -95,7 +96,8 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    languages.add(languagesPanel);
 	    
 	    	    
-	    languageChangeButton = new NavButton(FontIcon.World, Studiinf.i18n.languageButtonText(), null, null);/*todo always load english file*/
+	    languageChangeButton = new NavButton(FontIcon.World, Studiinf.i18n.languageButtonText(), null, null);
+	    languageChangeButton.setCentered(true);
 	    languageChangeButton.setClickHandler(this);
 	    languageChangeButton.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    languageChangeButton.getElement().getStyle().setLeft(5, Unit.PCT);
@@ -108,6 +110,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    
 	    backBtn = new NavButton(FontIcon.Previous,Studiinf.i18n.back(), null, null);
 	    
+	    backBtn.setCentered(true);
 	    backBtn.setSize(buttonSize);
 	    backBtn.getElement().getStyle().setPosition(Position.ABSOLUTE);
 	    backBtn.getElement().getStyle().setLeft(50, Unit.PCT);
