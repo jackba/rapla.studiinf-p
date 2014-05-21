@@ -11,6 +11,7 @@ import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PoiDescriptor;
+import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.QRBox;
@@ -21,6 +22,8 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ErrorEvent;
+import com.google.gwt.event.dom.client.ErrorHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
@@ -32,7 +35,7 @@ import com.google.gwt.user.client.ui.Label;
  * 
  * Page for displaying POI details
  */
-public class DetailPagePoi extends AbstractDetailPage implements SearchPageInterface{
+public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,SearchPageInterface{
 
 	private FlowPanel infoPanel = new FlowPanel();
 	private Label infoLabel = new Label(Studiinf.i18n.information());
@@ -55,6 +58,14 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 	
 	private String id;
 	private String roomButtonId;
+	private String locationPictureURL;
+
+	public String getLocationPictureURL() {
+		if(locationPictureURL == null){
+			locationPictureURL = FontIcon.MISSING_MAP;
+		}
+		return locationPictureURL;
+	}
 
 	@Override
 	public void init(){
@@ -126,18 +137,19 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 		rowTwoButton.setText(rowTwoButtonText);
 		raplaButton.setTargetId(id);
 		
-		this.remove(wayDescriptionImg);
 		this.remove(noNavigationImg);
+		this.remove(wayDescriptionImg);
 		
-		if (nameButtonText.equals("A051") || nameButtonText.equals("A052")  || nameButtonText.equals("LA051") || nameButtonText.equals("LA052")  || nameButtonText.equals("RA051") || nameButtonText.equals("RA052") || nameButtonText.equals("Bibliothek")){
-			//wayDescriptionImg = new Image(Picture.getImageURL(nameButtonText));
-			wayDescriptionImg.setStyleName("navigationPicture");
-			this.add(wayDescriptionImg);
-		}
-		else{
-			noNavigationImg.setStyleName("navigationPicture");
-			this.add(noNavigationImg);
-		}
+		wayDescriptionImg = new Image(getLocationPictureURL());
+		wayDescriptionImg.addErrorHandler(this);
+		wayDescriptionImg.setVisible(true);
+		wayDescriptionImg.setStyleName("navigationPicture");
+		this.add(wayDescriptionImg);
+		
+
+		
+		
+		
 		
 	}
 	
@@ -189,6 +201,26 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 				rowTwoButton.getElement().getStyle().setDisplay(Display.NONE);
 				rowTwoButton.hideLabelAndFooterButton();
 			}
+		locationPictureURL = FontIcon.MISSING_MAP;
+		ServiceProvider.getResource(pd.getRoomId(), new AsyncCallback<ResourceDetail>() {
+				@Override
+				public void onSuccess(ResourceDetail arg0) {
+					RoomDescriptor rd = new RoomDescriptor(arg0);
+					if(!rd.getLocation().equals("")){
+						locationPictureURL = rd.getLocation();
+					}else{
+						locationPictureURL = FontIcon.MISSING_MAP;
+					}
+					refresh();
+				}
+	
+				@Override
+				public void onFailure(Throwable arg0) {
+					locationPictureURL = FontIcon.MISSING_MAP;
+					refresh();
+				}
+		});
+		
 		refresh();
 
 		Date dateBegin = new Date();
@@ -235,6 +267,13 @@ public class DetailPagePoi extends AbstractDetailPage implements SearchPageInter
 	@Override
 	public void handleClickCount(String targetId) {
 		//Do nothing
+	}
+
+	@Override
+	public void onError(ErrorEvent event) {
+		if(!wayDescriptionImg.getUrl().endsWith(FontIcon.MISSING_MAP)){
+			wayDescriptionImg.setUrl(FontIcon.MISSING_MAP);
+		}
 	}
 
 
