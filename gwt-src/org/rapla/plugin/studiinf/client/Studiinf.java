@@ -32,43 +32,25 @@ public class Studiinf implements EntryPoint {
 	}
 
 	/**
-	 * 
+	 * initializes the navigation-token
 	 */
 	private void initToken() {
-		// initToken
 		String initToken = History.getToken();
 	    if (initToken.length() == 0) {
 	      History.newItem("");
 	    }
 	}
 	
-	/**
-	 * 
-	 * @param elementId
-	 * @param text
-	 */
-	public static native void newQRCode(String elementId,String text) /*-{
-		var elm =  $doc.getElementById(elementId);
-		if(elm){
-			var qr = new $wnd.QRCode(elm, {
-    			text: text,
-    			correctLevel : $wnd.QRCode.CorrectLevel.L
-    		});
-		}else{
-			$wnd.alert(JSON.stringify(elm));
-		}
-	
-	}-*/;
 	
 	/**
-	 * 
-	 * @param element
-	 * @param text
+	 * Generates a new QR-code on the given Element for the URL 
+	 * @param element Element to place the QR-code
+	 * @param url URL to be encoded to the QR-code
 	 */
-	public static native void newQRCode(Element element,String text) /*-{
+	public static native void newQRCode(Element element,String url) /*-{
 	if(element){
 		var qr = new $wnd.QRCode(element, {
-			text: text,
+			text: url,
 			correctLevel : $wnd.QRCode.CorrectLevel.L
 		});
 	}else{

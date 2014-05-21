@@ -11,52 +11,37 @@ import com.google.gwt.user.client.Window;
 public class DisplayMode {
 	
 	private static boolean mobile = false;
-	
+		
 	public static final String DisplayParameterName = "display";
-	
-	public static final String SteleParameterName = "stele";
-	public static final String SteleLeft = "L";
-	public static final String SteleMiddle = "";
-	public static final String SteleRight = "R";
-	
 	public static final String SteleMode = "stele";
 	public static final String MobileMode = "mobile";
 	
-	private static String stelePosition;
 	
 	
 	static{
 		String displayMode = Window.Location.getParameter(DisplayMode.DisplayParameterName);
-		if(displayMode != null && displayMode.equals(DisplayMode.SteleMode)){
+		if(displayMode != null && displayMode.toLowerCase().equals(DisplayMode.SteleMode.toLowerCase())){
 			DisplayMode.mobile = false;
 		}else{
 			DisplayMode.mobile = true;
 		}
-		String stelePositionParam = Window.Location.getParameter(DisplayMode.SteleParameterName);
-		if(stelePositionParam != null){
-			stelePosition = stelePositionParam;
-		}else{
-			stelePosition = SteleMiddle;
-		}
+		
 		
 	}
-	
+	/**
+	 * Returns whether the application is running on mobile mode
+	 * @return mobile mode is active
+	 */
 	public static boolean isMobile(){
 		return mobile;
 	}
+	
+	/**
+	 * Returns whether the application is running on stele mode
+	 * @return stele mode is active
+	 */
 	public static boolean isStele(){
 		return !mobile;
-	}
-	
-	public static String getStelePosition(){
-		return stelePosition;
-	}
-	
-	public static String enhanceImageURL(String imageURL){
-		String prefix = imageURL.substring(0, imageURL.lastIndexOf("/")+1);
-		String suffix = imageURL.substring(imageURL.lastIndexOf("/")+1);
-		return prefix + getStelePosition() + suffix;
-		
 	}
 	
 }

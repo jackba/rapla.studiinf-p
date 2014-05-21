@@ -4,7 +4,7 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 
 /**
- * 
+ * Handler to detect changes in the URL and display the correct page
  *
  */
 public class HistoyChangeHandler implements ValueChangeHandler<String> {
