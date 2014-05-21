@@ -46,4 +46,7 @@ public interface I18n extends Messages {
 	String type();
 	String mail();
 	String telephone();
+	String extraInfosLabel();
+	String linkRaplaLabel();
+	String courseOfStudyLabel();
 	}

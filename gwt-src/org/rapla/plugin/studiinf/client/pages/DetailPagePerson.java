@@ -78,13 +78,14 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		appointmentLabel.setStyleName("personAppointmentLabel");
 		courseOfStudyLabel.setStyleName("personCourseOfStudyLabel");
 		courseOfStudyInfo.setStyleName("personCourseOfStudyInfo");
+		
 		eventPanel.setStyleName("lecturesTable");
 		
 		roomButton = new RessourceButtonWithLabel(new ResultButton(FontIcon.Rooms,roomButtonText, Navigation.roomDetail,null,true), new Label(Studiinf.i18n.room()));
 		mailButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Email, mailButtonText, null, null, false), new Label(Studiinf.i18n.mail()));
 		telephoneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Phone, telephoneButtonText, null, null, false), new Label(Studiinf.i18n.telephone()));
-		extraInfosButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfos()));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRapla()));		
+		extraInfosButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information,Studiinf.i18n.extraInfos(), Navigation.extraInfo, id, true), new Label(Studiinf.i18n.extraInfosLabel()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaPersonLink, id, true), new Label(Studiinf.i18n.linkRaplaLabel()));		
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
