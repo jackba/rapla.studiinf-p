@@ -409,18 +409,12 @@ html{
 	height:29.5vh;
 	background:#858f95;
 }
-<<<<<<< HEAD
-.navigationPicture.mobile{
-	top: 56vh;
-}
-=======
 
 .navigationPicture.mobile{
 	top: 50vh;
 	height:36vh;
 }
 
->>>>>>> branch 'firstImplementation' of https://thunfischborrito%40gmx.de@code.google.com/p/rapla.studiinf-p/
 .results td{
 	width:50%;
 }
