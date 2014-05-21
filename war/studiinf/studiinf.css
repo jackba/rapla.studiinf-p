@@ -395,6 +395,11 @@ html{
 	background:#858f95;
 }
 
+.navigationPicture.mobile{
+	top: 50vh;
+	height:36vh;
+}
+
 .results td{
 	width:50%;
 }

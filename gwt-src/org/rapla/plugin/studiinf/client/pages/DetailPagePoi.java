@@ -141,6 +141,7 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		wayDescriptionImg.setStyleName("navigationPicture");
 		
 		if(DisplayMode.isMobile()){
+			wayDescriptionImg.addStyleName("mobile");
 			wayDescriptionImg.addClickHandler(new ClickHandler() {
 				
 				@Override
