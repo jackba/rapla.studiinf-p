@@ -98,107 +98,6 @@ html{
 		left:1.8vw;
 	}
 
-nav{
-		position:absolute;
-		bottom:6.75vh;
-		left:5vw;
-		right:5vw;
-		top:6.75vh;
-		width:90vw;
-		color:#d6dadc;
-		padding: 0;
-		margin: 0;
-	}
-	nav ul{
-		clear: both;
-		padding: 0;
-		margin: 0.5vh 0.5vh;
-		width:calc(90vw-1vh);
-		height:80vh;
-	}
-	nav ul li{
-		display: block;
-		list-style-type: none;
-		padding: 0;
-		margin: 0.3vh;
-		width: 31.2%;
-		height: 31.2%;
-		background-color:#e2001a;
-		color:#ffffff;
-		float:left;
-		position:relative;
-		overflow:hidden;
-		opacity:1.0;
-		border:solid 0.1vh #000000;
-		box-shadow: 0 0 0.1vh #ffffff;
-	}
-	
-	nav ul li:hover,nav ul li:active{
-		opacity:0.8;
-		border:solid 0.1vh #ffffff;
-		box-shadow: 0 0 0.1vh #000000;
-	}
-	nav ul li:nth-of-type(3n+1){
-		color:#ffffff;
-		background-color:#858f95;
-		text-shadow:0 0 0.1vh #000000;
-	}
-	nav ul li:nth-of-type(3n+2){
-		color:#000000;
-		background-color:#aeb4b8;
-		text-shadow:0 0 0.1vh #ffffff;
-	}
-	nav ul li:nth-of-type(3n+3){
-		color:#ffffff;
-		background-color:#5c6971;
-		text-shadow:0 0 0.1vh #000000;
-	}
-	nav ul li.big{
-		width:95.9%;
-		height: 31.2%;
-		padding-left:0.3vh;
-		padding-right:0.3vh;
-		clear:both;
-	}
-	nav ul li.medium{
-		width:47.9%;
-		height: 31.2%;
-	}
-	nav ul li.small{
-		width:47.9%;
-		height: 15.146%;
-	}
-	nav ul li.medium+li.medium+li,nav ul li.medium+li.small+li.small+li{
-		clear:both;
-	}
-	
-	nav ul li i{
-		width:100%;
-		text-align:center;
-		position:absolute;
-		top:2vh;
-		line-height:20vh;
-		font-size:15vh;
-	}
-	nav ul li.small i{
-		line-height:5vh;
-		font-size:5vh;
-	}
-	
-	nav ul li span{
-		display:block;
-		position:absolute;
-		bottom:2vh;
-		width:100%;
-		text-align:center;
-		line-height:5vh;
-		font-size:5vh;
-	}
-	nav ul li.small span{
-		line-height:2.5vh;
-		font-size:2.5vh;
-	}
-
 .footer{
 		height:6vh;
 		width:100vw;
@@ -218,7 +117,7 @@ nav{
 	}
 	
 .footer.mobile{
-		height:11vh;
+		height:8vh;
 	}
 	
 .searchField{
@@ -352,7 +251,6 @@ nav{
 	text-align: center;
 	height:25vh;
 }
-
 	
 .infoPanel, .resultPanel, .searchPanel, .personInfoPanel, .personMiddlePanel, .courseMiddlePanel{
 	position: absolute;

@@ -18,6 +18,7 @@ public class Studiinf implements EntryPoint {
 	CategoryDescription studiengaenge;
 	
 	public static final I18n i18n = GWT.create(I18n.class);
+	public static final String urlToRapla = "../";
 	
 	/**
 	 * This is the entry point method.

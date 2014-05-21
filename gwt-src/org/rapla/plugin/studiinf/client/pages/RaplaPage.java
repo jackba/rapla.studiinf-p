@@ -3,7 +3,6 @@ package org.rapla.plugin.studiinf.client.pages;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
-import org.rapla.plugin.studiinf.client.ui.NavButton;
 
 import com.google.gwt.user.client.ui.Frame;
 
@@ -14,9 +13,8 @@ import com.google.gwt.user.client.ui.Frame;
 abstract public class RaplaPage extends AbstractDetailPage {
 	
 	private Frame frame;
-	private String id;
+	//private String id;
 	private AbstractPage target;
-//	private NavButton backBtn;
 	
 	/**
 	 * 
@@ -36,10 +34,7 @@ abstract public class RaplaPage extends AbstractDetailPage {
 		
 		frame = new Frame("#");
 		frame.setStyleName("raplaFrame");
-//		backBtn = new NavButton(Studiinf.i18n.back(), target, id);
 		footer.setTargetPage(target);
-//		backBtn.setStyleName("raplaBackButton");
-//		this.add(backBtn);
 			
 	}
 	
@@ -61,11 +56,13 @@ abstract public class RaplaPage extends AbstractDetailPage {
 	@Override
 	protected void handleRessource(String id, ResourceDetail resource) {
 		this.id = id;
-//		backBtn.setTargetId(id);
 		footer.setTargetId(id);
 		PersonDescriptor person = new PersonDescriptor(resource);
-		frame.setUrl(person.getRaplaLink());
-		this.add(frame);
+		String raplaLink = person.getRaplaLink();
+		if(raplaLink != null){
+			frame.setUrl(Studiinf.urlToRapla + raplaLink);
+			this.add(frame);
+		}
 	}
 	
 	@Override
