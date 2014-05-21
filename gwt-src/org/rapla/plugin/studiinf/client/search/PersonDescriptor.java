@@ -17,6 +17,7 @@ public class PersonDescriptor extends AbstractDescriptor{
 	private String department;
 	private String phoneNr;
 	private String raplaLink;
+	private String picture;
 
 
 	
@@ -63,5 +64,12 @@ public class PersonDescriptor extends AbstractDescriptor{
 			}
 		return raplaLink;
 		}
+	
+	public String getPicture(){
+		if(picture == null){
+			picture = getCell("bild");
+		}
+		return picture;
+	}
 	
 }

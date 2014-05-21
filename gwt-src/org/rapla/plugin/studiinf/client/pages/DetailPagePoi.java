@@ -86,6 +86,7 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		rowOneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
 		rowTwoButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
 		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
+
 		
 		roomButton.setSize(0.8);
 		raplaButton.setSize(0.8);
