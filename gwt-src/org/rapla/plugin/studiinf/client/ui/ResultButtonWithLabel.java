@@ -3,6 +3,8 @@ package org.rapla.plugin.studiinf.client.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.rapla.plugin.studiinf.client.DisplayMode;
+
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.Label;
@@ -22,6 +24,11 @@ public class ResultButtonWithLabel implements ResultObjectWithLabel{
 		this.resultObject = resultObject;
 		this.label = label;	
 		label.setStyleName("labelResultTable");
+		
+		if (DisplayMode.isMobile()){
+			label.addStyleName("mobile");	
+		}
+		
 	}
 	
 	@Override

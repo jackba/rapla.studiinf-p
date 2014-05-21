@@ -7,6 +7,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -35,7 +36,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	abstract public boolean hasDefaultQrBox();
 	protected List<Event> events;
 	protected ResultTable eventPanel = new ResultTable(new AccessibilityRow(), 2, 3);
-	protected FlowPanel middlePanel;
+	protected FlowPanel middlePanel  = new FlowPanel();
 	/**
 	 * Returns the id of the resource to display
 	 * @return id of the resource
@@ -161,11 +162,20 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		int row = events.indexOf(event);
 		NavButton firstLecture = new NavButton(event2niceString(event), Navigation.raplaCourseLink, id);
 		firstLecture.setWidth("100%");
-		firstLecture.setSize(0.87);
+		double fontsize;
+		
+		if(DisplayMode.isMobile()){
+			fontsize = 0.9;
+		} else {
+			fontsize = 0.87;
+		}
+		
+		firstLecture.setSize(fontsize);
+		
 		eventPanel.setWidget(row, 0, firstLecture);
 		
 		NavButton roomsShowButton = new NavButton(FontIcon.Rooms, Studiinf.i18n.rooms(), null, null);
-		roomsShowButton.setSize(0.87);
+		roomsShowButton.setSize(fontsize);
 		eventPanel.setWidget(row, 1, roomsShowButton);
 		
 		List<ResourceDescription> resources = event.getResources();

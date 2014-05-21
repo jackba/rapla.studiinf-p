@@ -5,6 +5,7 @@ import java.util.List;
 import org.rapla.plugin.freiraum.common.Event;
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.PersonDescriptor;
@@ -32,7 +33,6 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
-	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label(Studiinf.i18n.information());
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
@@ -115,6 +115,16 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
+		
+		if(DisplayMode.isMobile()){
+			infos.setPaginationPlaceholder(false);
+			personInfoPanel.addStyleName("mobile");
+			middlePanel.addStyleName("mobile");
+
+			appointmentLabel.addStyleName("mobile");
+			courseOfStudyLabel.addStyleName("mobile");
+			courseOfStudyInfo.addStyleName("mobile");
+		}
 	}
 	
 	@Override

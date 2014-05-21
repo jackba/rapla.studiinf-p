@@ -130,7 +130,7 @@ html{
 	bottom:auto;
 	top: 48.3vh;
 	left:30vw;
-	rigth:25vw;
+	right:25vw;
 	width:40vw;
 	height:5vh;
 	margin:0;
@@ -146,7 +146,9 @@ html{
 .organigramBtn.mobile{
 	left:20vw;
 	width:60vw;
-	rigth:auto;
+	right:auto;
+	top:auto;
+	bottom: 23vh;
 }
 
 .results, .infos, .personInfos, .freeRooms{
@@ -288,13 +290,18 @@ html{
 	top: 7vh;
 }
 
+.personInfoPanel {
+	height:31vh;
+}
+.personInfoPanel.mobile{
+	height: 45vh;
+	bottom: auto;
+	top: 7vh;
+}
 .page-poi .resultPanel{
 	height:27.3vh;
 }
 
-.personInfoPanel {
-	height:31vh;
-}
 .searchPanel{
 	top:auto;
 	bottom:22vh;
@@ -307,6 +314,12 @@ html{
 	top: 45vh;
 	bottom: auto;
 	height:28vh;
+}
+
+.personMiddlePanel.mobile{
+	top: auto;
+	bottom: 13vh;
+	height: 28vh;
 }
 
 .courseMiddlePanel {
@@ -329,7 +342,9 @@ html{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+.personCourseOfStudyInfo.mobile,.personCourseOfStudyLabel.mobile, .personAppointmentLabel.mobile{
+	font-size: 3em;
+} 
 .infoLabel.mobile{
 	font-size:3vh;
 }
@@ -394,7 +409,9 @@ html{
 	height:29.5vh;
 	background:#858f95;
 }
-
+.navigationPicture.mobile{
+	top: 56vh;
+}
 .results td{
 	width:50%;
 }
@@ -505,4 +522,8 @@ html{
 .labelResultTable {
 	font-size: 1.5vh;
 	color: black;
+}
+
+.labelResultTable.mobile{
+	font-size: 2.2vh;
 }
