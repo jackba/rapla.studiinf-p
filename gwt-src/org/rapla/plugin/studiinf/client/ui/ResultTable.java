@@ -103,6 +103,7 @@ public class ResultTable extends FlexTable {
 	this.page = 0;
 	if(DisplayMode.isMobile()){
 		size = 1.2;
+		this.addStyleName("mobile");
 	}else{
 		size= 0.5;
 	}

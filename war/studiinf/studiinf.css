@@ -117,7 +117,7 @@ html{
 	}
 	
 .footer.mobile{
-		height:8vh;
+		height:11vh;
 	}
 	
 .searchField{
@@ -251,7 +251,11 @@ html{
 	text-align: center;
 	height:25vh;
 }
-	
+
+.tileContainer.mobile{
+	bottom:15vh;
+}
+
 .infoPanel, .resultPanel, .searchPanel, .personInfoPanel, .personMiddlePanel, .courseMiddlePanel{
 	position: absolute;
 	top: 11vh;
@@ -273,6 +277,14 @@ html{
 }
 .searchPanel.mobile{
 	border-style: none;
+}
+
+.searchPanel.focus{
+	bottom: 0vh;
+}
+
+.resultPanel.mobile{
+	top: 9vh;
 }
 
 .page-poi .resultPanel{
