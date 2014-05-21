@@ -48,7 +48,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 	private ResultButtonWithLabel courseOfStudyButton;
 	private ResultButtonWithLabel raplaButton;
 	
-	private Image noNavigationImg = new Image(FontIcon.MISSING_MAP);
 	private Image wayDescriptionImg = new Image(FontIcon.MISSING_MAP);
 	private String id;
 	private String locationPictureURL = FontIcon.MISSING_MAP;
@@ -120,7 +119,6 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		courseOfStudyButton.setText(courseOfStudyButtonText);
 		raplaButton.setTargetId(id);
 		this.remove(wayDescriptionImg);
-		this.remove(noNavigationImg);
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.addErrorHandler(this);
@@ -133,7 +131,7 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 				@Override
 				public void onClick(ClickEvent event) {
 					// TODO Auto-generated method stub
-					new PopUpImagePanel(locationPictureURL).show();
+					new PopUpImagePanel(wayDescriptionImg.getUrl()).show();
 				}
 			});	
 		}

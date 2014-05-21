@@ -20,6 +20,9 @@ import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ErrorEvent;
+import com.google.gwt.event.dom.client.ErrorHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -30,7 +33,7 @@ import com.google.gwt.user.client.ui.Label;
  * 
  * Page for displaying person details
  */
-public class DetailPagePerson extends AbstractDetailPage implements SearchPageInterface {
+public class DetailPagePerson extends AbstractDetailPage implements ErrorHandler, SearchPageInterface {
 	
 	private String courseOfStudy;
 	private String id;
@@ -158,18 +161,25 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		raplaButton.setTargetId(id);
 		extraInfosButton.setTargetId(id);
 		
+		personInfoPanel.remove(personImg);
+		
+		personImg = new Image(personPictureURL);
+		personImg.addErrorHandler(this);
+		personImg.setVisible(true);
+		personImg.setStyleName("personDetailPicture");	
+		
 		if(DisplayMode.isMobile()){
 			personImg.addClickHandler(new ClickHandler() {
 				
 				@Override
 				public void onClick(ClickEvent event) {
 					// TODO Auto-generated method stub
-					new PopUpImagePanel(personPictureURL).show();
+					new PopUpImagePanel(personImg.getUrl()).show();
 				}
 			});	
 		}
 		
-		this.add(personImg);
+		personInfoPanel.add(personImg);
 		
 	}
 
@@ -198,16 +208,15 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 				telephoneButton.hideLabelAndFooterButton();
 			}
 		courseOfStudyInfo.setText(person.getDepartment());
-		refresh();
 		loadEvents();
-//		if(!person.getPicture().equals(""))
-//			{
-//				personPictureURL = person.getPicture();
-//			}
-//			else{
-//				personPictureURL = FontIcon.MISSING_PERSON_PNG;
-//			}
-//		}
+		if(!person.getPicture().equals(""))
+			{
+				personPictureURL = person.getPicture();
+			}
+			else{
+				personPictureURL = FontIcon.MISSING_PERSON_PNG;
+			}
+		refresh();
 	}
 
 
@@ -229,5 +238,13 @@ public class DetailPagePerson extends AbstractDetailPage implements SearchPageIn
 		//Do nothing
 	}
 
-
+	@Override
+	public void onError(ErrorEvent event) {
+		if(!personImg.getUrl().endsWith(FontIcon.MISSING_PERSON_PNG)){
+			personImg.setUrl(FontIcon.MISSING_PERSON_PNG);
+		}
+		
+	}
+	
+	
 }
