@@ -167,7 +167,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 		if(DisplayMode.isMobile()){
 			fontsize = 0.9;
 		} else {
-			fontsize = 0.87;
+			fontsize = 0.5;
 		}
 		
 		firstLecture.setSize(fontsize);
