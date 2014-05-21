@@ -218,7 +218,7 @@ nav{
 	}
 	
 .footer.mobile{
-		height:11vh;
+		height:8vh;
 	}
 	
 .searchField{
@@ -352,7 +352,6 @@ nav{
 	text-align: center;
 	height:25vh;
 }
-
 	
 .infoPanel, .resultPanel, .searchPanel, .personInfoPanel, .personMiddlePanel, .courseMiddlePanel{
 	position: absolute;

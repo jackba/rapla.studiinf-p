@@ -15,7 +15,7 @@ public class StudiinfMenuEntry extends DefaultHTMLMenuEntry
 	}
 	@Override
 	public String getLinkName() {
-		return "studiinf.html";
+		return "studiinf/index.html";
 	}
 		
 }
