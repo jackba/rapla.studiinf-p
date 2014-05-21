@@ -129,7 +129,10 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 		resultLabel.setStyleName("infoLabel");
 		results.setStyleName("results");
 		organigramBtn.addStyleName("organigramBtn");
-		organigramBtn.setWidth("0.5");
+		organigramBtn.setWidth("50vw");
+		organigramBtn.getElement().getStyle().setProperty("left", "25vw");
+		organigramBtn.getElement().getStyle().setProperty("right", "25vw");
+		organigramBtn.setCentered(true);
 		keyboard.setStyleName("keyboard");
 		resultPanel.setStyleName("resultPanel");
 		searchPanel.setStyleName("searchPanel");

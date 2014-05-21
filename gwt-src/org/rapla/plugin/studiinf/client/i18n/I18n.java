@@ -48,4 +48,5 @@ public interface I18n extends Messages {
 	String telephone();
 	String courseOfStudyLabel();
 	String roomLabel();
+	String extraInfosLabel();
 	}

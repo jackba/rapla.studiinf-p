@@ -9,6 +9,7 @@ import org.rapla.plugin.studiinf.client.Studiinf;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -169,7 +170,7 @@ public class ResultTable extends FlexTable {
 		backButton.setEnabled(false);
 		
 		if (paginationPlaceholder || hasPreviousPage()){
-		getFlexCellFormatter().setColSpan(0, 0, columns);
+		getFlexCellFormatter().setColSpan(0,  0, columns);
 		setWidget(0, 0, backButton);
 		count = count + columns;
 		}
@@ -240,7 +241,8 @@ public class ResultTable extends FlexTable {
 	}
 	
 	private int getRowNumber(int cellCount){
-		return (int)((cellCount / columns))-(page*maxRows);
+		int bonus = (paginationPlaceholder || hasPreviousPage())?1:0;
+		return (int)((cellCount / columns))+bonus-(page*maxRows);
 	}
 	
 	private int getCellInRow(int cellCount){

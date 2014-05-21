@@ -12,7 +12,7 @@ import org.rapla.plugin.freiraum.common.ResourceDetailRow;
  */
 public class PersonDescriptor extends AbstractDescriptor{
 
-	private static final String[] hideOnDetails ={"bild","resourceURL"};
+	private static final String[] hideOnDetails ={"bild","resourceURL","raumnr"};
 	private String mail;
 	private String department;
 	private String phoneNr;

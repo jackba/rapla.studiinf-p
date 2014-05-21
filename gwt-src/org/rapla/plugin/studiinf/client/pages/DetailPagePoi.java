@@ -82,10 +82,10 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		infos.getColumnFormatter().setWidth(1, "75%");
 		infos.setWidth("100%");
 		
-		roomButton = new RessourceButtonWithLabel(new ResultButton( FontIcon.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label("hj"));
-		rowOneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowOneButtonText,  null, null, false), new Label("hj"));
-		rowTwoButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowTwoButtonText, null, null, false), new Label("hj"));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label("hj"));
+		roomButton = new RessourceButtonWithLabel(new ResultButton( FontIcon.Rooms,roomButtonText, Navigation.roomDetail, null,true), new Label(Studiinf.i18n.roomLabel()));
+		rowOneButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowOneButtonText,  null, null, false), new Label(Studiinf.i18n.extraInfosLabel()));
+		rowTwoButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Additional_Information, rowTwoButtonText, null, null, false), new Label(""));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(),  Navigation.raplaRoomLink, id, true), new Label(""));
 
 		
 		roomButton.setSize(0.8);
@@ -103,9 +103,9 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-//		if(DisplayMode.isMobile()){
-//			
-//		}
+		if(DisplayMode.isMobile()){
+			infos.setPaginationPlaceholder(false);
+		}
 		
 	//	qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
