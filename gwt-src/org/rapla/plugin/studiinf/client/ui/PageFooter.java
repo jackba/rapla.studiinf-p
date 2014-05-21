@@ -79,6 +79,7 @@ public class PageFooter extends FlowPanel implements ClickHandler {
 	    	languagesPanel.add(languageButton);
 	    	languageButton.setWidth("100%");
 	    	languageButton.setSize(buttonSize);
+	    	languageButton.setCentered(true);
 	    	languageButton.setClickHandler(new ClickHandler() {
 				@Override
 				public void onClick(ClickEvent event) {
