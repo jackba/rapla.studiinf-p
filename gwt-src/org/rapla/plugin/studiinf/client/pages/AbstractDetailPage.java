@@ -99,6 +99,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 /**
  * Loads all events for the current resource on the current day
  */
+	@SuppressWarnings("deprecation")
 	protected void loadEvents(){
 
 		Date dateBegin = new Date();
