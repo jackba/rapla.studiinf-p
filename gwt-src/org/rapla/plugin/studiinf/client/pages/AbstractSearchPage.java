@@ -137,12 +137,14 @@ public abstract class AbstractSearchPage extends AbstractPage implements SearchP
 			organigramBtn.addStyleName("mobile");
 			resultLabel.addStyleName("mobile");
 			searchField.addFocusHandler(new FocusHandler() {
-				
+					
 				@Override
 				public void onFocus(FocusEvent event) {
 					results.setSize(1.5);
 					footer.setSize(3.0);
-					//organigramBtn.setVisible(false);
+//					searchPanel.addStyleName("focus");
+//					organigramBtn.setVisible(false);
+					
 				}
 			});
 			

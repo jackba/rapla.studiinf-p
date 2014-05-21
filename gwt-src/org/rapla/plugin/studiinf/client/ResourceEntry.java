@@ -3,7 +3,7 @@ package org.rapla.plugin.studiinf.client;
 import java.util.Map.Entry;
 
 /**
- * 
+ * Entry in LocalStorage
  *
  */
 public class ResourceEntry implements Entry<String, Integer> {

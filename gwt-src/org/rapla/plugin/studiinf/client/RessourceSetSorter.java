@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-//import edu.emory.mathcs.backport.java.util.TreeMap;
 /**
- * 
+ * Class to sort the LocalStorage-objects
  *
  */
 public class RessourceSetSorter implements Comparator<Map.Entry<String,Integer>> {
 
-	    private SortedSet<Map.Entry<String,Integer>> sortedEntries;
+	    private static final int DESCENDING = -1;
+		private final SortedSet<Map.Entry<String,Integer>> sortedEntries;
 	    
 	    public RessourceSetSorter(Map<String, String> map, HasPrefix ls) {
 		 sortedEntries = new TreeSet<Map.Entry<String,Integer>>( this );
@@ -24,18 +24,17 @@ public class RessourceSetSorter implements Comparator<Map.Entry<String,Integer>>
 		    }
 
 	    }
-	    
+	    /**
+	     * Returns the sorted set
+	     * @return the sorted set
+	     */
 	    public SortedSet<Map.Entry<String,Integer>> getSortedSet(){
 	    	return sortedEntries;
 	    }
 
-	    @Override public int compare(Map.Entry<String,Integer> e1, Map.Entry<String,Integer> e2) {
-            int res =e1.getValue().compareTo(e2.getValue()) * (-1);
-            if (e1.getKey().equals(e2.getKey())) {
-                return res; // Code will now handle equality properly
-            } else {
-                return res != 0 ? res : 1; // While still adding all entries
-            }
+	    @Override 
+	    public int compare(Map.Entry<String,Integer> e1, Map.Entry<String,Integer> e2) {
+                return e1.getValue().compareTo(e2.getValue()) * DESCENDING;
         }
 		
 	}

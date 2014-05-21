@@ -36,11 +36,17 @@ public abstract class AbstractDetailPage extends AbstractPage {
 	protected List<Event> events;
 	protected ResultTable eventPanel = new ResultTable(new AccessibilityRow(), 2, 3);
 	protected FlowPanel middlePanel;
-
+	/**
+	 * Returns the id of the resource to display
+	 * @return id of the resource
+	 */
 	public String getId() {
 		return id;
 	}
-
+	/**
+	 * Sets the id of the resource to display
+	 * @param id Id of the resource
+	 */
 	public void setId(String id) {
 		this.id = id;
 		if (this.hasDefaultQrBox() == true){
@@ -93,6 +99,7 @@ public abstract class AbstractDetailPage extends AbstractPage {
 /**
  * Loads all events for the current resource on the current day
  */
+	@SuppressWarnings("deprecation")
 	protected void loadEvents(){
 
 		Date dateBegin = new Date();

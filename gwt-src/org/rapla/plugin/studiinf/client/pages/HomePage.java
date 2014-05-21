@@ -57,7 +57,7 @@ public class HomePage extends AbstractPage {
 		if(DisplayMode.isMobile()){
 			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 4);
 			resultLabel.addStyleName("mobile");
-			
+			resultPanel.addStyleName("mobile");
 		} else {
 			freeRoomsTable = new FreeRoomTable(resultBtns, 2, 7);	
 		}
