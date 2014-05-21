@@ -56,7 +56,7 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 		
 		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(courseOfStudyButtonText, null, null, FontIcon.Courses, false), new Label(Studiinf.i18n.courseOfStudyLabel()));
 		roomButton = new RessourceButtonWithLabel(new ResultButton( FontIcon.Rooms,roomButtonText, Navigation.roomDetail,  null, true), new Label(Studiinf.i18n.room()));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, FontIcon.Calendar, true), new Label(Studiinf.i18n.linkRaplaLabel()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(Studiinf.i18n.linkRapla(), Navigation.raplaCourseLink, id, FontIcon.Calendar, true), new Label(""));
 
 		infoPanel.setStyleName("infoPanel");
 		middlePanel.setStyleName("courseMiddlePanel");
