@@ -4,18 +4,25 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.RoomDescriptor;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
+import org.rapla.plugin.studiinf.client.ui.PopUpImagePanel;
 import org.rapla.plugin.studiinf.client.ui.ResultButton;
 import org.rapla.plugin.studiinf.client.ui.ResultButtonWithLabel;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ErrorEvent;
 import com.google.gwt.event.dom.client.ErrorHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -58,8 +65,22 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		
 		wayDescriptionImg = new Image(locationPictureURL);
 		wayDescriptionImg.setStyleName("navigationPicture");
-		this.add(wayDescriptionImg);
+		
+		
+		if(DisplayMode.isMobile()){
+			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
+				
+				@Override
+				public void onMouseDown(MouseDownEvent event) {
+					// TODO Auto-generated method stub
+					Window.alert("Click");
+					new PopUpImagePanel(locationPictureURL).show();
+				}
+			});	
+		}
 
+		this.add(wayDescriptionImg);
+		
 		typeButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
 		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Courses, courseOfStudyButtonText, null, null, false), new Label(Studiinf.i18n.courseOfStudy()));
 		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label(Studiinf.i18n.linkRapla()));
@@ -119,6 +140,18 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		wayDescriptionImg.addErrorHandler(this);
 		wayDescriptionImg.setVisible(true);
 		wayDescriptionImg.setStyleName("navigationPicture");
+		
+		if(DisplayMode.isMobile()){
+			wayDescriptionImg.addMouseDownHandler(new MouseDownHandler() {
+				
+				@Override
+				public void onMouseDown(MouseDownEvent event) {
+					// TODO Auto-generated method stub
+					new PopUpImagePanel(locationPictureURL).show();
+				}
+			});	
+		}
+		
 		this.add(wayDescriptionImg);
 
 	}
