@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.rapla.plugin.studiinf.client.pages.AbstractPage;
-import org.rapla.plugin.studiinf.client.pages.AbstractSearchPage;
+import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.plugin.studiinf.client.search.IdSearch;
 import org.rapla.plugin.studiinf.client.search.MFRButtonHandler;
 import org.rapla.plugin.studiinf.client.ui.FontIcon;
@@ -27,9 +27,9 @@ public class LocalStorage implements HasPrefix{
 	private ResultTable resultTable;
 	private FontIcon icon;
 	private AbstractPage targetPage;
-	private AbstractSearchPage searchPage;
+	private SearchPageInterface searchPage;
 
-	public LocalStorage(String resourceType, ResultTable resultTable, FontIcon icon, AbstractPage targetPage, AbstractSearchPage searchPage){
+	public LocalStorage(String resourceType, ResultTable resultTable, FontIcon icon, AbstractPage targetPage, SearchPageInterface searchPage){
 		this.resourceType = resourceType;
 		this.resultTable = resultTable;
 		this.icon = icon;
@@ -76,6 +76,7 @@ public class LocalStorage implements HasPrefix{
 	 * fills the ResultTable with the most frequent results
 	 */
 	public void fillMap(){
+		if(icon != null && targetPage != null && searchPage != null){
 			map = new StorageMap(localStorage);
 			RessourceSetSorter vc = new RessourceSetSorter(map,this);
 			
@@ -89,7 +90,8 @@ public class LocalStorage implements HasPrefix{
 				i++;
 				new IdSearch(new MFRButtonHandler(resultTable, icon, targetPage, searchPage), searchPage, Navigation.idForService(keyValuePair.getKey().replace(getPrefix(), "")));
 			}
-			
+				
+		}
 	}
 	
 }
