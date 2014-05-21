@@ -40,6 +40,7 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 		String twoLines();
 		String disabled();
 		String mobile();
+		String centered();
 	}
 	AbstractPage targetPage;
 	String targetId;
@@ -289,6 +290,16 @@ public class NavButton extends Composite implements NavigationButtonSpec, HasTex
 	@Override
 	public boolean getShowWhenDisabled() {
 		return this.showWhenDisabled;
+	}
+	
+	public void setCentered(boolean centered){
+		if(centered){
+			button.addStyleName(style.centered());
+		}else{
+			button.removeStyleName(style.centered());
+		}
+			
+		
 	}
 
 }
