@@ -29,7 +29,9 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	
 	protected AccessibilityRow access = new AccessibilityRow();
 	
-	protected ResultTable organigram = new ResultTable(access, 1, 14);
+	protected ResultTable organigram;
+	
+	
 	protected List <CategoryDescription> testCategoryList;
 	public String helpId;
 	
@@ -37,6 +39,12 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 	private LocalStorage ls;
 	public OrganisationChart() {
 		ls = new LocalStorage(getHistoryKey(), organigram, null, null, null);
+		if(DisplayMode.isMobile()){
+			organigram = new ResultTable(access, 1, 8);
+		}
+		else{
+			organigram = new ResultTable(access, 1, 14);
+		}
 	}
 	
 		

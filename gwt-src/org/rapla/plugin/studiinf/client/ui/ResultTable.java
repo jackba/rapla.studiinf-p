@@ -172,7 +172,6 @@ public class ResultTable extends FlexTable {
 		if (paginationPlaceholder || hasPreviousPage()){
 		getFlexCellFormatter().setColSpan(0,  0, columns);
 		setWidget(0, 0, backButton);
-		count = count + columns;
 		}
 		
 		for (ResultObject result : results){
