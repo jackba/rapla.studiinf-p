@@ -40,7 +40,6 @@ public class DetailPagePerson extends AbstractDetailPage implements ErrorHandler
 
 	private FlowPanel personInfoPanel = new FlowPanel();
 	private AccessibilityRow bottomPanel = new AccessibilityRow();
-	private FlowPanel middlePanel = new FlowPanel();
 	private Label personInfoLabel = new Label(Studiinf.i18n.information());
 	private Label courseOfStudyLabel = new Label(Studiinf.i18n.courseOfStudy());
 	private Label courseOfStudyInfo = new Label(courseOfStudy);
@@ -125,7 +124,17 @@ public class DetailPagePerson extends AbstractDetailPage implements ErrorHandler
 		
 		this.add(personInfoPanel);
 		this.add(bottomPanel);
-		this.add(middlePanel);	
+		this.add(middlePanel);
+		
+		if(DisplayMode.isMobile()){
+			infos.setPaginationPlaceholder(false);
+			personInfoPanel.addStyleName("mobile");
+			middlePanel.addStyleName("mobile");
+
+			appointmentLabel.addStyleName("mobile");
+			courseOfStudyLabel.addStyleName("mobile");
+			courseOfStudyInfo.addStyleName("mobile");
+		}
 	}
 	
 	@Override

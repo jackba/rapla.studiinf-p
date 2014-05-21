@@ -28,6 +28,7 @@ public class ResultTable extends FlexTable {
 	private int page;
 	private NavButton backButton = new NavButton(FontIcon.Up,FontIcon.Position.BOTH,Studiinf.i18n.previous(),null,null);
 	private NavButton nextButton = new NavButton(FontIcon.Down,FontIcon.Position.BOTH,Studiinf.i18n.next(),null,null);
+	private boolean paginationPlaceholder = true;
 	
 	/**
 	 * Returns the id of the active Page
@@ -167,8 +168,11 @@ public class ResultTable extends FlexTable {
 		int footerOffset = 0;
 		backButton.setEnabled(false);
 		
+		if (paginationPlaceholder || hasPreviousPage()){
 		getFlexCellFormatter().setColSpan(0, 0, columns);
 		setWidget(0, 0, backButton);
+		count = count + columns;
+		}
 		
 		for (ResultObject result : results){
 			result.setNumber(-1);
@@ -224,8 +228,11 @@ public class ResultTable extends FlexTable {
 			setWidget(getRowNumber(count), 0, noData);
 			count = count + columns;
 		}
+		if(paginationPlaceholder || hasNextPage()){
 		getFlexCellFormatter().setColSpan(getRowNumber(count), 0, columns);
 		setWidget(getRowNumber(count), 0, nextButton);
+		count = count + columns;
+		}
 			backButton.setEnabled(hasPreviousPage());
 			nextButton.setEnabled(hasNextPage());
 			accessibilityRow.getBackButton().setEnabled(hasPreviousPage());
@@ -233,7 +240,7 @@ public class ResultTable extends FlexTable {
 	}
 	
 	private int getRowNumber(int cellCount){
-		return (int)((cellCount / columns))+1-(page*maxRows);
+		return (int)((cellCount / columns))-(page*maxRows);
 	}
 	
 	private int getCellInRow(int cellCount){
@@ -252,5 +259,9 @@ public class ResultTable extends FlexTable {
 	public void setSize(double d) {
 		this.size= d;
 		this.refresh();
+	}
+	public void setPaginationPlaceholder(boolean b){
+	paginationPlaceholder = b;
+	refresh();
 	}
 }
