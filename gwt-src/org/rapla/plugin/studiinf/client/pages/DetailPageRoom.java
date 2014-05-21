@@ -69,8 +69,8 @@ public class DetailPageRoom extends AbstractDetailPage implements ErrorHandler, 
 		this.add(wayDescriptionImg);
 		
 		typeButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Rooms, typeButtonText, null, null, false), new Label(Studiinf.i18n.type())); 
-		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Courses, courseOfStudyButtonText, null, null, false), new Label(Studiinf.i18n.courseOfStudy()));
-		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label(Studiinf.i18n.linkRapla()));
+		courseOfStudyButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Courses, courseOfStudyButtonText, null, null, false), new Label(Studiinf.i18n.courseOfStudyLabel()));
+		raplaButton = new ResultButtonWithLabel(new ResultButton(FontIcon.Calendar,Studiinf.i18n.linkRapla(), Navigation.raplaRoomLink, id, true), new Label(""));
 		
 		raplaButton.setSize(0.8);
 		typeButton.setSize(0.8);
