@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
-import org.rapla.plugin.studiinf.client.pages.SearchPagePerson;
 import org.rapla.plugin.studiinf.client.pages.SearchPageInterface;
 import org.rapla.plugin.studiinf.client.pages.TestSearchPage;
 import org.rapla.plugin.studiinf.client.search.PersonSearch;
