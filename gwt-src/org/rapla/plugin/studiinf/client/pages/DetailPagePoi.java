@@ -103,9 +103,9 @@ public class DetailPagePoi extends AbstractDetailPage implements ErrorHandler,Se
 		infoPanel.add(infoLabel);
 		infoPanel.add(infos);
 		
-//		if(DisplayMode.isMobile()){
-//			
-//		}
+		if(DisplayMode.isMobile()){
+			infos.setPaginationPlaceholder(false);
+		}
 		
 	//	qrBox.getElement().getStyle().setProperty("top", "41vh");
 		this.add(qrBox);
