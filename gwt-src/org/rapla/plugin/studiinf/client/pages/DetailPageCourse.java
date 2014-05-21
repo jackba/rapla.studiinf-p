@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.ResourceDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.Navigation;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseDescriptor;
@@ -80,6 +81,9 @@ public class DetailPageCourse extends AbstractDetailPage implements SearchPageIn
 		this.add(infoPanel);
 		this.add(bottomPanel);
 		this.add(middlePanel);
+		if(DisplayMode.isMobile()){
+			
+		}
 	}
 
 	@Override

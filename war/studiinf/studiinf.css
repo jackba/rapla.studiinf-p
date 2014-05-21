@@ -277,6 +277,12 @@ html{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+.infoPanel.mobile{
+	top: 7vh;
+	bottom: auto;
+	height: 80vh;
+}
 .searchPanel.mobile{
 	border-style: none;
 }
@@ -326,6 +332,12 @@ html{
 	height:23vh;
 	top: 45vh;
 	bottom: auto;
+}
+
+.courseMiddlePanel.mobile{
+	top: auto;
+	bottom: 13vh;
+	height: 28vh;
 }
 
 .infoLabel, .personAppointmentLabel, .courseAppointmentLabel, .personCourseOfStudyLabel, .personCourseOfStudyInfo {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.rapla.plugin.freiraum.common.CategoryDescription;
 import org.rapla.plugin.freiraum.common.ResourceDetail;
+import org.rapla.plugin.studiinf.client.DisplayMode;
 import org.rapla.plugin.studiinf.client.LocalStorage;
 import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
@@ -13,6 +14,7 @@ import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
+
 
 //import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -45,7 +47,9 @@ public abstract class OrganisationChart extends AbstractDetailPage  implements S
 		infoPanel.setStyleName("infoPanel");
 		
 		organigram.addStyleName("infos");			
-		
+		if(DisplayMode.isMobile()){
+			infoPanel.addStyleName("mobile");
+		}
 		infoPanel.add(organigram);
 		this.add(infoPanel);
 		this.add(access);
