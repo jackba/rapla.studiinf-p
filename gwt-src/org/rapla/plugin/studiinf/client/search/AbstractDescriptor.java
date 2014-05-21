@@ -39,6 +39,8 @@ public class AbstractDescriptor {
 		}
 		return name;
 	}
+	
+	
 
 	public String getRoomNr() {
 		if(roomNr == null && getRoom() != null){

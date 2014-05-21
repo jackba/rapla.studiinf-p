@@ -10,15 +10,9 @@ import org.rapla.plugin.studiinf.client.ServiceProvider;
 import org.rapla.plugin.studiinf.client.Studiinf;
 import org.rapla.plugin.studiinf.client.search.CourseOrganigramSearch;
 import org.rapla.plugin.studiinf.client.ui.AccessibilityRow;
-import org.rapla.plugin.studiinf.client.ui.FontIcon;
 import org.rapla.plugin.studiinf.client.ui.OrganigramButton;
 import org.rapla.plugin.studiinf.client.ui.ResultTable;
 import org.rapla.rest.gwtjsonrpc.common.AsyncCallback;
-
-
-
-
-
 
 //import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -27,7 +21,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * 
  * @author Team StudiInf
  * 
- * Page to display organigramm
+ * Page to display organigram
  */
 public abstract class OrganisationChart extends AbstractDetailPage  implements SearchPageInterface {
 	

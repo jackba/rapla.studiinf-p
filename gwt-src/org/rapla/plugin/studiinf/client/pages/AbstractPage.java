@@ -61,9 +61,16 @@ public abstract class AbstractPage extends ComplexPanel{
 		public void add(Widget child) {
 			this.add(child, (Element) this.getElement());
 		};
-	
+		/**
+		 * Returns the HistoryKey of the page for Navigation
+		 * @return HistoryKey for this page
+		 */
 	   abstract public String getHistoryKey();
 	   
+	   /**
+	    * Returns the title of the page to show in header
+	    * @return the title of the page
+	    */
 	   abstract public String getTitle();
 
 	   /**
@@ -76,7 +83,9 @@ public abstract class AbstractPage extends ComplexPanel{
 			   timer.schedule(300000);
 		   }
 	   }
-	   
+	   /**
+	    * triggered on show of the page
+	    */
 	   public void onShow(){
 		   refresh();
 	   }
