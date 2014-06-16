@@ -87,7 +87,7 @@ public class Studiinf implements EntryPoint {
 		
 		
 		final RaplaJsonService cs = GWT.create(RaplaJsonService.class);
-		String address = GWT.getModuleBaseURL() + "../rapla/json/org.rapla.plugin.freiraum.RaplaJsonService";
+		String address = GWT.getModuleBaseURL() + "../rapla/json/RaplaJsonService";
 		((ServiceDefTarget) cs).setServiceEntryPoint(address);
 
 
