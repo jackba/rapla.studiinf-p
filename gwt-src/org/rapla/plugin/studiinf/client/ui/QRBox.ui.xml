@@ -1,0 +1,50 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	.BindQRBox{
+		position: absolute;
+		bottom: 12vh;
+		left: 5vw;
+		right: 5vw;
+		width: 90vw;
+		height: 9vh;
+		background: #ffffff;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;         /* Opera/IE 8+ */
+		overflow:hidden;
+		font-size:1vh;
+		border: solid 0.25em #000000;
+		padding:0.7vh;
+
+	}
+	.qrCode{
+		width: 7.5vh;
+		height: 7.5vh;
+		float:right;
+	}
+	.qrCode img{
+		width: 7.5vh;
+		height: 7.5vh;
+		padding:3px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;         /* Opera/IE 8+ */
+	}
+	.scanMeIcon{
+		width: 7.5vh;
+		height: 7.5vh;
+		float:right;
+	}
+	.qrLabel{
+		font-size: 1.5em;
+		margin:0.5em;
+	}
+	</ui:style>
+	<g:HTMLPanel ui:field="bindQRBox" styleName="{style.BindQRBox}">
+		<div class="{style.qrCode}" ui:field="qrCode"></div>
+		<img class="{style.scanMeIcon}" src="" ui:field="scanMeIcon" alt=""/>
+		<p class="{style.qrLabel}" ui:field="qrLabel"></p>
+	</g:HTMLPanel>
+</ui:UiBinder> 

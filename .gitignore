@@ -1,3 +1,9 @@
 /build
 /eclipse-build
 /gwt-unitCache
+/.gwt
+/generated
+sed.exe.stackdump
+war/
+jetty.home_IS_UNDEFINED/
+www-test/
