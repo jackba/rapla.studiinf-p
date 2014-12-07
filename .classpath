@@ -5,7 +5,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rapla.freiraum-p"/>
-	<classpathentry kind="lib" path="/rapla/gwt-src"/>
+	<classpathentry kind="lib" path="/rapla.gwt-p/gwt-src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rapla.gwt-p"/>
 	<classpathentry kind="output" path="eclipse-build"/>
 </classpath>

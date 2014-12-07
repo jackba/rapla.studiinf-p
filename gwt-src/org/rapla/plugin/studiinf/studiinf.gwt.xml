@@ -12,6 +12,8 @@
   <inherits name='org.rapla.rest.restlogging'/>
   <inherits name='org.rapla.plugin.freiraum.freiraum_module'/>
   
+    <inherits name="com.google.gwt.inject.Inject"/>
+  
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
   <!-- any one of the following lines.                            -->
